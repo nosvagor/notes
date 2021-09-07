@@ -1,7 +1,7 @@
 <h1 align="center">🌲🏛️🌳 University Resources 🌳🏛️🌲</h1>
 <p align="center">
 <kbd>
-  <img width="512" src=".assets/images/psu.jpg">
+  <img width="512" src="assets/images/psu.jpg">
 </kbd>
 </p>
 
@@ -14,9 +14,9 @@
     <td align="center"><strong><a href="fire/calculus/">calculus <br> (iii)</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="water/c++/"><img src=".assets/images/c++.ico"></a></td>
-    <td align="center"><a href="fire/linear/"><img src=".assets/images/applied.ico"></a></td>
-    <td align="center"><a href="fire/calculus/"><img src=".assets/images/lorenz.ico"></a></td>
+    <td align="center"><a href="water/c++/"><img src="assets/images/c++.ico"></a></td>
+    <td align="center"><a href="fire/linear/"><img src="assets/images/applied.ico"></a></td>
+    <td align="center"><a href="fire/calculus/"><img src="assets/images/lorenz.ico"></a></td>
   </tr>
 </table>
 
@@ -32,7 +32,7 @@
     <td>
       <p align='center'>
         <br>
-        <img width="420" src=".assets/images/prior.jpg">
+        <img width="420" src="assets/images/prior.jpg">
       </p>
     </td>
   </tr>
@@ -49,13 +49,13 @@
     <td>
       <p align="center">
         <br>
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
         </a>
         <br>
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/mth-261.pdf"> 📑 <strong>Linear Algebra</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/mth-261.pdf"> 📑 <strong>Linear Algebra</strong>
         </a>
         &nbsp;
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/statistics.pdf">📑 <strong>Statistics</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/statistics.pdf">📑 <strong>Statistics</strong>
         </a>
       </p>
     </td>
@@ -69,7 +69,7 @@
 
 <p align="center">
 <kbd>
-  <img width="512" src=".assets/images/code.jpg">
+  <img width="512" src="assets/images/code.jpg">
 </kbd>
 </p>
 
@@ -81,9 +81,9 @@
     <td align="center"><strong><a href="water/python/">python</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="water/javascript/"><img src=".assets/images/javascript.ico"></a></td>
-    <td align="center"><a href="water/solidity/"><img src=".assets/images/solidity.ico"></a></td>
-    <td align="center"><a href="water/go/"><img src=".assets/images/go.ico"></a></td>
-    <td align="center"><a href="water/python/"><img src=".assets/images/python.ico"></a></td>
+    <td align="center"><a href="water/javascript/"><img src="assets/images/javascript.ico"></a></td>
+    <td align="center"><a href="water/solidity/"><img src="assets/images/solidity.ico"></a></td>
+    <td align="center"><a href="water/go/"><img src="assets/images/go.ico"></a></td>
+    <td align="center"><a href="water/python/"><img src="assets/images/python.ico"></a></td>
   </tr>
 </table>
