@@ -1,0 +1,49 @@
+\documentclass{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\definecolor{title-color}{HTML}{f57067}
+\newcommand{\theTitle}{\href{https://github.com/nosvagor/notes/tree/master/python/calculus}{Calculus}}
+
+% chktex-file 1
+% chktex-file 3
+% chktex-file 21
+% chktex-file 36
+% chktex-file 27
+
+\begin{document}
+
+\hypertarget{ToC}{\tableofcontents}
+
+\let\oldchapter\chapter
+\renewcommand{\chapter}[1]{
+\oldchapter{#1}\label{c: #1}
+}
+\let\oldsection\section
+\renewcommand{\section}[1]{
+\oldsection{#1}\label{s: #1}
+}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}[1]{
+\oldsubsection{#1}\label{ss: #1}
+}
+
+\include{chapters/limits}
+\include{chapters/derivatives}
+\include{chapters/derivativesApplied}
+\include{chapters/integrals}
+\include{chapters/integralsApplied}
+\include{chapters/transcendentals}
+\include{chapters/techniques}
+\include{chapters/sequences}
+\include{chapters/firstOrder}
+\include{chapters/parametric}
+\include{chapters/vectors}
+\include{chapters/partialDerivatives}
+\include{chapters/multipleIntegrals}
+\include{chapters/vectorCalc}
+\include{chapters/secondOrder}
+
+hello world
+\newpage
+hello
+\end{document}
