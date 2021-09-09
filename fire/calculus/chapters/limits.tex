@@ -1,228 +1,53 @@
 \chapter{Limits and Continuity}
 
 \section{Limits}
-
-\src{\link{https://en.wikipedia.org/wiki/Limit_(mathematics)}{Limit} | \thomas{2.2--2.4}}
-
-\smallskip
-
 \begin{itemize}
-  \item \ddd{Limit \(\lim_{x \to c}\)}: the value of a function \prn{or sequence} approaches as the input \prn{or index} approaches some value \prn{informal definition}. 
-  \begin{itemize}
-    \item Limits are used to define \hyperref[s: Continuity]{\dlink{continuity}}, \hyperref[c: Derivatives]{\dlink{derivatives}}, and \hyperref[c: Integrals]{\dlink{integrals}}.
-  \end{itemize}
+  \item []
 
   \subsection{Limits of a Functions and Sequences}
-  \src{\link{https://en.wikipedia.org/wiki/Limit_of_a_function}{Limit of a function} | \link{https://en.wikipedia.org/wiki/Limit_of_a_sequence}{Limit of a sequence} | \linky{https://youtu.be/kfF40MiS7zA?t=281}{Essence of Calculus, E7}}
   \begin{itemize}
-    \item \ddd{Limit of a function}: a fundament concept in calculus and analysis concerning the behavior of a function near a particular input \(c\), i.e., 
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \lim_{x \to c}f(x) = L
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{itemize}
-      \item Reads as ``\(f\) of \(x\) tends to \(L\) as \(x\) tends to \(c\)''
-    \end{itemize}
-    \item \ddd{\(\epsilon,\delta\) Limit of function}: a formalized definition, wherein \(f(x)\) is defined on an open interval \(\bBb{\mathcal{I}}\), except possibly at  c itself, leading to above definition, \ssec{if and only if}:
-      \begin{itemize}
-        \item For every real measure of \xxx{closeness} \(\xxx{\epsilon > 0}\), there exists a real \yyy{corresponding} \(\yyy{\delta >0}\), such that for all existing further approaches there exist a smaller \(\xxx{\epsilon}\), i.e.,
-        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        f : \R \to \R,~  c, L \in \R \Rightarrow \lim_{x \to c}f(x) = L 
-        \]%%%%%%%%%[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \vspace{-24pt}
-        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \ssec{\Updownarrow}
-        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \forall\xxx{\depsilon >0} \left(
-          \exists\yyy{\delta >0} : 
-            \forall x \in \bBb{\mathcal{I}} \left(
-              0 < | x -  c | < \yyy{\delta} 
-              \Rightarrow 
-              | f(x) - L | < \xxx{\depsilon}
-            \right)
-        \right)
-        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-      \end{itemize}
-    \item Functions \fff{do not have} a limit when the function:
-      \begin{itemize}
-        \item has a \fff{unit step}, i.e., it ``jumps'' at a point;
-        \item is \fff{not bounded}, i.e., it tends towards infinity;
-        \item or it \fff{oscillates}, i.e., does not stay close to any single number. 
-      \end{itemize}
-    \item \ddd{Limit of a sequence}: the value that the terms of a sequence (\(x_\ppp{n}\)) ``tends to'' \prn{and not to any other} as \(\ppp{n}\) approaches infinity \prn{or some point}, i.e.,
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \lim_{\ppp{n} \to \yyy{\infty}} x_\ppp{n} = x
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \item \ddd{\(\epsilon \) Limit of sequence}: for every measure of closeness \(\bbb{\epsilon} \), the sequence's \(x_\ppp{n}\) term eventually converge to the limit, i.e.,
-      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \forall\xxx{\depsilon > 0} \left(
-        \exists \ppp{N} \in \N \left(
-          \forall\ppp{n} \in \N \left(
-            \ppp{n} \geq \ppp{N} \Rightarrow |x_\ppp{n}-x| < \xxx{\depsilon}
-          \right)
-        \right)
-      \right)
-      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{itemize}  
-      \item \ddd{Convergent}: when a limit of a sequence \ttt{exists}.
-      \item \ddd{Divergent}: a sequence that \fff{does not} converge. 
-    \end{itemize}
+    \item
   \end{itemize}
 
   \subsection{Properties of Limits}
-  \src{\link{https://en.wikipedia.org/wiki/List_of_limits}{List of limits} | \link{https://en.wikipedia.org/wiki/Squeeze_theorem}{Squeeze theorem}}
   \begin{itemize}
-    \item \ddd{Operations on a single known limit}: if \(\lim_{x \to c}f(x)=L\) then:
-    \vspace{-6pt}
-      \begin{itemize}
-        \item \(\lim_{x \to c}[f(x)\pm \ppp{\alpha}] = L \pm \ppp{\alpha}\)  
-        \item \(\lim_{x \to c}\ppp{\alpha} f(x)= \ppp{\alpha} L\)
-        \item \(\lim_{x \to c}f(x)^{\ppp{-1}}=L^{\ppp{-1}}, L\neq 0\)
-        \item \(\lim_{x \to c}f(x)^\ppp{n} = L^\ppp{n}, \ppp{n} \in \N\)
-        \item \(\lim_{x \to c}f(x)^{\ppp{n ^{-1}}} = L^{\ppp{n ^{-1}}}, \ppp{n} \in \N,~\text{if}~\ppp{n} \in \N_\rrr{e} \then L ~\rrr{>}~0\) 
-      \end{itemize}
-    \medskip
-    \item \ddd{Operations on two known limits}: if \(\lim_{x \to c}f(x)= L_1\) and \(\lim_{x \to c}g(x)=L_2\) 
-    \vspace{-6pt}
-      \begin{itemize}
-        \item \(\lim_{x \to c}[f(x)\pm g(x)]=L_1\pm L_2\)
-        \item \(\lim_{x \to c}[f(x)g(x)] = L_1 L_2\)
-        \item \(\lim_{x \to c}f(x)g(x)^{-1} = L_1L_2^{-1}\)
-      \end{itemize}
-    \medskip
-    \item \ddd{Squeeze theorem}: used to \emph{confirm the limit} of a \emph{difficult to compute function} via comparison with two other functions whose limits are easily known or computed.
-      \begin{itemize}
-        \item Let \(\bBb{\mathcal{I}}\) be an interval having the point \(c\) as a limit point. 
-        \item Let \(g,f\), and \(h\), be functions defined on \(\bBb{\mathcal{I}}\), except possibly at \(c\) itself. 
-        \item Suppose that \(\forall x \in \bBb{\mathcal{I}}\land x \neq c \then \bbb{g(x)}\leq \ooo{f(x)} \leq \rrr{h(x)}\)
-        \item And suppose that \(\lim_{x \to c}\bbb{g(x)}=\lim_{x \to c}\rrr{h(x)} = L\)
-        \item Then, \(\lim_{x \to c}\ooo{f(x)} = L\)
-        \item Essentially, the hard to compute limit of the ``middle function'' is found by finding two other easy functions that ``squeeze'' the middle function at that point.
-      \end{itemize}
+    \item
   \end{itemize}
 
   \subsection{One-Sided Limit}
-  \src{\link{https://en.wikipedia.org/wiki/One-sided_limit}{One-Sided Limit}}
   \begin{itemize}
-    \item \ddd{One-sided limit}: one of two limits of \(f(x)\) as \(x\) approaches a specified point from either the \bbb{left} or from the \rrr{right}.
-    \begin{multicols}{2}
-      \begin{itemize}
-        \item From the \bbb{left}: \(\lim_{x \to \bbb{c^-}} = L\)
-        \item From the \rrr{right}:  \(\lim_{x \to \rrr{c^+}} = L\)
-      \end{itemize}
-    \end{multicols}
-    \item If the left and right limits exist and are equal, then 
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \lim_{x \to c}f(x) = L \ifandif \hspace{-6pt}
-    \lim_{x \to \bbb{c^-}}\hspace{-3pt} f(x) = L \land \hspace{-6pt}
-    \lim_{x \to \rrr{c^+}}\hspace{-3pt} f(x) = L
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \item Limits can still exist, even if the function is defined at a different point, as long as both one-sided limits approach the same value near the given input.
+    \item
   \end{itemize}
-  
 \end{itemize}
 
 \section{Continuity}
-\src{\link{https://en.wikipedia.org/wiki/Continuous_function}{Continuous function} | \link{https://en.wikipedia.org/wiki/Classification_of_discontinuities}{Discontinuities} | \thomas{2.5}}
 \begin{itemize}
-  \item Continuity of functions is one of the core concepts of topology, however, there are definitions in terms of limits that prove useful; the following is only a primer.
+  \item []
 
   \subsection{Continuous Functions}
   \begin{itemize}
-    \item \ddd{Continuous function}: a function that does not have any abrupt changes in value.
-      \begin{itemize}
-        \item I.e., a function is continuous if and only if arbitrarily small changes in its output can be assured by restricting to sufficiently small changes in its input.
-      \end{itemize}
-    \item \ddd{Discontinuous}: when a function is not continuous at a point in its domain, leading to a discontinuity; there are three classifications:
-      \begin{itemize}
-        \item \ddd{Removable}: when both \hyperref[ss: One-Sided Limit]{\ulink{one-sided limits}} exist, are finite, and are equal, but the actual value of \(f(x)\) is not equal to the limit and equal to some other value.
-          \begin{itemize}
-            \item The discontinuity can be removed to regain continuity.
-            \item Sometimes the term \textit{removable discontinuity} is mistaken for \textit{removable singularity}, or a ``whole'' in the function \prn{the point is not defined elsewhere}.
-          \end{itemize}
-        \item \ddd{Jump}: when a single limit does not exist because the one-sided limits exist and are finite, but not equal.
-          \begin{itemize}
-            \item Points can be defined at the discontinuity, but the function can not be made continuous.
-          \end{itemize}
-        \item \ddd{Essential}: when at least one of two one-sided limits doesn't exist; can be the result of oscillating or unbounded functions.
-      \end{itemize}
+    \item
   \end{itemize}
-  
+
   \subsection{Intermediate Value Theorem}
-  \src{\link{https://en.wikipedia.org/wiki/Intermediate_value_theorem}{Intermediate value theorem}}
   \begin{itemize}
-    \item \ddd{Intermediate value theorem}: if \(f\) is a continuous function whose domain contains the interval \([a,b]\), then it \emph{takes on any given value between} \(f(a)\) and \(f(b)\) at some point within the intervals.
-    \item Relevant deductions, i.e., important corollaries:
-      \begin{itemize}
-        \item \ddd{Bolzano's theorem}: if a continuous function has values of opposite sign inside an interval, then it \emph{has a root} in that interval.
-        \item The image of a continuous function over an interval is itself an interval. 
-      \end{itemize}
-    \item Thus, the image set \(f(\bBb{\mathcal{I}})\) \prn{which has no gaps} is also an interval, and it contains: 
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \left[
-      \min{f(a),f(b)},~
-      \max{f(a),f(b)}
-    \right]
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
   \end{itemize}
+
 \end{itemize}
 
 \section{Limits Involving Infinity}
-\src{\link{https://en.wikipedia.org/wiki/Limit_of_a_function\#Limits_involving_infinity}{Limits involving infinity} | \thomas{2.6} }
 \begin{itemize}
-  \item Let \(S \subseteq \R, x \in S\) and \(f : S \mapsto \R\), then limits of these functions can approach arbitrarily large \prn{\(\pm\)} values, providing a connection to asymptotes, and thus, analysis.
- 
+  \item []
 
   \subsection{Limits at Infinity and Infinite Limits}
   \begin{itemize}
-    \item \ddd{Limits at infinity}: limits defined as f(x) \(\pm\) infinity are defined much like normal limits:
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \lim_{x \to \bbb{-\infty}}f(x) = L 
-    \qquad
-    \lim_{x \to \rrr{\infty}}f(x) = L
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{itemize}
-      \item Formally, for all measures of closeness \xxx{\(\epsilon\)} there exists a point \( c\) such that \(|f(x)-L| < \xxx{\epsilon}\) whenever \(\bbb{x < c} \lor \rrr{x > c}\) (respectively), i.e.,
-      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \forall\xxx{\depsilon > 0} \left(
-        \exists c \left(
-          \forall x~\fff{\left\{\bbb{<}, \rrr{>}\right\}}~c : |f(x)-L | < \xxx{\depsilon}
-          \right)
-        \right)
-      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{itemize}
-    \item Basic rules for rational functions \(f(x)= p(x)q(x)^{-1}\), where \(p\) and \(q\) are polynomials, the degree of each is denoted as \(\fff{\{}p\fff{,}q\fff{\}}^\circ\), and the leading coefficients are denoted as \(P, Q\), then:
-      \begin{itemize}
-        \item \(p^\circ~\rrr{>}~q^\circ \then L\) is \(\fff{\{\rrr{+}, \bbb{-}\}}\) depending on the sign of the leading coefficients.
-        \item \(p^\circ = q^\circ \then\) L = \(PQ^{-1}\)
-        \item \(p^\circ~\bbb{<}~q^\circ \then L = 0\)
-      \end{itemize}
-    \item \ddd{Infinite limits}: the usual limit does not exist for a limit that grows out of bounds, however, limits with infinite values can be introduced:
-      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \lim_{x \to a}f(x) = \infty,\quad \text{i.e.,}\quad 
-      \forall \xxx{n > 0} \left(
-        \exists \yyy{\delta > 0} : f(x) > \xxx{n} \ifandif 0 < | x-a | < \yyy{\delta}
-      \right)
-      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
   \end{itemize}
 
   \subsection{Asymptotes of functions}
-  \src{\link{https://en.wikipedia.org/wiki/Asymptote}{Asymptotes}}
   \begin{itemize}
-    \item  \ddd{Asymptote}: a tangent line of a curve at a point at infinity; the distance between the curve and the line approaches zero as a coordinate tends to infinity.
-    \item There are three kinds of asymptotes: \textit{horizontal, vertical} and \textit{oblique}; nature of the asymptote is dependent on a function's relation to infinity.
-      \begin{itemize}
-        \item \ddd{Horizontal asymptotes}: a result of limits at infinity, i.e., when \(x\to \pm \infty\)
-        \item \ddd{Vertical asymptotes}: a result of infinite limits, i.e., when \(x\to \pm a = \pm \infty\)
-        \item \ddd{Oblique asymptotes}: when a linear asymptote is not parallel to either axis. \(f(x)\) is asymptotic to the straight line \(y=mx+n (m\neq 0)\) if:
-        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \lim_{x \to \pm\infty} \left[
-          f(x) - \left(
-            mx + n
-          \right) 
-        \right] = 0
-        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \end{itemize}
+    \item
   \end{itemize}
+
 \end{itemize}

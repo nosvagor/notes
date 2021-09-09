@@ -32,9 +32,8 @@
   \titleformat{\chapter}
   {\LARGE\centering\bfseries\color{title-color}}
   {}{0pt}{}[
-  \vspace{-6pt}\hspace{-3pt}
+  \vspace{-6pt}\hspace*{1pt}
     {\hyperlink{ToC}{\pgfornament[width=8cm]{84}}}
-  \vspace{-6pt}
   ]
 
   \titlespacing*{\chapter}{0pt}{-36pt}{0pt}
@@ -42,7 +41,7 @@
   \newcommand{\sectionbreak}{\clearpage}
 
   \titleformat{\section}
-  {\Large\bfseries\color{sec}}
+  {\Large\bfseries\color{primary}}
   {}{0pt}{}
 
   \titlespacing*{\section}
@@ -51,7 +50,7 @@
   {1ex plus 0ex minus 0ex}
 
   \titleformat{\subsection}
-  {\large\bfseries\color{ssec}}
+  {\large\bfseries\color{primary-1}}
   {}{0pt}{}
 
   \titlespacing*{\subsection}
@@ -63,7 +62,7 @@
 % ║  │ ││││ │ ├┤ │││ │ └─┐
 % ╚═╝└─┘┘└┘ ┴ └─┘┘└┘ ┴ └─┘
 \RequirePackage{titletoc}
-  \renewcommand{\contentsname}{\color{title-color}\theTitle}
+\renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle}
 
   \setcounter{tocdepth}{2}
 
@@ -78,7 +77,7 @@
   {\hfill\contentspage}
 
   \titlecontents{subsection}[1.618 em]
-  {\color{minor}}
+  {\color{foreground-2}}
   {}{}
   {\titlerule*[0.42 em]{.}\contentspage}
 
@@ -88,9 +87,9 @@
 \RequirePackage{enumitem}
   \setlist[itemize,enumerate]{itemsep=-0.3ex,topsep=-0.3ex,partopsep=-0.3ex,leftmargin=\dimexpr1em}
 
-  \setlist[itemize,1]{label=\small\(\color{minor}\bullet\)}
-  \setlist[itemize,2]{label=\small\(\circ\)}
-  \setlist[itemize,3]{label=\small\color{minor}\textbullet,}
+  \setlist[itemize,1]{label=\small{\color{primary}\(\bullet\)}}
+  \setlist[itemize,2]{label=\small{\color{primary-1}\(\circ\)}}
+  \setlist[itemize,3]{label=\small{\color{primary-2}\textbullet}}
 
   \setlist[enumerate]{leftmargin=\dimexpr1.5em}
 
@@ -103,9 +102,9 @@
   \SetSymbolFont{largesymbols}{bold}{OMX}{iwona}{b}{n}
   \RequirePackage[sfdefault, light]{roboto}
 
-% ╦ ╦┌─┐┌─┐┌┬┐┌─┐┬─┐   ┬   ╔═╗┌─┐┌─┐┌┬┐┌─┐┬─┐
-% ╠═╣├┤ ├─┤ ││├┤ ├┬┘  ┌┼─  ╠╣ │ ││ │ │ ├┤ ├┬┘
-% ╩ ╩└─┘┴ ┴─┴┘└─┘┴└─  └┘   ╚  └─┘└─┘ ┴ └─┘┴└─
+% ╔═╗┌─┐┌─┐┌┬┐┌─┐┬─┐
+% ╠╣ │ ││ │ │ ├┤ ├┬┘
+% ╚  └─┘└─┘ ┴ └─┘┴└─
 \RequirePackage{fancyhdr}
   \pagestyle{fancy}{
   \fancyhf{}
@@ -146,8 +145,12 @@
     urlcolor=ggg,
   }
 
-\RequirePackage{graphicx, booktabs, multirow, multicol, makecell, xcolor, pagecolor, changepage, apacite,pifont,fontawesome}
+\RequirePackage{
+  graphicx, booktabs, multirow, multicol, xcolor, pagecolor,
+  changepage, apacite, pifont, fontawesome,
+}
 
+% NOTE: why do I have this?
 \RequirePackage[justification=centering]{caption}
   \captionsetup[table]{
     skip=3pt,
@@ -157,10 +160,10 @@
   \AtBeginDocument{
     \let\oldcaption\caption
     \renewcommand{\caption}[1]{\oldcaption{\ssec{\textbf{#1}}}}
-  }
 
-  \newcommand{\mc}[1]{\makecell[c]{#1}}
-  \newcommand{\mr}[1]{\makecell[r]{#1}}
+    % TODO: get the sections-labels into here?
+
+  }
 
   \RequirePackage{siunitx}
   \sisetup{
@@ -174,175 +177,199 @@
 % ██║     ██║   ██║██║     ██║   ██║██╔══██╗╚════██║
 % ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║
 %  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
-% Background: #1f1f1f #141414
-\definecolor{bg}{HTML}{1f1f1f}
-\newcommand{\bg}[1]{{\color{bg}#1}}
-\pagecolor{bg} % Background Color
-\definecolor{dark}{HTML}{141414}
-\newcommand{\dark}[1]{{\color{dark}#1}}
-
-% Text: #ebebeb #e0e0e0 #b0b0b0 #949494 #6b6b6b #404040
-\definecolor{bright}{HTML}{ebebeb}
-\newcommand{\bright}[1]{{\color{bright}#1}}
-\definecolor{fg}{HTML}{e0e0e0}
-\newcommand{\fg}[1]{{\color{fg}#1}}
-\color{fg} % Foreground Color
-\definecolor{prn}{HTML}{b0b0b0}
-\newcommand{\prn}[1]{{\color{prn}(#1)}}
-\definecolor{minor}{HTML}{949494}
-\newcommand{\minor}[1]{{\color{minor}#1}}
-\definecolor{minimal}{HTML}{6b6b6b}
-\newcommand{\minimal}[1]{{\color{minimal}#1}}
-\definecolor{faint}{HTML}{404040}
-\newcommand{\faint}[1]{{\color{faint}#1}}
-
-% Emphasis: #f5af71 #f5984c #f58ecc #4ca9f5
-\definecolor{ooo}{HTML}{f5af71}
-\newcommand{\ooo}[1]{{\color{ooo}#1}}
-% \let\oldemph\emph
-\renewcommand{\emph}[1]{{\color{ooo}#1}}
-\definecolor{OOO}{HTML}{f5984c}
-\newcommand{\OOO}[1]{{\color{OOO}#1}}
-\definecolor{ppp}{HTML}{f5769c}
-\newcommand{\ppp}[1]{{\color{ppp}#1}}
-\definecolor{bBb}{HTML}{4ca9f5}
-\newcommand{\bBb}[1]{{\color{bBb}#1}}
 
 
-% Sections: #7abef5 #b0d0eb #cedeeb
-\definecolor{sec}{HTML}{7abef5}
-\newcommand{\tsec}[1]{{\color{sec}{#1}}}
-\newcommand{\Tsec}[1]{{\color{sec}{\textbf{#1}}}}
-\definecolor{ssec}{HTML}{b0d0eb}
-\newcommand{\ssec}[1]{{\color{ssec}{#1}}}
-\newcommand{\Ssec}[1]{{\color{ssec}{\textbf{#1}}}}
-\definecolor{ddd}{HTML}{cedeeb}
-\newcommand{\ddD}[1]{{\color{ddd}{#1}}}
-\newcommand{\ddd}[1]{{\color{ddd}{\textbf{#1}}}}
+% Base
+\definecolor{foreground-3}{HTML}{}
+\definecolor{foreground-2}{HTML}{818596}
+\definecolor{foreground-1}{HTML}{}
+\definecolor{foreground}{HTML}{c6c8d1}
+\definecolor{foreground+1}{HTML}{}
+
+\definecolor{background-1}{HTML}{}
+\definecolor{background}{HTML}{161821}
+\definecolor{background+1}{HTML}{}
+
+\definecolor{primary-2}{HTML}{cedeeb}
+\definecolor{primary-1}{HTML}{b0d0eb}
+\definecolor{primary}{HTML}{7abef5}
+
+\colorlet{accent-1}{orange+2}
+\colorlet{accent}{orange}
+\colorlet{accent+1}{orange+1}
+
+\colorlet{link-internal}{green-1}
+\colorlet{link-external}{green}
 
 
-% Links: #81de84 #66b06b
-\definecolor{ggg}{HTML}{81de84}
-\newcommand{\src}[1]{{\vspace{-6pt}\color{ggg}{{\footnotesize\faGlobe}}\,}{\small{#1}}}
-\newcommand{\link}[2]{
-  \href{#1}{\color{ggg}{{#2}\small\(\,^\text{\faChain}\)}}
-}
-\newcommand{\linky}[2]{
-  \href{#1}{\color{ggg}{{#2}\small\(\,^\text{\,\faYoutubePlay}\)}}
-}
-\definecolor{GGG}{HTML}{66b06b}
-\newcommand{\GGG}[1]{{\color{GGG}{#1}}}
-\newcommand{\ulink}[1]{\GGG{{#1}\small\(\,^\uparrow\)}}
-\newcommand{\dlink}[1]{\GGG{{#1}\small\(\,^\downarrow\)}}
+% Colors
+\definecolor{red-1}{HTML}{}
+\definecolor{red}{HTML}{e27878}
+\definecolor{red+1}{HTML}{}
 
+\definecolor{orange-1}{HTML}{}
+\definecolor{orange}{HTML}{e2a478}
+\definecolor{orange+1}{HTML}{}
 
-% ╔╦╗┬┌─┐┬ ┬┌─┐┌┬┐┌─┐┌┬┐┬ ┬
-%  ║║││  ├─┤│ │ │ │ ││││└┬┘
-% ═╩╝┴└─┘┴ ┴└─┘ ┴ └─┘┴ ┴ ┴
-% Charge: #678ff5#2560f5 → #f57067#f53325
-\definecolor{rrr}{HTML}{f57067}
-\newcommand{\RRR}[1]{{\color{RRR}{#1}}}
-\definecolor{RRR}{HTML}{f53325}
-\newcommand{\rrr}[1]{{\color{rrr}{#1}}}
-\definecolor{bbb}{HTML}{678ff5}
-\newcommand{\bbb}[1]{{\color{bbb}{#1}}}
-\definecolor{BBB}{HTML}{2560f5}
-\newcommand{\BBB}[1]{{\color{BBB}{#1}}}
+\definecolor{yellow-1}{HTML}{}
+\definecolor{yellow}{HTML}{e2d078}
+\definecolor{yellow+1}{HTML}{}
 
-% Boolean: #4cf5d9 → #f54c7f
-\definecolor{ttt}{HTML}{57d9c3}
-\newcommand{\ttt}[1]{{\color{ttt}{#1}}}
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\true}[1]{\ttt{\cmark~#1}}
+\definecolor{green-1}{HTML}{}
+\definecolor{green}{HTML}{b4be82}
+\definecolor{green+1}{HTML}{}
 
-\definecolor{fff}{HTML}{f54c7f}
-\newcommand{\fff}[1]{{\color{fff}{#1}}}
-\newcommand{\xmark}{\ding{56}\,}
-\newcommand{\false}[1]{\fff{\xmark~#1}}
+\definecolor{cyan-1}{HTML}{}
+\definecolor{cyan}{HTML}{89b8c2}
+\definecolor{cyan+1}{HTML}{}
 
-% Relative: #c88ef5#ac4cf5 → #f5e48e#f5d94c
-\definecolor{xxx}{HTML}{c88ef5}
-\newcommand{\xxx}[1]{{\color{xxx}{#1}}}
-\definecolor{XXX}{HTML}{ac4cf5}
-\newcommand{\XXX}[1]{{\color{XXX}{#1}}}
-\definecolor{yyy}{HTML}{f5e48e}
-\newcommand{\yyy}[1]{{\color{yyy}{#1}}}
-\definecolor{YYY}{HTML}{f5d94c}
-\newcommand{\YYY}[1]{{\color{YYY}{#1}}}
+\definecolor{blue-1}{HTML}{}
+\definecolor{blue}{HTML}{84a0c6}
+\definecolor{blue+1}{HTML}{}
 
-%                  ╦═╗┌─┐┌─┐┌─┐┬─┐┌─┐┌┐┌┌─┐┌─┐
-%                  ╠╦╝├┤ ├┤ ├┤ ├┬┘├┤ ││││  ├┤
-%                  ╩╚═└─┘└  └─┘┴└─└─┘┘└┘└─┘└─┘
+\definecolor{puprle-1}{HTML}{}
+\definecolor{purple}{HTML}{a093c7}
+\definecolor{purple+1}{HTML}{}
 
-%                 fff #f54c7f       #f53325 RRR
-%            ppp #f5769c                 #f57067 rrr
-%                          ____________
-%                         /\  ________ \
-%      xxx #c88ef5       /  \ \______/\ \        #f5af71  emph
-%    XXX #ac4cf5        / /\ \ \  / /\ \ \         #f5984c str
-%                      / / /\ \ \/ / /\ \ \
-%                     / / /__\_\/ / /__\_\ \
-%   BBB #2560f5      / /_/_______/ /________\
-%    bbb #678ff5     \ \ \______ \ \______  /
-%                     \ \ \  / /\ \ \  / / /        #f5e48e yyy
-%                      \ \ \/ / /\ \ \/ / /       #f5d94c YYY
-%       bBb #4ca9f5     \ \/ / /__\_\/ / /
-%                        \  / /______\/ /
-%      sec #7abef5        \/___________/
-%    ssec #b0d0eb                              #81de84 ggg
-%  ddd  #cedeeb                             #66b06b GGG
-%                         #4cf5d9 ttt
+\definecolor{pink-1}{HTML}{}
+\definecolor{pink}{HTML}{e278ad}
+\definecolor{pink+1}{HTML}{}
+
 %
-%  #ebebeb bight
-%    /\
-%   /  \ #e0e0e0 foreground (fg)
-%  / /\ \
-%  \ \/ /
-%   \ \/ #b0b0b0 parens
-%   /\ \
-%   \ \/ #949494 minor
-%   /\ \
-%   \ \/ #808080
-%   /\ \
-%  / /\ \ #6b6b6b minimal
-%  \ \ \/
-%  /\ \ \
-%  \ \/ / #4f4f4f
-%   \ \/
-%   /\ \ #404040 faint
-%   \ \/
-%   /\ \ #2f2f2f
-%   \ \/
-%   /\ \ #262626
-%  / /\ \
-%  \ \/ /
-%   \  / #1f1f1f background (bg)
-%    \/
-%  #141414 dark
+
+\pagecolor{background}
+\color{foreground}
+
 
 % ╔═╗┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 % ║ ║├─┘ │ ││ ││││└─┐
 % ╚═╝┴   ┴ ┴└─┘┘└┘└─┘
+% \DeclareOption{light}{
+%   \pagecolor{white}
+%   \color{black}
+
+%   \titleformat{\chapter}{\LARGE\bfseries}{}{0pt}{\centering}
+%   \titleformat{\section}{\Large\bfseries}{}{0pt}{}
+%   \titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+%   \titleformat{\subsubsection}{\large\bfseries}{}{0pt}{}
+
+%   \hypersetup{colorlinks,linkcolor={BBB},citecolor={BBB},urlcolor={BBB}}
+% }
+
+% \DeclareOption{basic}{
+%   \pagestyle{fancy}
+%   \lhead{\userName}
+%   \chead{\textsc{\theTitle}}
+%   \rhead{\today}
+%   \cfoot{\textsc{\institution}}
+%   \rfoot{\thepage}
+%   \lfoot{\class}
+% }
+
 \DeclareOption{light}{
-  \pagecolor{white}
-  \color{black}
+% Base
+\definecolor{foreground-3}{HTML}{}
+\definecolor{foreground-2}{HTML}{}
+\definecolor{foreground-1}{HTML}{}
+\definecolor{foreground}{HTML}{}
+\definecolor{foreground+1}{HTML}{}
 
-  \titleformat{\chapter}{\LARGE\bfseries}{}{0pt}{\centering}
-  \titleformat{\section}{\Large\bfseries}{}{0pt}{}
-  \titleformat{\subsection}{\large\bfseries}{}{0pt}{}
-  \titleformat{\subsubsection}{\large\bfseries}{}{0pt}{}
+\definecolor{background-1}{HTML}{}
+\definecolor{background}{HTML}{}
+\definecolor{background+1}{HTML}{}
+\definecolor{background+2}{HTML}{}
+\definecolor{background+3}{HTML}{}
 
-  \hypersetup{colorlinks,linkcolor={BBB},citecolor={BBB},urlcolor={BBB}}
+\definecolor{primary-3}{HTML}{}
+\definecolor{primary-2}{HTML}{}
+\definecolor{primary-1}{HTML}{}
+\definecolor{primary}{HTML}{}
+
+\definecolor{accent-1}{HTML}{}
+\definecolor{accent}{HTML}{}
+\definecolor{accent+1}{HTML}{}
+
+\definecolor{link-internal}{HTML}{}
+\definecolor{link-external}{HTML}{}
+
+% Colors
+\definecolor{red}{HTML}{}
+\definecolor{red+1}{HTML}{}
+
+\definecolor{orange}{HTML}{}
+\definecolor{orange+1}{HTML}{}
+
+\definecolor{yellow}{HTML}{}
+\definecolor{yellow+1}{HTML}{}
+
+\definecolor{green}{HTML}{}
+\definecolor{green+1}{HTML}{}
+
+\definecolor{cyan}{HTML}{}
+\definecolor{cyan+1}{HTML}{}
+
+\definecolor{blue}{HTML}{}
+\definecolor{blue+1}{HTML}{}
+
+\definecolor{purple}{HTML}{}
+\definecolor{purple+1}{HTML}{}
+
+\definecolor{pink}{HTML}{}
+\definecolor{pink+1}{HTML}{}
 }
 
-\DeclareOption{basic}{
-  \pagestyle{fancy}
-  \lhead{\userName}
-  \chead{\textsc{\theTitle}}
-  \rhead{\today}
-  \cfoot{\textsc{\institution}}
-  \rfoot{\thepage}
-  \lfoot{\class}
+%%%%
+
+\DeclareOption{dark}{
+% Base
+\definecolor{foreground-3}{HTML}{}
+\definecolor{foreground-2}{HTML}{}
+\definecolor{foreground-1}{HTML}{}
+\definecolor{foreground}{HTML}{}
+\definecolor{foreground+1}{HTML}{}
+
+\definecolor{background-1}{HTML}{}
+\definecolor{background}{HTML}{}
+\definecolor{background+1}{HTML}{}
+\definecolor{background+2}{HTML}{}
+\definecolor{background+3}{HTML}{}
+
+\definecolor{primary-3}{HTML}{}
+\definecolor{primary-2}{HTML}{}
+\definecolor{primary-1}{HTML}{}
+\definecolor{primary}{HTML}{}
+
+\definecolor{accent-1}{HTML}{}
+\definecolor{accent}{HTML}{}
+\definecolor{accent+1}{HTML}{}
+
+\definecolor{link-internal}{HTML}{}
+\definecolor{link-external}{HTML}{}
+
+% Colors
+\definecolor{red}{HTML}{}
+\definecolor{red+1}{HTML}{}
+
+\definecolor{orange}{HTML}{}
+\definecolor{orange+1}{HTML}{}
+
+\definecolor{yellow}{HTML}{}
+\definecolor{yellow+1}{HTML}{}
+
+\definecolor{green}{HTML}{}
+\definecolor{green+1}{HTML}{}
+
+\definecolor{cyan}{HTML}{}
+\definecolor{cyan+1}{HTML}{}
+
+\definecolor{blue}{HTML}{}
+\definecolor{blue+1}{HTML}{}
+
+\definecolor{purple}{HTML}{}
+\definecolor{purple+1}{HTML}{}
+
+\definecolor{pink}{HTML}{}
+\definecolor{pink+1}{HTML}{}
 }
 
 \ProcessOptions\relax
