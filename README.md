@@ -39,7 +39,7 @@ empirical based research
 
 🔥 [Fire](fire/) &rarr; both pure maths and applied maths; frequently overlaps with other categories.
 
-☁  [Air](air/) &rarr; large range of subjects, from epistemology to economics.
+☁  [Air](air/) &rarr; large range of subjects, from epistemology to economics (mostly philosophy).
 
 Most previous learning of mine was centered around biology (my first
 bachelors), some of that content can and be found in [an archived
@@ -48,6 +48,10 @@ revisit subjects in philosophy in biology in greater depth, but for now my
 interest is elsewhere; most content will probably be computer science
 and math related for the foreseeable future.
 
+Each category has a more elaborate readme for navigational purposes. Listed
+below will be links to directories containing relevant content based on where
+my current focus is. If it proves useful, then please use, redistribute, or do
+what ever you want with anything pushed here.
 
 <h1 align="center">🏛️ University Resources 🏛️</h1>
 <p align="center">
@@ -76,7 +80,7 @@ and math related for the foreseeable future.
 <table align="center">
   <tr>
     <th>
-      <h2 align="center">🎓 Prior Class Resources 🎓 </h2>
+      <h2 align="center">🎓 Prior Notes 🎓 </h2>
     </th>
   </tr>
   <tr>
@@ -85,15 +89,6 @@ and math related for the foreseeable future.
         <br>
         <img width="420" src="assets/images/prior.jpg">
       </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3 align='center'>
-        <a href="http://drive.google.com/file/d/1lhJSXIqAmNblGcTUligxWAotnxI1fASp/view?usp=sharing"> Most prior content
-          (2020&ndash;2021)
-        </a>
-      </h3>
     </td>
   </tr>
   <tr>
@@ -113,4 +108,27 @@ and math related for the foreseeable future.
   </tr>
 </table>
 
+<br>
 
+<h1 align="center">🌐 Turing-Complete 🌐</h1>
+
+<p align="center">
+<kbd>
+  <img width="512" src="assets/images/code.jpg">
+</kbd>
+</p>
+
+<table align="center">
+  <tr>
+    <td align="center"><strong><a href="water/javascript/">javaScript (+)</a></strong></td>
+    <td align="center"><strong><a href="water/solidity/">solidity</a></strong></td>
+    <td align="center"><strong><a href="water/go/">go</a></strong></td>
+    <td align="center"><strong><a href="water/python/">python</a></strong></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="water/javascript/"><img src="assets/images/javascript.ico"></a></td>
+    <td align="center"><a href="water/[solidity/"><img src="assets/images/solidity.ico"></a></td>
+    <td align="center"><a href="water/go/"><img src="assets/images/go.ico"></a></td>
+    <td align="center"><a href="water/python/"><img src="assets/images/python.ico"></a></td>
+  </tr>
+</table>
