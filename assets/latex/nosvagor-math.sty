@@ -6,10 +6,10 @@
 % ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
 
 %  →-.   →  .-'.   →  .--.   →  .--.   →  .--.   →  .-→
-% →::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::::→→ → 
-% → →:.\:::: https://github.com/nosvagor/notes \:::→→ →  →  → 
+% →::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::::→→ →
+% → →:.\:::: https://github.com/nosvagor/notes \:::→→ →  →  →
 % →::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::→  →
-%   → →   `--'  →   `.-'  →   `--'  →   `--'  →   `--' →  → 
+%   → →   `--'  →   `.-'  →   `--'  →   `--'  →   `--' →  →
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{nosvagor-math}[My collection of math packages and commands]
@@ -18,7 +18,7 @@
 % ╠╣ │ │├┬┘│││├─┤ │  │ │││││ ┬
 % ╚  └─┘┴└─┴ ┴┴ ┴ ┴  ┴ ┴┘└┘└─┘
 \RequirePackage{mathtools, amssymb, bm, relsize, esvect,tikz,tikz-cd,array,marvosym,etoolbox}
-  
+
   \apptocmd{\lim}{\limits}{}{}
 
   \numberwithin{equation}{chapter}
@@ -40,10 +40,10 @@
   \let\origEpsilon\epsilon
   \renewcommand*\epsilon{\mathlarger{\mathlarger{\mathlarger\origVarEpsilon}}}
   \def\depsilon{\mathsmaller{\epsilon}}
-    
+
 % ╔═╗┌─┐┌┬┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐
 % ║  │ │││││││├─┤│││ ││└─┐
-% ╚═╝└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘   
+% ╚═╝└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘
 
 % Inline bold math
 \newcommand{\tbm}[1]{\(\bm{#1}\)}
@@ -63,7 +63,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathcal{F}}
 
-% Operator names 
+% Operator names
 \def\med{\operatorname{med}{\hspace{-2pt}}}
 \def\cov{\operatorname{cov}{\hspace{-2pt}}}
 \def\sgn{\operatorname{sgn}{\hspace{-2pt}}}
@@ -105,10 +105,6 @@
 \newcommand{\dd}[2]{\frac{d#1}{d#2}}
 
 
-\newcommand{\thomas}[1]{\bBb{
-  Thomas's Calculus\(^{14\text{\tiny{th}}}\)
-  {(#1)}\small\(~^\text{\faBook}\)
-  }}
 
 % Annoying words to type
 \def\hopital{L'H\^{o}pital}
@@ -119,12 +115,12 @@
 \RequirePackage{pgfplots}
   \pgfplotsset{
     compat=newest,
-    xlabel={$x$}, ylabel={$y$}, 
+    xlabel={$x$}, ylabel={$y$},
     legend style={at={(.5,-0.25)},anchor=north},
     minor x tick num=1,
     minor y tick num=1,
   }
-  
+
   \pgfmathdeclarefunction{CubeRoot}{1}{
     \pgfmathparse{ifthenelse(#1<0,-1,1)*exp((ln(abs(#1)))/3)}
   }

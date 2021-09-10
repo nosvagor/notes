@@ -157,19 +157,35 @@
     labelformat=empty,
   }
 
-  \AtBeginDocument{
-    \let\oldcaption\caption
-    \renewcommand{\caption}[1]{\oldcaption{\ssec{\textbf{#1}}}}
-
-    % TODO: get the sections-labels into here?
-
-  }
 
   \RequirePackage{siunitx}
   \sisetup{
     inter-unit-product = \ensuremath{{\cdot}},
   }
 
+
+% ╔╦╗┌─┐┌─┐╔╗ ┌─┐┌─┐┬┌┐┌
+%  ║║│ ││  ╠╩╗├┤ │ ┬││││
+% ═╩╝└─┘└─┘╚═╝└─┘└─┘┴┘└┘
+\AtBeginDocument{
+  \let\oldcaption\caption
+  \renewcommand{\caption}[1]{\oldcaption{{\color{primary-1}{\textbf{#1}}}}}
+
+  \hypertarget{ToC}{\tableofcontents}
+
+  \let\oldchapter\chapter
+  \renewcommand{\chapter}[1]{
+    \oldchapter{#1}\label{c:#1}
+  }
+  \let\oldsection\section
+  \renewcommand{\section}[1]{
+    \oldsection{#1}\label{s:#1}
+  }
+  \let\oldsubsection\subsection
+  \renewcommand{\subsection}[1]{
+    \oldsubsection{#1}\label{ss:#1}
+  }
+}
 
 %  ██████╗ ██████╗ ██╗      ██████╗ ██████╗ ███████╗
 % ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔════╝
@@ -180,66 +196,55 @@
 
 
 % Base
-\definecolor{foreground-3}{HTML}{}
-\definecolor{foreground-2}{HTML}{818596}
-\definecolor{foreground-1}{HTML}{}
+\definecolor{foreground-3}{HTML}{484e6b}
+\definecolor{foreground-2}{HTML}{7b839e}
+\definecolor{foreground-1}{HTML}{a2a5ba}
 \definecolor{foreground}{HTML}{c6c8d1}
-\definecolor{foreground+1}{HTML}{}
+\definecolor{foreground+1}{HTML}{e9ebf5}
 
-\definecolor{background-1}{HTML}{}
+\definecolor{background-1}{HTML}{010103}
 \definecolor{background}{HTML}{161821}
-\definecolor{background+1}{HTML}{}
+\definecolor{background+1}{HTML}{292e47}
 
 \definecolor{primary-2}{HTML}{cedeeb}
 \definecolor{primary-1}{HTML}{b0d0eb}
 \definecolor{primary}{HTML}{7abef5}
 
+% Colors
+\definecolor{red}{HTML}{e36866}
+\definecolor{red+1}{HTML}{fa4441}
+
+\definecolor{orange}{HTML}{e39866}
+\definecolor{orange+1}{HTML}{fa8b41}
+
+\definecolor{yellow}{HTML}{e3d178}
+\definecolor{yellow+1}{HTML}{f5d94c}
+
+\definecolor{green}{HTML}{95cf78}
+\definecolor{green+1}{HTML}{84f54c}
+
+\definecolor{cyan}{HTML}{7bd4b8}
+\definecolor{cyan+1}{HTML}{41fadb}
+
+\definecolor{blue}{HTML}{6685e3}
+\definecolor{blue+1}{HTML}{4271ff}
+
+\definecolor{magenta}{HTML}{a376b8}
+\definecolor{magenta+1}{HTML}{bb5fe3}
+
+\definecolor{pink}{HTML}{e278ad}
+\definecolor{pink+1}{HTML}{f54ca0}
+
+% Lets
+\pagecolor{background}
+\color{foreground}
+
 \colorlet{accent-1}{orange+2}
 \colorlet{accent}{orange}
 \colorlet{accent+1}{orange+1}
 
-\colorlet{link-internal}{green-1}
-\colorlet{link-external}{green}
-
-
-% Colors
-\definecolor{red-1}{HTML}{}
-\definecolor{red}{HTML}{e27878}
-\definecolor{red+1}{HTML}{}
-
-\definecolor{orange-1}{HTML}{}
-\definecolor{orange}{HTML}{e2a478}
-\definecolor{orange+1}{HTML}{}
-
-\definecolor{yellow-1}{HTML}{}
-\definecolor{yellow}{HTML}{e2d078}
-\definecolor{yellow+1}{HTML}{}
-
-\definecolor{green-1}{HTML}{}
-\definecolor{green}{HTML}{b4be82}
-\definecolor{green+1}{HTML}{}
-
-\definecolor{cyan-1}{HTML}{}
-\definecolor{cyan}{HTML}{89b8c2}
-\definecolor{cyan+1}{HTML}{}
-
-\definecolor{blue-1}{HTML}{}
-\definecolor{blue}{HTML}{84a0c6}
-\definecolor{blue+1}{HTML}{}
-
-\definecolor{puprle-1}{HTML}{}
-\definecolor{purple}{HTML}{a093c7}
-\definecolor{purple+1}{HTML}{}
-
-\definecolor{pink-1}{HTML}{}
-\definecolor{pink}{HTML}{e278ad}
-\definecolor{pink+1}{HTML}{}
-
-%
-
-\pagecolor{background}
-\color{foreground}
-
+\colorlet{link-internal}{green}
+\colorlet{link-external}{green+1}
 
 % ╔═╗┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 % ║ ║├─┘ │ ││ ││││└─┐

@@ -14,21 +14,6 @@
 
 \begin{document}
 
-\hypertarget{ToC}{\tableofcontents}
-
-\let\oldchapter\chapter
-\renewcommand{\chapter}[1]{
-\oldchapter{#1}\label{c: #1}
-}
-\let\oldsection\section
-\renewcommand{\section}[1]{
-\oldsection{#1}\label{s: #1}
-}
-\let\oldsubsection\subsection
-\renewcommand{\subsection}[1]{
-\oldsubsection{#1}\label{ss: #1}
-}
-
 \include{chapters/limits}
 \include{chapters/derivatives}
 \include{chapters/derivativesApplied}
