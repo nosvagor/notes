@@ -4,7 +4,6 @@
 % ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║
 % ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║
 % ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
-
 %  →-.   →  .-'.   →  .--.   →  .--.   →  .--.   →  .-→
 % →::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::::→→ →
 % → →:.\:::: https://github.com/nosvagor/notes \:::→→ →  →  →
@@ -12,12 +11,15 @@
 %   → →   `--'  →   `.-'  →   `--'  →   `--'  →   `--' →  →
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{nosvagor-math}[My collection of math packages and commands]
+\ProvidesPackage{nosvagor-math}
 
 % ╔═╗┌─┐┬─┐┌┬┐┌─┐┌┬┐┌┬┐┬┌┐┌┌─┐
 % ╠╣ │ │├┬┘│││├─┤ │  │ │││││ ┬
 % ╚  └─┘┴└─┴ ┴┴ ┴ ┴  ┴ ┴┘└┘└─┘
-\RequirePackage{mathtools, amssymb, bm, relsize, esvect,tikz,tikz-cd,array,marvosym,etoolbox}
+\RequirePackage{
+  mathtools, amssymb, bm, relsize, esvect,tikz,tikz-cd, array,marvosym,
+  etoolbox,
+}
 
   \apptocmd{\lim}{\limits}{}{}
 
@@ -45,9 +47,6 @@
 % ║  │ │││││││├─┤│││ ││└─┐
 % ╚═╝└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘
 
-% Inline bold math
-\newcommand{\tbm}[1]{\(\bm{#1}\)}
-
 % Alternative Zero Font
 \newcommand{\nil}{\text{\MVZero}}
 
@@ -58,10 +57,11 @@
     \mbox{\fontsize{17.28}{21.6}\selectfont\(\hat{\jmath}\)}}
 \newcommand*{\kh}{\hat{k}}
 
-% math symbols
+% adding with frequent use
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathcal{F}}
+\def\hopital{L'H\^{o}pital}
 
 % Operator names
 \def\med{\operatorname{med}{\hspace{-2pt}}}
@@ -71,56 +71,23 @@
 
 % Redfined with color
 \let\oldcup\cup
-\renewcommand{\cup}{\hspace{3pt}\fff{\oldcup}\hspace{2pt}}
+\renewcommand{\cup}{\hspace{3pt}\ff{\oldcup}\hspace{2pt}}
 \let\oldcap\cap
-\renewcommand{\cap}{\hspace{3pt}\ttt{\oldcap}\hspace{2pt}}
+\renewcommand{\cap}{\hspace{3pt}\tt{\oldcap}\hspace{2pt}}
 
 \let\oldmin\min
-\renewcommand{\min}[1]{\bbb{\oldmin\left(\fg{#1}\right)}}
+\renewcommand{\min}[1]{\bb{\oldmin\left(\fg{#1}\right)}}
 \let\oldmax\max
-\renewcommand{\max}[1]{\rrr{\oldmax\left(\fg{#1}\right)}}
+\renewcommand{\max}[1]{\rr{\oldmax\left(\fg{#1}\right)}}
 
 \let\oldland\land
-\renewcommand{\land}{~\ttt{\oldland}~}
+\renewcommand{\land}{~\tt{\oldland}~}
 \let\oldlor\lor
-\renewcommand{\lor}{~\fff{\oldlor}~}
+\renewcommand{\lor}{~\ff{\oldlor}~}
 
 \RequirePackage{stackengine}
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
-  \stackunder[-4pt]{\color{rrr}\mathsmaller{+}}{\color{bbb}-}}}}}
+  \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
-% Common expressions
-\newcommand{\cp}[1]{p\hspace{1pt}(H_#1~|~H_\nil)}
-\def\err{\fff{\varepsilon}}
-\def\y{\yyy{y}}
-\def\x{\xxx{x}}
-\def\fp{\emph{f'}}
-\def\gp{\ppp{g'}}
-\def\then{~\ssec{\Rightarrow}~}
-\def\ifandif{~\ssec{\Leftrightarrow}~}
-\def\gt{~\rrr{>}~}
-\def\lt{~\bbb{<}~}
-\def\dydx{\frac{dy}{dx}}
-\newcommand{\ddx}[1]{\frac{d#1}{dx}}
-\newcommand{\dd}[2]{\frac{d#1}{d#2}}
-
-
-
-% Annoying words to type
-\def\hopital{L'H\^{o}pital}
-
-% ╔═╗┬  ┌─┐┌┬┐┌─┐
-% ╠═╝│  │ │ │ └─┐
-% ╩  ┴─┘└─┘ ┴ └─┘
-\RequirePackage{pgfplots}
-  \pgfplotsset{
-    compat=newest,
-    xlabel={$x$}, ylabel={$y$},
-    legend style={at={(.5,-0.25)},anchor=north},
-    minor x tick num=1,
-    minor y tick num=1,
-  }
-
-  \pgfmathdeclarefunction{CubeRoot}{1}{
-    \pgfmathparse{ifthenelse(#1<0,-1,1)*exp((ln(abs(#1)))/3)}
-  }
+\def\then{~\sec{\Rightarrow}~}
+\def\ifandif{~\sec{\Leftrightarrow}~}

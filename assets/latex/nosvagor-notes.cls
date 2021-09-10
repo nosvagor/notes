@@ -194,7 +194,6 @@
 % ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║
 %  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
 
-
 % Base
 \definecolor{foreground-3}{HTML}{484e6b}
 \definecolor{foreground-2}{HTML}{7b839e}
@@ -239,7 +238,6 @@
 \pagecolor{background}
 \color{foreground}
 
-\colorlet{accent-1}{orange+2}
 \colorlet{accent}{orange}
 \colorlet{accent+1}{orange+1}
 
@@ -249,132 +247,121 @@
 % ╔═╗┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 % ║ ║├─┘ │ ││ ││││└─┐
 % ╚═╝┴   ┴ ┴└─┘┘└┘└─┘
-% \DeclareOption{light}{
-%   \pagecolor{white}
-%   \color{black}
-
-%   \titleformat{\chapter}{\LARGE\bfseries}{}{0pt}{\centering}
-%   \titleformat{\section}{\Large\bfseries}{}{0pt}{}
-%   \titleformat{\subsection}{\large\bfseries}{}{0pt}{}
-%   \titleformat{\subsubsection}{\large\bfseries}{}{0pt}{}
-
-%   \hypersetup{colorlinks,linkcolor={BBB},citecolor={BBB},urlcolor={BBB}}
-% }
-
-% \DeclareOption{basic}{
-%   \pagestyle{fancy}
-%   \lhead{\userName}
-%   \chead{\textsc{\theTitle}}
-%   \rhead{\today}
-%   \cfoot{\textsc{\institution}}
-%   \rfoot{\thepage}
-%   \lfoot{\class}
-% }
+\DeclareOption{assignment}{
+  \pagestyle{fancy}
+  \lhead{\userName}
+  \chead{\textsc{\theTitle}}
+  \rhead{\today}
+  \cfoot{\textsc{\institution}}
+  \rfoot{\thepage}
+  \lfoot{\class}
+}
 
 \DeclareOption{light}{
 % Base
-\definecolor{foreground-3}{HTML}{}
-\definecolor{foreground-2}{HTML}{}
-\definecolor{foreground-1}{HTML}{}
-\definecolor{foreground}{HTML}{}
-\definecolor{foreground+1}{HTML}{}
+\definecolor{foreground-3}{HTML}{b1b7c9}
+\definecolor{foreground-2}{HTML}{6e707a}
+\definecolor{foreground-1}{HTML}{3b3b40}
+\definecolor{foreground}{HTML}{131314}
+\definecolor{foreground+1}{HTML}{000000}
 
-\definecolor{background-1}{HTML}{}
-\definecolor{background}{HTML}{}
-\definecolor{background+1}{HTML}{}
-\definecolor{background+2}{HTML}{}
-\definecolor{background+3}{HTML}{}
+\definecolor{background-1}{HTML}{dcdee3}
+\definecolor{background}{HTML}{edeff5}
+\definecolor{background+1}{HTML}{ffffff}
 
-\definecolor{primary-3}{HTML}{}
-\definecolor{primary-2}{HTML}{}
-\definecolor{primary-1}{HTML}{}
-\definecolor{primary}{HTML}{}
-
-\definecolor{accent-1}{HTML}{}
-\definecolor{accent}{HTML}{}
-\definecolor{accent+1}{HTML}{}
-
-\definecolor{link-internal}{HTML}{}
-\definecolor{link-external}{HTML}{}
+\definecolor{primary-2}{HTML}{022752}
+\definecolor{primary-1}{HTML}{10559e}
+\definecolor{primary}{HTML}{0d72de}
 
 % Colors
-\definecolor{red}{HTML}{}
-\definecolor{red+1}{HTML}{}
+\definecolor{red}{HTML}{d14341}
+\definecolor{red+1}{HTML}{fc201c}
 
-\definecolor{orange}{HTML}{}
-\definecolor{orange+1}{HTML}{}
+\definecolor{orange}{HTML}{d17f41}
+\definecolor{orange+1}{HTML}{fc201c}
 
-\definecolor{yellow}{HTML}{}
-\definecolor{yellow+1}{HTML}{}
+\definecolor{yellow}{HTML}{d1b741}
+\definecolor{yellow+1}{HTML}{fced1c}
 
-\definecolor{green}{HTML}{}
-\definecolor{green+1}{HTML}{}
+\definecolor{green}{HTML}{7dd141}
+\definecolor{green+1}{HTML}{6efc1c}
 
-\definecolor{cyan}{HTML}{}
-\definecolor{cyan+1}{HTML}{}
+\definecolor{cyan}{HTML}{41d195}
+\definecolor{cyan+1}{HTML}{1cfccf}
 
-\definecolor{blue}{HTML}{}
-\definecolor{blue+1}{HTML}{}
+\definecolor{blue}{HTML}{415bd1}
+\definecolor{blue+1}{HTML}{1c45fc}
 
-\definecolor{purple}{HTML}{}
-\definecolor{purple+1}{HTML}{}
+\definecolor{magenta}{HTML}{9741d1}
+\definecolor{magenta+1}{HTML}{a21cfc}
 
-\definecolor{pink}{HTML}{}
-\definecolor{pink+1}{HTML}{}
+\definecolor{pink}{HTML}{d14197}
+\definecolor{pink+1}{HTML}{fc1ca2}
+
+% Lets
+\pagecolor{background}
+\color{foreground}
+
+\colorlet{accent}{orange}
+\colorlet{accent+1}{orange+1}
+
+\colorlet{link-internal}{green}
+\colorlet{link-external}{green+1}
 }
 
 %%%%
 
 \DeclareOption{dark}{
 % Base
-\definecolor{foreground-3}{HTML}{}
-\definecolor{foreground-2}{HTML}{}
-\definecolor{foreground-1}{HTML}{}
-\definecolor{foreground}{HTML}{}
-\definecolor{foreground+1}{HTML}{}
+\definecolor{foreground-3}{HTML}{484e6b}
+\definecolor{foreground-2}{HTML}{7b839e}
+\definecolor{foreground-1}{HTML}{a2a5ba}
+\definecolor{foreground}{HTML}{c6c8d1}
+\definecolor{foreground+1}{HTML}{e9ebf5}
 
-\definecolor{background-1}{HTML}{}
-\definecolor{background}{HTML}{}
-\definecolor{background+1}{HTML}{}
-\definecolor{background+2}{HTML}{}
-\definecolor{background+3}{HTML}{}
+\definecolor{background-1}{HTML}{010103}
+\definecolor{background}{HTML}{161821}
+\definecolor{background+1}{HTML}{292e47}
 
-\definecolor{primary-3}{HTML}{}
-\definecolor{primary-2}{HTML}{}
-\definecolor{primary-1}{HTML}{}
-\definecolor{primary}{HTML}{}
-
-\definecolor{accent-1}{HTML}{}
-\definecolor{accent}{HTML}{}
-\definecolor{accent+1}{HTML}{}
-
-\definecolor{link-internal}{HTML}{}
-\definecolor{link-external}{HTML}{}
+\definecolor{primary-2}{HTML}{cedeeb}
+\definecolor{primary-1}{HTML}{b0d0eb}
+\definecolor{primary}{HTML}{7abef5}
 
 % Colors
-\definecolor{red}{HTML}{}
-\definecolor{red+1}{HTML}{}
+\definecolor{red}{HTML}{e36866}
+\definecolor{red+1}{HTML}{fa4441}
 
-\definecolor{orange}{HTML}{}
-\definecolor{orange+1}{HTML}{}
+\definecolor{orange}{HTML}{e39866}
+\definecolor{orange+1}{HTML}{fa8b41}
 
-\definecolor{yellow}{HTML}{}
-\definecolor{yellow+1}{HTML}{}
+\definecolor{yellow}{HTML}{e3d178}
+\definecolor{yellow+1}{HTML}{f5d94c}
 
-\definecolor{green}{HTML}{}
-\definecolor{green+1}{HTML}{}
+\definecolor{green}{HTML}{95cf78}
+\definecolor{green+1}{HTML}{84f54c}
 
-\definecolor{cyan}{HTML}{}
-\definecolor{cyan+1}{HTML}{}
+\definecolor{cyan}{HTML}{7bd4b8}
+\definecolor{cyan+1}{HTML}{41fadb}
 
-\definecolor{blue}{HTML}{}
-\definecolor{blue+1}{HTML}{}
+\definecolor{blue}{HTML}{6685e3}
+\definecolor{blue+1}{HTML}{4271ff}
 
-\definecolor{purple}{HTML}{}
-\definecolor{purple+1}{HTML}{}
+\definecolor{magenta}{HTML}{a376b8}
+\definecolor{magenta+1}{HTML}{bb5fe3}
 
-\definecolor{pink}{HTML}{}
-\definecolor{pink+1}{HTML}{}
+\definecolor{pink}{HTML}{e278ad}
+\definecolor{pink+1}{HTML}{f54ca0}
+
+% Lets
+\pagecolor{background}
+\color{foreground}
+
+\colorlet{accent}{orange}
+\colorlet{accent+1}{orange+1}
+
+\colorlet{link-internal}{green}
+\colorlet{link-external}{green+1}
 }
+
 
 \ProcessOptions\relax

@@ -4,6 +4,11 @@
 % ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
 % ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
 %  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+%  →-.   →  .-'.   →  .--.   →  .--.   →  .--.   →  .-→
+% →::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::::→→ →
+% → →:.\:::: https://github.com/nosvagor/notes \:::→→ →  →  →
+% →::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::→  →
+%   → →   `--'  →   `.-'  →   `--'  →   `--'  →   `--' →  →
 
 % ╔═╗┌─┐┬  ┌─┐┬─┐┌─┐
 % ║  │ ││  │ │├┬┘└─┐
@@ -17,6 +22,10 @@
 \newcommand{\dark}[1]{{\color{background-1}{#1}}}
 \newcommand{\bg}[1]{{\color{foreground}{#1}}}
 \newcommand{\faint}[1]{{\color{background+1}{#1}}}
+
+\newcommand{\pri}[1]{{\color{primary}{#1}}}
+\newcommand{\sec}[1]{{\color{primary-1}{#1}}
+\newcommand{\tert}[1]{{\color{primary-2}{#1}}}
 
 \newcommand{\RR}[1]{{\color{red}{#1}}}
 \newcommand{\RRR}[1]{{\color{red+1}{#1}}}
@@ -68,3 +77,19 @@
     {Thomas}
     {#1}
   }
+
+% ╔╦╗┌─┐─┐ ┬┌┬┐
+%  ║ ├┤ ┌┴┬┘ │
+%  ╩ └─┘┴ └─ ┴
+% Definition
+\newcommand{\dd}[1]{{\color{primary-2}{\textbf{#1}}}}
+
+% Boolean
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{56}\,}
+
+\newcommand{\tt}[1]{{\color{cyan+1}{#1}}}
+\newcommand{\ff}[1]{{\color{pink+1}{#1}}}
+
+\newcommand{\true}[1]{\ttt{\cmark~#1}}
+\newcommand{\false}[1]{\fff{\xmark~#1}}

@@ -7,14 +7,14 @@ sorts will actually happen. Regardless, I definitely leverage the psychological
 motivation that GitHub's contribution tracker provides, so I have continued to
 attempt to push most learning related tasks here.
 
-I'm quite enamored, or rather, persuaded by David Deutsch's arguments from his
-books [_The Fabric of
+I'm somewhat enamored with, or rather, persuaded by David Deutsch's arguments
+from his books [_The Fabric of
 Reality_](https://en.wikipedia.org/wiki/The_Fabric_of_Reality) and [_The
 Beginning of
 Infinity_](https://en.wikipedia.org/wiki/The_Beginning_of_Infinity), so I have
 incorporated a architectural scheme to organize my interests that plays on the
-four strands from his first book, a favorite show of mine, and a nod to Aristotle
-and ancient philosophy in general.
+four strands from his first book, a favorite show of mine, and a nod to
+Aristotle and ancient philosophy in general.
 
 
 <p align="center">
@@ -34,10 +34,9 @@ and ancient philosophy in general.
 
 🌊 [Water](water/) &rarr; computation; basically most computer science related topics.
 
-🌳 [Earth](earth/) &rarr; biology, chemistry, neuroscience, or other more
-empirical based research
+🌳 [Earth](earth/) &rarr; evolution; typically more empirical based research content.
 
-🔥 [Fire](fire/) &rarr; both pure maths and applied maths; frequently overlaps with other categories.
+🔥 [Fire](fire/) &rarr; mathematics; frequently overlaps with other categories.
 
 ☁  [Air](air/) &rarr; large range of subjects, from epistemology to economics (mostly philosophy).
 
@@ -80,14 +79,14 @@ what ever you want with anything pushed here.
 <table align="center">
   <tr>
     <th>
-      <h2 align="center">🎓 Prior Notes 🎓 </h2>
+      <h3 align="center">🎓 Prior Notes 🎓 </h2>
     </th>
   </tr>
   <tr>
     <td>
       <p align='center'>
         <br>
-        <img width="420" src="assets/images/prior.jpg">
+        <img width="324" src="assets/images/prior.jpg">
       </p>
     </td>
   </tr>
@@ -98,10 +97,10 @@ what ever you want with anything pushed here.
         <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
         </a>
         <br>
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/mth-261.pdf"> 📑 <strong>Linear Algebra</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/mth-261.pdf"> 📓 <strong>Linear Algebra</strong>
         </a>
         &nbsp;
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/statistics.pdf">📑 <strong>Statistics</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/assets/prior/statistics.pdf">📓 <strong>Statistics</strong>
         </a>
       </p>
     </td>
