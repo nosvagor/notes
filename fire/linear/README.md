@@ -18,7 +18,7 @@
 ## Exercises
 
 - [MTH 261: Intro to Linear Algebra](/python/linear/mth-261) &rarr; completed 🏆
-  - [Long Answer Exercises](/python/linear/mth-261/long-answer)
-  - [Short Answer Exercises](/python/linear/mth-261/short-answer)
-  - [Udemy Exercises](/python/linear/mth-261/udemy)
-- [MTH 343: Applied Linear Algebra](/python/linear/mth-343) &rarr; in progress ⏳
+  - [Long Answer Exercises](fire/linear/mth-261/long-answer)
+  - [Short Answer Exercises](water/python/linear/mth-261/short-answer)
+  - [Udemy Exercises](water/python/linear/mth-261/udemy)
+- [MTH 343: Applied Linear Algebra](water/python/linear/mth-343) &rarr; in progress ⏳
