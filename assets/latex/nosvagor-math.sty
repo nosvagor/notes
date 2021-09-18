@@ -34,13 +34,13 @@
       \array{#1}}
   \makeatother
 
-  % Swap epsilon fonts
+  % bigger epsilon fonts
   \let\origVarEpsilon\varepsilon
-  \renewcommand*\varepsilon{\mathlarger{\mathlarger{\mathlarger\origEpsilon}}}
+  \renewcommand*\varepsilon{\mathlarger{\mathlarger{\mathlarger\origVarEpsilon}}}
   \def\dvarepsilon{\mathsmaller{\varepsilon}}
 
   \let\origEpsilon\epsilon
-  \renewcommand*\epsilon{\mathlarger{\mathlarger{\mathlarger\origVarEpsilon}}}
+  \renewcommand*\epsilon{\mathlarger{\mathlarger{\mathlarger\origEpsilon}}}
   \def\depsilon{\mathsmaller{\epsilon}}
 
 % ╔═╗┌─┐┌┬┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐

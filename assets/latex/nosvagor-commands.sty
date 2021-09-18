@@ -23,9 +23,11 @@
 \newcommand{\bg}[1]{{\color{foreground}{#1}}}
 \newcommand{\faint}[1]{{\color{background+1}{#1}}}
 
-\newcommand{\pri}[1]{{\color{primary}{#1}}}
-\newcommand{\sec}[1]{{\color{primary-1}{#1}}
-\newcommand{\tert}[1]{{\color{primary-2}{#1}}}
+\newcommand{\3}[1]{{\color{primary-2}{#1}}}
+\newcommand{\2}[1]{{\color{primary-1}{#1}}}
+\newcommand{\1}[1]{{\color{primary}{#1}}}
+
+\newcommand{\aset}[1]{{\color{accent}{#1}}}
 
 \newcommand{\RR}[1]{{\color{red}{#1}}}
 \newcommand{\RRR}[1]{{\color{red+1}{#1}}}
@@ -61,7 +63,8 @@
   \hyperref[#1]{{\color{link-internal}{#2}\small\(\,^\downarrow\)}}
 }
 \newcommand{\src}[1]{
-  {\vspace{-6pt}\color{link-external}{{\footnotesize\faGlobe}}\,}{\small{#1}}
+  {\vspace{-8pt}\color{link-external}{{\footnotesize\faGlobe}}\,}{\small{#1}}
+  \vspace{4pt}
 }
 \newcommand{\link}[2]{
   \href{#1}{\color{link-external}{{#2}\small\(\,^\text{\faChain}\)}}
@@ -73,7 +76,7 @@
   \href{#1}{\color{link-external}#2 {{(#3)}\small\(~^\text{\faBook}\)}}
 }
   \newcommand{\thomas}[1]{
-    \linkpdf{https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981}
+    \hspace{-3pt}\linkpdf{https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981}
     {Thomas}
     {#1}
   }
@@ -84,12 +87,15 @@
 % Definition
 \newcommand{\dd}[1]{{\color{primary-2}{\textbf{#1}}}}
 
+% Inline contex
+\newcommand{\prn}[1]{\context{(#1)}}
+
 % Boolean
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{56}\,}
 
-\newcommand{\tt}[1]{{\color{cyan+1}{#1}}}
-\newcommand{\ff}[1]{{\color{pink+1}{#1}}}
+\newcommand{\TT}[1]{{\color{cyan+1}{#1}}}
+\newcommand{\FF}[1]{{\color{pink+1}{#1}}}
 
-\newcommand{\true}[1]{\ttt{\cmark~#1}}
-\newcommand{\false}[1]{\fff{\xmark~#1}}
+\newcommand{\true}[1]{\TT{\cmark~#1}}
+\newcommand{\false}[1]{\FF{\xmark~#1}}
