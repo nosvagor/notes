@@ -162,33 +162,161 @@
 \end{itemize}
 
 \section{Continuity}
+\src{
+  \thomas{2.5}
+}
 \begin{itemize}
-  \item []
+  \item Continuity of functions is one of the core concepts of topology,
+    however, there are definitions in terms of limits that prove useful; the
+    following is only a primer.
 
   \subsection{Continuous Functions}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Continuous_function}{Continuous function} |
+    \link{https://en.wikipedia.org/wiki/Classification_of_discontinuities}{Discontinuities}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Continuous function}: a function that does not have any abrupt
+      changes in value.
+    \begin{itemize}
+      \item I.e., a function is continuous if and only if arbitrarily small
+        changes in its output can be assured by restricting to sufficiently
+        small changes in its input.
+    \end{itemize}
+
+  \item \dd{Discontinuous}: when a function is not continuous at a point in its
+    domain, leading to a discontinuity; there are three classifications:
+    \begin{itemize}
+      \item \dd{Removable}: when both \ulink{ss:One-Sided limits}{one-sided
+        limits} exist, are finite, and are equal, but the actual value of \(
+        f(x) \) is not equal to the limit and instead equal to some other
+        value.
+        \begin{itemize}
+          \item The discontinuity can be removed to regain continuity.
+          \item Sometimes the term \textit{removable discontinuity} is mistaken
+            for a \textit{removable singularity}, or a ``whole'' in the function
+            \prn{the point is not defined elsewhere}.
+        \end{itemize}
+      \item \dd{Jump}: when a single limit does not exist because the one-sided
+        limits exist and are finite, but not equal.
+        \begin{itemize}
+          \item Points can be defined at the discontinuity, but the function
+            can not be made continuous.
+        \end{itemize}
+
+      \item \dd{Essential}: when at least one of the two one-sided limits do
+        not exist; can be the result of oscillating or unbounded functions.
+
+    \end{itemize}
+
   \end{itemize}
 
   \subsection{Intermediate Value Theorem}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Intermediate_value_theorem}{Intermediate value theorem}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Intermediate value theorem}: if \( f \) is a continuous function
+      whose domain contains the interval \( \left[ a, b \right] \), then it
+      \aset{takes on any given value between} \( f(a) \) and \( f(b) \) at some
+      point within the intervals.
+    \item Relevant deductions, i.e., important corollaries:
+      \begin{itemize}
+        \item \dd{Bolzano's theorem}: if a continuous function has values of
+          opposite sign inside an interval, then it \aset{has a root} in that
+          interval.
+        \item The image of a continuous function over an interval is itself an
+          interval.
+      \end{itemize}
+
+    \item Thus, the image set \( f(\I) \) \prn{which has no gaps} is also an
+      interval, and it contains:
+      \[
+        \left[ \min{f(a),f(b)}, \max{f(a),f(b)} \right]
+      \]
   \end{itemize}
 
 \end{itemize}
 
 \section{Limits Involving Infinity}
+\src{
+  \thomas{2.6}
+}
 \begin{itemize}
-  \item []
+  \item Let \( S \subset \R, x \in S \) and \( f : S \mapsto \R \), then limits
+    of these functions can approach arbitrarily large \prn{\( \pm \)} values,
+    providing a connection to asymptotes, and thus, analysis.
 
   \subsection{Limits at Infinity and Infinite Limits}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Limit_of_a_function\#Limits_involving_infinity}{Limits involving infinity}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Limits at infinity}: limits defined as \( f(x) \pm \) infinity
+      are defined much like normal limits:
+      \[
+        \lim_{x \to \BB{-\infty}} f(x) = L \qquad \lim_{x \to \RR{\infty}} f(x) = L
+      \]
+      \begin{itemize}
+        \item Formally, for all measures of closeness \MM{\(\varepsilon \)} there
+          exists a point \( c \) such that \( |f(x) - L| < \MM{ \varepsilon} \)
+          whenever \( x \BB{<} c \lor x \RR{>} c \) \prn{respectively}, i.e.,
+          \[
+            \forall \MM{\dvarepsilon > 0} \left(
+              \exists c \left(
+              \forall x \por{\BB{<}}{\RR{>}} c : | f(x) - L
+                | < \MM{\dvarepsilon}
+              \right)
+            \right)
+          \]
+        \item Basic rules for rational functions \( f(x) = p(x)q(x)^{-1} \),
+          where \( p \) and \( q \) are polynomials, where the degree of each
+          is denoted as \( \por{p}{q}^\circ \), and where the leading coefficients
+          are denoted as \( P, Q \), then:
+          \begin{itemize}
+            \item \( p ^\circ \gt q ^\circ \then \pm L \), depending on the sign
+              of the leading coefficient.
+            \item \( p ^\circ = q^\circ \then L = PQ^{-1} \)
+            \item \( p^\circ \lt q^\circ \then L = 0 \)
+          \end{itemize}
+
+      \end{itemize}
+
+    \item \dd{Infinite limits}: the usual limit does not exist for a limit that
+      grows out of bounds, however, limits with infinite values can be
+      introduced:
+      \[
+        \lim_{x \to c} f(x) = \infty, \quad \text{i.e.,} \quad
+        \forall \MM{n > 0}\left(
+          \exists \YY{ \delta > 0} : f(x) > \MM{n} \ifandif 0 < |x-c| < \YY{ \delta}
+        \right)
+      \]
   \end{itemize}
 
   \subsection{Asymptotes of functions}
+  \src{
+   \link{https://en.wikipedia.org/wiki/Asymptote}{Asymptotes}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Asymptote}: a tangent line of a curve at a point at infinity; the
+      distance between the curve and the line approaches zero as a coordinate
+      tends to infinity.
+    \item There are three kinds of asymptotes: \textit{horizontal, vertical}
+      and \textit{oblique}; the nature of the asymptote is dependent on a
+      function's relation to infinity.
+      \begin{itemize}
+        \item  \dd{Horizontal asymptote}: a result of \aset{limits at
+          infinity}, i.e., when \( x \to \pm \infty \).
+        \item \dd{Vertical asymptote}: a result of \aset{infinite limits},
+          i.e., when \( x \to \pm c = \pm \infty \)
+        \item \dd{Oblique asymptote}: when a linear asymptote is not parallel
+          to either axis; \( f(x) \) is asymptotic to the straight line \( y =
+          mx + n~ \prn{m\neq 0} \) if:
+          \[
+            \lim_{x \to \pm \infty} \left[ f(x) - (mx+n) \right] = 0
+          \]
+      \end{itemize}
+
   \end{itemize}
 
 \end{itemize}
