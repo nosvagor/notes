@@ -1,12 +1,83 @@
 \chapter{Limits and Continuity}
 
+% chktex-file 36
+
 \section{Limits}
+\src{
+  \link{https://en.wikipedia.org/wiki/Limit_(mathematics)}{Limit} |
+  \thomas{2.2--2.4}
+}
+
 \begin{itemize}
-  \item []
+  \item \dd{Limit \(\lim_{x \to c}\)}: the value of a function \prn{or
+    sequence} as the input \prn{or index} approaches some value
+    \prn{note: an informal definition}.
+    \begin{itemize}
+      \item Limits are used to define \dlink{s:Continuity}{continuity},
+        \dlink{c:Derivatives}{derivatives}, and \dlink{c:Integrals}{integrals}.
+    \end{itemize}
 
   \subsection{Limits of a Functions and Sequences}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Limit_of_a_function}{Limit of a function} |
+    \link{https://en.wikipedia.org/wiki/Limit_of_a_sequence}{Limit of a sequence} |
+    \linky{https://youtu.be/kfF40MiS7zA?t=281}{Essence of Calculus, E7}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Limit of a function}: a fundamental concept in calculus and
+      analysis concerning the behavior of a function near a particular input
+      \(c\), i.e.,
+      \[
+      \lim_{x \to c}f(x)=L
+      \]
+   \begin{itemize}
+     \item Reads as ``\(f\) of \(x\) tends to \(L\) as \(x\) tends to \(c\)''
+   \end{itemize}
+
+ \item \dd{ \( \epsilon, \delta \) Limit of a function}: a formalized
+   definition, wherein \(f(x)\) is defined on an open interval
+   \(\1{\mathcal{I}}\), except possibly at \(c\) itself, leading to the
+   informal definition, \2{if and only if}
+   \[
+    f : \R \to \R, c,L \in \R \Rightarrow \lim_{x \to c} f(x) = L
+  \]\vspace{-24pt}
+   \[
+    \2{\Updownarrow}
+   \]
+   \[
+     \forall \MM{\dvarepsilon > 0} \left(
+       \exists \YY{\delta > 0} : \forall x \in \1{\mathcal{I}} \left(
+        0 < |x-c| < \YY{\delta} \Rightarrow |f(x)-L| < \MM{\dvarepsilon}
+        \right)
+      \right)
+   \]
+  \item functions \FF{do not have} a limit when the function:
+    \begin{itemize}
+      \item has a \FF{unit step}, i.e., it ``jumps'' at a point;
+      \item is \FF{not bounded}, i.e., it tends towards infinity;
+      \item or it \FF{oscillates}, i.e., does not stay close to any single number.
+    \end{itemize}
+
+  \item \dd{Limit of a sequence}: the value that the terms of a sequence
+    (\(x_\PP{n}\))\(_{\PP{n} \in \N}\) ``tends to'' \prn{and not to any other} as \PP{\(n\)}
+    approaches infinity \prn{or some other point}, i.e.,
+    \[
+      \lim_{\PP{n} \to \YY{\infty}} x_\PP{n} = x
+    \]
+    \item \dd{\( \varepsilon\) Limit of a sequence}: for every measure of
+      closeness \MM{\( \varepsilon\)}, the sequence's \( x_\PP{n}\) term eventually
+      converges to the limit, i.e.,
+      \[
+        \forall \MM{ \dvarepsilon > 0} \left(
+          \exists \PP{N} \in \N \left(
+            \forall\PP{n} \in \N \left(
+              \PP{n} \ge \PP{N} \Rightarrow |x_\PP{n} - x| < \MM{ \dvarepsilon}
+            \right)
+          \right)
+        \right)
+      \]
+      \item
+
   \end{itemize}
 
 
