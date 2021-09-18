@@ -1,6 +1,10 @@
 \chapter{Limits and Continuity}
 
+% chktex-file 1
+% chktex-file 3
+% chktex-file 21
 % chktex-file 36
+% chktex-file 27
 
 \section{Limits}
 \src{
@@ -21,7 +25,7 @@
   \src{
     \link{https://en.wikipedia.org/wiki/Limit_of_a_function}{Limit of a function} |
     \link{https://en.wikipedia.org/wiki/Limit_of_a_sequence}{Limit of a sequence} |
-    \linky{https://youtu.be/kfF40MiS7zA?t=281}{Essence of Calculus, E7}
+    \linky{https://youtu.be/kfF40MiS7zA?t=281}{Essence of Calculus, Ea}
   }
   \begin{itemize}
     \item \dd{Limit of a function}: a fundamental concept in calculus and
@@ -39,8 +43,9 @@
    \(\1{\mathcal{I}}\), except possibly at \(c\) itself, leading to the
    informal definition, \2{if and only if}
    \[
-    f : \R \to \R, c,L \in \R \Rightarrow \lim_{x \to c} f(x) = L
-  \]\vspace{-24pt}
+      f : \R \to \R, c,L \in \R \Rightarrow \lim_{x \to c} f(x) = L
+    \]
+    \vspace{-22pt}
    \[
     \2{\Updownarrow}
    \]
@@ -51,11 +56,11 @@
         \right)
       \right)
    \]
-  \item functions \FF{do not have} a limit when the function:
+ \item Functions \FF{do not have a limit} when the function:
     \begin{itemize}
       \item has a \FF{unit step}, i.e., it ``jumps'' at a point;
       \item is \FF{not bounded}, i.e., it tends towards infinity;
-      \item or it \FF{oscillates}, i.e., does not stay close to any single number.
+      \item or it \FF{oscillate}, i.e., it does not stay close to any single number.
     \end{itemize}
 
   \item \dd{Limit of a sequence}: the value that the terms of a sequence
@@ -71,24 +76,88 @@
         \forall \MM{ \dvarepsilon > 0} \left(
           \exists \PP{N} \in \N \left(
             \forall\PP{n} \in \N \left(
-              \PP{n} \ge \PP{N} \Rightarrow |x_\PP{n} - x| < \MM{ \dvarepsilon}
+              \PP{n} \ge \PP{N} \then |x_\PP{n} - x| < \MM{ \dvarepsilon}
             \right)
           \right)
         \right)
       \]
-      \item
+    \begin{itemize}
+      \item \dd{Convergent}: when a limit of a sequence \TT{exists}.
+      \item \dd{Divergent}: a sequence that \FF{does not} converge.
+    \end{itemize}
 
   \end{itemize}
 
 
   \subsection{Properties of Limits}
+  \src{
+    \link{https://en.wikipedia.org/wiki/List_of_limits}{List of limits} |
+    \link{https://en.wikipedia.org/wiki/Squeeze_theorem}{Squeeze theorem}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Operations on a single known limit}: if \( \lim_{x \to c} f(x) =
+      L\), then:
+      \begin{itemize}
+        \item \( \lim_{x \to c}\left[ f(x) \pm \PP{ \alpha } \right] = L \pm
+          \PP{ \alpha } \)
+        \item \( \lim_{x \to c} \PP{ \alpha } f(x) = \PP{
+          \alpha }  L \)
+        \item \( \lim_{x \to c} f(x)^{\PP{-1}} = L^{\PP{-1}}, L \neq 0 \)
+        \item \( \lim_{x \to c} f(x)^{\PP{n}} = L^{\PP{n}}, \PP{n} \in \N \)
+        \item \( \lim_{x \to c} f(x)^{\PP{n^{-1}}} = L^{\PP{n^{-1}}},
+          \text{if}~\PP{n} \in \N_\RR{e} \then L~\RR{>}~0\)
+      \end{itemize}
+
+    \item \dd{Operations on two known limits}: if \( \lim_{x \to c} \) and
+      \( \lim_{x \to c} g(x) = L_2 \), then:
+      \begin{itemize}
+        \item \( \lim_{x \to c} \left[ f(x) \pm g(x) \right] = L_1 \pm L_2 \)
+        \item \( \lim_{x \to c} \left[ f(x)g(x) \right] = L_1 L_2 \)
+        \item \( \lim_{x \to c} f(x)g(x)^{-1} = L_1 L_2^{-1} \)
+      \end{itemize}
+
+    \item \dd{Squeeze theorem}: used to \aset{confirm the limit} of a
+      \aset{difficult to compute function} via comparison with two other
+      functions whose limits are easily known or computed.
+      \begin{itemize}
+        \item Let \( \I  \) be an interval having the point \( c \) as a limit point.
+        \item Let \( g, f, \) and \( h \) be functions defined on \( \I \),
+          except possibly at \( c \) itself.
+        \item Suppose that \( \forall x \in \I \land x \neq \then \BB{g(x)} \le
+          \aset{f(x)} \le \RR{h(x)} \)
+        \item and \( \lim_{x \to c} \BB{g(x)} = \lim_{x \to c} \RR{h(x)} = L \)
+        \item then, \( \lim_{x \to c} \aset{f(x)} = L \)
+        \item Essentially, the hard to compute limit of the ``middle function''
+          can be found by finding the limit of two other ``easier'' functions
+          that that ``squeeze'' the middle function at a point of interest.
+      \end{itemize}
+
   \end{itemize}
 
   \subsection{One-Sided Limit}
+  \src{
+    \link{https://en.wikipedia.org/wiki/One-sided_limit}{One-Sided Limit}
+  }
   \begin{itemize}
-    \item
+    \item \dd{One-sided limit}: one of two limits of \( f(x) \) as \( x \)
+      approaches a specified point from either the \BB{left} or from the right
+      \RR{right}.
+      \begin{multicols}{2}
+        \begin{itemize}
+          \item From the \BB{left}: \( \lim_{x \to \BB{c^-}} = L \)
+          \item From the \RR{right}: \( \lim_{x \to \RR{c^+}} = L \)
+        \end{itemize}
+      \end{multicols}
+
+    \item If the left and right limits exist and are equal, then
+    \[
+      \lim_{x \to c} f(x) = L \ifandif \lim_{x \to \BB{c^-}} f(x) = L \land
+        \lim_{ x \to \RR{c^+}} f(x) = L
+    \]
+    \item Limits can still exist, even if the function is defined at a
+      different point, as long as both one-sided limits approach the same value
+      near the given input.
+
   \end{itemize}
 \end{itemize}
 

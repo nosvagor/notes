@@ -61,6 +61,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathcal{F}}
+\newcommand{\I}{\1{\mathcal{I}}}
 \def\hopital{L'H\^{o}pital}
 
 % Operator names
@@ -71,23 +72,23 @@
 
 % Redfined with color
 \let\oldcup\cup
-\renewcommand{\cup}{\hspace{3pt}\ff{\oldcup}\hspace{2pt}}
+\renewcommand{\cup}{\hspace{3pt}\FF{\oldcup}\hspace{2pt}}
 \let\oldcap\cap
-\renewcommand{\cap}{\hspace{3pt}\tt{\oldcap}\hspace{2pt}}
+\renewcommand{\cap}{\hspace{3pt}\TT{\oldcap}\hspace{2pt}}
 
 \let\oldmin\min
-\renewcommand{\min}[1]{\bb{\oldmin\left(\fg{#1}\right)}}
+\renewcommand{\min}[1]{\BB{\oldmin\left(\fg{#1}\right)}}
 \let\oldmax\max
-\renewcommand{\max}[1]{\rr{\oldmax\left(\fg{#1}\right)}}
+\renewcommand{\max}[1]{\RR{\oldmax\left(\fg{#1}\right)}}
 
 \let\oldland\land
-\renewcommand{\land}{~\tt{\oldland}~}
+\renewcommand{\land}{~\TT{\oldland}~}
 \let\oldlor\lor
-\renewcommand{\lor}{~\ff{\oldlor}~}
+\renewcommand{\lor}{~\FF{\oldlor}~}
 
 \RequirePackage{stackengine}
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
   \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
-\def\then{~\sec{\Rightarrow}~}
-\def\ifandif{~\sec{\Leftrightarrow}~}
+\def\then{~\2{\Rightarrow}~}
+\def\ifandif{~\2{\Leftrightarrow}~}
