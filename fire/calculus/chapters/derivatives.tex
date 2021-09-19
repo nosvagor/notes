@@ -8,7 +8,7 @@
 
 \section{Derivative Fundamentals}
 \src{
-  \link{https://en.wikipedia.org/wiki/Derivative}{Derivative} | \thomas{3.2}
+  \link{https://en.wikipedia.org/wiki/Derivative}{Derivative} | \thomas{3.2, 3.4}
 }
 \begin{itemize}
   \item \dd{Derivative}: the measure of \aset{sensitivity to change} of the
@@ -77,7 +77,7 @@
 \section{Differentiation Rules}
 \src{
   \link{https://en.wikipedia.org/wiki/Differentiation_rules}{Differentiation rules} |
-  \thomas{3.3, 3.5, 3.7}
+  \thomas{3.3, 3.5, 3.6}
 }
 \begin{itemize}
    \item Derivatives can be found by computing the limit, but there are several
@@ -85,6 +85,11 @@
      easier.
 
   \subsection{Linear, Product, Chain, Inverse}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Product_rule}{Product} |
+    \link{https://en.wikipedia.org/wiki/Chain_rule}{Chain} |
+    \link{https://en.wikipedia.org/wiki/Inverse_functions_and_differentiation}{Inverse}
+  }
   \begin{itemize}
     \item \dd{Linear}: differentiation of linear functions consists of the
       constant and sum rules, given the following:
@@ -103,19 +108,19 @@
     \item \dd{Product rule}: used for the product of two functions; \dlink{ss:
       General Leibniz Rule}{can be generalized}
       \[
-        \frac{d(\BB{f}\RR{g})}{dx} = \frac{d\BB{f}}{dx} \RR{g} +
+        \frac{d(\BB{f}\RR{g})}{dx} = \RR{g} \frac{d\BB{f}}{dx} +
         \BB{f}\frac{d\RR{g}}{dx}
       \]
     \item \dd{Chain rule}: used for the composition of two functions \( f(g(x))
       \); if \YY{\(z\)} depends on \YY{\( y \)}, which is dependent on
-      \MM{\(x\)}, then \YY{\( z \)}depends on \MM{\( x \)}as well, i.e.,
+      \MM{\(x\)}, then \YY{\( z \)} depends on \MM{\( x \)} as well, i.e.,
       \[
         \frac{d \YY{z}}{d \MM{x}} = \frac{d \YY{z}}{d \YY{y}} \cdot \frac{d
         \YY{y}}{dx}
       \]
       \begin{itemize}
 
-        \item The following is used to indicate points of evacuation:
+        \item The following is used to indicate points of evaluation:
         \[
           \left.\frac{d \YY{z}}{d \MM{x}}\right|_\MM{x} = \left. \frac{d
           \YY{z}}{d \YY{y}}\right|_{ \YY{y}\left(\MM{x}  \right) } \cdot
@@ -147,26 +152,80 @@
 
   \end{itemize}
 
-  \subsection{Powers, Polynomials, Quotients, Reciprocals}
+  \subsection{Power, Polynomial, Reciprocal, Quotient}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Power_rule}{Power} |
+    \link{https://en.wikipedia.org/wiki/Reciprocal_rule}{Reciprocal} |
+    \link{https://en.wikipedia.org/wiki/Quotient_rule}{Quotient}
+  }
   \begin{itemize}
-    \item
+    \item \dd{Power rule}: used to differentiate functions in the form of \(
+      f(x) = x^r \); can be applied to polynomials since differentiation is
+      linear.
+      \begin{itemize}
+        \item Let \( f : \R \mapsto \R \) be a function satisfying
+        \[
+          f(x) = x^r, \quad \forall x \left( r \in \R \right) \then
+          \frac{d}{dx} = r x^{r-1}
+        \]
+      \end{itemize}
+
+    \item \dd{Reciprocal rule}: yields the derivative of the reciprocal
+      \prn{multiplicative inverse}  of a function \( f \) in terms of the
+      derivative of \( f \).
+      \begin{itemize}
+        \item Can be used to show that the power rule holds for negative
+          exponents.
+        \item The product and reciprocal rules can be used to
+          deduce the quotient rule.
+        \item Let  \( f \) be differentiable at \( x \) and \( f(x) \neq 0 \),
+          then \( g(x) = f(x)^{-1} \) is also differentiable and
+          \[
+            \frac{d(f^{-1})}{dx} = -f^{-2}\frac{df}{dx} \quad \text{i.e.,}
+            \quad g' = -\frac{f'}{f^2}
+          \]
+      \end{itemize}
+
+    \item \dd{Quotient rule}: used to find the derivative of a function that is
+      a ratio of two differentiable functions.
+     \begin{itemize}
+       \item Let \( f \) and \( g \) be differentiable and \( g(x) \neq 0 \),
+         then
+         \[
+           \left( \frac{f}{g}
+           \right) ' = \frac{f'g - fg'}{g^2}
+         \]
+     \end{itemize}
+
   \end{itemize}
 
-  \subsection{Exponential, Logarithmic}
+  \subsection{Trigonometric Differentiation}
+  \src{
+    \link{https://en.wikipedia.org/wiki/Differentiation_of_trigonometric_functions}{Trigonometric functions}
+  }
   \begin{itemize}
-    \item
+    \item All derivatives of circular trigonometric functions can be found from
+      those of \( \sin(x) \) and \( \cos(x) \) by means of the quotient rule.
+      \begin{align*}
+        \sin(x) \quad &\to \quad  \cos(x) & \arcsin(x) \quad &\to \quad \left( \sqrt{1-x^2} \right)^{-1}   \\
+        \cos(x) \quad &\to \quad  -\sin(x) & \arccos(x) \quad &\to \quad -\left( \sqrt{1-x^2}  \right)^{-1} \\
+        \tan(x) \quad &\to \quad  \sec^2(x) & \arctan(x) \quad &\to \quad \left( x^2 + 1 \right) ^{-1} \\
+        \cot(x) \quad &\to \quad  -\csc^2(x) & \arccot(x) \quad &\to \quad -\left( x^2 + 1 \right) ^{-1}\\
+        \sec(x) \quad &\to \quad  \sec(x)\tan(x) & \arcsec(x) \quad &\to \quad \left( |x|\sqrt{x^2 -1}  \right) ^{-1}\\
+        \csc(x) \quad &\to \quad -\csc(x)\cot(x) & \arccsc(x) \quad &\to \quad -\left( |x|\sqrt{x^2 -1}  \right) ^{-1}
+      \end{align*}
+
+    \item Inverse trigonometric functions are found using \dlink{ss:Implicit
+      Differentiation}{implicit differentiation}.
+
   \end{itemize}
 
-  \subsection{Trigonometric, Hyperbolic}
-  \begin{itemize}
-    \item
-  \end{itemize}
 \end{itemize}
 
 
 \section{Differentials and Related Concepts}
 \begin{itemize}
-  \item []
+  \item
 
   \subsection{Differentials}
   \begin{itemize}

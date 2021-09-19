@@ -56,27 +56,33 @@
 % ╦  ┬┌┐┌┬┌─┌─┐
 % ║  ││││├┴┐└─┐
 % ╩═╝┴┘└┘┴ ┴└─┘
-\newcommand{\ulink}[2]{
+
+\newcommand{\ulink}[2]{%
   \hyperref[#1]{{\color{link-internal}{#2}\small\(\,^\uparrow\)}}
 }
-\newcommand{\dlink}[2]{
+
+\newcommand{\dlink}[2]{%
   \hyperref[#1]{{\color{link-internal}{#2}\small\(\,^\downarrow\)}}
 }
+
 \newcommand{\src}[1]{
   {\vspace{-6pt}\color{link-external}{{\footnotesize\faGlobe}}}{\small{#1}}
   \vspace{4pt}
 }
+
 \newcommand{\link}[2]{
   \href{#1}{\color{link-external}{{#2}\small\(\,^\text{\faChain}\)}}
 }
+
 \newcommand{\linky}[2]{
   \href{#1}{\color{link-external}{{#2}\small\(\,^\text{\,\faYoutubePlay}\)}}
 }
+
 \newcommand{\linkpdf}[3]{
   \href{#1}{\color{link-external}#2 {{(#3)}\small\(~^\text{\faBook}\)}}
 }
-  \newcommand{\thomas}[1]{
-    \hspace{-3pt}\linkpdf{https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981}
+  \newcommand{\thomas}[1]{%
+    \linkpdf{https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981}
     {Thomas}
     {#1}
   }
@@ -84,6 +90,7 @@
 % ╔╦╗┌─┐─┐ ┬┌┬┐
 %  ║ ├┤ ┌┴┬┘ │
 %  ╩ └─┘┴ └─ ┴
+
 % Definition
 \newcommand{\dd}[1]{{\color{primary-2}{\textbf{#1}}}}
 
