@@ -14,40 +14,56 @@ Beginning of
 Infinity_](https://en.wikipedia.org/wiki/The_Beginning_of_Infinity), so I have
 incorporated a architectural scheme to organize my interests that plays on the
 four strands from his first book, a favorite show of mine, and a nod to
-Aristotle and ancient philosophy in general.
+ancient philosophy in general.
 
 
 <p align="center">
 <kbd>
-  <img width="150" src="assets/images/water.jpg">
+  computation
+  <br><br>
+  <img width="150" href=water/ src="assets/images/water.jpg">
+  <br><br>
+  computer science
+  <br><br>
+  focus: c++
 </kbd>
 <kbd>
-  <img width="150" src="assets/images/earth.jpg">
+  evolution
+  <br><br>
+  <img width="150" href=earth/ src="assets/images/earth.jpg">
+  <br><br>
+  biology, chemistry
+  <br><br>
+  focus: none
 </kbd>
 <kbd>
-  <img width="150" src="assets/images/fire.jpg">
+  mathematics
+  <br><br>
+  <img width="150" href=fire/ src="assets/images/fire.jpg">
+  <br><br>
+  pure, applied
+  <br><br>
+  focus: calculus
 </kbd>
 <kbd>
-  <img width="150" src="assets/images/air.jpg">
+  epistemology
+  <br><br>
+  <img width="150" href=air/ src="assets/images/air.jpg">
+  <br><br>
+  philosophy, misc
+  <br><br>
+  focus: none
 </kbd>
 </p>
 
-🌊 [Water](water/) &rarr; computation; basically most computer science related topics.
-
-🌳 [Earth](earth/) &rarr; evolution; typically more empirical based research content.
-
-🔥 [Fire](fire/) &rarr; mathematics; frequently overlaps with other categories.
-
-☁  [Air](air/) &rarr; large range of subjects, from epistemology to economics (mostly philosophy).
-
 Most previous learning of mine was centered around biology (my first
-bachelors), some of that content can and be found in [an archived
+bachelor's), some of that content can and be found in [an archived
 version](https://github.com/nosvagor/notes-old) of this repository. I intend to
-revisit subjects in philosophy in biology in greater depth, but for now my
+revisit subjects in philosophy and biology in greater depth, but for now my
 interest is elsewhere; most content will probably be computer science
 and math related for the foreseeable future.
 
-Each category has a more elaborate readme for navigational purposes. Listed
+Each directory has a more elaborate README for navigational purposes. Listed
 below will be links to directories containing relevant content based on where
 my current focus is. If it proves useful, then please use, redistribute, or do
 what ever you want with anything pushed here.
