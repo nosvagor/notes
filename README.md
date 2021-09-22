@@ -21,7 +21,7 @@ ancient philosophy in general.
 <kbd>
   computation
   <br><br>
-  <img width="150" href=water/ src="assets/images/water.jpg">
+  <a href=water/><img width="150" src="assets/images/water.jpg" alt="water"></a>
   <br><br>
   computer science
   <br><br>
