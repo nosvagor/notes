@@ -21,7 +21,7 @@ ancient philosophy in general.
 <kbd>
   computation
   <br><br>
-  <a href=water/><img width="150" src="assets/images/water.jpg" alt="water"></a>
+  <a href=water/ title="computation (water)"><img width="150" src="assets/images/water.jpg" alt="water"></a>
   <br><br>
   computer science
   <br><br>
@@ -30,7 +30,7 @@ ancient philosophy in general.
 <kbd>
   evolution
   <br><br>
-  <img width="150" href=earth/ src="assets/images/earth.jpg">
+  <a href=earth/ title="evolution (earth)"><img width="150" src="assets/images/earth.jpg" alt="earth"></a>
   <br><br>
   biology, chemistry
   <br><br>
@@ -39,7 +39,7 @@ ancient philosophy in general.
 <kbd>
   mathematics
   <br><br>
-  <img width="150" href=fire/ src="assets/images/fire.jpg">
+  <a href=fire/ title="mathematics (fire)"><img width="150" src="assets/images/fire.jpg" alt="fire"></a>
   <br><br>
   pure, applied
   <br><br>
@@ -48,7 +48,7 @@ ancient philosophy in general.
 <kbd>
   epistemology
   <br><br>
-  <img width="150" href=air/ src="assets/images/air.jpg">
+  <a href=air/ title="epistemology (air)"><img width="150" src="assets/images/air.jpg" alt="air"></a>
   <br><br>
   philosophy, misc
   <br><br>
