@@ -79,12 +79,12 @@ what ever you want with anything pushed here.
 
 <table align="center">
   <tr>
-    <td align="center"><strong><a href="water/c++/">c++ <br> (intro cs)</a></strong></td>
+    <td align="center"><strong><a href="water/cpp/">c++ <br> (intro cs)</a></strong></td>
     <td align="center"><strong><a href="fire/linear/">linear algebra <br> (applied) </a></strong></td>
     <td align="center"><strong><a href="fire/calculus/">calculus <br> (iii)</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="water/c++/"><img src="assets/images/c++.ico"></a></td>
+    <td align="center"><a href="water/cpp/"><img src="assets/images/c++.ico"></a></td>
     <td align="center"><a href="fire/linear/"><img src="assets/images/applied.ico"></a></td>
     <td align="center"><a href="fire/calculus/"><img src="assets/images/lorenz.ico"></a></td>
   </tr>
@@ -120,30 +120,5 @@ what ever you want with anything pushed here.
         </a>
       </p>
     </td>
-  </tr>
-</table>
-
-<br>
-
-<h1 align="center">🌐 Turing-Complete 🌐</h1>
-
-<p align="center">
-<kbd>
-  <img width="512" src="assets/images/code.jpg">
-</kbd>
-</p>
-
-<table align="center">
-  <tr>
-    <td align="center"><strong><a href="water/javascript/">javaScript (+)</a></strong></td>
-    <td align="center"><strong><a href="water/solidity/">solidity</a></strong></td>
-    <td align="center"><strong><a href="water/go/">go</a></strong></td>
-    <td align="center"><strong><a href="water/python/">python</a></strong></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="water/javascript/"><img src="assets/images/javascript.ico"></a></td>
-    <td align="center"><a href="water/[solidity/"><img src="assets/images/solidity.ico"></a></td>
-    <td align="center"><a href="water/go/"><img src="assets/images/go.ico"></a></td>
-    <td align="center"><a href="water/python/"><img src="assets/images/python.ico"></a></td>
   </tr>
 </table>
