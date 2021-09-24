@@ -150,10 +150,10 @@
   changepage, apacite, pifont, fontawesome,
 }
 
-% NOTE: why do I have this?
+% NOTE: why do I have this? update: right, captions are clashing. Need to fix
 \RequirePackage[justification=centering]{caption}
-  \captionsetup[table]{
-    skip=3pt,
+  \captionsetup{
+    skip=-8pt,
     labelformat=empty,
   }
 
@@ -163,6 +163,18 @@
     inter-unit-product = \ensuremath{{\cdot}},
   }
 
+
+% ╦┌┐┌┬┌─┌─┐┌─┐┌─┐┌─┐┌─┐
+% ║│││├┴┐└─┐│  ├─┤├─┘├┤
+% ╩┘└┘┴ ┴└─┘└─┘┴ ┴┴  └─┘
+
+\RequirePackage{import, pdfpages, transparent}
+  \pdfsuppresswarningpagegroup=1
+
+  \newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+  }
 
 % ╔╦╗┌─┐┌─┐╔╗ ┌─┐┌─┐┬┌┐┌
 %  ║║│ ││  ╠╩╗├┤ │ ┬││││
