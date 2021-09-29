@@ -14,11 +14,12 @@
   - A geometric understanding of matrices, determinants, eigen-stuffs and more! Created by Grant Sanderson (3blue1Brown).
 - [📑 linear algebra notes v1](http://raw.githubusercontent.com/nosvagor/notes/main/assets/prior/mth-261.pdf) &rarr; done 🏫
   - First attempt at linear algebra notes; primary sources: intro to linear algebra, udemy, and wikipedia.
+    - Note: currently source file currently depreciated; will be updated it soon. &mdash; *9/28/2021*
 
 ## Exercises
 
 - MTH 261: Intro to Linear Algebra &rarr; completed 🏆
   - [Long Answer Exercises](mth-261/long-answer)
-  - [Short Answer Exercises](https://github.com/nosvagor/notes/tree/main/water/python/linear/mth-261/short-answer)
-  - [Udemy Exercises](https://github.com/nosvagor/notes/tree/main/water/python/linear/mth-261/udemy)
+  - [Short Answer Exercises](mth-26/short-answer)
+  - [Udemy Exercises](mth-261/udemy)
 - MTH 343: Applied Linear Algebra &rarr; in progress ⏳
