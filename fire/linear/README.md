@@ -18,8 +18,8 @@
 
 ## Exercises
 
-- MTH 261: Intro to Linear Algebra &rarr; completed 🏆
+- [MTH 261](mth-261): Intro to Linear Algebra &rarr; completed 🏆
   - [Long Answer Exercises](mth-261/long-answer)
-  - [Short Answer Exercises](mth-26/short-answer)
+  - [Short Answer Exercises](mth-261/short-answer)
   - [Udemy Exercises](mth-261/udemy)
-- MTH 343: Applied Linear Algebra &rarr; in progress ⏳
+- [MTH 343](mth-343): Applied Linear Algebra &rarr; in progress ⏳
