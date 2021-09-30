@@ -150,10 +150,9 @@
   changepage, apacite, pifont, fontawesome,
 }
 
-% NOTE: why do I have this? update: right, captions are clashing. Need to fix
 \RequirePackage[justification=centering]{caption}
   \captionsetup{
-    skip=-8pt,
+    skip=-15pt,
     labelformat=empty,
   }
 
@@ -250,8 +249,7 @@
 \pagecolor{background}
 \color{foreground}
 
-\colorlet{accent}{orange}
-\colorlet{accent+1}{orange+1}
+\definecolor{accent}{HTML}{f5b37a}
 
 \colorlet{link-internal}{green}
 \colorlet{link-external}{cyan}
