@@ -47,8 +47,11 @@
 % ║  │ │││││││├─┤│││ ││└─┐
 % ╚═╝└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘
 
+% Inline bold math
+\newcommand{\tbm}[1]{\(\bm{#1}\)}
+
 % Alternative Zero Font
-\newcommand{\nil}{\text{\MVZero}}
+\newcommand{\nil}{\text{\MVZero}~}
 
 % ihat, jhat, khat
 \newcommand*{\ih}{
@@ -93,8 +96,9 @@
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
   \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
-\def\then{~\2{\Rightarrow}~}
-\def\ifandif{~\2{\Leftrightarrow}~}
+\def\then{~\2{\implies}~}
+\let\oldiff\iff
+\renewcommand{\iff}{~\2{\oldiff}~}
 
 \def\lt{~\BB{<}~}
 \def\gt{~\RR{>}~}

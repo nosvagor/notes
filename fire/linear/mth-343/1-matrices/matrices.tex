@@ -1,11 +1,17 @@
 \chapter{1 Matrices and Gaussian Elimination}
 
+% chktex-file 1
+% chktex-file 3
+% chktex-file 21
+% chktex-file 36
+% chktex-file 27
+
 \section{1.2 The Geometry of Linear Equations}
 \begin{itemize}
   \item []
 
   \subsection{Problems 1--12}
-  \begin{enumerate}
+  \begin{enumerate}\color{foreground-2}
     \item For the equations \( x + y = 4, ~ 2x - 2y = 4 \), draw the row picture (two
       intersecting lines) and the column picture (combination of two columns
       equal to the column vector (4,4) on the right side).
@@ -17,20 +23,31 @@
       \end{figure}
 
     \item Solve to find a combination of the columns that equals \(b\):
-
       \begin{align*}
         u - v - w &= b_1 \\
         v + w &= b_2 \\
-        w &= b_3 \\
+        w &= b_3
       \end{align*}
+      \vspace{-35pt}
+      \fg{\begin{align*}
+        &\then w = b_3 \\
+        &\then v = b_2 - b_3 \\
+        &\then u = b_1 + v + w = b_1 + b_2
+      \end{align*}}
+      \vspace{-18pt}
 
     \item Describe the intersection of the three planes \(  u+v+w+z = 6 \) and
-      \( u+w+z = 4 \) and \( u+w = 2 \) (all in four-dimensional space).
-      \begin{itemize}
-        \item Is it a line or a point or an empty set?
-        \item What is the intersection if the fourth plane \( u = -1 \) is included?
-        \item Find a fourth equation that leaves us with no solution.
+      \( u+w+z = 4 \) and \( u+w = 2 \) (all in four-dimensional space). Is it
+      a line or a point or an empty set? What is the intersection if the fourth
+      plane \( u = -1 \) is included? Find a fourth equation that leaves us
+      with no solution.
+      \begin{itemize}\color{foreground}
+        \item \aset{A line}; as \( u + w = 2 \) is only a line (*?). A fourth plane
+          with \( u = -1 \) would produce a normally intersecting point. Any
+          addition equation when \( u + w \neq 2 \) would produce an
+          inconsistent equation.
       \end{itemize}
+
 
     \item Sketch these three lines and decide if the equations are solvable:
       \begin{align*}
@@ -38,42 +55,214 @@
         x - y &= 2 \\
         y &= 1
       \end{align*}
-      \begin{itemize}
-        \item What happens if all right-hand sides are zero?
-        \item Is there any nonzero choice of right-hand sides that allows the
-          three lines to intersect at the same point?
+      \vspace{-30pt}
+      \begin{figure}[h]
+        \centering
+        \incfig[1]{1.2.4}
+        \caption{1.2.4}
+      \end{figure}
+
+      What happens if all right-hand sides are zero? Is there any nonzero
+      choice of right-hand sides that allows the three lines to intersect at
+      the same point?
+      \begin{itemize}\color{foreground}
+        \item If all the solutions were zero, then it would be a trivial
+          solution.
+        \item Yes, e.g., \( x - y = -1 \) would produce a single point of
+          intersection.
       \end{itemize}
 
     \item Find two points on the line of intersection of the three planes \( t
       = 0 \) and \( z = 0 \) and \( x+y+z+t = 1 \) in four-dimensional space.
 
+     \fg{\[
+        \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} \qquad
+        \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0  \end{bmatrix}
+     \]}
+
     \item When \( b = (2,5,7) \), find a solution \( (u,v,w) \) to equation (4)
       different from the solution \( (1,0,1) \) mentioned in the text.
+      \begin{itemize}\color{foreground}
+        \item Since there are infinite solutions, and if \tbm{s} vector
+          describing one solution and \( \lambda \) is any scalar, then \(
+          \bm{s} \lambda \) is also a solution. E.g., \( \left( 1,0,1 \right)
+          42 = \left( 42,0,42 \right)  \)
+      \end{itemize}
 
-    \item
+
+    \item Give two more right-hand sides in addition to \( b = (2,5,7) \) for which equation (4) can be solved. Give two more right-hand sides in addition to
+      \( b = (2,5,6) \)  for which it cannot be solved.
+
+    \item Explain why the system
+      \begin{align*}
+        u + v + w &= 2 \\
+        u + 2v + 3w &= 1 \\
+        v + 2w &= 0
+      \end{align*}
+      is singular by finding a combination of the three equations that adds up
+      to \(0 = 1\). What value should replace the last zero on the right side to
+      allow the equations to have solutions---and what is one of the solutions?
+      \fg{\begin{align*}
+      \begin{bmatrix}[ccc|c]
+        1 & 1 & 1 & 2 \\
+        1 & 2 & 3 & 1 \\
+        0 & 1 & 2 & 0
+      \end{bmatrix}
+      \xRightarrow{R_2 - R_1}
+      \begin{bmatrix}[ccc|c]
+        1 & 1 & 1 & 2 \\
+        0 & 1 & 2 & -1 \\
+        0 & 1 & 2 & 0
+      \end{bmatrix}
+      \xRightarrow{R_3-R_2}
+      \begin{bmatrix}[ccc|c]
+        1 & 1 & 1 & 2 \\
+        0 & 1 & 2 & -1 \\
+        0 & 0 & 0 & 1
+      \end{bmatrix}
+      \end{align*}}
+      \begin{itemize}\color{foreground}
+        \item Replacing the last zero with \aset{\( -1 \)} would yield infinite
+          solutions. One solution would be \( \left[ 3,-1,0 \right]^T \)
+      \end{itemize}
+
+    \item The column picture for the previous exercise (singular system) is
+      \begin{align*}
+        u \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} +
+        v \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} +
+        w \begin{bmatrix} 1 \\ 3 \\ 2 \end{bmatrix} = b
+      \end{align*}
+      Show that the three columns on the left lie in the same plane by
+      expressing the third as a combination of the first two. What are all the
+      solutions \( (u,v,w) \) if \(b\) is the zero vector \( (0,0,0) \)?
+      \fg{\begin{align*}
+        -1 \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} +
+        2 \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} =
+        \begin{bmatrix} 1 \\ 3 \\ 2 \end{bmatrix}
+      \end{align*}}
+      \begin{itemize}\color{foreground}
+        \item If is \tbm{b} equal to the zero vector \nil then the solutions
+          are equal to the kernel (*?) i.e., \( -1x_1, 2x_2, 0x_3  = \nil\)
+      \end{itemize}
+
+    \item Under what condition on \( y_1, y_2, y_3 \) do the points \((0,y_1),
+      (1,y_2), (2,y_3)\) lie on a straight line?
+      \begin{itemize}\color{foreground}
+        \item Question 9 describes the state at which they are co linear, i.e.,
+          \( y_3 = 2y_2 - y_1 \)
+      \end{itemize}
 
 
+    \item These equations are certain to have the solution \( x = y = 0 \). For which
+      values of \(a\) is there a whole line of solutions?
+      \begin{align*}
+        ax + 2y = 0 \\
+        2x + ay = 0
+      \end{align*}
 
-
-
-
+    \item Starting with \( x+4y = 7 \), find the equation for the parallel line
+      through \( x = 0, y = 0 \).
   \end{enumerate}
 
   \subsection{Problems 13--15}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}[resume]\color{foreground-2}
+    \item  Draw the two pictures in two planes for the equations \( x-2y = 0, x+y
+      = 6 \).
+
+    \item For two linear equations in three unknowns \( x, y, z \), the row picture
+      will show (2 or 3) (lines or planes) in (two or three)-dimensional space.
+      The column picture is in (two or three)-dimensional space. The column
+      picture is in (two or three)-dimensional space. The solutions
+      normally lie on a <?>.
+
+    \item For four linear equations in two unknowns \(x\) and \(y\), the row picture
+      shows four <?>. The column picture is in <?>-dimensional space. The equations
+      have no solution unless the vector on the right-hand side is a
+      combination of <?>.
+  \end{enumerate}
+
 
   \subsection{Problems 16--23}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}[resume]\color{foreground-2}
+    \item Find a point with \( z = 2 \) on the intersection line of the planes \( x + y
+      + 3z = 6 \) and \( x-y+z = 4\). Find the point with \( z = 0\) and a third point
+      halfway between.
 
+    \item The first of these equations plus the second equals the third:
+      \begin{align*}
+        x + y + z &= 2 \\
+        x + 2y + z &= 3 \\
+        2x + 3y + 2z &= 5
+      \end{align*}
+
+      The first two planes meet along a line. The third plane contains that
+      line, because if \( x, y, z \) satisfy the first two equations then they
+      also <?>. The equations have infinitely many solutions (the whole line \tbm{L}). Find
+      three solutions.
+
+    \item Move the third plane in Problem 17 to a parallel plane \( 2x + 3y + 2z =
+      9 \). Now the three equations have no solution---\textit{why not}? The first two planes
+      meet along the line \tbm{L}, but the third plane doesn't that line.
+
+    \item In Problem 17 the columns are \( (1,1,2) \) and \( (1,2,3) \) and \(
+      (1,1,2) \). This is a ``singular case'' because the third column is <?>.
+      Find two combinations of the columns that give \( b = (2,3,5) \). This is
+      only possible for \( b = (4,6,c) \) if \(c = \)
+
+    \item Normally 4 ``planes'' in four-dimensional space meet at a <?>. Normally 4
+      column vectors in four-dimensional space can combine to produce \(b\). What
+      combination of \( (1,0,0,0), (1,1,0,0), (1,1,1,0), (1,1,1,1) \) produces \(b =
+      (3,3,3,2)\)? What 4 equations for \(x, y, z, t\) are you solving?
+
+    \item When equation 1 is added to equation 2, which of these are changed:
+      the planes in the row picture, the column picture, the coefficient
+      matrix, the solution?
+
+    \item  If \((a,b)\) is a multiple of \((c,d)\) with \(abcd \neq 0\), show
+      that \((a,c)\) is a multiple of \((b,d)\). This is surprisingly
+      important: call it a challenge question. You could use numbers first to
+      see how \(a, b, c\), and \(d\) are related. The question will lead to:
+      <?>
+
+      If \(A = \begin{bsmallmatrix*} a && b \\ c && d\end{bsmallmatrix*}\)  has
+        dependent rows then it has dependent columns.
+
+      \item In these equations, the third column (multiplying w) is the same as
+        the right side \(b\). The column form of the equations immediately
+        gives what solution for \((u,v,w)\)?
+        \begin{align*}
+          6u + 7v + 8w &= 8 \\
+          4u + 5v + 9w &= 9 \\
+          2u - 2v + 7w &= 7
+        \end{align*}
+
+  \end{enumerate}
 \end{itemize}
 
 \section{1.3 Gaussian Elimination}
 \begin{itemize}
   \item []
+
+  \subsection{Problems 1--9}
+  \begin{enumerate}
+    \item
+
+  \end{enumerate}
+
+ \subsection{Problems 10--19}
+ \begin{enumerate}
+   \item
+ \end{enumerate}
+
+ \subsection{Problems 20--22}
+ \begin{itemize}
+   \item
+ \end{itemize}
+
+ \subsection{Problems 23--31}
+ \begin{enumerate}
+   \item
+ \end{enumerate}
 
 \end{itemize}
 
@@ -101,12 +290,3 @@
 
 
 \end{itemize}
-
-\section{1 Review}
-\begin{itemize}
-  \item []
-
-
-\end{itemize}
-
-
