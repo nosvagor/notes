@@ -128,8 +128,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="2.1739931"
-     inkscape:cx="453.54331"
+     inkscape:zoom="1.6426215"
+     inkscape:cx="453.23892"
      inkscape:cy="226.77165"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -138,10 +138,10 @@
      width="200mm"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="2123"
-     inkscape:window-height="1302"
-     inkscape:window-x="946"
-     inkscape:window-y="405"
+     inkscape:window-width="2036"
+     inkscape:window-height="1023"
+     inkscape:window-x="892"
+     inkscape:window-y="558"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="0">
     <inkscape:grid
@@ -174,10 +174,13 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#c6c8d1;stroke-width:0.14044083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#marker-arrow-0.5308);stop-color:#000000;stop-opacity:1;marker-end:url(#marker-arrow-0.5308)"
        d="M 120,287 V 187"
        id="path97" />
-    <path
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#c6c8d1;stroke-width:0.14044083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#marker-arrow-0.5308);stop-color:#000000;stop-opacity:1;marker-end:url(#marker-arrow-0.5308)"
-       d="M 39.999999,257 H 200"
-       id="path99" />
+    <g
+       id="g36">
+      <path
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#c6c8d1;stroke-width:0.14044083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#marker-arrow-0.5308);stop-color:#000000;stop-opacity:1;marker-end:url(#marker-arrow-0.5308)"
+         d="M 39.999999,257 H 200"
+         id="path99" />
+    </g>
     <text
        style="font-size:3.175px;font-family:monospace;-inkscape-font-specification:'monospace, Normal';font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#a376b8;stroke-width:0.280882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:none;marker-end:none;stop-color:#000000"
        xml:space="preserve"
@@ -201,11 +204,11 @@
          x="111.49656"
          y="192.62819">$y$</tspan></text>
     <path
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#95cf78;stroke-width:0.280882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:none;stop-color:#000000;stop-opacity:1;marker-end:none"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#a376b8;stroke-width:0.280882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:none;stop-color:#000000;stop-opacity:1;marker-end:none"
        d="M 39.999999,247 H 200"
        id="path648" />
     <path
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#e36866;stroke-width:0.280882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:none;stop-color:#000000;stop-opacity:1;marker-end:none"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#e39866;stroke-width:0.280882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:none;stop-color:#000000;stop-opacity:1;marker-end:none"
        d="M 39.999999,207 200,287"
        id="path650" />
     <path

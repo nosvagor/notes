@@ -3,9 +3,9 @@ from sympy import *
 from fractions import Fraction
 
 A = Matrix([
-    [1,1,1,0],
-    [1,2,3,0],
-    [0,1,2,0]
+    [6,7,8,8],
+    [4,5,9,9],
+    [2,-2,7,7],
 ])
 
 # b = np.array([

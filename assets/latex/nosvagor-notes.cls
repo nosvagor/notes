@@ -178,6 +178,7 @@
 % ╔╦╗┌─┐┌─┐╔╗ ┌─┐┌─┐┬┌┐┌
 %  ║║│ ││  ╠╩╗├┤ │ ┬││││
 % ═╩╝└─┘└─┘╚═╝└─┘└─┘┴┘└┘
+
 \AtBeginDocument{
   \let\oldcaption\caption
   \renewcommand{\caption}[1]{\oldcaption{{\color{primary-1}{\textbf{#1}}}}}
@@ -250,6 +251,7 @@
 \color{foreground}
 
 \definecolor{accent}{HTML}{f5b37a}
+\definecolor{accent-alt}{HTML}{f57ab1}
 
 \colorlet{link-internal}{green}
 \colorlet{link-external}{cyan}

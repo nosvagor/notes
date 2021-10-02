@@ -42,12 +42,11 @@
       plane \( u = -1 \) is included? Find a fourth equation that leaves us
       with no solution.
       \begin{itemize}\color{foreground}
-        \item \aset{A line}; as \( u + w = 2 \) is only a line (*?). A fourth plane
+        \item \aset{A line}; \maybe{as \( u + w = 2 \) is only a line}. A fourth plane
           with \( u = -1 \) would produce a normally intersecting point. Any
           addition equation when \( u + w \neq 2 \) would produce an
           inconsistent equation.
       \end{itemize}
-
 
     \item Sketch these three lines and decide if the equations are solvable:
       \begin{align*}
@@ -61,6 +60,8 @@
         \incfig[1]{1.2.4}
         \caption{1.2.4}
       \end{figure}
+
+      \aset{Inconsistent; multiple points of intersect}
 
       What happens if all right-hand sides are zero? Is there any nonzero
       choice of right-hand sides that allows the three lines to intersect at
@@ -88,12 +89,9 @@
           \bm{s} \lambda \) is also a solution. E.g., \( \left( 1,0,1 \right)
           42 = \left( 42,0,42 \right)  \)
       \end{itemize}
-
-
-    \item Give two more right-hand sides in addition to \( b = (2,5,7) \) for which equation (4) can be solved. Give two more right-hand sides in addition to
-      \( b = (2,5,6) \)  for which it cannot be solved.
-
-    \item Explain why the system
+      \vspace{30pt}
+      \addtocounter{enumi}{1}
+      \item Explain why the system
       \begin{align*}
         u + v + w &= 2 \\
         u + 2v + 3w &= 1 \\
@@ -142,7 +140,7 @@
       \end{align*}}
       \begin{itemize}\color{foreground}
         \item If is \tbm{b} equal to the zero vector \nil then the solutions
-          are equal to the kernel (*?) i.e., \( -1x_1, 2x_2, 0x_3  = \nil\)
+          \maybe{are equal to the kernel} i.e., \( -1x_1, 2x_2, 0x_3  = \nil\)
       \end{itemize}
 
     \item Under what condition on \( y_1, y_2, y_3 \) do the points \((0,y_1),
@@ -159,35 +157,16 @@
         ax + 2y = 0 \\
         2x + ay = 0
       \end{align*}
+      \begin{itemize}\color{foreground}
+        \item Only the scalars that make the lines linearly dependent, i.e., \(
+          \aset{a = 2, -2} \)
+      \end{itemize}
 
-    \item Starting with \( x+4y = 7 \), find the equation for the parallel line
-      through \( x = 0, y = 0 \).
   \end{enumerate}
 
-  \subsection{Problems 13--15}
+  \subsection{Problems 17--23}
   \begin{enumerate}[resume]\color{foreground-2}
-    \item  Draw the two pictures in two planes for the equations \( x-2y = 0, x+y
-      = 6 \).
-
-    \item For two linear equations in three unknowns \( x, y, z \), the row picture
-      will show (2 or 3) (lines or planes) in (two or three)-dimensional space.
-      The column picture is in (two or three)-dimensional space. The column
-      picture is in (two or three)-dimensional space. The solutions
-      normally lie on a <?>.
-
-    \item For four linear equations in two unknowns \(x\) and \(y\), the row picture
-      shows four <?>. The column picture is in <?>-dimensional space. The equations
-      have no solution unless the vector on the right-hand side is a
-      combination of <?>.
-  \end{enumerate}
-
-
-  \subsection{Problems 16--23}
-  \begin{enumerate}[resume]\color{foreground-2}
-    \item Find a point with \( z = 2 \) on the intersection line of the planes \( x + y
-      + 3z = 6 \) and \( x-y+z = 4\). Find the point with \( z = 0\) and a third point
-      halfway between.
-
+    \addtocounter{enumi}{5}
     \item The first of these equations plus the second equals the third:
       \begin{align*}
         x + y + z &= 2 \\
@@ -197,35 +176,64 @@
 
       The first two planes meet along a line. The third plane contains that
       line, because if \( x, y, z \) satisfy the first two equations then they
-      also <?>. The equations have infinitely many solutions (the whole line \tbm{L}). Find
+      also \aset{span all of \( \R^3 \)}. The equations have infinitely many solutions (the whole line \tbm{L}). Find
       three solutions.
+      \begin{itemize}\color{foreground}
+        \item \( \bm{v} = (4,4,0), \bm{w} = (6,3,2), \bm{u} = 2v + -1w\)
+      \end{itemize}
 
     \item Move the third plane in Problem 17 to a parallel plane \( 2x + 3y + 2z =
       9 \). Now the three equations have no solution---\textit{why not}? The first two planes
-      meet along the line \tbm{L}, but the third plane doesn't that line.
+      meet along the line \tbm{L}, but the third plane doesn't that
+      \aset{cross} that line.
 
     \item In Problem 17 the columns are \( (1,1,2) \) and \( (1,2,3) \) and \(
-      (1,1,2) \). This is a ``singular case'' because the third column is <?>.
-      Find two combinations of the columns that give \( b = (2,3,5) \). This is
-      only possible for \( b = (4,6,c) \) if \(c = \)
+      (1,1,2) \). This is a ``singular case'' because the third column is
+      \aset{linearly dependent} Find two combinations of the columns that give
+      \( b = (2,3,5) \). This is only possible for \( b = (4,6,c) \) if \(c = \aset{10}\)
 
-    \item Normally 4 ``planes'' in four-dimensional space meet at a <?>. Normally 4
+    \item Normally 4 ``planes'' in four-dimensional space meet at a \aset{tensor}. Normally 4
       column vectors in four-dimensional space can combine to produce \(b\). What
       combination of \( (1,0,0,0), (1,1,0,0), (1,1,1,0), (1,1,1,1) \) produces \(b =
-      (3,3,3,2)\)? What 4 equations for \(x, y, z, t\) are you solving?
+      (3,3,3,2)\)? \maybe{\((1,0,0,-2)\)} What 4 equations for \(x, y, z, t\)
+      are you solving? \aset{A lower triangular matrix, i.e.,}
+      \fg{\[
+        \begin{bmatrix}[cccc|c]
+          1 & 0 & 0 & 0 & 3 \\
+          1 & 1 & 0 & 0 & 3 \\
+          1 & 1 & 1 & 0 & 3 \\
+          1 & 1 & 1 & 1 & 1
+        \end{bmatrix}
+      \]}
 
     \item When equation 1 is added to equation 2, which of these are changed:
       the planes in the row picture, the column picture, the coefficient
       matrix, the solution?
+      \begin{itemize}\color{foreground}
+        \item Row operations do not change the solution. Row 2 is changed, thus
+          the second plane is changed. \maybe{All columns are changed.}
+      \end{itemize}
 
+      \newpage
     \item  If \((a,b)\) is a multiple of \((c,d)\) with \(abcd \neq 0\), show
       that \((a,c)\) is a multiple of \((b,d)\). This is surprisingly
       important: call it a challenge question. You could use numbers first to
       see how \(a, b, c\), and \(d\) are related. The question will lead to:
-      <?>
 
       If \(A = \begin{bsmallmatrix*} a && b \\ c && d\end{bsmallmatrix*}\)  has
-        dependent rows then it has dependent columns.
+      dependent rows then it has dependent columns.
+
+      \vspace{25pt}
+      \src{
+        \link{https://www.math.colostate.edu/~clayton/teaching/m215s10/homework/hw1solutions.pdf}{Received
+        help from, accessed 10/01/2021}
+      }
+      \fg{\begin{align*}
+          \lambda \in \R, &\quad (a,b) = \lambda(c,d) = ( \lambda c, \lambda d) \\
+        &\then a = \lambda c = \lambda c d^{-1} d = d^{-1} c\lambda d = d^{-1}c b \\
+        &\then \left( a,c \right) = \left( d^{-1} c b, d^{-1}d c \right) = d^{-1}(b,d)
+      \end{align*}}
+      \fg{Thus, \( (b,d) \) is a multiple of  \( (a,c) \)}
 
       \item In these equations, the third column (multiplying w) is the same as
         the right side \(b\). The column form of the equations immediately
@@ -235,6 +243,9 @@
           4u + 5v + 9w &= 9 \\
           2u - 2v + 7w &= 7
         \end{align*}
+        \begin{itemize}\color{foreground}
+          \item First two columns are irrelevant, \( u = 0, v = 0 \), only need \( \aset{w} \)
+        \end{itemize}
 
   \end{enumerate}
 \end{itemize}
