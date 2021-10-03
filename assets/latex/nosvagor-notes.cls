@@ -91,7 +91,7 @@
   \setlist[itemize,2]{label=\small{\color{primary-1}\(\circ\)}}
   \setlist[itemize,3]{label=\small{\color{primary-2}\textbullet}}
 
-  \setlist[enumerate]{leftmargin=\dimexpr1.5em}
+  \setlist[enumerate]{leftmargin=\dimexpr1em}
 
 % ╔═╗┌─┐┌┐┌┌┬┐┌─┐
 % ╠╣ │ ││││ │ └─┐

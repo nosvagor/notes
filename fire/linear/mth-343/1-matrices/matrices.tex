@@ -263,6 +263,17 @@
         2x + by &= 16  \\
         4x + 8y &= g
     \end{align*}}
+    \vspace{-30pt}
+    \begin{align*}
+      2x + \aset{4y} &= 16  \\
+      4x + 8y &= \aset{32}
+    \end{align*}
+    \begin{itemize}
+      \item Since \( R_2 \) is just a multiple of \( R_1 \), then solving for
+        \( x,y \), with one variable = 0, in the first equation will yield two
+        solutions, i.e., \( (8,0), (0,4) \)
+    \end{itemize}
+
 
     \minor{\item[7.] For which numbers a does elimination break down (a)
         permanently, and (b) temporarily?
@@ -273,6 +284,21 @@
 
       Solve for \(x\) and \(y\) after fixing the second breakdown by a row
     exchange.}
+    \begin{itemize}
+      \item Permanently: \( \aset{a = 2} \) (linearly dependent, no solution)
+      \item Temporarily: \( \aset{a = 0} \);
+        \begin{align*}
+          \begin{bmatrix}[cc|c]
+          4 & 6 & 6  \\
+          0 & 3 & -3
+          \end{bmatrix} \rightarrow
+          \begin{bmatrix}[cc|c]
+          1 & 0 & 3  \\
+          0 & 1 & -1
+          \end{bmatrix} \\
+          y = -1, \quad x = 3
+        \end{align*}
+    \end{itemize}
 
   \end{enumerate}
 
@@ -286,20 +312,45 @@
        x + 7y - 6z &= 6 \\
        3y + qz &= t
      \end{align*}}
+    \vspace{-25pt}
+     \begin{align*}
+       x + 4y - 2z &= 1 \\
+       x + 7y - 6z &= 6 \\
+       3y + \aset{-4}z &= \aset{5}
+     \end{align*}
+     \begin{itemize}
+       \item If \( q = -4\), then \( R_3 \) would have no pivot
+       \item If \( t = 5 \), then there would be finite solutions, \( R_3 \)
+         would be linearly dependent with \( R_2 \)
+     \end{itemize}
+
 
     \minor{\item It is impossible for a system of linear equations to have
       exactly two solutions. Explain why.
       \begin{itemize}
         \item If \( (x,y,z) \) and \( \left( X,Y,Z \right) \) are two
           solutions, what is the other one?
+          \begin{itemize}\color{foreground}
+            \item There is no other \textit{one}, there would be infinitely
+              many.
+          \end{itemize}
         \item If 25 planes meet at two points, where else do they meet?
+          \begin{itemize}\color{foreground}
+            \item Every other single point, they would span all of \( \R^3 \)
+          \end{itemize}
+
     \end{itemize}}
 
   \minor{\item Three planes can fail to have an intersection point, when no two
-    planes are parallel. The system is singular if row 3 of \tbm{A} is a \aset{<?>} of the first
-    two rows. Find a third equation that can’t be solved if \(x+y+z = 0\) and
-  \(x-2y-z = 1\).}
-
+    planes are parallel. The system is singular if row 3 of \tbm{A} is a
+    \aset{linearly dependent; a combination} of the first two rows. Find a third equation that can’t be
+  solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
+    \begin{align*}
+      x + y + z = 0 \\
+      x - 2y - z = 1 \\
+      R_1 + R_2 \neq 1 \rightarrow ~\text{parallel; no solution, e.g.,} \\
+      \aset{2x - y = 42}
+    \end{align*}
 
  \end{enumerate}
 
@@ -311,14 +362,43 @@
        u + 2v + 2w &= 11 &&\text{and}& u + 2v + 2w &= 10 \\
        2u + 3v - 4w &= 3 &&& 2u + 3v - 4w &= 3
    \end{align*}}
+   \vspace{-20pt}
+   \begin{align*}
+     \rref{\begin{bmatrix}[ccc|c]
+     1 & 1 & 1 & 6 \\
+     1 & 2 & 2 & 11 \\
+     2 & 3 & -4 & 3
+    \end{bmatrix}} \rightarrow
+    \begin{bmatrix}[ccc|c]
+    1 & 0 & 0 & 1  \\
+    0 & 1 & 0 & 3 \\
+    0 & 0 & 1 & 2
+    \end{bmatrix}\\
+     \rref{\begin{bmatrix}[ccc|c]
+     1 & 1 & 1 & 7 \\
+     1 & 2 & 2 & 10 \\
+     2 & 3 & -4 & 3
+    \end{bmatrix}} \rightarrow
+    \begin{bmatrix}[ccc|c]
+    1 & 0 & 0 & 4  \\
+    0 & 1 & 0 & 1 \\
+    0 & 0 & 1 & 2
+    \end{bmatrix}
+   \end{align*}
 
-   \minor{\item For which three numbers a will elimination fail to give three
+   \minor{\item For which three numbers \(a\) will elimination fail to give three
      pivots?
      \begin{align*}
        ax + 2y + 3z &= b_1 \\
        ax + ay + 4z &= b_2 \\
        ax + ay + az &= b_3
    \end{align*}}
+   \vspace{-20pt}
+   \begin{itemize}
+     \item For \( a = 0 \), multiple failures.
+     \item For \( a = 2 \), columns \( 0,1 \) would be equal.
+     \item For \( a = 4 \), rows \( 1,2 \) would be equal.
+   \end{itemize}
 
  \end{enumerate}
 
@@ -328,20 +408,116 @@
 \begin{itemize}
   \item []
 
-    \subsection{Problems 4, 6, 10, 17, 19}
+    \subsection{Problems 4, 10, 17, 19}
     \begin{itemize}
-      \item
+      \minor{\item[4.] If an \(m \times n\) matrix \tbm{A} multiplies an
+      \(n\)-dimensional vector \tbm{x}, how many separate multiplications are
+      involved? What if A multiplies an \(n \times p\) matrix \tbm{B}?}
+
+    \minor{\item[10.] True or false? Give a specific counterexample when false.
+      \begin{itemize}
+        \item If rows 1 and 3 of \tbm{B} are the same, so are rows 1 and 3 of \tbm{AB}.
+        \item If columns 1 and 3 of \tbm{B} are the same, so are columns 1 and 3 of \tbm{AB}.
+        \item If rows 1 and 3 of \tbm{A} are the same, so are rows 1 and 3 of \tbm{AB}.
+        \item \((AB)^2 = A^2B^2\).
+    \end{itemize}}
+
+    \minor{\item[17.] Which of the following matrices are guaranteed to equal \((A+B)^2\)?
+    \[  \hspace{-24pt}
+      A^2 + 2AB+B^2, \quad A(A+B) + B(A+B), \quad (A+B)(B+A), \quad A^2+AB+BA+B^2
+    \]}
+    \minor{\item[19.] A fourth way to multiply matrices is columns of \tbm{A} times rows
+      of \tbm{B}:
+
+      \tbm{AB}\( = \text{(column 1)(row 1)}+\cdots+\text{(column n)(row n)} =\)
+      sum of simple matrices.
+
+      Give a \(2\times\) example of this important rule for matrix multiplication.}
+
     \end{itemize}
 
-    \subsection{Problems 24, 29, 30, 31}
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \subsection{Problems 29--31}
+    \minor{\begin{enumerate}\setcounter{enumi}{28}
+        \item \(\downarrow\)
+      \begin{enumerate}
+        \item \(\bm{E}_{21}\) subtracts row 1 from row 2 and then
+            \(\bm{P}_{23}\) exchanges rows 2 and 3. What matrix \(\bm{E} = \bm{P}_{23}\bm{E}_{21}\)
+            does both steps at once?
+
+          \item \(\bm{P}_{23}\) exchanges rows 2 and 3 and then \( \bm{E}_{31} \) subtracts row 1 from row 3. What
+            matrix \(\bm{M} = \bm{E}_{31}\bm{P}_{23}\) does both steps at once?
+            Explain why the \tbm{M}'s are the same
+      \end{enumerate}
+
+      \item Multiply these matrices:
+        \[
+      \begin{bmatrix}
+      0 & 0 & 1 \\
+      0 & 1 & 0 \\
+      1 & 0 & 0
+      \end{bmatrix}
+      \begin{bmatrix}
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      7 & 8 & 9
+      \end{bmatrix}
+      \begin{bmatrix}
+      0 & 0 & 1 \\
+      0 & 1 & 0 \\
+      1 & 0 & 0
+      \end{bmatrix}\quad\text{and}\quad
+      \begin{bmatrix}
+      1 & 0 & 0 \\
+      -1 & 1 & 0 \\
+      -1 & 0 & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+      1 & 2 & 3 \\
+      1 & 3 & 1 \\
+      1 & 4 & 0
+      \end{bmatrix}.
+        \]
+      \item This \(4\times 4 \) matrix needs which elimination matrices \( \bm{E}_{21} \) and \( \bm{E}_{32} \) and \(\bm{E}_{32} \)?
+       \[
+        \bm{A} = \begin{bmatrix}
+          2 & -1 & 0 & 0 \\
+          -1  & 2 & -1 & 0 \\
+          0 & -1 & 2 & -1 \\
+          0 & 0 & -1 & 2
+        \end{bmatrix}
+        \]
+    \end{enumerate}}
 
     \subsection{Problems 34, 35, 38, 42}
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \minor{\begin{enumerate}
+        \item[34.] Multiply these matrices in the orders \tbm{EF} and \tbm{FE}
+          and \(\bm{E}^2\):
+
+        \item[35.] \( \downarrow \)
+        \begin{enumerate}
+          \item Suppose all columns of \tbm{B} are the same. Then all columns of \tbm{EB}
+            are the same, because each one is \tbm{E} times \aset{<?>}.
+
+          \item Suppose all rows of \tbm{B} are \([1 2 4]\). Show by example that all
+            rows of \tbm{EB} are not \( [1,2,4] \). It is true that those rows
+            are \aset{<?>}.
+        \end{enumerate}
+
+      \item[38.] If \tbm{AB} = \tbm{I} and \tbm{BC} = \tbm{I}, use the
+        associative law to prove \(\bm{A} = \bm{C}\).
+
+      \item[42.] True of false?
+        \begin{enumerate}
+          \item If \( \bm{A}^2 \) is defined then A is necessarily square.
+
+          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{A} and \tbm{B} are square.
+
+          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{AB} and \tbm{BA} are square.
+
+          \item If \tbm{AB} = \tbm{B} then \( \bm{A} = \bm{I} \)
+
+        \end{enumerate}
+    \end{enumerate}}
 
 \end{itemize}
 

@@ -2,10 +2,12 @@ import numpy as np
 from sympy import *
 from fractions import Fraction
 
+a,b,c = symbols('a,b,c')
+
 A = Matrix([
-    [6,7,8,8],
-    [4,5,9,9],
-    [2,-2,7,7],
+    [1,1,1,7],
+    [1,2,2,10],
+    [2,3,-4,3],
 ])
 
 # b = np.array([
@@ -18,7 +20,8 @@ A = Matrix([
 # print("x =\n",x)
 
 rrefA = Matrix(A).rref()
-print(np.array(rrefA[0]))
+print(rrefA)
+# print(np.array(rrefA[0]))
 
 # RA = A.rowspace()
 # print(f'Dimeionsion of rowspace = {len(RA)}\n')
