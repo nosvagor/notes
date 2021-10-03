@@ -413,42 +413,121 @@
       \minor{\item[4.] If an \(m \times n\) matrix \tbm{A} multiplies an
       \(n\)-dimensional vector \tbm{x}, how many separate multiplications are
       involved? What if A multiplies an \(n \times p\) matrix \tbm{B}?}
+      \begin{itemize}
+        \item \aset{\( m\cdot n \)} multiplications; number of rows times the
+          length of \tbm{x}.
+        \item \aset{\( m \cdot n \cdot p \)}; same as above, except accounting
+          for each additional column \( p \).
+      \end{itemize}
+
 
     \minor{\item[10.] True or false? Give a specific counterexample when false.
       \begin{itemize}
         \item If rows 1 and 3 of \tbm{B} are the same, so are rows 1 and 3 of \tbm{AB}.
+          \begin{itemize}\color{foreground}
+            \item \false{false}; matrix multiplication is done by the rows of
+              the left matrix and the columns of the right, the rows may be the
+              same, but if a column between the two are different, then there
+              would be different multiplications occurring, e.g.,
+              \begin{align*}
+                \begin{bmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{bmatrix}
+                \begin{bmatrix}
+                1 & 1 & 1 \\
+                4 & 2 & 0 \\
+                1 & 1 & 1
+                \end{bmatrix} =
+                \begin{bmatrix}
+                12 & 8 & 4 \\
+                30 & 20 & 10  \\
+                38 & 32 & 16
+                \end{bmatrix}
+              \end{align*}
+         \end{itemize}
+
         \item If columns 1 and 3 of \tbm{B} are the same, so are columns 1 and 3 of \tbm{AB}.
+          \begin{itemize}
+            \item \true{true};
+          \end{itemize}
+
         \item If rows 1 and 3 of \tbm{A} are the same, so are rows 1 and 3 of \tbm{AB}.
+          \begin{itemize}
+            \item \true{true}
+          \end{itemize}
+
         \item \((AB)^2 = A^2B^2\).
+          \begin{itemize}\color{foreground}
+            \item \false{false} (most of the time), e.g.,
+              \begin{align*}
+                \bm{A} &=\begin{bmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{bmatrix}
+                \bm{B} = \begin{bmatrix}
+                1 & 1 & 1 \\
+                4 & 2 & 0 \\
+                1 & 1 & 1
+                \end{bmatrix} \\
+                  \bm{AB}^2 =
+                \begin{bmatrix}
+                144 & 64 & 16 \\
+                900 & 400 & 100 \\
+                2304 & 1024 & 256
+                \end{bmatrix}
+                       &\neq
+                \begin{bmatrix}
+                74 & 26 & 10 \\
+                452 & 152 & 52 \\
+                1154 & 386 & 130
+                \end{bmatrix} =
+               \bm{A}^2 \bm{B}^2
+              \end{align*}
+          \end{itemize}
+
     \end{itemize}}
 
     \minor{\item[17.] Which of the following matrices are guaranteed to equal \((A+B)^2\)?
-    \[  \hspace{-24pt}
-      A^2 + 2AB+B^2, \quad A(A+B) + B(A+B), \quad (A+B)(B+A), \quad A^2+AB+BA+B^2
-    \]}
+      \begin{align*}
+      A^2 + 2AB+B^2, \\
+      \text{\true{\(A(A+B) + B(A+B)\)}} \\
+      \text{\true{\((A+B)(B+A)\)}}, \\
+      \text{\true{\(A^2+AB+BA+B^2\)}}
+  \end{align*}}
+  \newpage
     \minor{\item[19.] A fourth way to multiply matrices is columns of \tbm{A} times rows
       of \tbm{B}:
 
       \tbm{AB}\( = \text{(column 1)(row 1)}+\cdots+\text{(column n)(row n)} =\)
       sum of simple matrices.
 
-      Give a \(2\times\) example of this important rule for matrix multiplication.}
+      Give a \(2\times 2\) example of this important rule for matrix multiplication.}
+      \begin{align*}
+      \begin{bmatrix}
+      1 & 2 \\
+      3 & 4
+      \end{bmatrix}
+      \begin{bmatrix}
+      a & b \\
+      c & d
+      \end{bmatrix} =
+      \left(
+        a \begin{bmatrix} 1 \\ 3 \end{bmatrix} +
+        c \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+        b \begin{bmatrix} 1 \\ 3 \end{bmatrix} +
+        d \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+      \right)
+      \end{align*}
+      Useful, as the left matrix can be thought of as the \aset{weights that scale}
+      the elements of the columns of the right matrix.
 
     \end{itemize}
 
-    \subsection{Problems 29--31}
-    \minor{\begin{enumerate}\setcounter{enumi}{28}
-        \item \(\downarrow\)
-      \begin{enumerate}
-        \item \(\bm{E}_{21}\) subtracts row 1 from row 2 and then
-            \(\bm{P}_{23}\) exchanges rows 2 and 3. What matrix \(\bm{E} = \bm{P}_{23}\bm{E}_{21}\)
-            does both steps at once?
-
-          \item \(\bm{P}_{23}\) exchanges rows 2 and 3 and then \( \bm{E}_{31} \) subtracts row 1 from row 3. What
-            matrix \(\bm{M} = \bm{E}_{31}\bm{P}_{23}\) does both steps at once?
-            Explain why the \tbm{M}'s are the same
-      \end{enumerate}
-
+    \subsection{Problems 30, 31}
+    \minor{\begin{enumerate}\setcounter{enumi}{29}
       \item Multiply these matrices:
         \[
       \begin{bmatrix}
@@ -477,7 +556,26 @@
       1 & 4 & 0
       \end{bmatrix}.
         \]
-      \item This \(4\times 4 \) matrix needs which elimination matrices \( \bm{E}_{21} \) and \( \bm{E}_{32} \) and \(\bm{E}_{32} \)?
+        \begin{align*}\color{foreground}
+        \begin{bmatrix}
+        9 & 8 & 7 \\
+        6 & 5 & 4 \\
+        3 & 2 & 1
+      \end{bmatrix}\quad\text{and}\quad
+      \begin{bmatrix}
+      1 & 2 & 3 \\
+      0 & 1 & -2 \\
+      0 & 2 & -3
+      \end{bmatrix}\quad\text{respectively}
+      \end{align*}
+      \begin{itemize}\color{foreground}
+        \item The former multiplication performs two operations (left: swaps
+          top and bottom columns, right: swaps left and right columns), while
+          the latter subtracts row 1 from both row 2 and row 3.
+      \end{itemize}
+
+      \item This \(4\times 4 \) matrix needs which elimination matrices \(
+        \bm{E}_{21} \) and \( \bm{E}_{32} \) and \(\bm{E}_{43} \)?
        \[
         \bm{A} = \begin{bmatrix}
           2 & -1 & 0 & 0 \\
@@ -486,35 +584,108 @@
           0 & 0 & -1 & 2
         \end{bmatrix}
         \]
+        \begin{itemize}\color{foreground}
+          \item \( e_{21} = -\frac{1}{2}, \quad e_{32} = -\frac{2}{3}, \quad
+            e_{43} = -\frac{3}{4} \)
+          \item I suspect the factions will tend towards \( -1 \) if the matrix
+            was expanded upon in a similar fusion?
+        \end{itemize}
+
     \end{enumerate}}
+    \vspace{16pt}
 
     \subsection{Problems 34, 35, 38, 42}
     \minor{\begin{enumerate}
-        \item[34.] Multiply these matrices in the orders \tbm{EF} and \tbm{FE}
+        \item[34.] Multiply these matrices in the orders \tbm{FE} and \tbm{FE}
           and \(\bm{E}^2\):
+          \begin{align*}
+            \bm{E} = \begin{bmatrix}
+            1 & 0 & 0  \\
+            a & 1 & 0 \\
+            b & 0 & 1
+            \end{bmatrix} \qquad
+            \bm{F} =
+            \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & c & 1
+            \end{bmatrix}
+          \end{align*}
+          \fg{\begin{align*}
+           \bm{FE} =
+           \begin{bmatrix}
+           1 & 0 & 0 \\
+           a & 1 & 0 \\
+           ac+b & c & 1
+           \end{bmatrix}\quad
+           \bm{EF} =
+           \begin{bmatrix}
+           1 & 0 & 0 \\
+           a & 1 & 0 \\
+           b & c & 1
+           \end{bmatrix}\quad
+           \bm{E}^2 =
+           \begin{bmatrix}
+           1 & 0 & 0 \\
+           2a & 1 & 0 \\
+           2b & 0 & 1
+           \end{bmatrix}\quad
+          \end{align*}}
 
         \item[35.] \( \downarrow \)
         \begin{enumerate}
           \item Suppose all columns of \tbm{B} are the same. Then all columns of \tbm{EB}
-            are the same, because each one is \tbm{E} times \aset{<?>}.
+            are the same, because each one is \tbm{E} times \aset{\tbm{B_{1n}}}.
 
-          \item Suppose all rows of \tbm{B} are \([1 2 4]\). Show by example that all
-            rows of \tbm{EB} are not \( [1,2,4] \). It is true that those rows
-            are \aset{<?>}.
+          \item Suppose all rows of \tbm{B} are \([1~2~4]\). Show by example that all
+            rows of \tbm{EB} are not \( [1~2~4] \). It is true that those rows
+            are \aset{multiples of \( [1~2~4] \)}
+            \begin{itemize}\color{foreground}
+              \item E.g., if \( e_{12} = 2 \), then \( m_2 \) of \tbm{EB} would
+                be \( [3~6~12] \)
+            \end{itemize}
+
         \end{enumerate}
 
       \item[38.] If \tbm{AB} = \tbm{I} and \tbm{BC} = \tbm{I}, use the
         associative law to prove \(\bm{A} = \bm{C}\).
+        \fg{\begin{align*}
+            \bm{A} &= \bm{A}(\bm{BC}) \\
+            \bm{A} &= (\bm{AB})\bm{C} \\
+            \bm{A} &= \bm{C}
+        \end{align*}}
+        \vspace{-24pt}
 
       \item[42.] True of false?
         \begin{enumerate}
           \item If \( \bm{A}^2 \) is defined then A is necessarily square.
+            \begin{itemize}\color{foreground}
+              \item \true{true}; inner dimensions much match, i.e.,
+                dimensions of \( n_1 = m_2 \). Thus, \tbm{A} must be square.
+            \end{itemize}
 
-          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{A} and \tbm{B} are square.
+          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{A} and \tbm{B}
+            are square.
+            \begin{itemize}\color{foreground}
+              \item \false{false}; if \(\bm{A} = 6 \times 9 \) and \( \bm{B} =
+                9 \times 6 \) allows for valid pre- and post-multiplication of
+                \tbm{B}.
+            \end{itemize}
 
-          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{AB} and \tbm{BA} are square.
+
+          \item If \tbm{AB} and \tbm{BA} are defined, then \tbm{AB} and
+            \tbm{BA} are square.
+            \begin{itemize}\color{foreground}
+              \item \true{true}; see above example, each case will still yield
+                square matrices. Not a proof, but I can't see another way to
+                falsify (b).
+            \end{itemize}
 
           \item If \tbm{AB} = \tbm{B} then \( \bm{A} = \bm{I} \)
+            \begin{itemize}\color{foreground}
+              \item \false{false}; e.g., \( \bm{B} = 0 \)
+            \end{itemize}
+
 
         \end{enumerate}
     \end{enumerate}}
