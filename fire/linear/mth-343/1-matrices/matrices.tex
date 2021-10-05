@@ -695,7 +695,7 @@
 \begin{itemize}
   \item []
 
-    \subsection{Problems 1, 6, 7, 8, 12, 18, 19}
+    \subsection{Problems 1, 6, 7, 12, 14, 18, 19}
     \begin{itemize}\color{foreground-2}
       \item[1.] When is an upper triangular matrix nonsingular (a full set of
         pivots)?
@@ -730,19 +730,67 @@
         \end{bmatrix}
         \]%%%%%%%%%%
 
-      \item[8.]
+      \item[12.]  How could you factor \tbm{A} into a product \tbm{UL}, upper
+        triangular times lower triangular? Would they be the same factors as in
+        \( \bm{A} = \bm{LU} \)?
 
-      \item[12.]
+      \item[14.] 14. Write down all six of the \( 3\times 3 \) permutation matrices,
+        including \(\bm{P} = \bm{I}\). Identify their inverses, which are also
+        permutation matrices. The inverses satisfy \(\bm{PP}^{-1} = \bm{I}\)
+        and are on the same list.
 
-      \item[18.]
+      \item[18.] 18. Decide whether the following systems are singular or
+        nonsingular, and whether they have no solution, one solution, or
+        infinitely many solutions:
+        \[%%%%%%%%%%
+        \begin{bmatrix}[ccc|c]
+        0 & 1 & -1 & 2 \\
+        1 & -1 & 0 & 2 \\
+        1 & 0 & -1 & 2
+        \end{bmatrix} \qquad
+        \begin{bmatrix}[ccc|c]
+        0 & 1 & -1 & 0 \\
+        1 & -1 & 0 & 0 \\
+        1 & 0 & -1 & 0
+        \end{bmatrix} \qquad
+        \begin{bmatrix}[ccc|c]
+        0 & 1 & 1 & 1 \\
+        1 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 1
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
-      \item[19.]
+      \item[19.] Which numbers \(a, b, c\) lead to row exchanges? Which make the
+        matrix singular?
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+        1 & 2 & 0  \\
+        a & 8 & 3 \\
+        0 & b & 5
+        \end{bmatrix}\quad\text{and}\quad
+        \bm{A} = \begin{bmatrix}
+        c & 2 \\
+        6 & 4
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
     \end{itemize}
 
     \subsection{Problems 25--30}
     \begin{enumerate}\setcounter{enumi}{24}\color{foreground-2}
-      \item
+      \item When zero appears in a pivot position, \(\bm{A} = \bm{LU}\) is not
+        possible (we need nonzero pivots \( d,f,i \) in \tbm{U})! Show directly
+        why these are both impossible:
+        \[%%%%%%%%%%
+        \begin{bmatrix}
+        0 & 1  \\
+        2 & 3
+        \end{bmatrix} =
+        \begin{bmatrix}
+        1 & 0 \\
+        \ell & 1
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
       \item
 
