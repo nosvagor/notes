@@ -790,15 +790,74 @@
         1 & 0 \\
         \ell & 1
         \end{bmatrix}
+        \begin{bmatrix}
+        d & e \\
+        0 & f
+        \end{bmatrix} \qquad
+        \begin{bmatrix}
+        1 & 1 & 0 \\
+        1 & 1 & 2 \\
+        1 & 2 & 1
+        \end{bmatrix} =
+        \begin{bmatrix}
+        1 &  &  \\
+        \ell & 1 &  \\
+        m & n & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        d & e & g \\
+         & f & h  \\
+         &  & i
+        \end{bmatrix}
         \]%%%%%%%%%%
 
-      \item
+      \item Which number \(c\) leads to zero in the second pivot position? A row
+        exchange is needed and \(\bm{A} = \bm{LU}\) is not possible. Which \(c\)
+        produces zero in the third pivot position? Then a  row exchange can't
+        help and elimination fails.
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+        1 & c & 0 \\
+        2 & 4 & 1 \\
+        3 & 5 & 1
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
-      \item
+      \item What are \tbm{L} and \tbm{D} for this matrix \tbm{A}? What is \tbm{U} in
+        \(\bm{A} = \bm{LU}\) and what is the new \tbm{U} in \( \bm{A} = \bm{LDU} \)
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+        2 & 4 & 8 \\
+        0 & 3 & 9 \\
+        0 & 0 & 0
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
-      \item
+      \item \tbm{A} and \tbm{B} are symmetric across the diagonal (because 4 =
+        4). Find their triple factorizations \tbm{LDU} and say how \tbm{U} is
+        related to \tbm{L} for these symmetric matrices:
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+        2 & 4 \\
+        4 & 11
+        \end{bmatrix} \quad and \quad
+        \bm{B} =
+        \begin{bmatrix}
+        1 & 4 & 0 \\
+        4 & 12 & 4 \\
+        0 & 4 & 0
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
-      \item
+      \item (Recommended) Compute L and U for the symmetric matrix
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+          a & a & a & a \\
+          a & b & b & b \\
+          a & b & c & c \\
+          a & b & c & d \\
+        \end{bmatrix}
+        \]%%%%%%%%%%
 
       \item
 
