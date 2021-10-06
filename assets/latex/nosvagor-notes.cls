@@ -152,14 +152,14 @@
 
 \RequirePackage[justification=centering]{caption}
   \captionsetup{
-    skip=-15pt,
+    % skip=-15pt,
     labelformat=empty,
   }
 
 
   \RequirePackage{siunitx}
   \sisetup{
-    inter-unit-product = \ensuremath{{\cdot}},
+    % inter-unit-product = \ensuremath{{\cdot}},
   }
 
 

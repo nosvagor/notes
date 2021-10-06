@@ -1,0 +1,110 @@
+% chktex-file 1
+% chktex-file 3
+% chktex-file 21
+% chktex-file 36
+% chktex-file 27
+
+\section{9.4 Edfinity: The Logistic Equation}
+\begin{itemize}
+  \item The logistic equation and general non-equilibrium solution (\( k > 0 \)
+    and  \( A > 0 \))
+  \[%%%%%%%%%%
+    \frac{dy}{dt} = ky\left( 1 - \frac{y}{A} \right), \quad
+    y = \frac{A}{1-e^{-kt}/B} \quad \Leftrightarrow \quad
+   \frac{y}{y-A} = Be^{kt}
+  \]%%%%%%%%%%
+  \item \( y = 0 \to \) unstable equilibrium
+  \item \( y = A \to \) stable equilibrium
+  \item If the initial value \( y_0 = y(0) \) satisfies \( y_0 > 0 \), then \(
+    y(t) \) approach the stable equilibrium  \( y = A \), i.e.,  \( \lim_{t \to
+    \infty} y(t) = A \)
+
+  \subsection{9.4.1}
+  \begin{itemize}
+    \item A population \( P \) obeys the logistic model. It satisfies the equation
+      \[ \frac{dP}{dt} = \frac{7}{1100}P(11-P) ~\text{for}~ P > 0 \]
+      \[ \frac{dP}{dt} = \frac{7}{1100}P(1-\frac{P}{11}) ~\text{for}~ P > 0 \]
+    \item[c.] Assume that \( P(0) = 4 \). Find \( P(87) \)
+      \begin{align*}
+        \frac{y}{y-A} &= Be^{kt} \\
+        \frac{4}{4-11} &= Be^{\frac{7}{1110}0}  \\
+        -0.571 &\approx B \\
+        \then P(87) &= \frac{11}{1-e^{-0.06\cdot87} / -0.571} \approx -10.9
+      \end{align*}
+  \end{itemize}
+
+  \subsection{9.4.2}
+  \begin{itemize}
+    \item Assuming \( P \geq 0 \), suppose that a population develops according
+      to the logistic equation
+      \[%%%%%%%%%%
+      \frac{dP}{dt} = 0.01P - 5 \times 10^{-5}P^2
+      \]%%%%%%%%%%
+      where \( t \) is measured in weeks.
+      \begin{align*}
+        \frac{dP}{dt} &= 0.01P - 5 \times 10^{-5}P^2 \\
+        &= 0.01P \left( 1 - \frac{5 \times 10^{-5}}{0.01}P \right) \\
+        &= 0.01P \left(1 - \frac{P}{200}\right) \\
+        \text{Carrying capacity} = A &= \aset{200}\\
+        k &= \aset{0.01} \\
+        \text{\RR{increasing}} &= (0,200)  \\
+        \text{\BB{decreasing}} &= (200, \infty)
+      \end{align*}
+  \end{itemize}
+
+  \subsection{9.4.3}
+  \begin{itemize}
+    \item A population of squirrels lives in a forest with a carrying capacity
+      of 1600. Assume logistic growth with growth constant \( k =
+      \SI{1}{yr}^{-1} \)
+    \item Find a formula for the squirrel population \( P(t) \), assuming an
+      initial population of 400 squirrels.
+      \begin{align*}
+        \frac{dP}{dt} &= 1P\left( 1- \frac{P}{1600}\right) \\
+        B &= \frac{400}{400-1600} = -\frac{1}{3}\\
+        P(t) &= 1600 / 1 - \frac{e^{-t}}{-\frac{1}{3}} = \frac{1600}{1+3e^{-t}}\\
+        800 &= \frac{1600}{1+3e^{-t}} \\
+        1+3e^{-t} &= 2 \\
+        e^{-t} &= \frac{1}{3} \\
+        t &= -\ln \frac{1}{3} = \SI{1.098}{yr}
+     \end{align*}
+  \end{itemize}
+
+  \subsection{9.4.4}
+  \begin{itemize}
+    \item Sunset Lake is stocked with 2700 rainbow trout and after 1 year the
+      population has grown to 7050. Assuming logistic growth with a carrying
+      capacity of 27,000, find the growth constant \(k\), and determine when the
+      population will increase to 13600.
+      \[%%%%%%%%%%
+        \frac{dP}{dt} = kP\left( 1 - \frac{P}{27000}  \right)  P(0) = 2700,
+        \quad P(t)=13600
+      \]%%%%%%%%%%
+      \begin{align*}
+        B &=\frac{2700}{2700 - 27000} = - \frac{1}{9} \\
+        7050 &= \frac{27000}{1 + 9e^{-k\cdot1}} \\
+        1 + 9e^{-k} &= \frac{27000}{7050} \\
+        \aset{k} &= - \ln \frac{\frac{27000}{7050} - 1}{9} = \aset{1.157} \\
+        13600 &= \frac{27000}{1+9e^{1.157t}}  \\
+        e^{1.157t} &= \frac{\frac{27000}{13600}-1}{9} \\
+        t &= \ln\left(\frac{\frac{27000}{13600}-1}{9}\right)(1.157)^{-1}\\
+        \aset{t} &\approx \aset{\SI{1.911}{yr}}
+      \end{align*}
+  \end{itemize}
+
+  \subsection{9.4.5}
+  \begin{itemize}
+    \item Suppose that a population develops according to the logistic equation
+      \[%%%%%%%%%%
+        \frac{dP}{dt} = 0.05P - \num{6.667e-05}P^2
+      \]%%%%%%%%%%
+      where \( t \) is measure in weeks.
+      \begin{align*}
+        \frac{dP}{dt} &= 0.05P\left(1 - \frac{\num{6.667e-05}}{0.05}P\right) =
+        0.05P\left( 1 - \frac{P}{750} \right)
+      \end{align*}
+ \end{itemize}
+
+\end{itemize}
+
+
