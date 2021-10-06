@@ -740,7 +740,7 @@
         permutation matrices. The inverses satisfy \(\bm{PP}^{-1} = \bm{I}\)
         and are on the same list.
 
-      \item[18.] 18. Decide whether the following systems are singular or
+      \item[18.] Decide whether the following systems are singular or
         nonsingular, and whether they have no solution, one solution, or
         infinitely many solutions:
         \[%%%%%%%%%%
@@ -835,7 +835,7 @@
         \]%%%%%%%%%%
 
       \item \tbm{A} and \tbm{B} are symmetric across the diagonal (because 4 =
-        4). Find their triple factorizations \tbm{LDU} and say how \tbm{U} is
+        4). Find their triple factorizations \tbm{LU} and say how \tbm{U} is
         related to \tbm{L} for these symmetric matrices:
         \[%%%%%%%%%%
         \bm{A} = \begin{bmatrix}
@@ -850,7 +850,7 @@
         \end{bmatrix}
         \]%%%%%%%%%%
 
-      \item (Recommended) Compute L and U for the symmetric matrix
+      \item (Recommended) Compute \tbm{L} and \tbm{U} for the symmetric matrix
         \[%%%%%%%%%%
         \bm{A} = \begin{bmatrix}
           a & a & a & a \\
@@ -859,14 +859,54 @@
           a & b & c & d \\
         \end{bmatrix}
         \]%%%%%%%%%%
+        Find four conditions on \( a,b,c,d \) to get \( \bm{A} = \bm{LU} \)
 
-      \item
+      \item Find \tbm{L} and \tbm{U} for the nonsymmetric matrix
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+          a & r & r & r \\
+          a & b & s & s \\
+          a & b & c & t \\
+          a & b & c & d \\
+        \end{bmatrix}
+        \]%%%%%%%%%%
+        Find four conditions on \( a,b,c,d,r,s,t \) to get \( \bm{A} = \bm{LU}
+        \) with four pivots.
 
     \end{enumerate}
 
-    \subsection{Problems 32, 33, 35, 42, 43}
+    \subsection{Problems 33, 35, 42, 43}\color{foreground-2}
     \begin{itemize}
-      \item
+      \item[33.] Solve \(\bm{Lc} = \bm{b}\) to find \tbm{c}. Then solve \(\bm{Ux} =
+        \bm{c}\) to find \tbm{x}. What was \tbm{A}?
+        \[%%%%%%%%%%
+        \bm{L} = \begin{bmatrix}
+        1 & 0 & 0 \\
+        1 & 1 & 0 \\
+        1 & 1 & 1
+        \end{bmatrix}\quad and \quad
+        \bm{U} = \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1
+        \end{bmatrix} \quad and \quad
+        \bm{b} = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}
+        \]%%%%%%%%%%
+
+      \item[35.] (Important) If A has pivots 2, 7, 6 with no row exchanges,
+        what are the pivots for the upper left \(2 \times 2\) submatrix \tbm{B}
+        (without row 3 and column 3)? Explain why.
+
+      \item[42.] If \tbm{P_1} and \tbm{P_2} are permutation matrices, so is
+        \tbm{P_1P_2}. This still has the rows of \tbm{I} in some order. Give
+        examples with \(\bm{P_1P_2} \neq \bm{P_2P_1}\) and \(\bm{P_3P_4} =
+          \bm{P_4P_3}\).
+
+      \item[43.] (Try this question) Which permutation makes \tbm{PA} upper
+        triangular? Which permutations make \(\bm{P_1AP_2}\) lower triangular?
+        Multiplying \tbm{A} on the right by \tbm{P_2} exchanges the \aset{<?>}
+        of \tbm{A}.
+
     \end{itemize}
 
 \end{itemize}
@@ -876,24 +916,153 @@
   \item []
 
     \subsection{Problems 3, 10, 12, 13, 18, 20, 21}
-    \begin{itemize}
-      \item
+    \begin{itemize}\color{foreground-2}
+      \item[3.] From \(\bm{AB} = \bm{C}\) find a formula for \(\bm{A}^{-1}\). Also
+        find \(\bm{A}^{-1}\) from \(\bm{PA} = \bm{LU}\).
+
+      \item[10.] Find the inverses (in any legal way) of
+        \[%%%%%%%%%%
+        \bm{A} = \begin{bmatrix}
+          0 & 0 & 0 & 1 \\
+          0 & 0 & 2 & 0 \\
+          0 & 3 & 0 & 0 \\
+          4 & 0 & 0 & 0
+        \end{bmatrix}, \qquad
+        \bm{B} = \begin{bmatrix}
+          0 & 0 & 0 & 1 \\
+          0 & 0 & 2 & 0 \\
+          0 & 3 & 0 & 0 \\
+          4 & 0 & 0 & 0
+        \end{bmatrix}, \qquad
+        \bm{C} = \begin{bmatrix}
+          0 & 0 & 0 & 1 \\
+          0 & 0 & 2 & 0 \\
+          0 & 3 & 0 & 0 \\
+          4 & 0 & 0 & 0
+        \end{bmatrix}, \qquad
+        \]%%%%%%%%%%
+
+      \item[12.] If \tbm{A} is invertible, which properties of A remain true
+        for \(\bm{A}^{-1}\)?
+        \begin{enumerate}[label=(\alph*)]
+          \item \tbm{A} is triangular.
+          \item \tbm{A} is symmetric.
+          \item \tbm{A} is tridiagonal.
+          \item All entries are whole
+          \item All entire are fractions (including numbers like \( \tfrac{3}{1} \))
+        \end{enumerate}
+
+      \item[13.] If \(\bm{A} = [3~1]\) and \(\bm{B} = [2~2]\), compute
+        \(\bm{A}^T \bm{B}\), \(\bm{B}^T \bm{A}\), \(\bm{AB}^T\), and \(\bm{BA}^T\).
+
+      \item[18.] Under what conditions on their entries are \tbm{A} and \tbm{B}
+        invertible?
+        \[%%%%%%%%%%
+        \bm{A} =
+        \begin{bmatrix}
+        a & b & c \\
+        d & e & 0 \\
+        f & 0 & 0
+        \end{bmatrix} \qqaud
+        \bm{B} =
+        \begin{bmatrix}
+        a & b & 0 \\
+        c & d & 0 \\
+        0 & 0 & e
+        \end{bmatrix}
+        \]%%%%%%%%%%
+
+      \item[20.] Find the inverse of
+        \[%%%%%%%%%%
+        \bm{A} =
+        \begin{bmatrix}
+          1 & 0 & 0 & 0 \\
+          \frac{1}{4} & 1 & 0 & 0 \\
+          \frac{1}{3} & \frac{1}{3} & 1 & 0 \\
+          \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & 1 \\
+        \end{bmatrix}
+        \]%%%%%%%%%%
+
+      \item[21.] (Remarkable) If \tbm{A} and \tbm{B} are square matrices, show
+        that \(\bm{I}-\bm{BA}\) is invertible if \(\bm{I}-\bm{AB}\) is
+        invertible. Start from \( \bm{B}(\bm{I} - \bm{AB}) = (1 -
+        \bm{BA})\bm{B}\)
+
     \end{itemize}
 
     \subsection{Problems 28--30}
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \begin{enumerate}\setcounter{enumi}{27}\color{foreground-2}
+      \item If the product \(\bm{M} = \bm{ABC}\) of three square matrices is invertible, then
+        \(\bm{A}, \bm{B}, \bm{C}\) are invertible. Find a formula for \(
+        \bm{B}^{-1} \) that involves \( \bm{M}^{-1} \) and \tbm{A} and \tbm{C}.
+
+      \item Prove that a matrix with a column of zeros cannot have an inverse.
+
+      \item Multiply \( \begin{bsmallmatrix} a & b  \\ c & d
+        \end{bsmallmatrix} \) times \( \begin{bsmallmatrix} d & -b \\ -c & a
+        \end{bsmallmatrix} \). What is the inverse of each matrix if \(ad \neq
+        bc\)?
+
+   \end{enumerate}
 
     \subsection{Problems 40--43}
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \begin{enumerate}\setcounter{enumi}{39}\color{foreground-2}
+      \item True or false (with a counterexample if false and a reason if true):
+        \begin{enumerate}
+          \item A \( 4\times 4 \) matrix with a row of zeros is not invertible.
+          \item A matrix with 1s down the main diagonal is invertible.
+          \item If \tbm{A} is invertible then \(\bm{A}^{-1}\) is invertible.
+          \item If \(\bm{A}^T\) is invertible then \tbm{A} is invertible.
+        \end{enumerate}
 
-    \subsection{Problems 49--59}
-    \begin{itemize}
-      \item
-    \end{itemize}
+      \item For which three numbers \(c\) is this matrix not invertible, and why
+        not?
+        \[%%%%%%%%%%
+        \bm{A} =
+        \begin{bmatrix}
+        2 & c & c \\
+        c & c & c \\
+        8 & 7 & c
+        \end{bmatrix}
+        \]%%%%%%%%%%
+
+      \item Prove that \tbm{A} is invertible if \(a \neq 0\) and \(a \neq b\)
+        (find the pivots and \(\bm{A}^{-1}\)):
+        \[%%%%%%%%%%
+        \bm{A} =
+        \begin{bmatrix}
+        a & b & b \\
+        a & a & b \\
+        a & a & a
+        \end{bmatrix}
+        \]%%%%%%%%%%
+
+    \end{enumerate}
+
+    \subsection{Problems 56--58}
+    \begin{enumerate}\setcounter{enumi}{55}\color{foreground-2}
+      \item If \( \bm{A} = \bm{A}^T \) and \( \bm{B} = \bm{B}^T \), which of
+        these matrices are certainly symmetric?
+        \begin{enumerate}
+          \item \( \bm{A}^2 - \bm{B}^2 \)
+          \item \( (\bm{A}+\bm{B})(\bm{A}-\bm{B}) \)
+          \item \tbm{ABA}
+          \item \tbm{ABAB}
+        \end{enumerate}
+
+      \item If \(\bm{A} = \bm{A}^T\) needs a row exchange, then it also needs a
+        column exchange to stay symmetric. In matrix language, \tbm{PA} loses the
+        symmetry of \tbm{A} but \aset{<?>} recovers the symmetry.
+
+      \item \( \downarrow \)
+         \begin{enumerate}
+           \item How many entries of \tbm{A} can be chosen independently, if \(
+             \bm{A} = \bm{A}^T \) is \( 5 \times 5 \)?
+           \item How do \tbm{L} and \tbm{D} \( (5 \times 5) \) give the same
+             number of choice in \( \bm{LCL}^T \)?
+        \end{enumerate}
+
+    \end{enumerate}
 
 \end{itemize}
 
