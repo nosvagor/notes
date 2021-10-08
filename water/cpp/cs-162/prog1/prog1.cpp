@@ -1,9 +1,9 @@
-/* ╔═╗┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ╔═╗┌┐┌┌─┐ */
-/* ╠═╝├┬┘│ ││ ┬├┬┘├─┤│││  ║ ║│││├┤  */
-/* ╩  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴  ╚═╝┘└┘└─┘ */
-/* Cullyn Newman --- CS 162 */
-/* Purpose: calculate the price of a rental stay, accounting for potential
- * discounts or fees.  */
+// ╔═╗┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ╔═╗┌┐┌┌─┐
+// ╠═╝├┬┘│ ││ ┬├┬┘├─┤│││  ║ ║│││├┤
+// ╩  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴  ╚═╝┘└┘└─┘
+// cullyn newman --- cs 162
+// purpose: calculate the price of a rental stay, accounting for potential
+// discounts or fees.
 
 #include <iostream>
 #include <string>
@@ -148,7 +148,6 @@ void calculate(){
   ::tripCost += ::initialCost - ::savings;
   ::serviceCost += ::tripCost * 0.01;
   ::totalCost += ::tripCost + ::serviceCost;
-
 
 };
 
