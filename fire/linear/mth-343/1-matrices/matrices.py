@@ -1,23 +1,26 @@
 import numpy as np
-from sympy import *
-from fractions import Fraction
+import sympy as sp
 
-a,b,c = symbols('a,b,c')
+a, b, c = sp.symbols("a,b,c")
 
-E = Matrix([
-    [1,0,0],
-    [a,1,0],
-    [b,0,1],
-])
+E = sp.Matrix(
+    [
+        [1, 0, 0],
+        [a, 1, 0],
+        [b, 0, 1],
+    ]
+)
 
 
-F = Matrix([
-    [1,0,0],
-    [0,1,0],
-    [0,c,1],
-])
+F = sp.Matrix(
+    [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, c, 1],
+    ]
+)
 
-print(np.array(E**2))
+print(np.array(E ** 2))
 # b = np.array([ rr
 #     [2,5,7]
 # ])
@@ -27,7 +30,7 @@ print(np.array(E**2))
 # print("A^-1=\n",Ainv)
 # print("x =\n",x)
 
-# rrefA = Matrix(A).rref()
+# rrefA = sp.Matrix(A).rref()
 # print(rrefA)
 # print(np.array(rrefA[0]))
 
@@ -48,39 +51,53 @@ print(np.array(E**2))
 # for i in range(len(CA)):
 #     print(np.array(CA)[i],'\n')
 # print('-'*20)
-
-
 A = np.array([
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-])
 
-B = np.array([
-    [1,1,1],
-    [4,2,0],
-    [1,1,1],
-])
+    [1, 2, 3],
+    [1, 2, 3],
+    [1, 2, 3],
+    ])
 
-C = np.array([
-    [0,0,1],
-    [0,1,0],
-    [1,0,0],
-])
+A = np.array(
+    [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]
+)
 
-D = np.array([
-    [1,0,0],
-    [-1,1,0],
-    [-1,0,1],
-])
+B = np.array(
+    [
+        [1, 1, 1],
+        [4, 2, 0],
+        [1, 1, 1],
+    ]
+)
+
+C = np.array(
+    [
+        [0, 0, 1],
+        [0, 1, 0],
+        [1, 0, 0],
+    ]
+)
+
+D = np.array(
+    [
+        [1, 0, 0],
+        [-1, 1, 0],
+        [-1, 0, 1],
+    ]
+)
 
 
-E = np.array([
-    [1,2,3],
-    [1,3,1],
-    [1,4,0],
-])
+E = np.array(
+    [
+        [1, 2, 3],
+        [1, 3, 1],
+        [1, 4, 0],
+    ]
+)
 
-print(C@A)
-print(D@E)
-
+print(C @ A)
+print(D @ E)
