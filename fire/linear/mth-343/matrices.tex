@@ -696,7 +696,7 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
 \begin{itemize}
   \item []
 
-    \subsection{Problems 1, 6, 7, 12, 14, 18, 19}
+    \subsection{Problems 1, 6, 7, 14, 18}
     \begin{itemize}\color{foreground-2}
       \item[1.] When is an upper triangular matrix nonsingular (a full set of
         pivots)?
@@ -714,10 +714,26 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
         6 & 1
       \end{bmatrix}
       \]%%%%%%%%%%%
-      \linkpy{matrices}{34--40}
+      \linkpy{matrices}
+      \fg{\[%%%%%%%%%%
+          \bm{E}^2 = \begin{bmatrix}
+            1 & 0 \\
+            36 & 1
+          \end{bmatrix}\quad
+          \bm{E}^8 =
+          \begin{bmatrix}
+            1 & 0 \\
+            1679616 & 1
+          \end{bmatrix}\quad
+          \bm{E}^{-1} =
+          \begin{bmatrix}
+            1 & 0 \\
+            -6 & 1
+          \end{bmatrix}
+      \]}%%%%%%%%%%
 
-      \item[7.] 7. Find the products FGH and HGF if (with upper triangular
-        zeros omitted)
+      \item[7.] Find the products \tbm{FGH} and \tbm{HGF} if (with upper
+        triangular zeros omitted)
         \[%%%%%%%%%%
         \bm{F} = \begin{bmatrix}
           1 &  &  \\
@@ -738,15 +754,103 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
           0 & 0 & 2 & 1
         \end{bmatrix}
         \]%%%%%%%%%%
+      \linkpy{matrices}
+       \fg{\[
+         \bm{FGH} =
+         \begin{bmatrix}
+           1 & 0 & 0 & 0 \\
+           2 & 1 & 0 & 0 \\
+           0 & 2 & 1 & 0 \\
+           0 & 0 & 2 & 1
+         \end{bmatrix} \quad
+         \bm{HGF} =
+         \begin{bmatrix}
+           1 & 0 & 0 & 0 \\
+           2 & 1 & 0 & 0 \\
+           4 & 2 & 1 & 0 \\
+           8 & 4 & 2 & 1
+         \end{bmatrix} \quad
+       \]}
 
-      \item[12.]  How could you factor \tbm{A} into a product \tbm{UL}, upper
-        triangular times lower triangular? Would they be the same factors as in
-        \( \bm{A} = \bm{LU} \)?
-
+       \newpage
       \item[14.] 14. Write down all six of the \( 3\times 3 \) permutation matrices,
         including \(\bm{P} = \bm{I}\). Identify their inverses, which are also
         permutation matrices. The inverses satisfy \(\bm{PP}^{-1} = \bm{I}\)
         and are on the same list.
+        \fg{\begin{align*}
+          \bm{P} =
+          \begin{bmatrix}
+            \aset{1} & 0 & 0 \\
+            0 & \aset{1} & 0 \\
+            0 & 0 & \aset{1}
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            \aset{1} & 0 & 0 \\
+            0 & \aset{1} & 0 \\
+            0 & 0 & \aset{1}
+          \end{bmatrix} \\
+          \bm{P} =
+          \begin{bmatrix}
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0 \\
+            \aset{1} & 0 & 0
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0 \\
+            \aset{1} & 0 & 0
+          \end{bmatrix} \\
+          \bm{P} =
+          \begin{bmatrix}
+            \aset{1} & 0 & 0 \\
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            \aset{1} & 0 & 0 \\
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0
+          \end{bmatrix} \\
+          \bm{P} =
+          \begin{bmatrix}
+            0 & 0 & \aset{1} \\
+            \aset{1} & 0 & 0 \\
+            0 & \aset{1} & 0
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            0 & \aset{1} & 0 \\
+            0 & 0 & \aset{1} \\
+            \aset{1} & 0 & 0
+          \end{bmatrix} \\
+          \bm{P} =
+          \begin{bmatrix}
+            0 & \aset{1} & 0  \\
+            \aset{1} & 0 & 0 \\
+            0 & 0 & \aset{1}
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            0 & \aset{1} & 0  \\
+            \aset{1} & 0 & 0 \\
+            0 & 0 & \aset{1}
+          \end{bmatrix} \\
+          \bm{P} =
+          \begin{bmatrix}
+            0 & \aset{1} & 0 \\
+            0 & 0 & \aset{1} \\
+            \aset{1} & 0 & 0
+          \end{bmatrix} \qquad
+          \bm{P}^{-1} =
+          \begin{bmatrix}
+            0 & 0 & \aset{1} \\
+            \aset{1} & 0 & 0 \\
+            0 & \aset{1} & 0
+          \end{bmatrix}
+        \end{align*}}
 
       \item[18.] Decide whether the following systems are singular or
         nonsingular, and whether they have no solution, one solution, or
@@ -768,83 +872,61 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
           1 & 0 & 1 & 1
         \end{bmatrix}
         \]%%%%%%%%%%
+      \linkpy{matrices}
 
-      \item[19.] Which numbers \(a, b, c\) lead to row exchanges? Which make the
-        matrix singular?
-        \[%%%%%%%%%%
-          \bm{A} = \begin{bmatrix}
-            1 & 2 & 0  \\
-            a & 8 & 3 \\
-            0 & b & 5
-          \end{bmatrix}\quad\text{and}\quad
-          \bm{A} = \begin{bmatrix}
-            c & 2 \\
-            6 & 4
-          \end{bmatrix}
-        \]%%%%%%%%%%
+      \begin{itemize}\color{foreground}
+        \item Performing rref on above martices yields:
+          \begin{itemize}
+            \item Singular --- no solution
+
+            \item Singular --- \(\infty\) solutions.
+
+            \item Nonsingular --- one solution \([0.5~0.5~0.5]\)
+          \end{itemize}
+      \end{itemize}
 
     \end{itemize}
 
-    \subsection{Problems 25--30}
-    \begin{enumerate}\setcounter{enumi}{24}\color{foreground-2}
-      \item When zero appears in a pivot position, \(\bm{A} = \bm{LU}\) is not
-        possible (we need nonzero pivots \( d,f,i \) in \tbm{U})! Show directly
-        why these are both impossible:
+    \newpage
+    \subsection{Problems 26, 28}
+    \begin{enumerate}\color{foreground-2}
+      \item[26.] Which number \(c\) leads to zero in the second pivot position? A row
+        exchange is needed and \(\bm{A} = \bm{LU}\) is not possible. Which
+        \(c\) produces zero in the third pivot position? Then a  row exchange
+        can't help and elimination fails.
         \[%%%%%%%%%%
+        \bm{A} =
         \begin{bmatrix}
-          0 & 1  \\
-          2 & 3
-        \end{bmatrix} =
-        \begin{bmatrix}
-          1 & 0 \\
-          \ell & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-          d & e \\
-          0 & f
-        \end{bmatrix} \qquad
-        \begin{bmatrix}
-          1 & 1 & 0 \\
-          1 & 1 & 2 \\
-          1 & 2 & 1
-        \end{bmatrix} =
-        \begin{bmatrix}
-          1 &  &  \\
-          \ell & 1 &  \\
-          m & n & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-          d & e & g \\
-            & f & h  \\
-            &  & i
-        \end{bmatrix}
-        \]%%%%%%%%%%
-
-      \item Which number \(c\) leads to zero in the second pivot position? A row
-        exchange is needed and \(\bm{A} = \bm{LU}\) is not possible. Which \(c\)
-        produces zero in the third pivot position? Then a  row exchange can't
-        help and elimination fails.
-        \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
         1 & c & 0 \\
         2 & 4 & 1 \\
         3 & 5 & 1
         \end{bmatrix}
         \]%%%%%%%%%%
+        \begin{itemize}\color{foreground}
+          \item If \aset{\(c = 2\)} then row 2 would have a 0 in the pivot, yielding:
+            \[%%%%%%%%%%
+              \begin{bmatrix}
+                1 & \aset{2} & 0 \\
+                0 & 0 & 1 \\
+                3 & 5 & 1
+              \end{bmatrix}
+            \]%%%%%%%%%%
 
-      \item What are \tbm{L} and \tbm{D} for this matrix \tbm{A}? What is \tbm{U} in
-        \(\bm{A} = \bm{LU}\) and what is the new \tbm{U} in \( \bm{A} = \bm{LDU} \)
-        \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
-        2 & 4 & 8 \\
-        0 & 3 & 9 \\
-        0 & 0 & 0
-        \end{bmatrix}
-        \]%%%%%%%%%%
+          \item If \aset{\(c = 1\)}, then you could take the matrix down to the
+            following form,
+            \[%%%%%%%%%%
+              \begin{bmatrix}
+                1 & \aset{1} & 0 \\
+                0 & 2 & 1 \\
+                0 & 0 & 0
+              \end{bmatrix}
+            \]%%%%%%%%%%
+            which would yield a singular matrix with infinite solutions.
+        \end{itemize}
 
-      \item \tbm{A} and \tbm{B} are symmetric across the diagonal (because 4 =
-        4). Find their triple factorizations \tbm{LU} and say how \tbm{U} is
-        related to \tbm{L} for these symmetric matrices:
+      \item[28.] \tbm{A} and \tbm{B} are symmetric across the diagonal (because
+        4 = 4). Find their triple factorizations \tbm{LU} and say how \tbm{U}
+        is related to \tbm{L} for these symmetric matrices:
         \[%%%%%%%%%%
         \bm{A} = \begin{bmatrix}
         2 & 4 \\
@@ -857,29 +939,44 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
         0 & 4 & 0
         \end{bmatrix}
         \]%%%%%%%%%%
+        \fg{\begin{align*}
+            \bm{U}_A &= \begin{bmatrix}
+              \aset{2} & 4 \\
+              0 & \aset{3}
+            \end{bmatrix}, \qquad
+            \bm{U}_B =
+            \begin{bmatrix}
+              \aset{1} & 4 & 0 \\
+              0 & \aset{-4}& 4 \\
+              0 & 0 & \aset{-4}
+            \end{bmatrix} \\
+              \bm{V}_A &= \begin{bmatrix}
+              1 & 2 \\
+              0 & 1
+            \end{bmatrix}, \qquad
+            \bm{V}_B =
+            \begin{bmatrix}
+              1 & 4 & 0 \\
+              0 & 1 & -1 \\
+              0 & 0 & 1
+            \end{bmatrix} \\
+              \bm{L}_A &= \begin{bmatrix}
+              1 & 0 \\
+              2 & 1
+            \end{bmatrix}, \qquad
+            \bm{L}_B =
+            \begin{bmatrix}
+              1 & 0 & 0 \\
+              4 & 1 & 0 \\
+              0 & -1 & 1
+            \end{bmatrix}
+        \end{align*}}
+      \begin{itemize}\color{foreground}
+      \item {\(\bm{A}, \bm{B} = \bm{L\aset{D}V} \then \bm{L} = \bm{V}^T\)}; the
+        diagonal of the upper matrix, if reduced to 1's in the pivot positions,
+        yields the transponse of the lower triangular matrix.
+      \end{itemize}
 
-      \item (Recommended) Compute \tbm{L} and \tbm{U} for the symmetric matrix
-        \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
-          a & a & a & a \\
-          a & b & b & b \\
-          a & b & c & c \\
-          a & b & c & d \\
-        \end{bmatrix}
-        \]%%%%%%%%%%
-        Find four conditions on \( a,b,c,d \) to get \( \bm{A} = \bm{LU} \)
-
-      \item Find \tbm{L} and \tbm{U} for the nonsymmetric matrix
-        \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
-          a & r & r & r \\
-          a & b & s & s \\
-          a & b & c & t \\
-          a & b & c & d \\
-        \end{bmatrix}
-        \]%%%%%%%%%%
-        Find four conditions on \( a,b,c,d,r,s,t \) to get \( \bm{A} = \bm{LU}
-        \) with four pivots.
 
     \end{enumerate}
 

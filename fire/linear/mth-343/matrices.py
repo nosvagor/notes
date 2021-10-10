@@ -6,31 +6,6 @@ k, m, n = sp.symbols("k m n", integer=True)
 f, g, h = sp.symbols("f g h", cls=sp.Function)
 
 
-A = sp.Matrix(
-    [
-        [1, 0, 0],
-        [a, 1, 0],
-        [b, 0, 1],
-    ]
-)
-
-
-B = sp.Matrix(
-    [
-        [1, 0, 0],
-        [0, 1, 0],
-        [0, c, 1],
-    ]
-)
-
-C = np.array(
-    [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 7, 9],
-    ]
-)
-
 # --- Question 6 --- #
 print("\n" + "-" * 19)
 print("Question 6:\n")
@@ -42,6 +17,80 @@ E = np.array(
     ]
 )
 
-print(E ** 2)
+print(E ** 2, "\n")
+print(E ** 8, "\n")
+print(np.linalg.inv(E), "\n")
+
+print("\n" + "-" * 19)
+
+# --- Question 7 --- #
+print("\n" + "-" * 19)
+print("Question 7:\n")
+
+F = np.array(
+    [
+        [1, 0, 0, 0],
+        [2, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1],
+    ]
+)
+
+G = np.array(
+    [
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 2, 1, 0],
+        [0, 0, 0, 1],
+    ]
+)
+
+H = np.array(
+    [
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 2, 1],
+    ]
+)
+
+print(F @ G @ H, "\n")
+print(H @ G @ F, "\n")
+
+print("-" * 19)
+
+# --- Question 18 --- #
+print("\n" + "-" * 19)
+print("Question 18:\n")
+
+A = sp.Matrix(
+    [
+        [0, 1, -1, 2],
+        [1, -1, 0, 2],
+        [1, 0, -1, 2],
+    ]
+)
+print(np.array(A.rref()[0]), "\n")
+
+
+A = sp.Matrix(
+    [
+        [0, 1, -1, 0],
+        [1, -1, 0, 0],
+        [1, 0, -1, 0],
+    ]
+)
+print(np.array(A.rref()[0]), "\n")
+
+
+A = sp.Matrix(
+    [
+        [0, 1, 1, 1],
+        [1, 1, 0, 1],
+        [1, 0, 1, 1],
+    ]
+)
+print(np.array(A.rref()[0]), "\n")
+
 
 print("\n" + "-" * 19)
