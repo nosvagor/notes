@@ -11,12 +11,12 @@
 - [Essence of Linear Algebra](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
   - An excellent series Created by Grant Sanderson (3blue1Brown).
 
-## Exercises
-- [1 Matrices and Gaussian Elimination](1-matrices)
-- [2 Vector Spaces](2-vectorSpaces)
-- [3 Orthogonality](3-orthogonality)
-- [4 Determinants](4-determinants)
-- [5 Eigenvalues and Eigenvectors](5-eigen)
-- [6 Positive Definite Matrices](6-definiteness)
-- [7 Computations with Matrices](7-computations)
-- [8 Linear Programming and Game Theory](8-gameTheory)
+## Exercises (python)
+- [1 Matrices and Gaussian Elimination](matrices.py)
+- [2 Vector Spaces](vectorSpaces.py)
+- [3 Orthogonality](orthogonality.py)
+- [4 Determinants](determinants.py)
+- [5 Eigenvalues and Eigenvectors](eigen.py)
+- [6 Positive Definite Matrices](definiteness.py)
+- [7 Computations with Matrices](computations.py)
+- [8 Linear Programming and Game Theory](gameTheory.py)
