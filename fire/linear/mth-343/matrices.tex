@@ -701,33 +701,41 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
       \item[1.] When is an upper triangular matrix nonsingular (a full set of
         pivots)?
 
+      \begin{itemize}\color{foreground}
+         \item Every pivot \aset{must be nonzero}. If there is a zero on one of
+           the pivots, then it indicates that one of the columns is a linear
+           combination of one or more of the other columns.
+      \end{itemize}
+
       \item[6.] Find \( \bm{E}^2 \) and \( \bm{E}^8 \) and \( \bm{E}^{-1} \) if
       \[%%%%%%%%%%%
       \bm{E} = \begin{bmatrix}
-      1 & 0 \\
-      6 & 1
+        1 & 0 \\
+        6 & 1
       \end{bmatrix}
       \]%%%%%%%%%%%
+      \linkpy{matrices}{34--40}
 
-      \item[7.] 7. Find the products FGH and HGF if (with upper triangular zeros omitted)
+      \item[7.] 7. Find the products FGH and HGF if (with upper triangular
+        zeros omitted)
         \[%%%%%%%%%%
         \bm{F} = \begin{bmatrix}
-        1 &  &  \\
-        2 & 1 &  \\
-        0 & 0 & 1 \\
-        0 & 0 & 0 & 1
+          1 &  &  \\
+          2 & 1 &  \\
+          0 & 0 & 1 \\
+          0 & 0 & 0 & 1
         \end{bmatrix}
         \bm{G} = \begin{bmatrix}
-        1 &  &  \\
-        0 & 1 &  \\
-        0 & 2 & 1 \\
-        0 & 0 & 0 & 1
+          1 &  &  \\
+          0 & 1 &  \\
+          0 & 2 & 1 \\
+          0 & 0 & 0 & 1
         \end{bmatrix}
         \bm{H} = \begin{bmatrix}
-        1 &  &  \\
-        0 & 1 &  \\
-        0 & 0 & 1 \\
-        0 & 0 & 2 & 1
+          1 &  &  \\
+          0 & 1 &  \\
+          0 & 0 & 1 \\
+          0 & 0 & 2 & 1
         \end{bmatrix}
         \]%%%%%%%%%%
 
@@ -745,34 +753,34 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
         infinitely many solutions:
         \[%%%%%%%%%%
         \begin{bmatrix}[ccc|c]
-        0 & 1 & -1 & 2 \\
-        1 & -1 & 0 & 2 \\
-        1 & 0 & -1 & 2
+          0 & 1 & -1 & 2 \\
+          1 & -1 & 0 & 2 \\
+          1 & 0 & -1 & 2
         \end{bmatrix} \qquad
         \begin{bmatrix}[ccc|c]
-        0 & 1 & -1 & 0 \\
-        1 & -1 & 0 & 0 \\
-        1 & 0 & -1 & 0
+          0 & 1 & -1 & 0 \\
+          1 & -1 & 0 & 0 \\
+          1 & 0 & -1 & 0
         \end{bmatrix} \qquad
         \begin{bmatrix}[ccc|c]
-        0 & 1 & 1 & 1 \\
-        1 & 1 & 0 & 1 \\
-        1 & 0 & 1 & 1
+          0 & 1 & 1 & 1 \\
+          1 & 1 & 0 & 1 \\
+          1 & 0 & 1 & 1
         \end{bmatrix}
         \]%%%%%%%%%%
 
       \item[19.] Which numbers \(a, b, c\) lead to row exchanges? Which make the
         matrix singular?
         \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
-        1 & 2 & 0  \\
-        a & 8 & 3 \\
-        0 & b & 5
-        \end{bmatrix}\quad\text{and}\quad
-        \bm{A} = \begin{bmatrix}
-        c & 2 \\
-        6 & 4
-        \end{bmatrix}
+          \bm{A} = \begin{bmatrix}
+            1 & 2 & 0  \\
+            a & 8 & 3 \\
+            0 & b & 5
+          \end{bmatrix}\quad\text{and}\quad
+          \bm{A} = \begin{bmatrix}
+            c & 2 \\
+            6 & 4
+          \end{bmatrix}
         \]%%%%%%%%%%
 
     \end{itemize}
@@ -784,31 +792,31 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
         why these are both impossible:
         \[%%%%%%%%%%
         \begin{bmatrix}
-        0 & 1  \\
-        2 & 3
+          0 & 1  \\
+          2 & 3
         \end{bmatrix} =
         \begin{bmatrix}
-        1 & 0 \\
-        \ell & 1
+          1 & 0 \\
+          \ell & 1
         \end{bmatrix}
         \begin{bmatrix}
-        d & e \\
-        0 & f
+          d & e \\
+          0 & f
         \end{bmatrix} \qquad
         \begin{bmatrix}
-        1 & 1 & 0 \\
-        1 & 1 & 2 \\
-        1 & 2 & 1
+          1 & 1 & 0 \\
+          1 & 1 & 2 \\
+          1 & 2 & 1
         \end{bmatrix} =
         \begin{bmatrix}
-        1 &  &  \\
-        \ell & 1 &  \\
-        m & n & 1
+          1 &  &  \\
+          \ell & 1 &  \\
+          m & n & 1
         \end{bmatrix}
         \begin{bmatrix}
-        d & e & g \\
-         & f & h  \\
-         &  & i
+          d & e & g \\
+            & f & h  \\
+            &  & i
         \end{bmatrix}
         \]%%%%%%%%%%
 

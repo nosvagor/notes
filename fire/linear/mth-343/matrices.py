@@ -31,10 +31,17 @@ C = np.array(
     ]
 )
 
-# --- Question 11 --- #
+# --- Question 6 --- #
 print("\n" + "-" * 19)
-print("Question 11:\n")
+print("Question 6:\n")
 
-print("testing snippets")
+E = np.array(
+    [
+        [1, 0],
+        [6, 1],
+    ]
+)
+
+print(E ** 2)
 
 print("\n" + "-" * 19)
