@@ -72,7 +72,6 @@ A = sp.Matrix(
 )
 print(np.array(A.rref()[0]), "\n")
 
-
 A = sp.Matrix(
     [
         [0, 1, -1, 0],
@@ -82,7 +81,6 @@ A = sp.Matrix(
 )
 print(np.array(A.rref()[0]), "\n")
 
-
 A = sp.Matrix(
     [
         [0, 1, 1, 1],
@@ -90,7 +88,32 @@ A = sp.Matrix(
         [1, 0, 1, 1],
     ]
 )
+
 print(np.array(A.rref()[0]), "\n")
-
-
 print("\n" + "-" * 19)
+
+# --- Question 1.5.33 --- #
+print("\n" + "-" * 19)
+print("Question 1.5.33:\n")
+
+L = np.array(
+    [
+        [1, 0, 0],
+        [1, 1, 0],
+        [1, 1, 1],
+    ]
+)
+U = L.T
+b = np.array([[4, 5, 6]]).T
+c = np.linalg.inv(L) @ b
+
+print("c = \n", c, "\n")
+
+x = np.linalg.inv(U) @ c
+
+print("x = \n", x, "\n")
+
+A = L @ U
+
+print(A, "\n")
+print("-" * 19)

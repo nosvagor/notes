@@ -980,7 +980,7 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
 
     \end{enumerate}
 
-    \subsection{Problems 33, 35, 42, 43}\color{foreground-2}
+    \subsection{Problems 33, 43}\color{foreground-2}
     \begin{itemize}
       \item[33.] Solve \(\bm{Lc} = \bm{b}\) to find \tbm{c}. Then solve \(\bm{Ux} =
         \bm{c}\) to find \tbm{x}. What was \tbm{A}?
@@ -997,20 +997,59 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
         \end{bmatrix} \quad and \quad
         \bm{b} = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}
         \]%%%%%%%%%%
-
-      \item[35.] (Important) If A has pivots 2, 7, 6 with no row exchanges,
-        what are the pivots for the upper left \(2 \times 2\) submatrix \tbm{B}
-        (without row 3 and column 3)? Explain why.
-
-      \item[42.] If \tbm{P_1} and \tbm{P_2} are permutation matrices, so is
-        \tbm{P_1P_2}. This still has the rows of \tbm{I} in some order. Give
-        examples with \(\bm{P_1P_2} \neq \bm{P_2P_1}\) and \(\bm{P_3P_4} =
-          \bm{P_4P_3}\).
+      \linkpy{matrices}
+      \fg{\begin{align*}
+        \bm{c} = \begin{bmatrix} 4 \\ 1 \\ 1 \end{bmatrix} \quad
+        \bm{x} = \begin{bmatrix} 3 \\ 0 \\ 1 \end{bmatrix} \then
+        \bm{A} = \bm{LU} =
+        \begin{bmatrix}
+          1 & 1 & 1 \\
+          1 & 2 & 2 \\
+          1 & 2 & 3
+        \end{bmatrix}
+      \end{align*}}
 
       \item[43.] (Try this question) Which permutation makes \tbm{PA} upper
         triangular? Which permutations make \(\bm{P_1AP_2}\) lower triangular?
-        Multiplying \tbm{A} on the right by \tbm{P_2} exchanges the \aset{<?>}
+        Multiplying \tbm{A} on the right by \tbm{P_2} exchanges the \aset{columns}
         of \tbm{A}.
+        \begin{align*}
+        \bm{A} =
+          \begin{bmatrix}
+            0 & 0 & 6 \\
+            1 & 2 & 3 \\
+            0 & 4 & 5
+          \end{bmatrix}
+        \end{align*}
+        \fg{\begin{align*}
+            \bm{U} =
+          \begin{bmatrix}
+            0 & \aset{1} & 0 \\
+            0 & 0 & \aset{1} \\
+            \aset{1} & 0 & 0
+          \end{bmatrix}
+          \begin{bmatrix}
+            0 & 0 & 6 \\
+            1 & 2 & 3 \\
+            0 & 4 & 5
+          \end{bmatrix} \\
+          \bm{L} =
+          \begin{bmatrix}
+            \aset{1} & 0 & 0 \\
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0
+          \end{bmatrix}
+          \begin{bmatrix}
+            0 & 0 & 6 \\
+            1 & 2 & 3 \\
+            0 & 4 & 5
+          \end{bmatrix}
+          \begin{bmatrix}
+            0 & 0 & \aset{1} \\
+            0 & \aset{1} & 0 \\
+            \aset{1} & 0 & 0
+          \end{bmatrix}
+        \end{align*}}
 
     \end{itemize}
 
