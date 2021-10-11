@@ -1,11 +1,6 @@
 import numpy as np
 import sympy as sp
 
-a, b, c, d, e, x, y, z, t = sp.symbols("a b c d e x y z t")
-k, m, n = sp.symbols("k m n", integer=True)
-f, g, h = sp.symbols("f g h", cls=sp.Function)
-
-
 # --- Question 6 --- #
 print("\n" + "-" * 19)
 print("Question 6:\n")
@@ -116,4 +111,30 @@ print("x = \n", x, "\n")
 A = L @ U
 
 print(A, "\n")
+print("-" * 19)
+
+# --- Question 1.6.18 --- #
+print("\n" + "-" * 19)
+print("Question 1.6.18:\n")
+
+a, b, c, d, e, f = sp.symbols("a b c d e f")
+
+A = sp.Matrix(
+    [
+        [a, b, c, 1, 0, 0],
+        [d, e, 0, 0, 1, 0],
+        [f, 0, 0, 0, 0, 1],
+    ]
+)
+
+B = sp.Matrix(
+    [
+        [a, b, 0, 1, 0, 0],
+        [c, d, 0, 0, 1, 0],
+        [0, 0, e, 0, 0, 1],
+    ]
+)
+
+print(np.array(A.rref()[0]), "\n")
+print(np.array(B.rref()[0]), "\n")
 print("-" * 19)

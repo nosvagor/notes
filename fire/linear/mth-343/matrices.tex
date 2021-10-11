@@ -1059,151 +1059,145 @@ solved if \(x+y+z = 0\) and \(x-2y-z = 1\).}
 \begin{itemize}
   \item []
 
-    \subsection{Problems 3, 10, 12, 13, 18, 20, 21}
+    \subsection{Problems 3, 12, 18}
     \begin{itemize}\color{foreground-2}
       \item[3.] From \(\bm{AB} = \bm{C}\) find a formula for \(\bm{A}^{-1}\). Also
         find \(\bm{A}^{-1}\) from \(\bm{PA} = \bm{LU}\).
-
-      \item[10.] Find the inverses (in any legal way) of
-        \[%%%%%%%%%%
-        \bm{A} = \begin{bmatrix}
-          0 & 0 & 0 & 1 \\
-          0 & 0 & 2 & 0 \\
-          0 & 3 & 0 & 0 \\
-          4 & 0 & 0 & 0
-        \end{bmatrix}, \qquad
-        \bm{B} = \begin{bmatrix}
-          0 & 0 & 0 & 1 \\
-          0 & 0 & 2 & 0 \\
-          0 & 3 & 0 & 0 \\
-          4 & 0 & 0 & 0
-        \end{bmatrix}, \qquad
-        \bm{C} = \begin{bmatrix}
-          0 & 0 & 0 & 1 \\
-          0 & 0 & 2 & 0 \\
-          0 & 3 & 0 & 0 \\
-          4 & 0 & 0 & 0
-        \end{bmatrix}, \qquad
-        \]%%%%%%%%%%
+        \fg{\begin{align*}
+            \bm{AB} &= \bm{C} \\
+            \bm{A} &= \bm{CB}^{-1} \\
+            \bm{A}^{-1} &= \bm{BC}^{-1} \\
+            \bm{PA} &= \bm{LU}  \\
+            \bm{A} &= \bm{P}^{-1}\bm{LU}  \\
+            \bm{A}^{-1} &= \bm{U}^{-1}\bm{L}^{-1}\bm{P}
+        \end{align*}}
 
       \item[12.] If \tbm{A} is invertible, which properties of A remain true
         for \(\bm{A}^{-1}\)?
         \begin{enumerate}[label=(\alph*)]
-          \item \tbm{A} is triangular.
-          \item \tbm{A} is symmetric.
-          \item \tbm{A} is tridiagonal.
-          \item All entries are whole
-          \item All entire are fractions (including numbers like \( \tfrac{3}{1} \))
+          \item \tbm{A} is triangular. \true{true}
+          \item \tbm{A} is symmetric. \true{true}
+          \item \tbm{A} is tridiagonal. \false{false}
+          \item All entries are whole \false{false}
+          \item All entire are fractions (including numbers like \( \tfrac{3}{1} \)). \true{true};
         \end{enumerate}
-
-      \item[13.] If \(\bm{A} = [3~1]\) and \(\bm{B} = [2~2]\), compute
-        \(\bm{A}^T \bm{B}\), \(\bm{B}^T \bm{A}\), \(\bm{AB}^T\), and \(\bm{BA}^T\).
 
       \item[18.] Under what conditions on their entries are \tbm{A} and \tbm{B}
         invertible?
         \[%%%%%%%%%%
-        \bm{A} =
-        \begin{bmatrix}
-        a & b & c \\
-        d & e & 0 \\
-        f & 0 & 0
-        \end{bmatrix} \qquad
-        \bm{B} =
-        \begin{bmatrix}
-        a & b & 0 \\
-        c & d & 0 \\
-        0 & 0 & e
-        \end{bmatrix}
+          \bm{A} =
+          \begin{bmatrix}
+            a & b & c \\
+            d & e & 0 \\
+            f & 0 & 0
+          \end{bmatrix} \qquad
+          \bm{B} =
+          \begin{bmatrix}
+            a & b & 0 \\
+            c & d & 0 \\
+            0 & 0 & e
+          \end{bmatrix}
         \]%%%%%%%%%%
-
-      \item[20.] Find the inverse of
-        \[%%%%%%%%%%
-        \bm{A} =
-        \begin{bmatrix}
-          1 & 0 & 0 & 0 \\
-          \frac{1}{4} & 1 & 0 & 0 \\
-          \frac{1}{3} & \frac{1}{3} & 1 & 0 \\
-          \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & 1 \\
+      \linkpy{matrices}
+      \fg{\begin{align*}
+          \rref{
+            \begin{bmatrix}[ccc|ccc]
+              a & b & c & 1 & 0 & 0\\
+              d & e & 0 & 0 & 1 & 0\\
+              f & 0 & 0 & 0 & 0 & 1
+          \end{bmatrix}} &\to
+          \begin{bmatrix}[ccc|ccc]
+          1 & 0 & 0 & 0 & 0 & f^{-1} \\
+          0 & 1 & 0 & 0 & e^{-1} & -\frac{d}{ef} \\
+          0 & 0 & 1 & c^{-1} & -\frac{b}{ce} & \frac{-ae + bd}{cef}
+        \end{bmatrix} \\
+          \rref{
+            \begin{bmatrix}[ccc|ccc]
+              a & b & 0 & 1 & 0 & 0\\
+              c & d & 0 & 0 & 1 & 0\\
+              0 & 0 & e & 0 & 0 & 1
+          \end{bmatrix}} &\to
+          \begin{bmatrix}[ccc|ccc]
+            1 & 0 & 0 & \frac{d}{ad - bc} & -\frac{b}{ad - bc} & 0 \\
+            0 & 1 & 0 & -\frac{c}{ad - bc} & \frac{a}{ad - bc} & 0 \\
+            0 & 0 & 1 & 0 & 0 & 1
         \end{bmatrix}
-        \]%%%%%%%%%%
+      \end{align*}}
+      \begin{itemize}\color{foreground}
+        \item \(\bm{A} \to \bm{A}^{-1} \iff c,e,f \neq 0\)
+        \item \(\bm{B} \to \bm{B}^{-1} \iff e \neq 0 \land ad \neq bc\)
+      \end{itemize}
 
-      \item[21.] (Remarkable) If \tbm{A} and \tbm{B} are square matrices, show
-        that \(\bm{I}-\bm{BA}\) is invertible if \(\bm{I}-\bm{AB}\) is
-        invertible. Start from \( \bm{B}(\bm{I} - \bm{AB}) = (1 -
-        \bm{BA})\bm{B}\)
+  \end{itemize}
+  \vspace{24pt}
 
-    \end{itemize}
+  \subsection{Problems 21, 28, 41, 56, 58}
+  \begin{enumerate}\color{foreground-2}
+    \item[21.] (Remarkable) If \tbm{A} and \tbm{B} are square matrices, show
+      that \(\bm{I}-\bm{BA}\) is invertible if \(\bm{I}-\bm{AB}\) is
+      invertible. Sart from \(\bm{B}(\bm{I} - \bm{AB}) = (\bm{I} - \bm{BA})\bm{B}\)
+      \fg{\begin{align*}
+          \bm{B}(\bm{I} - \bm{AB}) &= (\bm{I} - \bm{BA})\bm{B} \\
+          (\bm{I} - \bm{AB}) &= \bm{B}^{-1}(\bm{I} - \bm{BA})\bm{B} \\
+          (\bm{I} - \bm{AB})^{-1} &= \bm{B}(\bm{I} - \bm{BA})^{-1}\bm{B}^{-1}
+      \end{align*}}
+      \vspace{-24pt}
+      \begin{itemize}\color{foreground}
+        \item Thus, as long as \(\bm{I} - \bm{BA}\) is invertible, then the
+          inverse is defined.
+      \end{itemize}
 
-    \subsection{Problems 28--30}
-    \begin{enumerate}\setcounter{enumi}{27}\color{foreground-2}
-      \item If the product \(\bm{M} = \bm{ABC}\) of three square matrices is invertible, then
+    \item[28.] If the product \(\bm{M} = \bm{ABC}\) of three square matrices is invertible, then
         \(\bm{A}, \bm{B}, \bm{C}\) are invertible. Find a formula for \(
         \bm{B}^{-1} \) that involves \( \bm{M}^{-1} \) and \tbm{A} and \tbm{C}.
+        \fg{\begin{align*}
+            \bm{M} &= \bm{ABC}  \\
+            \bm{M}^{-1} &= \bm{C}^{-1}\bm{B}^{-1}\bm{A}^{-1} \\
+            \bm{C}\bm{M}^{-1} &= \bm{B}^{-1}\bm{A}^{-1} \\
+            \bm{C}\bm{M}^{-1}\bm{A} &= \bm{B}^{-1}
+        \end{align*}}
+        \vspace{-16pt}
 
-      \item Prove that a matrix with a column of zeros cannot have an inverse.
-
-      \item Multiply \( \begin{bsmallmatrix} a & b  \\ c & d
-        \end{bsmallmatrix} \) times \( \begin{bsmallmatrix} d & -b \\ -c & a
-        \end{bsmallmatrix} \). What is the inverse of each matrix if \(ad \neq
-        bc\)?
-
-   \end{enumerate}
-
-    \subsection{Problems 40--43}
-    \begin{enumerate}\setcounter{enumi}{39}\color{foreground-2}
-      \item True or false (with a counterexample if false and a reason if true):
-        \begin{enumerate}
-          \item A \( 4\times 4 \) matrix with a row of zeros is not invertible.
-          \item A matrix with 1s down the main diagonal is invertible.
-          \item If \tbm{A} is invertible then \(\bm{A}^{-1}\) is invertible.
-          \item If \(\bm{A}^T\) is invertible then \tbm{A} is invertible.
-        \end{enumerate}
-
-      \item For which three numbers \(c\) is this matrix not invertible, and why
+      \item[41.] For which three numbers \(c\) is this matrix not invertible, and why
         not?
         \[%%%%%%%%%%
-        \bm{A} =
-        \begin{bmatrix}
-        2 & c & c \\
-        c & c & c \\
-        8 & 7 & c
-        \end{bmatrix}
+          \bm{A} =
+          \begin{bmatrix}
+            2 & c & c \\
+            c & c & c \\
+            8 & 7 & c
+          \end{bmatrix}
         \]%%%%%%%%%%
+        \begin{itemize}\color{foreground}
+          \item If \(c = 0\), then there would be multile unavoidable zeros in
+            the pivots.
+          \item If \( c = 2\), then row 2 would just be duplicate of row 1.
+          \item If \( c = 7\), then column 2 and 3 would be equal.
+        \end{itemize}
 
-      \item Prove that \tbm{A} is invertible if \(a \neq 0\) and \(a \neq b\)
-        (find the pivots and \(\bm{A}^{-1}\)):
-        \[%%%%%%%%%%
-        \bm{A} =
-        \begin{bmatrix}
-        a & b & b \\
-        a & a & b \\
-        a & a & a
-        \end{bmatrix}
-        \]%%%%%%%%%%
-
-    \end{enumerate}
-
-    \subsection{Problems 56--58}
-    \begin{enumerate}\setcounter{enumi}{55}\color{foreground-2}
-      \item If \( \bm{A} = \bm{A}^T \) and \( \bm{B} = \bm{B}^T \), which of
-        these matrices are certainly symmetric?
-        \begin{enumerate}
-          \item \( \bm{A}^2 - \bm{B}^2 \)
-          \item \( (\bm{A}+\bm{B})(\bm{A}-\bm{B}) \)
-          \item \tbm{ABA}
-          \item \tbm{ABAB}
-        \end{enumerate}
-
-      \item If \(\bm{A} = \bm{A}^T\) needs a row exchange, then it also needs a
+      \item[57.] If \(\bm{A} = \bm{A}^T\) needs a row exchange, then it also needs a
         column exchange to stay symmetric. In matrix language, \tbm{PA} loses the
-        symmetry of \tbm{A} but \aset{<?>} recovers the symmetry.
+        symmetry of \tbm{A} but \aset{\tbm{PAP^T}} recovers the symmetry.
 
-      \item \( \downarrow \)
+      \item[58.] \( \downarrow \)
          \begin{enumerate}
            \item How many entries of \tbm{A} can be chosen independently, if \(
              \bm{A} = \bm{A}^T \) is \( 5 \times 5 \)?
+             \begin{itemize}
+               \item 25 total choices \(-\) 10 under the diagonal = \aset{15}
+
+             \end{itemize}
+
            \item How do \tbm{L} and \tbm{D} \( (5 \times 5) \) give the same
-             number of choice in \( \bm{LCL}^T \)?
+             number of choice in \( \bm{LDL}^T \)?
+             \begin{itemize}\color{foreground}
+               \item Oh, I kind of used this to find (a). Well,
+                 the diagonal doesn't matter (\(\neq 0\)), since a transponse
+                 can simply be thought of a rotation around the diagonal
+                 elements. But, every element must match \(\bm{U}\), thus only
+                 the 10 choices below matter, yieldng 15 total choices.
+             \end{itemize}
+
         \end{enumerate}
 
     \end{enumerate}
