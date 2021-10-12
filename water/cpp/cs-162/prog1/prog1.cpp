@@ -10,17 +10,12 @@
 #include <string>
 using namespace std;
 
-// global functions and variables used in program
-// tasks broken down to functions
-// I doubt using global variables like this is a good way to go about things.
 void greeting();
-void getData();
-  int rate, tripLength, daysUntilTrip = {0};
+int getRate(int &rate);
+int getLength(int &tripLength);
+int getDays(int &daysUntilTrip);
 void errorCheck();
 void calculate();
-  int initialCost = {0};
-void calculateDiscounts();
-  int tripCost, discounts, savings, serviceCost, totalCost = {0};
 void results();
 
 
@@ -30,8 +25,15 @@ void results();
 //            |_______|__|_|__|} c++
 //=============oo--oo==oo--OOO\\===============================================
 int main() {
+  int rate, tripLength, daysUntilTrip, initialCost = {0};
+  int tripCost, discounts, savings, serviceCost, totalCost = {0};
+
   greeting();
-  getData();
+
+  rate = getRate(rate);
+  tripLength = getLength(tripLength);
+  daysUntilTrip = getDays(daysUntilTrip);
+
   errorCheck();
   calculate();
   results();
@@ -61,52 +63,65 @@ void greeting(){
   << endl << endl;
 }
 
-void getData(){
+int getRate(int &rate){
 
-  // unsafe error but simple checking, assuming only integers will be entered
   do {
     cout << "Nightly rate (USD): ";
-    cin >> ::rate;
-    if (::rate <= 0) {
+    cin >> rate;
+    cin.ignore(100, '\n');
+    if (rate <= 0) {
       cout << "You're telling me they are paying YOU to stay here?\n"
            << "What do you need us for then?\n"
            << "Please enter an amount greater than 0."
       << endl;
     };
-  } while (::rate <= 0);
+  } while (rate <= 0);
 
+  return rate;
+}
+
+int getLength(int &tripLength){
   // get trip duration, same error check
   do {
     cout << "Trip duration (days): ";
-    cin >> ::tripLength;
-    if (::tripLength <= 0) {
+    cin >> tripLength;
+    cin.ignore(100, '\n');
+    if (tripLength <= 0) {
       cout << "Slow down speedracer, a trip has to be least 1 day long." << endl;
       cout << "Please enter a trip duration longer than 1 day: " << endl;
     };
-  } while (::tripLength < 1);
+  } while (tripLength < 1);
 
+  return tripLength;
+}
+
+int getDays(int &daysUntilTrip){
   // get days until start fo trip, same error check
   do {
     cout << "Days until your trip: ";
-    cin >> ::daysUntilTrip;
-    if (::daysUntilTrip <= 0) {
+    cin >> daysUntilTrip;
+    cin.ignore(100, '\n');
+    if (daysUntilTrip <= 0) {
       cout << "Please enter how many days until the start of your trip:  " << endl;
       cout << "start date invalid, we do not provide a time travel service." << endl;
     };
-  } while (::daysUntilTrip < 0);
+  } while (daysUntilTrip < 0);
 
-  // echo data to user
-  cout << "\nYour nightly rate is $" << ::rate << endl;
-  cout << "The duration of your trip is " << ::tripLength << " day(s)" << endl;
-  cout << "Your trip starts in " << ::daysUntilTrip << " day(s)" << endl;
+  return daysUntilTrip;
 };
 
-void errorCheck(){
+void errorCheck(&rate, &tripLength, &daysUntilTrip){
   string response;
+
+  // echo data to user
+  cout << "\nYour nightly rate is $" << rate << endl;
+  cout << "The duration of your trip is " << tripLength << " day(s)" << endl;
+  cout << "Your trip starts in " << daysUntilTrip << " day(s)" << endl;
 
   do {
     cout << "\nIs the above information correct? [yes/no]: ";
     cin >> response;
+    cin.ignore(100, '\n');
   } while (response != "y" &&
            response != "yes" &&
            response != "n" &&
@@ -125,22 +140,22 @@ void errorCheck(){
 void calculate(){
 
   // calculate initial costs before discounts and fees
-  ::initialCost = ::rate * ::tripLength;
+  initialCost = rate * tripLength;
 
   // 20% discount for early booking
-  if (::daysUntilTrip > 5) ::discounts += 20;
+  if (daysUntilTrip > 5) discounts += 20;
 
   // 10% discount and $50 cleaning fee for trips > 3 days.
-  if (::tripLength > 3) {
-    ::discounts += 10;
-    ::serviceCost += 50;
+  if (tripLength > 3) {
+    discounts += 10;
+    serviceCost += 50;
   };
 
   // apply discounts and fees
-  ::savings += round(::initialCost * ::discounts / 100);
-  ::tripCost += ::initialCost - ::savings;
-  ::serviceCost += round(::tripCost * 0.01);
-  ::totalCost += ::tripCost + ::serviceCost;
+  savings += round(initialCost * discounts / 100);
+  tripCost += initialCost - savings;
+  serviceCost += round(tripCost * 0.01);
+  totalCost += tripCost + serviceCost;
 
 };
 
@@ -150,37 +165,38 @@ void results(){
   cout << "\nThe ACTUAL costs of your trip:" << endl;
 
   cout << "\t- Initial cost:\t\t\t$"
-    << ::initialCost
+    << initialCost
   << endl;
 
   cout << "\t- Savings ("
-    << ::discounts << "%): \t\t-$"
-    << ::savings
+    << discounts << "%): \t\t-$"
+    << savings
   << endl;
 
   cout << "\t- Trip cost:\t\t\t$"
-    << ::tripCost
+    << tripCost
   << endl;
 
   cout << "\t- Service cost:\t\t\t$"
-    << ::serviceCost
+    << serviceCost
   << endl;
 
   cout << "\t- Total cost:\t\t\t$"
-    << ::totalCost
+    << totalCost
   << endl << endl;
 
   do {
     cout << "Would you like to restart? [yes/no]: ";
     cin >> response;
+    cin.ignore(100, '\n');
   } while (response != "y" &&
            response != "yes" &&
            response != "n" &&
            response != "no");
 
   if (response == "y" || response == "yes") {
-    ::rate = ::tripLength = ::daysUntilTrip = ::initialCost = 0;
-    ::tripCost = ::discounts = ::savings = ::serviceCost = totalCost = 0;
+    rate = tripLength = daysUntilTrip = initialCost = 0;
+    tripCost = discounts = savings = serviceCost = totalCost = 0;
     main();
   } else { cout << "\n"
     "╔╗ ┬ ┬┌─┐   ┬ ┬┌─┐┬  ┬┌─┐  ┌─┐  ┌┐ ┌─┐┌─┐┬ ┬┌┬┐┬┌─┐┬ ┬┬    ┌┬┐┬┌┬┐┌─┐┬\n"
