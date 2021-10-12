@@ -41,7 +41,7 @@
   \begin{itemize}
     \item Solve \(4xy' - 8y = x^{-1}, \qquad y(1) = 6\)
       \[%%%%%%%%%%
-      \then y' - 2x^{-1}y = 4x^{-2}
+      \then y' - 2x^{-1}y = \frac{1}{4}x^{-2}
       \]%%%%%%%%%%
       \begin{itemize}
         \item Idetify the integrating factor, \(\alpha(x)\)
@@ -53,10 +53,9 @@
 
         \item Find the general solution, \(y(x)\)
           \begin{align*}
-            y &= x^{2} \left( \int  x^{-2} 4x^{-2} dx + C \right) \\
-            y &= x^{2} \left( -\frac{4}{3}x^{-3}  + C \right) \\
-            y &= -\frac{4}{3}x^{-1} + Cx^{2} \\
-            \text{?}~&\to\frac{1}{12}x^{-1} + Cx^2
+            y &= x^{2} \left( \int  x^{-2} \frac{1}{4}x^{-2} dx + C \right) \\
+            y &= x^{2} \left( -\frac{1}{12}x^{-3}  + C \right) \\
+            y &= -\frac{1}{12}x^{-1} + Cx^{2} \\
           \end{align*}
 
         \item Solve the innitla value problem, \(y(1) = 6\)
@@ -123,21 +122,14 @@
       \)
       \begin{align*}
         \alpha (x) &= e^{4x} \\
-        y &= e^{-4x} \left( \int e^{4x} 8e^{8x} dx + C \right) \\
-        y &= e^{-4x} \left(  \frac{2e^{12x}}{3} + C \right) \\
-        y &= \frac{2e^{8x}}{3} + Ce^{-4x} \\
-        -7 &= \frac{2}{3} + C \\
-        C &= -\frac{23}{3} \\
-        y &= \frac{2e^{8x}}{3} - \frac{23e^{-4x}}{3} = \frac{1}{3}(2e^{8x}-23e^{-4x}) \\
-          &\text{wrong\ldots} \\
+        y &= e^{-4x} \left( \int e^{4x} e^{8x} dx + C \right) \\
+        y &= e^{-4x} \left(  \frac{e^{12x}}{12} + C \right) \\
         y &= \frac{e^{8x}}{12} + Ce^{-4x} \\
         -7 &= \frac{1}{12} + C \\
         C &= -\frac{85}{12} \\
         y &= \frac{e^{8x}}{12} + -\frac{85}{12}e^{-4x} \\
       \end{align*}
   \end{itemize}
-
-
 
 
 \end{itemize}

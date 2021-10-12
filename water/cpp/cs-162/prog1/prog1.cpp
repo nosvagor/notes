@@ -57,7 +57,7 @@ void greeting(){
           "\t - 10\% discount for stays longer than 3 days \n"
           "\t - 20\% discount for booking more than 5 days in advance \n"
           "\t - $50 cleaning fee for says longer than 3 days \n"
-          "\t - 1\% service fee (applied AFTER to discounts 😀)"
+          "\t - 1\% service fee (applied AFTER to discounts)"
   << endl << endl;
 }
 
