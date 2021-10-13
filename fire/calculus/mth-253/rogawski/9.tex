@@ -1,0 +1,148 @@
+\section{9 Rogawski: Review}
+\begin{itemize}
+  \item[]
+
+  \subsection{Chapter 9 Toolbox}
+  \begin{itemize}
+    \item \dd{Separable first-order}: a differential equation in the form
+      \[%%%%%%%%%%
+      \frac{dy}{dx} = f (x) g (y)
+      \]%%%%%%%%%%
+      \begin{itemize}
+        \item \dd{General solution}: when \( \frac{dy}{dt} = ky \), then \(\aset{y
+          (t) = De^{kt}}\)
+          \begin{align*}
+            y^{-1}dy &= kdt  \\
+            \int y^{-1} dy &= \int kdt  \\
+            \ln|y| &= kt + C \\
+            |y| &= e^{kt}  \\
+            y &= De^{kt}
+          \end{align*}
+        \item Exponential decay: \(k < 0\); half-life: \((\ln 0.5)k^{-1}\)
+        \item Exponential growth: \(k > 0\); doubling: \((\ln 2)k^{-1}\)
+      \end{itemize}
+
+    \item \dd{First-order linear constant coefficient}: when a quantity \(y\)
+      whose rate of change is proportional to the difference \(y-b\), i.e.,
+      \[%%%%%%%%%%
+        \frac{dy}{dt} = k(y-b)
+      \]%%%%%%%%%%
+    \begin{itemize}
+      \item \dd{General solution}: using separation of variables,
+        \[%%%%%%%%%%
+           \aset{ y (t) = b + Ce^{kt}
+           \quad\leftrightarrow\quad
+           \frac{d}{dt} (y-b) = k(y-b)}
+        \]%%%%%%%%%
+      \item \dd{Newton's law of Cooling}: where \(k\) is the cooling constant
+        \prn{dependent on object} and \(T_0\) is the ambient temperature.
+        \[%%%%%%%%%%
+          \frac{dy}{dt} = -k(y-T_0) \then y (t) = T_0  + C^{-kt}
+        \]%%%%%%%%%%
+
+      \item \dd{Newton's Second Law of Motion}: \(F = ma = mv' = -mg - kv\),
+        i.e.,
+        \[%%%%%%%%%%
+          \frac{dv}{dt} = -\frac{k}{m} \left( v + \frac{mg}{k} \right)
+          \then
+          v (t) = -\frac{mg}{k} + C e^{-\frac{k}{m}t}
+        \]%%%%%%%%%%
+
+      \item \dd{Annuity/Compound interest}: modeling balance in annuity by the
+        differential equation
+        \[%%%%%%%%%%
+          \frac{dP}{dt} = rP - N = r(P - \frac{N}{r})
+          \then
+          P (t) = \frac{N}{r} + C^{rt}
+        \]%%%%%%%%%%
+    \end{itemize}
+
+    \newpage
+  \item \dd{Slope filed}: when a first-order differential equation
+    \(\frac{dy}{dt} = F(t,y)\) is obtained by drawing small segments of slope
+    \(F(t,y)\) at points \(t,y\).
+    \begin{itemize}
+      \item Test points particular points, often two easy tests are enough to
+        match an equation to  graph via elimination of potential options.
+    \end{itemize}
+
+  \item \dd{Euler's Method}: an approximate solution to \(\frac{dy}{dt} =
+    F(\MM{t},\YY{y})\) when given an initial condition \(y(t_0) = \YY{y_0}\) and time step \(\aseg{h}\).
+    \begin{itemize}
+      \item Setting \(t_k = t_0 + kh\) yields \(y_1,y_2,\ldots,y_{n}\) through
+        recursive application of
+        \[%%%%%%%%%%
+          \aset{y_k = y_{k-1} + hF(t_{k-1}, y_{k-1})}
+        \]%%%%%%%%%%
+      \item I.e.,
+        \begin{align*}
+          \aset{y_1} &= \YY{y_{0}} + \aseg{h}F(\MM{t_0},\YY{y_{0}}) \\
+                    &\aset{\searrow} \\
+          \RR{y_{2}} &= \aset{y_{1}} + \aseg{h}F(\MM{t_{0+\aset{1} \PP{h}}},\aset{y_1}) \\
+                    &\RR{\searrow} \\
+          \BB{y_{3}} &= \RR{y_{2}} + \aseg{h}F(\MM{t_{0+\RR{2} \PP{h}}},\RR{y_{2}}) \\
+                    &\BB{\searrow} \\
+                    &~\vdots
+        \end{align*}
+        where each \(y_k\) is an approximate of \(y(t_n)\)
+    \end{itemize}
+
+  \item \dd{Logistic differential equation}: where \(y(t)\) is the population
+    at time \(t\) and \(A\) denotes the carrying capacity, yielding a
+    representation of room for growth \(A-y (t) \).
+    \begin{itemize}
+      \item The assumption is that the \(\frac{dy}{dt} \) is proportional to
+        the amount of \(y (t) \) present and amount of \(A - y (t) \) of room
+        for growth, i.e.,
+        \[%%%%%%%%%%
+          \frac{dy}{dt} = Ky(A-y), \qquad K = ~\text{proportionality constant}~
+        \]%%%%%%%%%
+      \item Which an be written as
+        \[%%%%%%%%%%
+          \aset{\frac{dy}{dt} = ky(1-\frac{y}{A})}, \qquad k = KA
+        \]%%%%%%%%%%
+      \item \dd{General non-equilibrium solution}: when \(k > 0 \land A > 0\):
+        \[%%%%%%%%%%
+          \aset{y = \frac{A}{1-\frac{e^{-kt}}{B}}
+          \quad\leftrightarrow\quad
+        \frac{y}{y-A} = Be^{kt}}
+        \]%%%%%%%%%
+    \end{itemize}
+
+  \item Two equilibrium constant solutions:
+    \begin{itemize}
+      \item \( y= 0\); unstable equilibrium.
+      \item \(y=A\); a stable equilibrium.
+    \end{itemize}
+
+  \item If the initial value \(y_0 = y(0) \) satisfies \(y_0 > 0\), then
+    \(\lim_{t \to \infty} y (t) = A\)
+  \end{itemize}
+  \newpage
+
+  \item \dd{First-Order Linear Equations}: method of solving all first-order
+    linear differential equations, separable or not, as long as the equation
+    can be put in the form:
+    \[%%%%%%%%%%
+      \aset{\frac{dy}{dx} + P(x)y = Q(x)}
+    \]%%%%%%%%%%
+    \begin{itemize}
+      \item \dd{Integrating factor}:
+        \[%%%%%%%%%%
+          \aset{\alpha (x) = e^{\int P(x) dx}}
+        \]%%%%%%%%%%
+      \item \dd{General solution}:
+        \[%%%%%%%%%%
+          \aset{y = \alpha (x)^{-1} \left( \int \alpha (x) Q (x) dx + C \right)}
+        \]%%%%%%%%%%
+      \item Approach to the problems:
+        \begin{enumerate}
+          \item Arrange equation in first-order linear form.
+          \item Find the Integrating factor.
+          \item Solve general solution.
+          \item Solve initial value by finding \(C\) in solved general
+            solution, if given \(y(t)\).
+        \end{enumerate}
+    \end{itemize}
+
+\end{itemize}
