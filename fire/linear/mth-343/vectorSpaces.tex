@@ -2,14 +2,62 @@
 
 \section{2.1 Vector Spaces and Subspaces}
 \begin{itemize}
-  \item []
+  \item[]
 
+  \subsection{Problems 25, 26, 30, 31}
+  \begin{itemize}
+    \minor{\item[25.] If we add an extra column \tbm{b} to a matrix \tbm{A},
+      then the column space gets larger unless \aset{<?>}.
+
+      \item Give an example in which the column space gets larger and an example in
+        which it doesn't.
+
+      \item Why is Ax = b solvable exactly when the column space doesn't get larger
+      by including b?}
+
+      \minor{\item[26.] The columns of \tbm{AB} are combinations of the columns
+      of \tbm{A}. This means: the column space of \tbm{AB} contained in
+      (possibly equal to) the column space of \tbm{A}. Give an example where the
+      column spaces of \tbm{A} and \tbm{AB} are not equal.}
+
+      \minor{\item[30.] If the \(9 \times 12\) system \(\bm{Ax} = \bm{b}\) is
+      solvable for every \tbm{b}, then \aset{\(C(A) =\)}}.
+
+      \minor{\item[31.] Why isn't \(\R^2\) a subspace of \(\R^3\)?}
+  \end{itemize}
 
 \end{itemize}
 
 \section{2.2 Solving Ax = 0 and Ax = b}
 \begin{itemize}
   \item []
+
+  \subsection{Problems 12, 24, 25, 70}
+  \begin{enumerate}
+    \minor{\item[12.] Which of these rules give a correct definition of the
+    rank of \tbm{A}?
+    \begin{enumerate}
+      \item The number of nonzero rows in \tbm{R}.
+      \item The number of columns minus the total number of rows.
+      \item The number of columns minus the number of free columns.
+      \item The number of 1s in \tbm{R}.
+    \end{enumerate}}
+
+    \minor{\item[24.] Every column of \tbm{AB} is a combination of the columns
+    of \tbm{A}. Then the dimensions of the column spaces give \(\rank{\bm{AB}}
+    \leq \rank{ \bm{A} }\).
+
+    Problem: Prove also that \(\rank{\bm{AB}} \leq \rank{ \bm{B} }\).}
+
+    \minor{\item[25.] (Important) Suppose \tbm{A} and \tbm{B} are \(n \times
+    n\) matrices, and \tbm{AB} = \tbm{I}. Prove from \(\rank{ AB } \leq
+    \rank{ A }\) that the rank of \tbm{A} is n. So A is invertible and \tbm{B}
+    must be its two-sided inverse. Therefore \(\bm{BA} = \bm{I}\)}
+
+    \minor{\item[70.] Explain why \tbm{A} and \(-\bm{A}\) always have the same
+    reduced echelon form \tbm{R}.}
+  \end{enumerate}
+
 
 
 \end{itemize}
@@ -18,26 +66,118 @@
 \begin{itemize}
   \item []
 
+  \subsection{Problems 9, 13, 28, 36}
+  \begin{enumerate}
+    \minor{\item[9.] Suppose \(\bm{v}_1, \bm{v}_2, \bm{v}_3, \bm{v}_4\) are
+      vectors in \(\R^3\).
+      \begin{enumerate}
+        \item There four vectors are dependent because \aset{<?>}
+        \item The two vectors \(\bm{v}_1\) and \(\bm{v}_2\) will be dependent
+          if \aset{<?>}
+        \item The vectors \(\bm{v}_1\) and \((0,0,0)\) are dependent because
+          \aset{<?>}
+      \end{enumerate}}
 
+    \minor{\item[13.] Find the dimensions of:
+      \begin{enumerate}
+        \item the column space of \tbm{A}:
+        \item the column space of \tbm{U}:
+        \item the row space of \tbm{A}:
+        \item the row space of \tbm{U}.
+    \end{enumerate}
+    \[%%%%%%%%%%
+    \bm{A} =
+    \begin{bmatrix}
+      1 & 1 & 0 \\
+      1 & 3 & 1 \\
+      3 & 1 & -1
+    \end{bmatrix} \quad ~\text{and}~ \quad
+    \bm{U} =
+    \begin{bmatrix}
+      1 & 1 & 0  \\
+      0 & 2 & 1  \\
+      0 & 0 & 0
+    \end{bmatrix}
+    \]%%%%%%%%%%
+    \begin{itemize}
+      \item Which two of the spaces are the same?
+    \end{itemize}}
+
+    \minor{\item[28.] True or false (give a good reason)?
+    \begin{enumerate}
+      \item If the columns of a matrix are dependent, so are the rows.
+      \item The column space of a \(2 \times 2\) matrix is the same as its row space.
+      \item The column space of a \(2 \times 2\) matrix has the same dimension as its row space.
+      \item The columns of a matrix are a basis for the column space.
+    \end{enumerate}
+  }
+
+  \minor{\item[36.] If \tbm{A} is a \(64 \times 17\) matrix of rank 11, how
+  many independent vectors satisfy \(\bm{Ax} = \nil\)?}
+
+  \end{enumerate}
 \end{itemize}
 
 \section{2.4 The Four Fundamental Subspaces}
 \begin{itemize}
-  \item []
+  \item[]
 
+  \subsection{Problems 6, 14, 15, 27}
+  \begin{enumerate}
+    \minor{\item[6.] Suppose \tbm{A} is an \(m \times n\) matrix of rank \(r\).
+    Under what conditions on those numbers does
+    \begin{enumerate}
+      \item A have a two-sided inverse: \(\bm{A}\bm{A}^{-1} = \bm{A}^{-1}\bm{A} = \bm{I}\)?
+      \item \(\bm{Ax} = \bm{b}\) have infinitely many solutions for every \tbm{b}?
+    \end{enumerate}
+    }
 
+    \minor{\item[14.] 14. Find a left-inverse and/or a right-inverse (when they
+      exist) for
+      \[%%%%%%%%%%
+      \bm{A} =
+      \begin{bmatrix}
+        1 & 1 & 0 \\
+        0 & 1 & 1
+      \end{bmatrix} \quad\text{and}\quad
+      \bm{M} =
+      \begin{bmatrix}
+        1 & 0  \\
+        1 & 1  \\
+        0 & 1
+      \end{bmatrix} \qand
+      \bm{T} =
+      \begin{bmatrix}
+        a & b \\
+        0 & a
+      \end{bmatrix}
+      \]%%%%%%%%%%
+    }
+
+    \minor{\item[15.] 15. If the columns of A are linearly independent, then
+    the rank is \aset{<?>}, the nullspace is \aset{<?>}, the row space is
+    \aset{<?>}, and there exists a \aset{<?>}-inverse.}
+
+    \minor{\item[27.] (Important) \tbm{A} is an \(m \times n\) matrix of rank
+    \(r\). Suppose there are right-hand sides \tbm{b} for which \(\bm{Ax} =
+    \bm{b}\) has no solution.
+    \begin{enumerate}
+      \item What inequalities must be true between \(m, n, ~\text{and}~r\)?
+      \item How do you know that \(\bm{A}^T \bm{y} = \nil\) has a nonzero
+        solution?
+    \end{enumerate}}
+
+  \end{enumerate}
 \end{itemize}
 
 \section{2.5 Graphs and Networks}
 \begin{itemize}
   \item []
 
-
 \end{itemize}
 
 \section{2.6 Linear Transformations}
 \begin{itemize}
   \item []
-
 
 \end{itemize}
