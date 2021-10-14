@@ -11,6 +11,47 @@
 \begin{itemize}
   \item []
 
+  \subsection{Projection Proof (class problem)}
+  \begin{itemize}
+    \item If I recall the problem correctly, we were requested to \aset{prove what
+      \(\proj{v}{w}\) is equal to}.
+
+    \item In my notes I have that a orthogonal projection occurs when the dot
+      product between \tbm{v} and distance \tbm{w} from \tbm{v} is equal to
+      zero. This follows from the definition of the inner product, i.e.,
+      \[%%%%%%%%%%
+      \lambda = \bm{v}^T \bm{w} = \norm{v} \norm{w} \cos \theta
+      \]%%%%%%%%%%
+    \item If \(\theta = 90^\circ\), then the vectors are perpendicular, i.e.,
+      orthogonal. What we are missing is \aset{the distance} from \tbm{w} to
+      \tbm{v}; the distance that yields an inner product of zero with a
+      normalized \tbm{v} \aset{\textit{is the projection}}.
+    \item This means we need a scaled version of \tbm{v}, let's call it
+      \(\bm{v}\beta\), at which such inner product is equal to zero. At this
+      point, the difference between \tbm{w} and \(\bm{v}\beta\) is exactly what
+      we need in order to solve for a \(\beta\) that maintains an inner
+      product of zero with the original vector \tbm{v}, i.e.,
+      \begin{align*}
+        \bm{v}^T (\bm{w}-\bm{v}\beta) &= 0 \\
+        \bm{v}^T\bm{w}-\bm{v}^T \bm{v}\beta &= 0 \\
+        \bm{v}^T \bm{v}\beta &= \bm{v}^T\bm{w} \\
+        \beta &= \frac{\bm{v}^T\bm{w}}{\bm{v}^T \bm{v}}\\\\
+        \then
+        \proj{v}{w} = \bm{v}\beta &= \bm{v}\frac{\bm{v}^T\bm{w}}{\bm{v}^T \bm{v}}
+      \end{align*}
+    \item I've internalized this as a mapping of \tbm{w} onto
+      \tbm{v} over a magnitude (the norm) of \tbm{v}.
+      \begin{itemize}
+        \item The mapping is important because it tells us the shortest
+          distance from \tbm{w} onto \tbm{v}, i.e., when they are orthogonal.
+        \item The magnitude is important, because it is the basis at which
+          \tbm{w} is parallel to \tbm{v}, which when added mapping distance,
+          yields \tbm{w}.
+      \end{itemize}
+
+  \end{itemize}
+
+
 
 \end{itemize}
 
@@ -32,14 +73,4 @@
 \begin{itemize}
   \item []
 
-
 \end{itemize}
-
-\section{Chapter 3 Review Exercises}
-\begin{itemize}
-  \item []
-
-
-\end{itemize}
-
-
