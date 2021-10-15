@@ -7,23 +7,83 @@
   \subsection{Problems 25, 26, 30, 31}
   \begin{itemize}
     \minor{\item[25.] If we add an extra column \tbm{b} to a matrix \tbm{A},
-      then the column space gets larger unless \aset{<?>}.
+      then the column space gets larger unless \aset{they are linearly
+      dependent.}.
 
       \item Give an example in which the column space gets larger and an example in
         which it doesn't.
+        \fg{\[%%%%%%%
+        \text{Larger:}
+        \begin{bmatrix}[cc|c]
+          1 & 0 & 0 \\
+          2 & 4 & 0 \\
+          3 & 2 & 1
+        \end{bmatrix}
+        \qquad
+        \text{No change:}
+        \begin{bmatrix}[cc|c]
+          1 & 0 & 3 \\
+          2 & 4 & 6 \\
+          3 & 2 & 9
+        \end{bmatrix}
+        \]}%%%%%%%%%%
 
-      \item Why is Ax = b solvable exactly when the column space doesn't get larger
-      by including b?}
+      \item Why is \(\bm{Ax} = \bm{b}\) solvable exactly when the column space doesn't get larger
+      by including \tbm{b}?}
+      \begin{itemize}
+        \item Because the solution would be in the image, leading to infinite
+          solutions since it could be written as a linear combination of the
+          vectors already in \tbm{A}.
+      \end{itemize}
 
       \minor{\item[26.] The columns of \tbm{AB} are combinations of the columns
       of \tbm{A}. This means: the column space of \tbm{AB} contained in
       (possibly equal to) the column space of \tbm{A}. Give an example where the
       column spaces of \tbm{A} and \tbm{AB} are not equal.}
 
-      \minor{\item[30.] If the \(9 \times 12\) system \(\bm{Ax} = \bm{b}\) is
-      solvable for every \tbm{b}, then \aset{\(C(A) =\)}}.
+      \linkpy{vectorSpaces}
+      \[%%%%%%%%%%
+      \bm{A} =
+      \begin{bmatrix}
+        1 & 0 & 3 \\
+        2 & 4 & 6 \\
+        3 & 2 & 9
+      \end{bmatrix} \qquad
+      \bm{B} =
+      \begin{bmatrix}
+        2 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 0
+      \end{bmatrix}
+      \]%%%%%%%%%%
+      \begin{itemize}
+        \item The column space of \tbm{B} is clearly contained in \tbm{A}, but
+          since the dimension of the null space of \tbm{B} is 2, then \tbm{AB}
+          will not have the same column space of \tbm{A}.
+      \end{itemize}
 
-      \minor{\item[31.] Why isn't \(\R^2\) a subspace of \(\R^3\)?}
+
+      \minor{\item[30.] If the \(9 \times 12\) system \(\bm{Ax} = \bm{b}\) is
+      solvable for every \tbm{b}, then \aset{\(C(A) = 9\)}}.
+      \begin{itemize}
+        \item This follows from the Rank-nullity theorem, where the
+          dimensionality of the column space and cokernel is equal to the rows
+          of the original matrix.
+        \item This also implies the dimensionality of the cokernel is 3.
+      \end{itemize}
+
+
+      \minor{\item[31.] Why isn't \(\R^2\) a subspace of \(\R^3\) ?}
+      \begin{itemize}
+        \item \(\R^2\) could be a \textit{subset}, but not a subspace; there
+          are infinite 2-dimensional planes in \(\R^3\).
+
+        \item If you included a third point of 0 in \(\R^2\), then it would
+          indicate that includes the origin, which could make it a subspace or
+          \(\R^3\). However, that extra coordinate would be make it be a vector
+          in \(\R^3\).
+      \end{itemize}
+
   \end{itemize}
 
 \end{itemize}

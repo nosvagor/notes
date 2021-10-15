@@ -61,3 +61,24 @@ def notOrthogonal(A):
         print(colored(f"v@w = {v@w}", "red"))
 
     print("\n", "-" * 20, "\n")
+
+
+def dimCA(A):
+    CA = A.columnspace()
+    print(f"Dimension of the columnspace = {len(CA)}\n")
+    for i in range(len(CA)):
+        print(np.array(CA)[i], "\n")
+
+
+def dimCAT(A):
+    CAT = A.rowspace()
+    print(f"Dimension of the rowspace = {len(CAT)}\n")
+    for i in range(len(CAT)):
+        print(np.array(CAT)[i].T, "\n")
+
+
+def dimNA(A):
+    NA = A.nullspace()
+    print(f"Dimension of the nullspace (kernel) = {len(NA)}\n")
+    for i in range(len(NA)):
+        print(np.array(NA)[i], "\n")
