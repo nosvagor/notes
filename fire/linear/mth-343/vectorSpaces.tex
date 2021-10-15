@@ -97,25 +97,64 @@
     \minor{\item[12.] Which of these rules give a correct definition of the
     rank of \tbm{A}?
     \begin{enumerate}
-      \item The number of nonzero rows in \tbm{R}.
+      \item The number of nonzero rows in \tbm{R}. \true{true}
+        \[%%%%%%%%%%
+          \fg{\max{r} = r \in \N : 0 \leq r \leq \min{m, n}}
+        \]%%%%%%%%%%
       \item The number of columns minus the total number of rows.
+        \begin{itemize}\color{foreground}
+          \item This would yield dimensionality of the null space.
+        \end{itemize}
+
       \item The number of columns minus the number of free columns.
+        \begin{itemize}\color{foreground}
+          \item This would yield the dimensionality of the left null space.
+        \end{itemize}
+
       \item The number of 1s in \tbm{R}.
-    \end{enumerate}}
+        \begin{itemize}\color{foreground}
+          \item This wouldn't tell you much of anything.
+        \end{itemize}
+    \end{enumerate}
+    }
 
     \minor{\item[24.] Every column of \tbm{AB} is a combination of the columns
     of \tbm{A}. Then the dimensions of the column spaces give \(\rank{\bm{AB}}
     \leq \rank{ \bm{A} }\).
 
-    Problem: Prove also that \(\rank{\bm{AB}} \leq \rank{ \bm{B} }\).}
+    Problem: Prove that \(\rank{\bm{AB}} \leq \rank{ \bm{B} }\).
+    }
+    \begin{align*}
+      \rank{A} &= C(A) = C(A^T)\\
+      \then \rank{A} &= \rank{A^T} \\
+      \thus \rank{AB} &= \rank{(AB)^T} = \rank{B^TA^T} \leq \rank{B^T} = \rank{B}
+    \end{align*}
+    \begin{itemize}
+      \item The rank of \tbm{AB} can only be decreased, if \tbm{B} is not full
+        rank itself.
+      \item If, both \tbm{A} and \tbm{B} are full rank, then
+        \(\rank{\bm{AB}} = \rank{\bm{B}}\)
+    \end{itemize}
 
     \minor{\item[25.] (Important) Suppose \tbm{A} and \tbm{B} are \(n \times
     n\) matrices, and \tbm{AB} = \tbm{I}. Prove from \(\rank{ AB } \leq
-    \rank{ A }\) that the rank of \tbm{A} is n. So A is invertible and \tbm{B}
+    \rank{ A }\) that the rank of \tbm{A} is n. So \tbm{A} is invertible and \tbm{B}
     must be its two-sided inverse. Therefore \(\bm{BA} = \bm{I}\)}
+    \begin{itemize}
+      \item \tbm{A} must have same size of \tbm{B}, given they are both \(n
+        \times n\).
+      \item If \tbm{A} was rank deficient, but \tbm{B} was full rank, then
+      \(\rank{AB} \leq \rank{\bm{A}}\) would be invalid, forcing
+      \(\rank{\bm{A}} = n\).
+    \end{itemize}
 
     \minor{\item[70.] Explain why \tbm{A} and \(-\bm{A}\) always have the same
     reduced echelon form \tbm{R}.}
+    \begin{itemize}
+      \item Signed solutions are arbitrary; \tbm{-A} would have permutations that
+        flip the sign and yield the same, reversible, solution.
+    \end{itemize}
+
   \end{enumerate}
 
 
