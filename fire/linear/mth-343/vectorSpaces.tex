@@ -154,11 +154,7 @@
       \item Signed solutions are arbitrary; \tbm{-A} would have permutations that
         flip the sign and yield the same, reversible, solution.
     \end{itemize}
-
   \end{enumerate}
-
-
-
 \end{itemize}
 
 \section{2.3 Linear Independence, Basis, and Dimension}
@@ -170,11 +166,12 @@
     \minor{\item[9.] Suppose \(\bm{v}_1, \bm{v}_2, \bm{v}_3, \bm{v}_4\) are
       vectors in \(\R^3\).
       \begin{enumerate}
-        \item There four vectors are dependent because \aset{<?>}
+        \item There four vectors are dependent because \aset{\(\R^3\) can only
+          have 3 linearly independent vectors}.
         \item The two vectors \(\bm{v}_1\) and \(\bm{v}_2\) will be dependent
-          if \aset{<?>}
+          if \aset{they are multiples of each other.}
         \item The vectors \(\bm{v}_1\) and \((0,0,0)\) are dependent because
-          \aset{<?>}
+          \aset{\(\bm{v}_1(0, 0, 0) = \nil\)}
       \end{enumerate}}
 
     \minor{\item[13.] Find the dimensions of:
@@ -198,21 +195,54 @@
       0 & 0 & 0
     \end{bmatrix}
     \]%%%%%%%%%%
+    \linkpy{vectorSpaces}
     \begin{itemize}
       \item Which two of the spaces are the same?
+        \begin{itemize}\color{foreground}
+          \item The row space of \tbm{A} and \tbm{U} are the same. Why? Taking
+            \tbm{A} to rref shows it's also rank 2, with a linearly dependent
+            row (0, 0, 0), just like \tbm{U}.
+        \end{itemize}
     \end{itemize}}
 
     \minor{\item[28.] True or false (give a good reason)?
     \begin{enumerate}
       \item If the columns of a matrix are dependent, so are the rows.
+        \begin{itemize}\color{foreground}
+          \item \false{false}; as shown in \ulink{s:2.2 Solving Ax = 0 and
+            Ax = b}{problem 2.2.12}, the max rank is the minimum of either the rows
+            or columns. You could have linearly dependent columns, if \(n >
+            m\), but no linearly dependent rows.
+        \end{itemize}
+
       \item The column space of a \(2 \times 2\) matrix is the same as its row space.
+        \begin{itemize}\color{foreground}
+          \item \false{false}; e.g., \(\begin{bsmallmatrix} 4 & 2 \\ 0 & 0 \end{bsmallmatrix}\)
+        \end{itemize}
+
       \item The column space of a \(2 \times 2\) matrix has the same dimension as its row space.
+        \begin{itemize}\color{foreground}
+          \item \true{true}; \(\rank{\bm{A}} = C(\bm{A}) = C(\bm{A}^T)\)
+        \end{itemize}
+
       \item The columns of a matrix are a basis for the column space.
+        \begin{itemize}\color{foreground}
+          \item \false{false}; one of the columns could be linearly dependent
+            with another; only linearly independent columns forms a basis for
+            the column space.
+        \end{itemize}
+
     \end{enumerate}
   }
 
   \minor{\item[36.] If \tbm{A} is a \(64 \times 17\) matrix of rank 11, how
-  many independent vectors satisfy \(\bm{Ax} = \nil\)?}
+    many independent vectors satisfy \(\bm{Ax} = \nil\)? How many independent
+    vectors satisfy \(\bm{A}^T \bm{y} = \nil\)?
+  }
+  \begin{itemize}
+    \item \(17 - 11 = \aset{6}, \quad 64 - 11 = \aset{53}\), respectively.
+  \end{itemize}
+
 
   \end{enumerate}
 \end{itemize}
