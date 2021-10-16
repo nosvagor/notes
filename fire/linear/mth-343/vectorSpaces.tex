@@ -256,8 +256,15 @@
     \minor{\item[6.] Suppose \tbm{A} is an \(m \times n\) matrix of rank \(r\).
     Under what conditions on those numbers does
     \begin{enumerate}
-      \item A have a two-sided inverse: \(\bm{A}\bm{A}^{-1} = \bm{A}^{-1}\bm{A} = \bm{I}\)?
+      \item \tbm{A} have a two-sided inverse: \(\bm{A}\bm{A}^{-1} = \bm{A}^{-1}\bm{A} = \bm{I}\)?
+        \begin{itemize}\color{foreground}
+          \item Square, nonsingular \prn{full rank}.
+        \end{itemize}
+
       \item \(\bm{Ax} = \bm{b}\) have infinitely many solutions for every \tbm{b}?
+        \begin{itemize}\color{foreground}
+          \item If \(\rank{\bm{A}} < n\) \prn{\(n =\) number of columns}
+        \end{itemize}
     \end{enumerate}
     }
 
@@ -282,18 +289,58 @@
       \end{bmatrix}
       \]%%%%%%%%%%
     }
+    \linkpy{vectorSpaces}
+    \begin{itemize}
+      \item \(\bm{AA}^T\) \prn{right inverse} \(\bm{M}^T \bm{M}\) \prn{left
+        inverse} yield the same inverse,
+        \[%%%%%%%%%%
+        \begin{bmatrix}
+          \frac{2}{3} & -\frac{1}{3}\\
+          -\frac{1}{3} & \frac{2}{3} \\
+        \end{bmatrix}
+        \]%%%%%%%%%%
+        which makes sense, since \(\bm{M} = \bm{A}^T \)
+      \[%%%%%%%%%%
+      \bm{T}^{-1} =
+      \begin{bmatrix}
+        a^{-1} & -ba^{-2} \\
+        0 & a^{-1}
+      \end{bmatrix}
+      \]%%%%%%%%%%
+      \begin{itemize}
+        \item \tbm{T} has an inverse, left and right, as long as \(\bm{a} \neq
+          0\).
+        \item \tbm{T} does not have a normal inverse if \(a = b\)
+          \prn{singular}, but the left and right inverse both yield the above
+          matrix.
+      \end{itemize}
 
-    \minor{\item[15.] 15. If the columns of A are linearly independent, then
-    the rank is \aset{<?>}, the nullspace is \aset{<?>}, the row space is
-    \aset{<?>}, and there exists a \aset{<?>}-inverse.}
+    \end{itemize}
+
+
+    \minor{\item[15.] 15. If the columns of \tbm{A} are linearly independent, then
+    the rank is \aset{the number of columns, \(n\)}, the nullspace is
+    \aset{empty }, the row space is \aset{\(\R^n\)}, and there exists a
+    \aset{left}-inverse.}
 
     \minor{\item[27.] (Important) \tbm{A} is an \(m \times n\) matrix of rank
     \(r\). Suppose there are right-hand sides \tbm{b} for which \(\bm{Ax} =
     \bm{b}\) has no solution.
     \begin{enumerate}
       \item What inequalities must be true between \(m, n, ~\text{and}~r\)?
+        \begin{itemize}\color{foreground}
+          \item No solution means a row of zeros, thus \(r < m\)
+          \item \(r \leq n\), nothing changed.
+        \end{itemize}
+
       \item How do you know that \(\bm{A}^T \bm{y} = \nil\) has a nonzero
         solution?
+        \begin{itemize}\color{foreground}
+          \item \(\bm{A}^T \bm{y}= \nil\) raises investigation of the left null
+            space. Since the column space does not span all of \(\R^m\) (\(r <
+            m\)), then it means it contains a nonzero solution.
+        \end{itemize}
+
     \end{enumerate}}
 
   \end{enumerate}
