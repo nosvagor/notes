@@ -350,7 +350,7 @@
 \begin{itemize}
   \item []
 
-  \subsection{Problems 6, 14, 34, 39}
+  \subsection{Problems 6, 34, 39}
   \begin{enumerate}
     \minor{\item[6.] What 3 by 3 matrices represent the transformation that
       \begin{enumerate}
@@ -361,24 +361,91 @@
         \item carry out the same three rotations, but each one through 180°?
       \end{enumerate}
     }
-
-    \minor{\item[14.] Prove that \(T^2\) is a linear transformation if \(T\) is
-    linear (from \(\R^3 \to \R^3) \)}
-
-    \minor{\item[34.] The transformation T that transposes every matrix is
+    \[%%%%%%%%%%
+    \begin{bmatrix}
+      \aset{1} & 0 & 0 \\
+      0 & \aset{1} & 0 \\
+      0 & 0 & 0
+    \end{bmatrix}_{(a)}
+    \begin{bmatrix}
+      \aset{1} & 0 & 0 \\
+      0 & \aset{1} & 0 \\
+      0 & 0 & \aset{-1}
+    \end{bmatrix}_{(b)}
+    \begin{bmatrix}
+      0 & \aset{-1} & 0 \\
+      \aset{1} & 0 & 0 \\
+      0 & 0 & \aset{1}
+    \end{bmatrix}_{(c)}
+    \begin{bmatrix}
+      0 & 0 & \aset{-1} \\
+      0 & \aset{1} & 0 \\
+      \aset{1} & 0 & 0
+    \end{bmatrix}_{(d)}
+    \begin{bmatrix}
+      \aset{1} & 0 & 0 \\
+      0 & \aset{1} & 0 \\
+      0 & 0 & \aset{1}
+    \end{bmatrix}_{(e)}
+    \]%%%%%%%%%%
+    \minor{\item[34.] The transformation \tbm{T} that transposes every matrix is
       definitely linear. Which of these extra properties are true?
       \begin{enumerate}
-        \item \(T^2\) = identity transformation.
-        \item The kernel of \(T\) is the zero matrix.
-        \item Every matrix is in the range of \(T\).
+        \item \(\bm{T}^2\) = identity transformation.
+          \begin{itemize}\color{foreground}
+            \item \true{true}; given \(\bm{T}(\bm{A}) = \bm{A}^T \)
+              \begin{align*}
+                \bm{T}^2(\bm{A}) = \bm{T}(\bm{T}(\bm{A})) = \bm{T}(\bm{A}^T ) =
+                (\bm{A}^T )^T &= \bm{A} \\
+                \then \bm{T}^2 &= \bm{I}
+              \end{align*}
+          \end{itemize}
+        \item The kernel of \(\bm{T}\) is the zero matrix.
+        \begin{itemize}\color{foreground}
+          \item \true{true}; only matrix that can take the identity to 0 is the
+            trivial case, i.e., when the null space is empty.
+        \end{itemize}
+        \item Every matrix is in the range of \(\bm{T}\).
+
+          \src{
+            \link{https://en.wikipedia.org/wiki/Row_and_column_spaces\#Column_space}{Definition
+            of column space, Wikipedia 10/16}
+          }
+          \begin{itemize}\color{foreground}
+            \item \true{true}; the image \prn{range} consists of all possible products
+              \(\bm{A}\bm{x}~\forall \bm{x} \in \bm{C}^n\).
+          \end{itemize}
+
         \item \(T(M) = -M\) is impossible.
+          \begin{itemize}\color{foreground}
+            \item \false{false}; e.g.,
+              \[%%%%%%%%%%
+              \begin{bmatrix}
+                0 & 1 \\
+                -1 & 0
+              \end{bmatrix}^T =
+              \begin{bmatrix}
+                0 & -1 \\
+                1 & 0
+              \end{bmatrix} =
+              -\begin{bmatrix}
+                0 & -1 \\
+                1 & 0
+              \end{bmatrix} =
+              \begin{bmatrix}
+                0 & 1 \\
+                -1 & 0
+              \end{bmatrix}
+              \]%%%%%%%%%%
+          \end{itemize}
+
       \end{enumerate}
     }
 
     \minor{\item[39.] If you keep the same basis vectors but put them in a
-      different order, the change-of-basis matrix \tbm{M} is a \aset{<?>}
-      matrix. If you keep the basis vectors in order but change their lengths,
-      \tbm{M} is a \aset{<?>} matrix.
+      different order, the change-of-basis matrix \tbm{M} is a
+      \aset{permutation matrix \tbm{P}}. If you keep the basis vectors in order
+      but change their lengths, \tbm{M} is a \aset{diagonal matrix \tbm{D}}.
     }
   \end{enumerate}
 

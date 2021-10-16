@@ -1,3 +1,5 @@
+from fractions import Fraction
+
 import numpy as np
 import sympy as sp
 from termcolor import colored
@@ -82,3 +84,13 @@ def dimNA(A):
     print(f"Dimension of the nullspace (kernel) = {len(NA)}\n")
     for i in range(len(NA)):
         print(np.array(NA)[i], "\n")
+
+
+def proj(a, b):
+    mapping = a @ b
+    magnitude = np.linalg.norm(a) ** 2
+    proj_ab = mapping / magnitude * a
+    with np.printoptions(
+        formatter={"all": lambda x: str(Fraction(x).limit_denominator())}
+    ):
+        print(proj_ab)

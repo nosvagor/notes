@@ -3,24 +3,49 @@
 \section{3.1 Orthogonal Vectors and Subspaces}
 \begin{itemize}
   \item []
-  \subsection{Problems 6, 14, 46, 47}
+  \subsection{Problems 6, 46, 47}
   \begin{enumerate}
     \minor{\item[6.] Find all vectors in \(R^3\) that are orthogonal to \((1,1,1)\)
       and \((1,-1,0)\). Produce an orthonormal basis from these vectors
       (mutually orthogonal unit vectors).}
-
-    \minor{\item[14.] Show that \(\bm{x}-\bm{y}\) is orthogonal to
-      \(\bm{x}+\bm{y}\) if and only if \(\norm{x} = \norm{y} \).
-    }
+      \linkpy{orthogonality}
+      \begin{itemize}
+        \item Simply taking the cross product between two vectors in \(\R^3\)
+          yields a new vector that is normal to the plane containing them.
+        \item \((1,1,1) \times (1,-1,0) = \aset{(1,1,-2)}\)
+      \end{itemize}
 
     \minor{\item[46.] Find \(\bm{A}^T \bm{A}\) if the columns of \tbm{A}
       are unit vectors, all mutually perpendicular.
     }
+    \[%%%%%%%%%%
+    \begin{bmatrix}
+      \norm{\bm{a_1}}^2 & a_\perp & \cdots & a_\perp \\
+      a_\perp & \norm{\bm{a}_2}^2 & a_\perp & \vdots \\
+      \vdots & a_\perp & \ddots & a_\perp  \\
+      a_\perp & \cdots & a_\perp &\norm{\bm{a}_n}^2
+    \end{bmatrix} =
+    \begin{bmatrix}
+      1 & 0 & \cdots & 0 \\
+      0 & 1 & 0 & \vdots \\
+      \vdots & 0 & \ddots & 0  \\
+      0 & \cdots & 0 & 1
+    \end{bmatrix} = \bm{I}
+    \]%%%%%%%%%%
 
     \minor{\item[47.] Construct a \(3 \times 3\) matrix \tbm{A} with no zero
       entries whose columns are mutually perpendicular. Compute \(\bm{A}^T
       \bm{A}\). Why is it a diagonal matrix?
     }
+
+    \linkpy{orthogonality}
+    \begin{itemize}
+      \item Note: I tried to set up with random matrices each time, sometimes it
+        fails and gives the zero matrix.
+      \item The way I set up only yields a diagonal matrix with
+      \(\bm{A}\bm{A}^T \), \(\bm{A}^T \bm{A} \) yields a symmetric matrix. Why?
+    \end{itemize}
+
   \end{enumerate}
 \end{itemize}
 
@@ -67,6 +92,7 @@
       \end{itemize}
   \end{itemize}
 
+  \newpage
   \subsection{Problems 10, 13, 15}
   \begin{itemize}
     \minor{\item[10.] Is the projection matrix P invertible? Why or why
