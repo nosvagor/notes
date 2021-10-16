@@ -46,7 +46,8 @@ print(np.array(sp.Matrix(A).rref()[0]), "\n")
 
 # why does AA.T yield a diagonal
 print(A @ A.T, "\n")
-# why does A.TA yield a almost diagonal
+
+# why does A.TA yield a symmetric matrix? It should yield diagonal still, no?
 print(A.T @ A, "\n")
 
 # book example
@@ -57,9 +58,6 @@ B = np.array(
         [2, -1, 2],
     ]
 )
-
-
 print(B.T @ B, "\n")
-
-
+print(B @ B.T, "\n")
 print("-" * 19)

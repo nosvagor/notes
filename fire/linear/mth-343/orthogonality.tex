@@ -98,13 +98,33 @@
     \minor{\item[10.] Is the projection matrix P invertible? Why or why
     not?
     }
+    \begin{align*}
+      \bm{P} &= \frac{\bm{aa}^T}{\bm{a}^T \bm{a}} \\
+      C(\bm{P}) &= \bm{a} = \rank{\bm{P}} = n = 1
+    \end{align*}
+    \begin{itemize}
+      \item The rank in equal to the number of columns, thus it is invertible.
+    \end{itemize}
 
-    \minor{\item[13.] Prove that the trace of \(P = \frac{\bm{aa}^T}{\bm{a}^T\bm{a}}\) always equals 1.
+
+    \minor{\item[13.] Prove that the trace of \(\bm{P} = \frac{\bm{aa}^T}{\bm{a}^T\bm{a}}\) always equals 1.
     }
+    \begin{align*}
+      \tr{\bm{A}} &= \sum_{i=1}^{n} e_{ij} = e_{11} + e_{22} + \cdots + e_{nn} \\\\
+    \then \tr{\bm{P}} &= \frac{\bm{a}_1 \bm{a}_1}{\bm{a}^T \bm{a}}
+    +\cdots+
+    \frac{\bm{a}_n \bm{a}_n}{\bm{a}^T \bm{a}} =
+    \frac{\bm{a}^T  \bm{a}}{\bm{a}^T \bm{a}} = 1 \\
+    \end{align*}
 
     \minor{\item[15.] Show that the length of \tbm{Ax} equals the length of
       \(\bm{A}^T \bm{x}\) if \(\bm{AA}^T = \bm{A}^T \bm{A}\).
     }
+    \begin{align*}
+      \norm{\bm{A} \bm{x}}^2 &= (\bm{Ax})^T (\bm{Ax}) = \bm{x}\bm{A}^T \bm{A}\bm{x} \\
+      \norm{\bm{A}^T  \bm{x}}^2 &= (\bm{A}^T \bm{x})^T (\bm{A}^T \bm{x}) = \bm{x}\bm{A}\bm{A}^T \bm{x}\\
+      \bm{xA}^T \bm{Ax} = \bm{xA}\bm{A}^T \bm{x} &\iff \bm{A}\bm{A}^T = \bm{A}^T \bm{A}
+    \end{align*}
   \end{itemize}
 
 \end{itemize}
