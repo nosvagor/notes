@@ -88,7 +88,7 @@ def dimNA(A):
 
 def proj(a, b):
     mapping = a @ b
-    magnitude = np.linalg.norm(a) ** 2
+    magnitude = a.T @ a
     proj_ab = mapping / magnitude * a
     with np.printoptions(
         formatter={"all": lambda x: str(Fraction(x).limit_denominator())}

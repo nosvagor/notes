@@ -12,7 +12,16 @@
       \begin{itemize}
         \item Simply taking the cross product between two vectors in \(\R^3\)
           yields a new vector that is normal to the plane containing them.
-        \item \((1,1,1) \times (1,-1,0) = \aset{(1,1,-2)}\)
+        \item \((1,1,1) \times (1,-1,0) = \aset{(1,1,-2)}\) yields us
+          orthogonal columns.
+        \item Dividing each vector by their norms yields orthonormal columns, i.e.,
+          \[%%%%%%%%%%
+          \begin{bmatrix}
+            \frac{1}{\sqrt{3} } & \frac{1}{\sqrt{2} } & \frac{1}{\sqrt{6} } \\
+            \frac{1}{\sqrt{3} } & -\frac{1}{\sqrt{2} } & \frac{1}{\sqrt{6} } \\
+            \frac{1}{\sqrt{3} } & 0 & -\frac{1}{\sqrt{3} }
+          \end{bmatrix}
+          \]%%%%%%%%%%
       \end{itemize}
 
     \minor{\item[46.] Find \(\bm{A}^T \bm{A}\) if the columns of \tbm{A}
@@ -131,18 +140,83 @@
 
 \section{3.3 Projections and Least Squares}
 \begin{itemize}
-  \item []
+  \item[]
+
+  \subsection{Problems 8, 19, 20}
+  \begin{enumerate}
+    \minor{\item[8.]  If \tbm{P} is the projection matrix onto a \(k\)-dimensional
+      subspace \tbm{S} of the whole space \(\R^n\), what is the column space
+      of \tbm{P} and what is its rank?
+    }
+    \begin{itemize}
+      \item Given \(\bm{P} = \bm{A}(\bm{A}^T \bm{A})^{-1} \bm{A}^T \), then
+        \tbm{P} will project any vector onto the image of \tbm{A}, if \tbm{A}
+        has independent columns.
+      \item This implies that \tbm{S} is the image of \tbm{A}, i.e.,
+        \(C(\bm{A}) = \bm{S}\).
+      \item Since the \(k\)-dimensional subspace \tbm{S} is the whole of
+        \(\R^n\), and \(\rank{\bm{A}} = n \), then \(\aset{C(\bm{P}) = \bm{S} \land
+        \rank{\bm{P}} = k} \)
+    \end{itemize}
+
+
+    \minor{\item[19.] If \(\bm{P}_C = \bm{A}(\bm{A}^T \bm{A})^{-1}\bm{A}^T\) is
+      the projection onto the column space of \tbm{A}, what is the projection
+      \(\bm{P}_R\) onto the row space?
+    }
+    \begin{itemize}
+      \item \(\bm{P}_C = C(\bm{A}), \bm{P}_R = C(\bm{A}^T )\), thus, taking the
+        transpose of every instance of \tbm{A} will yield the row space, i.e.,
+      \[%%%%%%%%%%
+        \bm{P}_R = \bm{A}^T \left( \bm{A}^{TT} \bm{A}^T\right)^{-1} \bm{A}^{TT} =
+        \bm{A}^T (\bm{A}\bm{A}^T )^{-1}\bm{A}
+      \]%%%%%%%%%%
+    \end{itemize}
+
+    \minor{\item[20.] If \tbm{P} is the projection onto the column space of
+      \tbm{A}, what is the projection onto the left nullspace?
+    }
+    \begin{itemize}
+      \item The column space and left null space are orthogonal to each other,
+        thus the projection onto the left null space is simply \(\bm{I} - \bm{P}\).
+    \end{itemize}
+
+
+
+
+  \end{enumerate}
 
 \end{itemize}
 
 \section{3.4 Orthogonal Bases and Gram-Schmidt}
 \begin{itemize}
-  \item []
+  \item[]
 
-\end{itemize}
+  \subsection{Implementation of the Gram-Schmidt Process}
+  \begin{itemize}
+    \item
+  \end{itemize}
 
-\section{3.5 The Fast Fourier Transform}
-\begin{itemize}
-  \item []
+  \subsection{Problems 10, 13, 18}
+  \begin{enumerate}
+    \minor{\item[10.] 10. If \(\bm{q}_1\) and \(\bm{q}_2\) are the outputs from
+      Gram-Schmidt, what were the possible input vectors \tbm{a} and \tbm{b}?
+    }
+
+    \minor{\item[13.] Apply the Gram-Schmidt process to
+      \[%%%%%%%%%%
+        \bm{a} = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},
+        \qquad
+        \bm{b} = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix},
+        \qquad
+        \bm{c} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+      \]%%%%%%%%%%
+      and write the result in the form \(\bm{A} = \bm{QR}\).
+    }
+    \minor{\item[18.] If \(\bm{A} = \bm{QR}\), find a simple formula for the
+      projection matrix \tbm{P} onto the column space of \tbm{A}.
+    }
+
+  \end{enumerate}
 
 \end{itemize}

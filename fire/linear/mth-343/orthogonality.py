@@ -9,17 +9,24 @@ print("Question 3.1.6:\n")
 a = np.array([1, 1, 1])
 b = np.array([1, -1, 0])
 
-print(a @ b, "\n")
+# Confirming orthogonality
+print("confirming orthogonality of given vectors\n", a @ b)
 lf.proj(a, b)
 
 # taking the cross product yields a perpendicular vector in R^3
 c = np.cross(a, b)
-print(c, "\n")
+print("\nOrthogonal basis", c, "\n")
 
-print(a @ c, "\n")
+print("dot products should = 0, projections should be 0")
+print(a @ c)
 lf.proj(a, c)
-print(b @ c, "\n")
+print(b @ c)
 lf.proj(b, c)
+
+print("\nfinding unit lengths")
+print(f"||a||^2 = √{a.T @ a}")
+print(f"||b||^2 = √{b.T @ b}")
+print(f"||c||^2 = √{c.T @ c}")
 
 print("-" * 19)
 
