@@ -19,13 +19,14 @@ using namespace std;
 
 // Constant
 const int INPUT_SIZE {69};
-const int DESG_SIZE {30};
+const int DESG_SIZE {10};
 
 // Prototype functions
 void greeting();
 void getClass(char input[]);
 bool confirm();
 void format(char input[]);
+void extractCourse(char input[], char course[], char offering[]);
 
 void farewell();
 
@@ -38,12 +39,13 @@ int main() {
   char input[INPUT_SIZE];
 
   char course[DESG_SIZE];
-  char offering[DESG_SIZE];
+  char offering[DESG_SIZE] = "in person";
 
-  char lecture[DESG_SIZE];
-  char lab[DESG_SIZE];
-  char exam[DESG_SIZE];
-  char material[DESG_SIZE];
+  char lecture[DESG_SIZE] = "in person";
+  char lab[DESG_SIZE] = "in person";
+  char exam[DESG_SIZE] = "in person";
+  char material[DESG_SIZE] = "in person";
+
 
   greeting();
 
@@ -54,8 +56,18 @@ int main() {
          << endl << endl;
   } while (!confirm());
 
-  farewell();
+  format(input);
+  extractCourse(input, course, offering);
 
+  cout << "\nmain's variables" << endl;
+  cout << course << endl;
+  cout << offering << endl;
+  cout << lecture << endl;
+  cout << lab << endl;
+  cout << exam << endl;
+  cout << material << endl;
+
+  farewell();
   return 0;
 }
 
@@ -68,10 +80,16 @@ void greeting(){
 
   cout << "Hello! All we need from you is your course information.\n"
        << "It should look something like this:\n"
-       << "\n\t \"CS162 Hybrid: Lab - R, Ex - R, Mat - R\"\n\n"
-       << "Don't worry if you don't have all the information; classes are\n"
-       << "in person unless otherwise specified. We'll also give you specific\n"
-       << "details along the way, if they come up!\n"
+       << "\n\t \"CS162 Hybrid: Lect-O, Lab-R, Ex-R, Mat-R\"\n"
+
+       << "\nOnline: all classes and content are online.\n"
+       << "AA: all classes and content are up to you, remote and in person is available.\n"
+       << "Hybrid: a combination of in person and remote options;\n"
+       << "  -O indicates \"Optional\", i.e., specifics are provided both remotely and in person.\n"
+       << "  -R indicates \"Remote\", i.e., this portion of the class is remote only.\n"
+
+       << "\nDon't worry if you don't have all the information; classes are assumed\n"
+       << "to be in person unless otherwise specified."
        << endl;
 }
 
@@ -99,6 +117,37 @@ void format(char input[]) {
    input[i] = tolower(input[i]);
    if (input[i] == ':' || input[i] == '-' || input[i] == ',') input[i] = ' ';
   }
+}
+
+void extract(char input[], char word[]) {
+  memset(word, '\0', DESG_SIZE);
+  for (int i = 0; input[i] != ' '; ++i){
+    word[i] = input[i];
+  }
+}
+
+void extractCourse(char input[], char course[], char offering[]){
+  extract(input, course);
+
+  const char *aa = "aa";
+  const char *hybrid = "hybrid";
+  const char *online = "online";
+
+  if (strstr(input, hybrid)) {
+    input = strstr(input, hybrid);
+    extract(input, offering);
+  }
+
+  if (strstr(input, online)) {
+    input = strstr(input, online);
+    extract(input, offering);
+  }
+
+  if (strstr(input, aa)) {
+    input = strstr(input, aa);
+    extract(input, offering);
+  }
+
 }
 
 void farewell() {
