@@ -18,12 +18,14 @@
 using namespace std;
 
 // Constant
-const int SIZE {69};
+const int INPUT_SIZE {69};
+const int DESG_SIZE {30};
 
 // Prototype functions
 void greeting();
-void getClass(char classInfo[]);
+void getClass(char input[]);
 bool confirm();
+void format(char input[]);
 
 void farewell();
 
@@ -33,14 +35,22 @@ void farewell();
 //            |_______|__|_|__|} c++                                         79
 //=============oo--oo==oo--OOO\\===============================================
 int main() {
-  char classInfo[SIZE];
+  char input[INPUT_SIZE];
+
+  char course[DESG_SIZE];
+  char offering[DESG_SIZE];
+
+  char lecture[DESG_SIZE];
+  char lab[DESG_SIZE];
+  char exam[DESG_SIZE];
+  char material[DESG_SIZE];
 
   greeting();
 
   do {
-    getClass(classInfo);
+    getClass(input);
     cout << "\nYou entered:\n"
-         << "\n\t" << classInfo
+         << "\n\t" << input
          << endl << endl;
   } while (!confirm());
 
@@ -67,7 +77,7 @@ void greeting(){
 
 void getClass(char arr[]){
   cout << "\nPlease enter course information: ";
-  cin.get(arr, SIZE);
+  cin.get(arr, INPUT_SIZE);
   cin.ignore(420, '\n');
 }
 
@@ -78,11 +88,17 @@ bool confirm() {
     cout << "Is this information correct? [y/n]: ";
     cin >> response;
     cin.ignore(420, '\n');
-    if (response == 'n')
-      return 0;
+    if (response == 'n') return 0;
   } while (response != 'y');
 
   return 1;
+}
+
+void format(char input[]) {
+  for (int i = 0; i < strlen(input); ++i){
+   input[i] = tolower(input[i]);
+   if (input[i] == ':' || input[i] == '-' || input[i] == ',') input[i] = ' ';
+  }
 }
 
 void farewell() {
