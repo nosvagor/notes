@@ -8,10 +8,6 @@
 // by a user, "decipher" the it, and display a more friendly and readable
 // summary of the class.
 
-// User input should come in a semi-normal format, so minimal error checking is
-// necessary.
-
-
 #include <iostream>
 #include <cctype>
 #include <cstring>
@@ -27,25 +23,26 @@ void getClass(char input[]);
 bool confirm();
 void format(char input[]);
 void extractCourse(char input[], char course[], char offering[]);
-
+void decipherOfferings(char input[], char offering[]);
 void farewell();
 
 //             o  o  O  O  0 0
 //            ,______  ____    0
-//            | MAIN \_|[]|_'__Y
+//            | MAIN \_|[]|_'__Y                PROGRAM 2! ARRAYS!
 //            |_______|__|_|__|} c++                                         79
 //=============oo--oo==oo--OOO\\===============================================
 int main() {
   char input[INPUT_SIZE];
 
+  // basic input
   char course[DESG_SIZE];
-  char offering[DESG_SIZE] = "in person";
+  char offering[DESG_SIZE];
 
+  // hybrid designators, defaults to in person
   char lecture[DESG_SIZE] = "in person";
   char lab[DESG_SIZE] = "in person";
   char exam[DESG_SIZE] = "in person";
   char material[DESG_SIZE] = "in person";
-
 
   greeting();
 
@@ -59,15 +56,75 @@ int main() {
   format(input);
   extractCourse(input, course, offering);
 
-  cout << "\nmain's variables" << endl;
-  cout << course << endl;
-  cout << offering << endl;
-  cout << lecture << endl;
-  cout << lab << endl;
-  cout << exam << endl;
-  cout << material << endl;
+  if (!strcmp("online", offering)) {
+    cout << endl << course
+      << " is offered as an online class! "
+      << "All content will be be available remotely."
+      << endl << endl;
+  };
 
-  farewell();
+  if (!strcmp("aa", offering)) {
+    cout << endl << course
+      << " is offered as an attend-anywhere class! "
+      << "All content is available online,\n"
+      << "but any labs, lectures, or exams are offered in person if preferred."
+      << endl << endl;
+  };
+
+  if (!strcmp("hybrid", offering)) {
+    const char *LEC = "lect";
+    const char *LAB = "lab";
+    const char *EX = "ex";
+    const char *MAT = "mat";
+
+    if (strstr(input, LEC)[5]) {
+      char des = strstr(input, LEC)[5];
+      if (des == 'o') {
+        memcpy(lecture, "optional", 9);
+      } else {
+        memcpy(lecture, "remote", 7);
+      }
+    }
+
+    if (strstr(input, LAB)[4]) {
+      char des = strstr(input, LAB)[4];
+      if (des == 'o') {
+        memcpy(lab, "optional", 9);
+      } else {
+        memcpy(lab, "remote", 7);
+      }
+    }
+
+    if (strstr(input, EX)[3]) {
+      char des = strstr(input, EX)[3];
+      if (des == 'o') {
+        memcpy(exam, "optional", 9);
+      } else {
+        memcpy(exam, "remote", 7);
+      }
+    }
+
+    if (strstr(input, MAT)[4]) {
+      char des = strstr(input, MAT)[4];
+      if (des == 'o') {
+        memcpy(material, "optional", 9);
+      } else {
+        memcpy(material, "remote", 7);
+      }
+    }
+  }
+
+  char response {};
+  do {
+    cout << "Would you like to restart? [y/n]: ";
+    cin >> response;
+    cin.ignore(420, '\n');
+  } while (!((response != 'n') || (response != 'y')));
+
+  if (response == 'y') {
+    main();
+  } else farewell();
+
   return 0;
 }
 
@@ -80,7 +137,9 @@ void greeting(){
 
   cout << "Hello! All we need from you is your course information.\n"
        << "It should look something like this:\n"
-       << "\n\t \"CS162 Hybrid: Lect-O, Lab-R, Ex-R, Mat-R\"\n"
+       << "\n\t \"CS162 AA\"\n"
+       << "\t \"CS162 Online\"\n"
+       << "\t \"CS162 Hybrid: Lect-O, Lab-R, Ex-R, Mat-R\"\n"
 
        << "\nOnline: all classes and content are online.\n"
        << "AA: all classes and content are up to you, remote and in person is available.\n"
@@ -88,8 +147,7 @@ void greeting(){
        << "  -O indicates \"Optional\", i.e., specifics are provided both remotely and in person.\n"
        << "  -R indicates \"Remote\", i.e., this portion of the class is remote only.\n"
 
-       << "\nDon't worry if you don't have all the information; classes are assumed\n"
-       << "to be in person unless otherwise specified."
+       << "\nClasses are assumed to be in person unless otherwise specified."
        << endl;
 }
 
@@ -115,7 +173,9 @@ bool confirm() {
 void format(char input[]) {
   for (int i = 0; i < strlen(input); ++i){
    input[i] = tolower(input[i]);
-   if (input[i] == ':' || input[i] == '-' || input[i] == ',') input[i] = ' ';
+   if ((input[i] == ':') || (input[i] == '-') || (input[i] == ',')) {
+      input[i] = ' ';
+    }
   }
 }
 
@@ -128,6 +188,7 @@ void extract(char input[], char word[]) {
 
 void extractCourse(char input[], char course[], char offering[]){
   extract(input, course);
+  for (int i {0}; i < strlen(course); ++i) course[i] = toupper(course[i]);
 
   const char *aa = "aa";
   const char *hybrid = "hybrid";
@@ -147,8 +208,8 @@ void extractCourse(char input[], char course[], char offering[]){
     input = strstr(input, aa);
     extract(input, offering);
   }
-
 }
+
 
 void farewell() {
   cout << endl
