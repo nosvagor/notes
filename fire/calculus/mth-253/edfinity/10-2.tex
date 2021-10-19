@@ -50,5 +50,36 @@
       where \(S_k\) is the partial sum using the first \(k\) values of the
       series.
   \end{itemize}
+  \begin{align*}
+    S_3 &= \left(\frac{1}{5} - \frac{1}{6}\right) + \left( \frac{1}{6} - \frac{1}{7} \right) + \left( \frac{1}{7} - \frac{1}{8} \right)
+    = \frac{1}{5}-\frac{1}{8} = \frac{3}{40} \\
+    S_4 &= S_3 + \left(\frac{1}{8} - \frac{1}{9}\right) = \frac{1}{5} - \frac{1}{9} = \frac{4}{45} \\
+    S_5 &= \frac{1}{5} - \frac{1}{10} = \frac{1}{10} \\
+    S &= \lim_{n \to \infty} S_N = \lim_{n \to \infty} \left(\frac{1}{5} - \frac{1}{5+N} \right) = \frac{1}{5}
+  \end{align*}
 
+  \subsection{Problem 10.2.8}
+  \begin{itemize}
+    \item Write \(S = \sum_{n=9}^{\infty} \frac{1}{n(n-1)}\) as a telescoping
+      series and find its sum.
+      \begin{align*}
+        S_n &= \frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}\\
+        S_n &= \frac{1}{8}-\frac{1}{N} \\
+        S &= \frac{1}{8}
+      \end{align*}
+  \end{itemize}
+
+  \subsection{Problem 10.2.9}
+  \begin{itemize}
+    \item A ball dropped from a height of 15 feet begins to bounce. Each time
+      it strikes the round, it returns \(\frac{4}{5}\) of its previous height.
+      What is the total distance traveled by the ball if it bounces infinitely
+      many times?
+      \begin{align*}
+        c &= 15 + 30\left(\frac{4}{5}\right), r = \frac{4}{5} \\
+        \sum_{n=0}^{\infty} 15 + 30 \left( \frac{4}{5} \right)
+        \left(\frac{1}{1-\frac{4}{5}}\right) &= 15+30\left(\frac{4}{5}\right)\frac{1}{5} \\
+        &=15+30(4) ~\text{ft}~
+      \end{align*}
+  \end{itemize}
 \end{itemize}

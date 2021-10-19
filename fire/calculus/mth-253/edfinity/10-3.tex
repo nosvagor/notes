@@ -1,0 +1,37 @@
+\section{10.3 Edfinity: Convergence of Series with Positive Terms}
+\begin{itemize}
+  \item \dd{Partial sum theorem for positive series}:  a positive series
+      converges if its partial sums \(S_N\) are bounded. Otherwise, it diverges.
+  \item \dd{Integral test}: \aset{\(f\)} is \RR{positive}, \BB{decreasing}, and
+    \TT{ continuous for \(x > M\)}, set \aset{\(a_n = f (n) .\)}
+    \begin{itemize}
+      \item If\(\int_{M}^{\infty} f (x) dx \) converges/diverges, then \(\sum
+        a_n\) converges/diverges.
+    \end{itemize}
+
+  \item \dd{ \textit{p}-Series}: the series \(\sum_{n=1}^{\infty} n^{-1}\)
+    converges if \(p>1\) and diverges if \(p \leq 1\).
+
+  \item \dd{Direct compassion test}: \(\exists M > 0 : 0 \leq a_n \leq b_n, \quad\forall n \geq M\)
+    \begin{itemize}
+      \item If \(\sum a_n\) converges, then \(\sum a_n\) converges.
+      \item  If \(\sum a_n\) diverges, then \(\sum b_n\) diverges
+    \end{itemize}
+
+  \item \dd{Limit compassion test}: \({a_n} \land {b_n} > 0\) and \(\exists L = \lim_{n \to \infty} a_n b_n^{-1}\)
+    \begin{itemize}
+      \item If L > 0, then \(\sum a_n\) converges \(\iff \sum b_n\) converges.
+      \item If \(L=\infty\) and \(\sum a_n\) converges, then \(\sum b_n\) converges.
+      \item if \(L = 0\) and \(\sum b_n\) converges, then \(\sum a_n\) converges.
+    \end{itemize}
+
+    \subsection{Problem 10.3.2}
+    \begin{itemize}
+      \item Use the Integral Test to determine whether the infinite series is
+        convergent.
+        \[%%%%%%%%%%
+          \sum_{n=11}^{\infty} \frac{n^2}{(n^3 + 3)^{\frac{9}{2}}}
+        \]%%%%%%%%%%
+    \end{itemize}
+
+\end{itemize}
