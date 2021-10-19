@@ -23,7 +23,7 @@ void getClass(char input[]);
 bool confirm();
 void format(char input[]);
 void extractCourse(char input[], char course[], char offering[]);
-void decipherOfferings(char input[], char offering[]);
+void decipher(char input[], char content[], const char *desg);
 void farewell();
 
 //             o  o  O  O  0 0
@@ -39,10 +39,10 @@ int main() {
   char offering[DESG_SIZE];
 
   // hybrid designators, defaults to in person
-  char lecture[DESG_SIZE] = "in person";
-  char lab[DESG_SIZE] = "in person";
-  char exam[DESG_SIZE] = "in person";
-  char material[DESG_SIZE] = "in person";
+  char lecture[DESG_SIZE];
+  char lab[DESG_SIZE];
+  char exam[DESG_SIZE];
+  char material[DESG_SIZE];
 
   greeting();
 
@@ -72,53 +72,17 @@ int main() {
   };
 
   if (!strcmp("hybrid", offering)) {
-    const char *LEC = "lect";
-    const char *LAB = "lab";
-    const char *EX = "ex";
-    const char *MAT = "mat";
 
-    if (strstr(input, LEC)[5]) {
-      char des = strstr(input, LEC)[5];
-      if (des == 'o') {
-        memcpy(lecture, "optional", 9);
-      } else {
-        memcpy(lecture, "remote", 7);
-      }
-    }
-
-    if (strstr(input, LAB)[4]) {
-      char des = strstr(input, LAB)[4];
-      if (des == 'o') {
-        memcpy(lab, "optional", 9);
-      } else {
-        memcpy(lab, "remote", 7);
-      }
-    }
-
-    if (strstr(input, EX)[3]) {
-      char des = strstr(input, EX)[3];
-      if (des == 'o') {
-        memcpy(exam, "optional", 9);
-      } else {
-        memcpy(exam, "remote", 7);
-      }
-    }
-
-    if (strstr(input, MAT)[4]) {
-      char des = strstr(input, MAT)[4];
-      if (des == 'o') {
-        memcpy(material, "optional", 9);
-      } else {
-        memcpy(material, "remote", 7);
-      }
-    }
-
-    cout << lecture << endl;
-    cout << lab << endl;
-    cout << exam << endl;
-    cout << material << endl;
-
+    decipher(input, lecture, "lect");
+    decipher(input, lab, "lab");
+    decipher(input, exam, "ex");
+    decipher(input, material, "mat");
   }
+
+  cout << lecture << endl;
+  cout << lab << endl;
+  cout << exam << endl;
+  cout << material << endl;
 
 
   char response {};
@@ -126,7 +90,7 @@ int main() {
     cout << "Would you like to restart? [y/n]: ";
     cin >> response;
     cin.ignore(420, '\n');
-  } while (!((response != 'n') || (response != 'y')));
+  } while (!((response == 'n') || (response == 'y')));
 
   if (response == 'y') {
     main();
@@ -186,37 +150,43 @@ void format(char input[]) {
   }
 }
 
-void extract(char input[], char word[]) {
-  memset(word, '\0', DESG_SIZE);
-  for (int i = 0; input[i] != ' '; ++i){
-    word[i] = input[i];
-  }
-}
-
 void extractCourse(char input[], char course[], char offering[]){
-  extract(input, course);
-  for (int i {0}; i < strlen(course); ++i) course[i] = toupper(course[i]);
 
-  const char *aa = "aa";
-  const char *hybrid = "hybrid";
-  const char *online = "online";
+  int size {0};
+  for (int i = 0; input[i] != ' '; ++i){
+    course[i] = toupper(input[i]);
+    size += 1;
+  }
+  course[size] = '\0';
 
-  if (strstr(input, hybrid)) {
-    input = strstr(input, hybrid);
-    extract(input, offering);
+
+  if (strstr(input, "hybrid")) {
+    memcpy(offering, "hybrid", 7);
   }
 
-  if (strstr(input, online)) {
-    input = strstr(input, online);
-    extract(input, offering);
+  if (strstr(input, "online")) {
+    memcpy(offering, "online", 7);
   }
 
-  if (strstr(input, aa)) {
-    input = strstr(input, aa);
-    extract(input, offering);
+  if (strstr(input, "aa")) {
+    memcpy(offering, "aa", 7);
   }
 }
 
+void decipher(char input[], char content[], const char *desg){
+  memcpy(content, "in person", 10);
+
+  int i = strlen(desg)+1;
+
+  const char *result;
+  result = strstr(input, desg);
+
+  if (result != NULL) {
+    char des = strstr(input, desg)[i];
+    if (des == 'o') memcpy(content, "optional", 9);
+    if (des == 'r') memcpy(content, "remote", 7);
+  }
+}
 
 void farewell() {
   cout << endl
