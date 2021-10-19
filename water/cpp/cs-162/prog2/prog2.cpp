@@ -112,7 +112,14 @@ int main() {
         memcpy(material, "remote", 7);
       }
     }
+
+    cout << lecture << endl;
+    cout << lab << endl;
+    cout << exam << endl;
+    cout << material << endl;
+
   }
+
 
   char response {};
   do {
