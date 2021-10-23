@@ -193,15 +193,18 @@
   \item[]
 
   \subsection{Implementation of the Gram-Schmidt Process}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \link{https://github.com/nosvagor/notes/blob/main/fire/linear/mth-343/gramSchmidt.ipynb}{Implementing Gram-Schmidt}
+  \vspace{18pt}
 
   \subsection{Problems 10, 13, 18}
   \begin{enumerate}
     \minor{\item[10.] 10. If \(\bm{q}_1\) and \(\bm{q}_2\) are the outputs from
       Gram-Schmidt, what were the possible input vectors \tbm{a} and \tbm{b}?
     }
+    \begin{itemize}
+      \item Any two linearly independent vectors.
+    \end{itemize}
+
 
     \minor{\item[13.] Apply the Gram-Schmidt process to
       \[%%%%%%%%%%
@@ -213,10 +216,73 @@
       \]%%%%%%%%%%
       and write the result in the form \(\bm{A} = \bm{QR}\).
     }
+    \[%%%%%%%%%%
+    \bm{A} = \begin{bmatrix}
+      0 & 0 & 1 \\
+      0 & 1 & 1 \\
+      1 & 1 & 1
+    \end{bmatrix}
+    \]%%%%%%%%%%
+    \begin{itemize}
+      \item All that is needed is a permutation to achieve orthonormal
+        columns; switching rows 1 and 3 will achieve this, yielding \tbm{Q}:
+        \[%%%%%%%%%%
+        \bm{Q} = \begin{bmatrix}
+          0 & 0 & \aset{1} \\
+          0 & 1 & 0 \\
+          \aset{1} & 0 & 0
+        \end{bmatrix}
+        \]%%%%%%%%%%
+      \item Thus,
+        \[%%%%%%%%%%
+        \bm{A} = \bm{QR} \to
+        \begin{bmatrix}
+          0 & 0 & 1 \\
+          0 & 1 & 1 \\
+          1 & 1 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+          0 & 0 & \aset{1} \\
+          0 & 1 & 0 \\
+          \aset{1} & 0 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 1 & 1 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{bmatrix}
+      \]%%%%%%%%%%
+    \end{itemize}
+
     \minor{\item[18.] If \(\bm{A} = \bm{QR}\), find a simple formula for the
       projection matrix \tbm{P} onto the column space of \tbm{A}.
     }
+    \begin{itemize}
+      \item I was lost on this one, but I wanted to know how to do it.
+        Unfortunately, while looking for help I came across one of the\link{https://www.math.colostate.edu/~clayton/teaching/m215s10/homework/hw7solutions.pdf}{
+        solutions documents} again.
+      \item Normally I would just do a different problem, but I wanted to write
+        it out, for personal reference.
+    \end{itemize}
+    \begin{align*}
+      \bm{A} = \bm{QR} &\then \aset{\bm{A}^T  \bm{A}} = (\bm{QR})^T (\bm{QR}) = \bm{R}^T \bm{Q}^T \bm{QR} = \aset{\bm{R}^T \bm{R}} \\
+      \aset{\bm{P}} &= \aset{\bm{A}(\bm{A}^T \bm{A})^{-1} \bm{A}^T } \\
+             &\then
+             \bm{QR}(\bm{R}^T \bm{R})^{-1} (\bm{QR})^T = \bm{QRR}^{-1}(\bm{R}^T )^{-1} \bm{R}^T \bm{Q}^T = \bm{QQ}^T = \bm{I} \\
+             &\then \TT{\bm{P}^2} = \TT{\bm{P}}~\text{\true{}}
+    \end{align*}
 
   \end{enumerate}
+\end{itemize}
+
+\section{3.5 The Fast Fourier Transform}
+\begin{itemize}
+  \item[]
+
+  \subsection{Problems 1, 5, 6, 15, 16}
+  \begin{itemize}
+    \item
+  \end{itemize}
 
 \end{itemize}
