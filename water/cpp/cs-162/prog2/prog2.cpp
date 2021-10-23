@@ -1,7 +1,7 @@
 // ╔═╗┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ╔╦╗┬ ┬┌─┐
 // ╠═╝├┬┘│ ││ ┬├┬┘├─┤│││   ║ ││││ │
 // ╩  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴   ╩ └┴┘└─┘
-// cullyn newman -- cs 162
+// cullyn newman --- cs 162
 
 // Meta-purpose of this program: exercise and implement arrays/functions.
 // The purpose of the program itself is to take a single input supplied by a
@@ -9,7 +9,6 @@
 // summary of the class.
 
 #include <iostream>
-#include <cctype>
 #include <cstring>
 using namespace std;
 
@@ -64,7 +63,7 @@ int main() {
   // results, if course is online
   if (!strcmp("online", offering)) {
     cout << endl << course
-      << " is offered as an "<< offering << "class! "
+      << " is offered as an "<< offering << " class! "
       << "All content will be be available remotely."
       << endl << endl;
   };
@@ -72,7 +71,7 @@ int main() {
   // results, if course is attend anywhere
   if (!strcmp("aa", offering)) {
     cout << endl << course
-      << " is offered as an "<< offering << "class! "
+      << " is offered as an "<< offering << " class! "
       << "All content is available online,\n"
       << "but any labs, lectures, or exams are offered in person if preferred."
       << endl << endl;
