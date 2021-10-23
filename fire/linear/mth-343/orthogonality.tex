@@ -260,7 +260,7 @@
     }
     \begin{itemize}
       \item I was lost on this one, but I wanted to know how to do it.
-        Unfortunately, while looking for help I came across one of the\link{https://www.math.colostate.edu/~clayton/teaching/m215s10/homework/hw7solutions.pdf}{
+        Unfortunately, while looking for help I came across one of the\link{https://www.math.colostate.edu/~clayton/teaching/m215s10/homework/hwy solutions.pdf}{
         solutions documents} again.
       \item Normally I would just do a different problem, but I wanted to write
         it out, for personal reference.
@@ -280,9 +280,136 @@
 \begin{itemize}
   \item[]
 
-  \subsection{Problems 1, 5, 6, 15, 16}
+  \subsection{Problems 1, 2}
   \begin{itemize}
-    \item
+    \minor{\item[1.] What are \(\bm{F}^2\) and \(\bm{F}^4\) for the \(4 \times
+      4\) Fourier matrix \tbm{F}?
+    }
+    \begin{align*}
+      \bm{F}^2 &=
+      \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & i & i^2 & i^3 \\
+        1 & i^2 & i^4 & i^6 \\
+        1 & i^3 & i^6 & i^9
+      \end{bmatrix}
+      \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & i & i^2 & i^3 \\
+        1 & i^2 & i^4 & i^6 \\
+        1 & i^3 & i^6 & i^9
+      \end{bmatrix} \\
+      &=
+      \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & \RR{i} & \BB{-1} & \BB{-i} \\
+        1 & \BB{-1} & \RR{1} & \BB{-1} \\
+        1 & \BB{-i} & \BB{-1} & \RR{i}
+      \end{bmatrix}
+      \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        1 & \RR{i} & \BB{-1} & \BB{-i} \\
+        1 & \BB{-1} & \RR{1} & \BB{-1} \\
+        1 & \BB{-i} & \BB{-1} & \RR{i}
+      \end{bmatrix} \\
+      &=
+      \begin{bmatrix}
+          \aset{4} & 0 & 0 & 0\\
+          0 & 0 & 0 & \aset{4}\\
+          0 & 0 & \aset{4} & 0\\
+          0 & \aset{4} & 0 & 0
+      \end{bmatrix} \\\\
+      \bm{F}^4 &=
+      \begin{bmatrix}
+          \aset{4} & 0 & 0 & 0\\
+          0 & 0 & 0 & \aset{4}\\
+          0 & 0 & \aset{4} & 0\\
+          0 & \aset{4} & 0 & 0
+      \end{bmatrix}
+      \begin{bmatrix}
+          \aset{4} & 0 & 0 & 0\\
+          0 & 0 & 0 & \aset{4}\\
+          0 & 0 & \aset{4} & 0\\
+          0 & \aset{4} & 0 & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+          \aset{16} & 0 & 0 & 0\\
+          0 & \aset{16} & 0 & 0\\
+          0 & 0 & \aset{16} & 0\\
+          0 & 0 & 0 & \aset{16}
+      \end{bmatrix}
+    \end{align*}
+
+    \minor{\item[2.] Find a permutation \tbm{P} of the columns of \tbm{F} that produces
+      \(\bm{FP} = \bm{\overline{F}}~(n \times n)\). Combine with
+      \(\bm{F\overline{F}} = n\bm{I}\) to find \(\bm{F}^2\) and \(\bm{F}^4\)
+      for the \(n \times n\) Fourier matrix.
+    }
+    \begin{align*}
+      \bm{P} &=
+      \begin{bmatrix}
+        \aset{1} & 0 & \cdots & 0 & 0\\
+        0 & 0 & \cdots & 0 &\aset{1} \\
+        \vdots & \vdots & \iddots & \aset{\iddots} & 0\\
+        0 & 0 & \aset{\iddots} & \iddots & \vdots \\
+      0 & \aset{1} & 0 & \cdots & 0 \\
+      \end{bmatrix} \\
+      \bm{F\overline{F}} &=
+      \aset{n}
+      \begin{bmatrix}
+        1 & 0 & \cdots & 0 \\
+        0 & 1 & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & 0 \\
+        0 & \cdots & 0 & 1 \\
+      \end{bmatrix} \quad (n \times n) \\\\
+      \bm{F}^2 =
+      \begin{bmatrix}
+        \aset{n} & 0 & \cdots & 0 \\
+        0 & \aset{n} & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & 0 \\
+        0 & \cdots & 0 & \aset{n} \qquad
+      \end{bmatrix}
+                         &\quad
+      \bm{F}^4 =
+      \begin{bmatrix}
+        \aset{n^2} & 0 & \cdots & 0 \\
+        0 & \aset{n^2} & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & 0 \\
+        0 & \cdots & 0 & \aset{n^2} \qquad
+      \end{bmatrix}
+    \end{align*}
+  \end{itemize}
+
+
+  \subsection{Problems 5, 6}
+  \begin{itemize}
+    \minor{\item[5.] Find all solutions to the equation \(e^{ix} = -1\), and
+      all solutions to \(e^{i\theta} = i\).
+    }
+    \begin{align*}
+      e^{ix} &= -1 &&& e^{i\theta} &= i \\
+             &\then \cos x + i \sin x = -1 + 0i
+             &&&
+             &\then \cos \theta + i \sin \theta = 0 + 1i \\
+             &\then \cos x = -1 \land \sin x = 0
+             &&&
+             &\then \cos \theta = 0 \land \sin \theta = 1 \\
+             &\then \aset{x = \pi + 2k\pi, \quad k \in \Z}
+             &&&
+             &\then \aset{\theta = \frac{\pi}{2} + 2k\pi, \quad k \in \Z}
+    \end{align*}
+
+
+    \minor{\item[6.] What are the square and square roots of \(w_{128}\), the
+      primitive \(128^{th}\) root of \(1\)?
+    }
+    \begin{align*}
+      \mid w^2_n = w_m &\iff m = \frac{1}{2}n \\
+      \then w_{128}^2 = \aset{w_{64}} &\land \sqrt{w_{128}}= \aset{w_{256}} \\\\
+      w_{128} = e^{2\pi i / 128} &= \cos \frac{2\pi}{128} + i\sin  \frac{2\pi}{128} \\
+                            &= \cos 0 + i\sin 0 = 1 + i 0 = \aset{1}
+    \end{align*}
   \end{itemize}
 
 \end{itemize}
