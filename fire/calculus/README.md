@@ -17,4 +17,4 @@
 
 ## Exercises
 
-- [Calculus III &mdash; Edfinity](mth-253/edfinity)
+- [Calculus III](https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/calculus.pdf)
