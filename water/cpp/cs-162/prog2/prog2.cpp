@@ -1,18 +1,22 @@
 // ╔═╗┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ╔╦╗┬ ┬┌─┐
 // ╠═╝├┬┘│ ││ ┬├┬┘├─┤│││   ║ ││││ │
 // ╩  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴   ╩ └┴┘└─┘
-// cullyn newman --- cs 162
+// cullyn Newman --- cs 162
 
 // Meta-purpose of this program: exercise and implement arrays/functions.
 // The purpose of the program itself is to take a single input supplied by a
 // by a user, "decipher" the it, and display a more friendly and readable
 // summary of the class.
 
+// styling note: I dislike lining up brackets. I line up the bracket with the
+// respective statement the block is associated with, like all other
+// programming languages I use do.
+
 #include <iostream>
 #include <cstring>
 using namespace std;
 
-// Constant
+// Constants
 const int INPUT_SIZE {69};
 const int DESG_SIZE {10};
 
@@ -31,17 +35,22 @@ void farewell();
 //            |_______|__|_|__|} c++                                         79
 //=============oo--oo==oo--OOO\\===============================================
 int main() {
-  // input array
+  // user input array
   char input[INPUT_SIZE];
 
-  // basic information
+  // course name, e.g., cs162
   char course[DESG_SIZE];
+  // offering type, e.g., hybrid
   char offering[DESG_SIZE];
 
-  // hybrid designators
+  // respective content categories:
+  // lect -> lecture
   char lecture[DESG_SIZE];
+  // lab -> lab
   char lab[DESG_SIZE];
+  // ex -> exam
   char exam[DESG_SIZE];
+  // mat -> materials
   char material[DESG_SIZE];
 
   greeting();
@@ -92,14 +101,15 @@ int main() {
       << "   - exams are " << exam << ";\n"
       << "   - and course materials are " << material << "."
       << endl << endl;
-  }
+  };
 
   // exit, or restart.
   farewell();
   return 0;
 }
 
-void greeting(){
+// greeting displays instructions and basic info of the program.
+void greeting() {
   cout << endl
        << "\t\t╔═╗┬  ┌─┐┌─┐┌─┐  ╦┌┐┌┌─┐┌─┐\n"
        << "\t\t║  │  ├─┤└─┐└─┐  ║│││├┤ │ │\n"
@@ -122,13 +132,15 @@ void greeting(){
        << endl;
 }
 
-void getClass(char arr[]){
+// getClass is simple function to receive user input.
+void getClass(char arr[]) {
   cout << "\nPlease enter course information: ";
   cin.get(arr, INPUT_SIZE);
   cin.ignore(420, '\n');
 }
 
-// used to confirm if entered information is correct
+// confirm returns a boolean, depending on response; a simple yes/no continue
+// function.
 bool confirm() {
   char response {};
 
@@ -136,25 +148,31 @@ bool confirm() {
     cout << "Is this information correct? [y/n]: ";
     cin >> response;
     cin.ignore(420, '\n');
-    if (response == 'n') return 0;
+    if (response == 'n') return false;
   } while (response != 'y');
 
-  return 1;
+  return true;
 }
 
-// turn input to lower case, remove any unusual characters(:-,)
-// that might mess up extraction.
+// format transforms input into a standardize, all lowercase, form. Ended up
+// not being that necessary, but feels like a good approach if program were to
+// be extended.
+//
+// -- Note: further optimization could be applied here to improve later
+// functions. I was unsure good practices here and decided against implementing
+// it as it served little purpose for the requirements of this program.
 void format(char input[]) {
   for (int i = 0; i < strlen(input); ++i){
    input[i] = tolower(input[i]);
    if ((input[i] == ':') || (input[i] == '-') || (input[i] == ',')) {
       input[i] = ' ';
-    }
-  }
+    };
+  };
 }
 
-// extract course and offering type.
-void extractCourse(char input[], char course[], char offering[]){
+// extractCourse gets the course name and offering type based, assuming only
+// options to choose from are: "hybrid, online, aa".
+void extractCourse(char input[], char course[], char offering[]) {
 
   // extract course, keep track of size in order to add terminating character
   // for array. Was an issue when restarting program.
@@ -170,26 +188,28 @@ void extractCourse(char input[], char course[], char offering[]){
   // more curse offerings can easily be added.
   if (strstr(input, "hybrid")) {
     memcpy(offering, "hybrid", 7);
-  }
+  };
 
   if (strstr(input, "online")) {
     memcpy(offering, "online", 7);
-  }
+  };
 
   if (strstr(input, "aa")) {
-    memcpy(offering, "aa", 7);
-  }
+    memcpy(offering, "aa", 3);
+  };
 }
 
-// get designator, semi-hard coded assuming format like lect-o, lect-r.
-// not sure of a better way, without regex.
-// Fragile function, should be fixed.
-void decipher(char input[], char content[], const char *desg){
+// decipher takes the input arr and updates content arr based on given
+// designators. If no designator is supplied, then it defaults to in person.
+//
+// -- Note: a rather hard-coded approach. I am not happy with this. Fails if
+// user inputs spaces between dashes, e.g., lect - r...
+void decipher(char input[], char content[], const char *desg) {
   memcpy(content, "in person", 10); // default to in person
 
   int i = strlen(desg)+1; // get position of designator
 
-  // get result of strstr, null results keep default assignment.
+  // get result of struts, null results keep default assignment.
   const char *result;
   result = strstr(input, desg);
 
@@ -198,9 +218,11 @@ void decipher(char input[], char content[], const char *desg){
     char des = strstr(input, desg)[i];
     if (des == 'o') memcpy(content, "optional", 9);
     if (des == 'r') memcpy(content, "remote", 7);
-  }
+  };
 }
 
+// farewell asks user for a restart; re-runs main if yes, else executes
+// a basic farewell message.
 void farewell() {
 
   // ask to restart of exit
