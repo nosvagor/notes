@@ -16,20 +16,21 @@
 \begin{document}
 
 This review document contains questions from quiz 1 \& 2, as well as
-preliminary questions from sections 9.1--9.5 \& 10.1. Questions are listed in
-no particular order.
+preliminary questions from sections 9.1--9.5 (excluding 9.3) \& 10.1--10.3.
+
+Questions are listed in no particular.
 
 \begin{enumerate}
   \item True or false? (with justification)
   \begin{enumerate}
     \item If \({a_n}\) is bounded, then it converges.
-      \vspace{140pt}
+      \vspace{130pt}
     \item If \({a_n}\) converges, then is must be bounded.
-      \vspace{140pt}
+      \vspace{130pt}
     \item If \({a_n}\) is not bounded, then it diverges.
-      \vspace{140pt}
+      \vspace{130pt}
     \item If \({a_n}\) diverges, then it is not bounded.
-      \vspace{140pt}
+      \vspace{130pt}
   \end{enumerate}
 
   \newpage
@@ -78,114 +79,6 @@ no particular order.
     to \(x?\) What about \(e^x\)?
   \newpage
 
-\item Match the differential equation that corresponds to the slope fields
-  below. Then give a brief justification explaining how you arrived at your
-  choice.
-
-  \[%%%%%%%%%%
-  \frac{dy}{dx} = -\frac{x}{y} \qquad \frac{dy}{dx} = y - x \qquad
-  \frac{dy}{dx} = 2 - y \qquad \frac{dy}{dx} = 0.25y(4-y)
-  \]%%%%%%%%%%
-
-  \begin{tikzpicture}[declare function={f(\x,\y)=2-\y;}]
-    \def\xmax{3} \def\xmin{-3}
-    \def\ymax{3} \def\ymin{-3}
-    \def\nx{12}
-    \def\ny{12}
-
-    \pgfmathsetmacro{\hx}{(\xmax-\xmin)/\nx}
-    \pgfmathsetmacro{\hy}{(\ymax-\ymin)/\ny}
-    \foreach \i in {0,...,\nx}
-    \foreach \j in {0,...,\ny}{
-      \pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
-      \draw[blue+1,shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}]
-        (0,0)--($(0,0)!4mm!(.1,.1*\yprime)$);
-    }
-    \draw [->] (\xmin,0) -- (\xmax,0) node[below right] {$x$};
-    \draw [->] (0,\ymin) -- (0,\ymax) node[above left] {$y$};
-
-    \foreach \x in {\xmin,...,\xmax} {%
-      \draw ($(\x,0) + (0,-\TickSize)$) -- ($(\x,0) + (0,\TickSize)$)
-        node [below] {\scriptsize{$\x$}};
-    }
-
-    \foreach \y in {1,...,\ymax} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-
-    \foreach \y in {\ymin,...,-1} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-  \end{tikzpicture}
-
-  \begin{tikzpicture}[declare function={f(\x,\y)=\y - \x;}]
-    \def\xmax{3} \def\xmin{-3}
-    \def\ymax{3} \def\ymin{-3}
-    \def\nx{14}
-    \def\ny{14}
-
-    \pgfmathsetmacro{\hx}{(\xmax-\xmin)/\nx}
-    \pgfmathsetmacro{\hy}{(\ymax-\ymin)/\ny}
-    \foreach \i in {0,...,\nx}
-    \foreach \j in {0,...,\ny}{
-      \pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
-      \draw[blue+1,shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}]
-        (0,0)--($(0,0)!4mm!(.1,.1*\yprime)$);
-    }
-    \draw [->] (\xmin,0) -- (\xmax,0) node[below right] {$x$};
-    \draw [->] (0,\ymin) -- (0,\ymax) node[above left] {$y$};
-
-    \foreach \x in {\xmin,...,\xmax} {%
-      \draw ($(\x,0) + (0,-\TickSize)$) -- ($(\x,0) + (0,\TickSize)$)
-        node [below] {\scriptsize{$\x$}};
-    }
-
-    \foreach \y in {1,...,\ymax} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-
-    \foreach \y in {\ymin,...,-1} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-  \end{tikzpicture}
-
-  \begin{tikzpicture}[declare function={f(\x,\y)=0.25*\y * (4 - \y);}]
-    \def\xmax{3} \def\xmin{-3}
-    \def\ymax{5} \def\ymin{-2}
-    \def\nx{14}
-    \def\ny{14}
-
-    \pgfmathsetmacro{\hx}{(\xmax-\xmin)/\nx}
-    \pgfmathsetmacro{\hy}{(\ymax-\ymin)/\ny}
-    \foreach \i in {0,...,\nx}
-    \foreach \j in {0,...,\ny}{
-      \pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
-      \draw[blue+1,shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}]
-        (0,0)--($(0,0)!4mm!(.1,.1*\yprime)$);
-    }
-    \draw [->] (\xmin,0) -- (\xmax,0) node[below right] {$x$};
-    \draw [->] (0,\ymin) -- (0,\ymax) node[above left] {$y$};
-
-    \foreach \x in {\xmin,...,\xmax} {%
-      \draw ($(\x,0) + (0,-\TickSize)$) -- ($(\x,0) + (0,\TickSize)$)
-        node [below] {\scriptsize{$\x$}};
-    }
-
-    \foreach \y in {1,...,\ymax} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-
-    \foreach \y in {\ymin,...,-1} {%
-      \draw ($(0,\y) + (-\TickSize,0)$) -- ($(0,\y) + (\TickSize,0)$)
-        node [left] {\scriptsize{$\y$}};
-    }
-  \end{tikzpicture}
-
   \newpage
 
   \item Find the limit of the sequence \(a_n = \dfrac{n+1}{3n+2}\). Be sure to justify your answer.
@@ -223,30 +116,20 @@ no particular order.
   \[%%%%%%%%%%
     1,\frac{4}{2}, \frac{9}{4}, \frac{16}{8}, \frac{25}{16}, \frac{36}{32}\ldots
   \]%%%%%%%%%%
-  \vspace{140pt}
+  \vspace{180pt}
 
-  \item Use Euler’s method with \(h= 0 .2\) to estimate \(y(0.4)\), where \(y(x)\) is the
-    solution to the following initial value problem:
-    \[%%%%%%%%%%
-      y' = 2xy^2, y(0) = 1
-    \]%%%%%%%%%%
-    \vspace{140pt}
-
- \item What is the slope of the segment in the slope field for \(\frac{dy}{dt}
-   = ty+1 \) at point (2,3)?
-   \vspace{60pt}
-
-  \item What is the equation of the isocline of slope \(c=1\) for
-    \(\frac{dy}{dt} = y^2 -t\)?
-    \vspace{60pt}
-
-  \item Let \(y(t)\) be the solution to \(\frac{dy}{dt} = F(t,y)\) with
-    \(y(1)=3\). How many iterations of Euler's Method are required to
-    approximate \(y(3)\) if the time step is \(h=0.1\)?
+  \item Determine whether each of the following series converge or diverge by
+    using either the Comparison Test or the Limit Comparison Test to justify
+    your answer.
+    \begin{enumerate}
+      \item \(\displaystyle\sum_{n=1}^{\infty} \frac{a}{e^n + n^2}\)
+      \vspace{180pt}
+      \item \(\displaystyle\sum_{n=1}^{\infty} \frac{a}{e^n - n^2}\)
+    \end{enumerate}
 
   \newpage
 
-  \item True of false? If \(k > 0\), then all solutions of \(y' = -k(y-b)\)
+  \item True or false? If \(k > 0\), then all solutions of \(y' = -k(y-b)\)
   approach the same limit as \(t \to \infty\).
   \vspace{60pt}
 
@@ -321,6 +204,92 @@ no particular order.
         \item \(yy' + x + y = 0\)
       \end{enumerate}
     \end{multicols}
+
+  \newpage
+
+  \item Water is draining from a cylindrical tank with cross sectional area
+  \(4m^2\) and height \(5m\). Torricelli’s  Law says that the rate of change of the
+  height of the water in such a cylindrical tank is proportional to the square
+  root of the height of the water in the tank. Suppose that the tank starts
+  full of water and after 30 minutes the height of the water has decreased to
+  \(4m\). Set up an initial value problem to model this situation.
+
+  \newpage
+
+  \item Find the limit of each of the following sequences. Justify your answer
+    using limit laws, the squeeze theorem, and/or L’Hospital’s Rule.
+    \begin{enumerate}
+      \item \(\displaystyle a_n = \frac{2(-1)^{n+1}}{2n-1}\)
+      \vspace{300pt}
+
+      \item \(\displaystyle a_n = \frac{n^2}{2^{n-1}}\)
+    \end{enumerate}
+
+  \newpage
+
+  \item Does the series \(\displaystyle \sum_{n=1}^{\infty} \cos \left(
+    \frac{1}{n} \right) \) converge or diverge? How do you know?
+    \vspace{160pt}
+
+  \item Find the sum of each of the following geometric series or state that it
+    diverges. Be sure to explain how you arrived at your solution.
+    \begin{enumerate}
+      \item \(\frac{1}{6} + \frac{1}{12} + \frac{1}{24} + \frac{1}{48} + \frac{1}{96} + \cdots\)
+      \vspace{200pt}
+
+      \item \(-2 + \frac{2}{5} - \frac{2}{25} + \frac{2}{125} - \frac{2}{625} + \cdots \)
+    \end{enumerate}
+  \newpage
+
+  \item What role do partial sums play in defining the sum of an infinite
+    series?
+    \vspace{90pt}
+
+  \item Indicate whether of not the reasoning in the following statements are
+    correct:
+    \begin{enumerate}
+      \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2} = 0\) because
+        \(\frac{1}{n^2}\) tends to zero.
+      \vspace{110pt}
+
+      \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}}\) because
+        \(\displaystyle \lim_{n \to \infty}\frac{1}{\sqrt{n} } = 0\)
+      \vspace{110pt}
+    \end{enumerate}
+
+  \item Find an \(N\) such that \(S_N > 25\) for the series \(\displaystyle
+    \sum_{n=1}^{\infty} 2\).
+    \vspace{110pt}
+
+  \item Does there exist an \(N\) such that \(S_N > 25\) for the series
+    \(\sum_{n=1}^{\infty} 2^{-n}\)? Explain.
+    \vspace{90pt}
+
+  \newpage
+
+  \item Give an example of a divergent infinite series whose general term tends
+    to zero.
+    \vspace{90pt}
+
+  \item For the series \(\displaystyle \sum_{n=1}^{\infty} a_n\), if the
+    partial sums \(S_N\) are increasing, then (choose the correct conclusion):
+    \begin{enumerate}
+      \item \({a_n}\) is an increasing sequence.
+      \item \({a_n}\) is a positive sequence.
+    \end{enumerate}
+  \vspace{60pt}
+
+  \item What are the hypotheses of the Integral Test?
+  \vspace{110pt}
+
+  \item Which test would you use to determine whether the following series converge?
+  \begin{enumerate}
+    \item \(\displaystyle \sum_{n=1}^{\infty} n^{-3.2}\) converges?
+  \vspace{110pt}
+
+    \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{2^n + \sqrt{n} }\)
+  \vspace{110pt}
+  \end{enumerate}
 
 \end{enumerate}
 \end{document}
