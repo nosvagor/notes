@@ -4,33 +4,38 @@
 \usetikzlibrary{calc}
 \newcommand*{\TickSize}{2pt}%
 
-\colorlet{title-color}{black!85!white}
+\colorlet{title-color}{red}
 \newcommand{\theTitle}{%
   \href{https://github.com/nosvagor/notes/tree/main/fire/calculus}%
-  {Calculus III Midterm Review}%
+  {Calculus III Midterm Review (\RR{Solutions})}%
 }
 
-\pagecolor{white}
-\color{black}
-
 \begin{document}
-
-This review contains questions from quiz 1 \& 2, in class midterm review questions,
-and preliminary questions from sections 9.1--9.5 (excluding 9.3) \& 10.1--10.3.
-
-Questions are listed in no particular.
 
 \begin{enumerate}
   \item True or false? (with justification)
   \begin{enumerate}
     \item If \({a_n}\) is bounded, then it converges.
-      \vspace{130pt}
+
+      \false{False}; sequences can oscillate between values, yielding a bounded sequence that does not converge to a consistent value. E.g., \(a_n = (-1)^{n}\)
+      \vspace{90pt}
+
     \item If \({a_n}\) converges, then is must be bounded.
-      \vspace{130pt}
+
+      \true{True}; by \textit{THEOREM 5: Convergent Sequences are Bounded}; if
+      \({a_n}\) converges, then \({a_n} \) is bounded.
+      \vspace{90pt}
+
     \item If \({a_n}\) is not bounded, then it diverges.
-      \vspace{130pt}
+
+      \true{True};  inverse of (b); sequences must be bounded in order to
+      converge, if they aren't then they diverge.
+      \vspace{90pt}
+
     \item If \({a_n}\) diverges, then it is not bounded.
-      \vspace{130pt}
+
+      \false{False};  inverse of (a); bounded sequences can diverge. Another example is \(a_n = \cos \pi n\)
+      \vspace{30pt}
   \end{enumerate}
 
   \newpage
@@ -40,16 +45,42 @@ Questions are listed in no particular.
    Let \(y(t)\) be the anvil’s temperature \(t\) seconds later.
    \begin{enumerate}
      \item What is the differential equation satisfied by \(y(t)?\)
-       \vspace{140pt}
+       \[%%%%%%%%%%
+         \text{Newton's Law of Cooling:}~ \aset{y' = -k(y - T_0)}
+       \]%%%%%%%%%%
+       \[%%%%%%%%%%
+        y(t) = ~\text{temp. of object}, \quad T_0 = ~\text{ambient temp.}, \quad k = ~\text{cooling constant}.
+       \]%%%%%%%%%%
+
+       \[%%%%%%%%%%
+         k = 0.02, \qquad T_0 = 10 \then \boxed{y' = -0.02(y - 10)}
+       \]%%%%%%%%%%
+       \vspace{90pt}
 
      \item Find a formula for \(y(t)\), assuming the object initial temperature
        is \SI{100}{\celsius}.
-       \vspace{180pt}
+       \[%%%%%%%%%%
+        \text{General Solution of}~y' = -k(y - b) \to \aset{y = b + Ce^{-kt}}
+       \]%%%%%%%%%%
+       \begin{align*}
+         b = 10, \quad k = -0.02, &\then y = 10 + Ce^{-0.02 t} \\
+         P(0) = 100, &\then 100 = 10 + Ce^{0} \\
+                     &\then C = 90 \\
+                     &\then \boxed{y = 10 + 90e^{-0.02t}}
+       \end{align*}
+       \vspace{60pt}
    \end{enumerate}
 
   \item As an object cools, its rate of cooing slows. Explain how this follows
     from Newton's Law of Cooling.
 
+    \vspace{16pt}
+    \begin{itemize}
+      \item The difference in temperature between a cooling object and the ambient
+        temperature is decreasing. Hence, the rate of cooling, which is
+        proportional to this difference, is also decreasing in magnitude.
+
+    \end{itemize}
     \newpage
 
   \item In Yellowstone park there were approximately 500 bison in 1970 and
@@ -58,53 +89,117 @@ Questions are listed in no particular.
       \item Using the model that the rate of change of the population is
         proportional to the population itself, set up (do not solve) an initial
         value problem to model this situation.
-        \vspace{140pt}
+        \begin{align*}
+          ~\text{Given: }~
+          P(t) &= ~\text{population of bison at time}~ t \\
+          1970 &\to t = 0 \\
+          P' &\propto P \\
+             &\then \boxed{P' = kP \quad
+             P(0) = 500 \land P(20) = 3,000}
+        \end{align*}
+        \vspace{30pt}
 
-      \item Now find the particular solution satisfying your initial value problem.
-        \vspace{140pt}
+      \item Now find the particular solution satisfying your initial value
+        problem.
+        \begin{align*}
+          ~\text{Given:}~ P'&=kP, \quad y = Ce^{kt} ~(\text{general solution to}~y'=ky)\\
+                   &\then P = Ce^{kt} \\
+          P(0) = 500 &\then 500 = Ce^{0} \\
+                     &\then C = 500, \quad P = 500e^{kt} \\\\
+          P(3,000) = 500 e^{20k} &\then k = (\ln \frac{3000/500}{20}) \approx 0.0896 \\
+                     &\then \boxed{P = 500e^{0.0896t}}
+        \end{align*}
+        \vspace{30pt}
     \end{enumerate}
 
   \item Which of the following are first-order linear equations?
     \begin{multicols}{2}
     \begin{enumerate}
-      \item \(y' + x^2y = 1\)
-      \item \(y' + xy^2 = 1\)
-      \item \(x^5y' + y = e^x\)
-      \item \(x^5y' + y = e^y\)
+      \item \(y'+ x^2y = 1\) \true{true}
+      \item \(y' + xy^2 = 1\) \false{false}
+      \item \(x^5y' + y = e^x\) \true{true}
+      \item \(x^5y' + y = e^y\) \false{false}
     \end{enumerate}
     \end{multicols}
-    \vspace{80pt}
+    \vspace{40pt}
 
   \item For what function \(P\) is the integrating factor \(\alpha (x) \) equal
     to \(x?\) What about \(e^x\)?
-  \newpage
+    \begin{align*}
+      \Aboxed{P(x) &= x^{-1}} \to \alpha (x) = x \\\\
+      \Aboxed{P(x) &= 1} \to \alpha (x) = e^x
+    \end{align*}
 
   \newpage
 
-  \item Find the limit of the sequence \(a_n = \dfrac{n+1}{3n+2}\). Be sure to justify your answer.
-  \vspace{256pt}
+  \item Find the limit of the sequence \(a_n = \dfrac{n+1}{3n+2}\). Be sure to
+    justify your answer.
+
+    \begin{align*}
+      ~\text{Using the Limit Laws:} \\
+      \lim_{n \to \infty}\frac{n+1}{3n+1} =
+      \lim_{x \to \infty} \frac{x+1}{3x+1} &=
+      \lim_{x \to \infty} \frac{x+1}{3x+1} \cdot \frac{x^{-1}}{x^{-1}} \\
+      &= \lim_{x \to \infty} \frac{1+x^{-1}}{3+x^{-1}} \\
+      &= \lim_{x \to \infty} \frac{1}{3} + \lim_{x \to \infty} \frac{x^{-1}}{x^{-1}} \\
+      &= \frac{1}{3} + \frac{0}{0} = \boxed{\frac{1}{3}}
+    \end{align*}
+
+    \begin{align*}
+      ~\text{Using \hopital Rule:}\\
+      f(x) &= n+1, \quad g(x) = 3n+2 \\\\
+      \lim_{x \to \infty} \frac{f(x)}{g(x)} &= \frac{\infty}{\infty} \\
+      &\then \frac{f'(x)}{g'(x)} = \boxed{\frac{1}{3}}
+    \end{align*}
+
+    \vspace{30pt}
 
   \item Which of the following sequences converge to zero?
     \[%%%%%%%%%%
-      \frac{n^2}{n^2+1} \qquad\qquad 2^n \qquad\qquad \left( -\frac{1}{2} \right) ^n
+      \frac{n^2}{n^2+1} \qquad\qquad 2^n \qquad\qquad \boxed{\left( -\frac{1}{2} \right) ^n}
     \]%%%%%%%%%%
-    \vspace{40pt}
+    \vspace{10pt}
 
   \item Which of the following sequences is defined recursively?
     \[%%%%%%%%%%
-    a_n = \sqrt{4+n} \qquad \qquad b_n = \sqrt{4+b_{n-1}}
+      a_n = \sqrt{4+n} \qquad \qquad \boxed{b_n = \sqrt{4+b_{n-1}}}
     \]%%%%%%%%%%
-    \vspace{40pt}
+    \vspace{10pt}
 
   \item Let \(a_n\) be the \(n^{th}\) decimal approximation to \(\sqrt{2} \).
     I.e., \(a_1 = 1, a_2 = 1.4, a_3 = 1.41\) and so on. What is \(\lim_{n \to
     \infty} a_n\)?
+
+    \[\boxed{\lim_{n \to \infty} a_n = \sqrt{2} }\]
   \newpage
 
   \item Biologists stocked a lake with 400 fish and estimated the carrying
     capacity to be 10,000. The number of fish tripled in the first year.
     Assuming the size of the fish population satisfies the logistic equation,
     find an expression for the size of the population after \(t\) years.
+    \vspace{10pt}
+
+    \begin{itemize}
+      \item The \aset{logistic equation} and it general non-equilibrium solution
+    \((k>0 \land A > 0)\)
+    \[%%%%%%%%%%
+      \frac{dy}{dt} = ky(1-\frac{y}{A}) \to y = \frac{A}{1-e^{-kt}/B} \equiv \frac{y}{y-A} = Be^{kt}
+    \]%%%%%%%%%%
+    \begin{align*}
+      ~\text{Given:}\\
+      y(0) &= 400, \quad y(1) = 1200, \quad A = 10,000 \\\\
+      \frac{400}{400-10,000} &= Be^0 \\
+      B &= -\frac{1}{24} \\
+        &\then y = \frac{10,000}{1-e^{-kt}/-\frac{1}{24}} =
+        \frac{10,000}{1+24e^{-kt}}\\\\
+      1,200 &= \frac{10,000}{1+24e^{-k}} \\
+      1+24e^{-k} &= \frac{10,000}{1,200} \\
+    e^{-k} &= \frac{22}{3} \cdot \frac{1}{24} = \frac{2\cdot 11}{3\cdot 2 \cdot 12} = \frac{11}{36}\\
+    k &= -\ln \left(\frac{11}{36}\right) \approx 1.186 \\\\
+      &\then \boxed{y = \frac{10,000}{1+24e^{-1.186 t}}}
+    \end{align*}
+    \end{itemize}
+
 
   \newpage
 
@@ -113,15 +208,40 @@ Questions are listed in no particular.
   \[%%%%%%%%%%
     1,\frac{4}{2}, \frac{9}{4}, \frac{16}{8}, \frac{25}{16}, \frac{36}{32}\ldots
   \]%%%%%%%%%%
-  \vspace{180pt}
+  \begin{align*}
+    &\then
+    \frac{1^2}{2^{1-1}},
+    \frac{2^2}{2^{2-1}},
+    \frac{3^2}{2^{3-1}},
+    \frac{4^2}{2^{4-1}},
+    \frac{5^2}{2^{5-1}},
+    \frac{6^2}{2^{6-1}}, \cdots, \frac{n^2}{2^{n-1}} \\
+    &\then \boxed{ a_n = \frac{n^2}{2^{n-1}}}
+  \end{align*}
+  \vspace{20pt}
 
   \item Determine whether each of the following series converge or diverge by
     using either the Comparison Test or the Limit Comparison Test to justify
     your answer.
     \begin{enumerate}
       \item \(\displaystyle\sum_{n=1}^{\infty} \frac{1}{e^n + n^2}\)
-      \vspace{180pt}
+        \begin{align*}
+          e^n + n^2 \geq n^2 \\
+          \frac{1}{e^n + n^2} \leq \frac{1}{n^2} \\\\
+          a_n = \frac{1}{e^n + n^2}, \quad b_n = \frac{1}{n^2}
+        \end{align*}
+      Using direct compassion test: if \(b_n\) converges, then \(a_n\)
+      converges. We know \(\frac{1}{n^2}\) converges by the \(p\)-series, since
+      \(p > 1\). \aset{Thus, \(a_n\) converges}.
+      \vspace{30pt}
       \item \(\displaystyle\sum_{n=1}^{\infty} \frac{1}{e^n - n^2}\)
+      \begin{align*}
+        ~\text{Let}~ a_n = \frac{1}{e^n - n^2}, \quad b_n &= \frac{1}{e^n} \\\\
+        \then \lim_{n \to \infty} \frac{a_n}{b_n} &= \frac{e^n}{e^n-n^2}\\
+           &= \lim_{n \to \infty} \frac{e^n}{e^n-n^2} \cdot \frac{e^{-n}}{e^{-n}} \\
+           &= \frac{1}{1-n^2 e^{-n}} = 1
+      \end{align*}
+      Thus, since \(L > 0\), and \(\sum b_n\) converges, then \aset{\(a_n\) converges}.
     \end{enumerate}
 
   \newpage
