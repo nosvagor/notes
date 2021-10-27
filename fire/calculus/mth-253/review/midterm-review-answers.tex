@@ -22,7 +22,7 @@
 
     \item If \({a_n}\) converges, then is must be bounded.
 
-      \true{True}; by \textit{THEOREM 5: Convergent Sequences are Bounded}; if
+      \true{True}; by Convergent Sequences theorem, i.e., if
       \({a_n}\) converges, then \({a_n} \) is bounded.
       \vspace{90pt}
 
@@ -49,7 +49,7 @@
          \text{Newton's Law of Cooling:}~ \aset{y' = -k(y - T_0)}
        \]%%%%%%%%%%
        \[%%%%%%%%%%
-        y(t) = ~\text{temp. of object}, \quad T_0 = ~\text{ambient temp.}, \quad k = ~\text{cooling constant}.
+        y(t) = ~\text{temp. Of object}, \quad T_0 = ~\text{ambient temp.}, \quad k = ~\text{cooling constant}.
        \]%%%%%%%%%%
 
        \[%%%%%%%%%%
@@ -241,25 +241,48 @@
            &= \lim_{n \to \infty} \frac{e^n}{e^n-n^2} \cdot \frac{e^{-n}}{e^{-n}} \\
            &= \frac{1}{1-n^2 e^{-n}} = 1
       \end{align*}
-      Thus, since \(L > 0\), and \(\sum b_n\) converges, then \aset{\(\sum a_n\) converges} by the Limit Comparison Test.
+      Thus, since \(L > 0\), and \(\sum b_n\) converges, then \aset{\(\sum
+      a_n\) converges} by the Limit Comparison Test.
     \end{enumerate}
 
   \newpage
 
   \item True or false? If \(k > 0\), then all solutions of \(y' = -k(y-b)\)
   approach the same limit as \(t \to \infty\).
-  \vspace{60pt}
+
+  \true{True}; \(k > 0\) will yield a general solution in the form of \(y = b +
+  Ce^{kt}\). Thus, all solutions will approach the same limit as \(t \to \infty\).
+  \vspace{30pt}
 
   \item Write a solution to \(y' = 4(y-5)\) that tends to \(-\infty\) as \(t\to
   \infty\).
-  \vspace{90pt}
+
+  \[\boxed{y(t) = 5 - Ce^{4t}, \quad c > 0}\]
+  \vspace{30pt}
 
   \item Does \(y'=-4(y-5)\) have a solution that tends to \(\infty\) and \(t \to
   \infty\)?
-  \vspace{90pt}
+
+  \false{No}; any solution eventually tend to \(-\infty\) with \(k = -4\) as \(t \to \infty\).
+  \vspace{30pt}
 
   \item Find the general solution \(y' = xe^{-\sin x} - y \cos x\).
-
+  \begin{align*}
+    y' + P(x)y &= Q(x)
+      && \text{First-order linear DEQ} \\
+    \alpha (x) &= e^{\int P(x)dx}
+      && \text{Integrating factor} \\
+    y &= \alpha (x)^{-1} \left( \int \alpha (x) Q (x) dx + C \right)
+      && \text{General solution} \\\\
+    y' + \cos (x) y &= xe^{- \sin x}
+      && \text{Rewrite equation} \\
+    \alpha (x) &= e^{\int \cos x dx } = e^{\sin x}
+      && \text{Find integrating factor} \\\\
+    y &= e^{-\sin  x} \left( \int e^{\sin x} xe^{-\sin x} dx + C \right)
+      && \text{Plug in}~\alpha (x)  \\
+    \Aboxed{y &=  e^{-\sin x}\left( \frac{x^2}{2} + C \right)}
+      && \text{Simplify, integrate} \\
+  \end{align*}
 
   \newpage
 
@@ -267,18 +290,26 @@
   \begin{enumerate}
     \item \(t \frac{dy}{dt} = 3\sqrt{1+y} \) is a separable differential
       equation.
-    \vspace{80pt}
+
+    \true{True};
+    \begin{align*}
+      t \frac{dy}{dt} &= 3\sqrt{1+y} \\
+    \then \frac{dy}{dt} &= \frac{3\sqrt{1+y}}{t} = 3t^{-1} \cdot \sqrt{1+y}
+    \end{align*}
     \item \(yy' + x + y = 0\) is a first-order linear differential equation.
-    \vspace{80pt}
+
+    \false{False}; \(yy'\) makes this equation nonlinear. Note: it is still
+      first order.
   \end{enumerate}
+  \vspace{80pt}
 
   \item Determine the order of the following differential equations:
     \begin{multicols}{2}
       \begin{enumerate}
-        \item \(x^5y'=1\)
-        \item \((y')^3+x=1\)
-        \item \(y''' + x^4y' = 2\)
-        \item \(\sin (y'') + x = y\)
+        \item \(x^5y'=1 \to\) \aset{1st}
+        \item \((y')^3+x=1 \to \) \aset{1st}
+        \item \(y''' + x^4y' = 2 \to\) \aset{3rd}
+        \item \(\sin (y'') + x = y \to \) \aset{2nd}
       \end{enumerate}
     \end{multicols}
     \vspace{80pt}
@@ -286,26 +317,28 @@
   \item Which of the following differential equations are directly integrable?
   \begin{multicols}{2}
     \begin{enumerate}
-      \item \(y'=x+y\)
-      \item \(x \frac{dy}{dx} = 3\)
-      \item \(\frac{dP}{dt} = 4P + 1\)
-      \item \(\frac{dw}{dt} = \frac{2t}{1+4t}\)
-      \item \(\frac{dx}{dt} = t^2 e^{-3t}\)
-      \item \(t^2 \frac{dx}{dt} = x - 1\)
+      \item \(y'=x+y\) \false{false}
+      \item \(x \dfrac{dy}{dx} = 3\) \true{true}
+      \item \(\dfrac{dP}{dt} = 4P + 1\) \false{false}
+      \item \(\dfrac{dw}{dt} = \dfrac{2t}{1+4t}\) \true{true}
+      \item \(\dfrac{dx}{dt} = t^2 e^{-3t}\) \true{true}
+      \item \(t^2 \dfrac{dx}{dt} = x - 1\) \false{false}
     \end{enumerate}
   \end{multicols}
+
+  Note: directly integrable differential equation is in the form \(\frac{dy}{dx} = f(x)\).
 
   \newpage
 
   \item Which of the following differential equations are separable?
   \begin{multicols}{2}
     \begin{enumerate}
-      \item \(\frac{dy}{dx} = x - 2y\)
-      \item \(xy' + 8ye^x = 0\)
-      \item \(y' = x^2y^2\)
-      \item \(y' = 1-y^2\)
-      \item \(t \frac{dy}{dt} = 3 \sqrt{1+y} \)
-      \item \(\frac{dP}{dt} = \frac{P+t}{t}\)
+      \item \(\dfrac{dy}{dx} = x - 2y\) \false{false}
+      \item \(xy' + 8ye^x = 0\) \true{true}
+      \item \(y' = x^2y^2\) \true{true}
+      \item \(y' = 1-y^2\) \true{true}
+      \item \(t \dfrac{dy}{dt} = 3 \sqrt{1+y} \) \true{true}
+      \item \(\dfrac{dP}{dt} = \dfrac{P+t}{t}\) \false{false}
     \end{enumerate}
   \end{multicols}
   \vspace{256pt}
@@ -313,12 +346,12 @@
   \item Which of the following equations are first-order?
     \begin{multicols}{2}
       \begin{enumerate}
-        \item \(y' = x^2 \)
-        \item \(y'' = y^2\)
-        \item \((y')^3 + yy' = \sin x\)
-        \item \(x^2y' - e^xy = \sin y\)
-        \item \(y'' + 3y' = \frac{y}{x}\)
-        \item \(yy' + x + y = 0\)
+        \item \(y' = x^2 \) \true{true}
+        \item \(y'' = y^2\) \false{false}
+        \item \((y')^3 + yy' = \sin x\) \true{true}
+        \item \(x^2y' - e^xy = \sin y\) \true{true}
+        \item \(y'' + 3y' = \dfrac{y}{x}\) \false{false}
+        \item \(yy' + x + y = 0\) \true{true}
       \end{enumerate}
     \end{multicols}
 
@@ -331,81 +364,160 @@
   full of water and after 30 minutes the height of the water has decreased to
   \(4m\). Set up an initial value problem to model this situation.
 
+  \vspace{30pt}
+  Let \(h(t)\) be the height of the water (meters) at time \(t\) (minutes), Then
+  \begin{align*}
+    \frac{dy}{dt} &= k\sqrt{y}, \quad y(0) = 5, \quad y(30)= 4 \\
+    &\then \int \frac{dy}{\sqrt{y} } = k\int dt \\
+    2\sqrt{y} &= kt + C \\
+    &\then 2\sqrt{5} = C \\\\
+    \then 2\sqrt{30} &= k(30) + 2\sqrt{5} \\
+    30k &= 2\sqrt{30}-2\sqrt{5} \\
+    k &= \frac{\sqrt{30} - \sqrt{5}}{15} \approx 0.216 \\\\
+      &\then \boxed{\frac{dy}{dt} = 0.216 \sqrt{y}}
+  \end{align*}
+
   \newpage
 
   \item Find the limit of each of the following sequences. Justify your answer
     using limit laws, the squeeze theorem, and/or L’Hospital’s Rule.
     \begin{enumerate}
       \item \(\displaystyle a_n = \frac{2(-1)^{n+1}}{2n-1}\)
-      \vspace{300pt}
+      \begin{align*}
+        \forall n \geq 1,
+        \qquad \BB{-\frac{2}{2n-1}} \leq
+        \frac{2(-1)^{n+1}}{2n-1} \leq
+        \RR{\frac{2}{2n-1}} \\\\
+        \lim_{n \to \infty} \BB{-\frac{2}{2n-1}} =
+        \lim_{n \to \infty} \RR{\frac{2}{2n-1}} &= 0 \\\\
+        \then \lim_{n \to \infty} \frac{2(-1)^{n+1}}{2n-1} = 0, \quad \text{By the squeeze theorem} \\
+      \end{align*}
 
+    \vspace{90pt}
       \item \(\displaystyle a_n = \frac{n^2}{2^{n-1}}\)
+        \begin{align*}
+          \lim_{n \to \infty} \frac{n^2}{2^{n-1}} &= \frac{\infty}{\infty} \\
+          &\then \lim_{n \to \infty} \frac{2n}{\ln(2)2^{n-1}}
+          && \text{by \hopital's Rule} \\
+          &\then \lim_{n \to \infty} \frac{2}{\ln(2)^2 2^{n-1}}
+          && \text{by \hopital's Rule} \\
+          &\then \boxed{a_n = 0}
+        \end{align*}
     \end{enumerate}
 
   \newpage
 
   \item Does the series \(\displaystyle \sum_{n=1}^{\infty} \cos \left(
     \frac{1}{n} \right) \) converge or diverge? How do you know?
-    \vspace{160pt}
+
+    \FF{Diverge};
+    \[%%%%%%%%%%
+      \lim_{n \to \infty} \cos n^{-1} = \cos \left(\lim_{n \to \infty} n^{-1}\right) = \cos 0 = 1
+    \]%%%%%%%%%%
+    By the \(n^{th}\) Term Divergence test, i.e., if \(\lim_{n \to \infty} a_n
+    \neq 0\), then \(\sum_{n=1}^{\infty} a_n\) diverges.
+
+    Note: a series may still diverge even if \(a_n\) tends to zero.
+    \vspace{80pt}
 
   \item Find the sum of each of the following geometric series or state that it
     diverges. Be sure to explain how you arrived at your solution.
     \begin{enumerate}
-      \item \(\frac{1}{6} + \frac{1}{12} + \frac{1}{24} + \frac{1}{48} + \frac{1}{96} + \cdots\)
-      \vspace{200pt}
+      \item \(\dfrac{1}{6} + \dfrac{1}{12} + \dfrac{1}{24} + \dfrac{1}{48} + \dfrac{1}{96} + \cdots\)
 
-      \item \(-2 + \frac{2}{5} - \frac{2}{25} + \frac{2}{125} - \frac{2}{625} + \cdots \)
+      \begin{align*}
+        \frac{1}{6}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)
+        && \text{Factor out ratio between terms} \\
+        \then c = \frac{1}{6}, \quad r = \frac{1}{2}
+        && |r| < 1, \text{thus the series converges} \\
+        \sum_{n=1}^{\infty} cr^n = \frac{c}{1-r}
+        && \text{Sum of a Geometric Series} \\
+        \then \frac{\frac{1}{6}}{1-\frac{1}{2}} = \boxed{\frac{1}{3}}
+      \end{align*}
+      \vspace{60pt}
+
+      \item \(-2 + \dfrac{2}{5} - \dfrac{2}{25} + \dfrac{2}{125} - \dfrac{2}{625} + \cdots \)
+      \begin{align*}
+        -2\left(1-\frac{1}{5}+\frac{1}{25}-\frac{1}{125}+\frac{1}{625}\right)
+        && \text{Factor out ratio between terms} \\
+        \then c = 2, \quad r = -\frac{1}{5}
+        && |r| < 1, \text{thus the series converges} \\
+        \then \frac{2}{1-\frac{-1}{5}} = \boxed{-\frac{5}{3}}
+      \end{align*}
     \end{enumerate}
   \newpage
 
   \item What role do partial sums play in defining the sum of an infinite
     series?
-    \vspace{90pt}
+
+    \vspace{16pt}
+    \begin{itemize}
+      \item The sum of an infinite series is defined as the limit of the
+        sequence of partial sums. If the limit of this sequence does not exist,
+        the series is said to diverge.
+    \end{itemize}
+
+    \vspace{30pt}
 
   \item Indicate whether of not the reasoning in the following statements are
     correct:
     \begin{enumerate}
       \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2} = 0\) because
         \(\frac{1}{n^2}\) tends to zero.
-      \vspace{110pt}
 
+      \vspace{16pt}
+      \false{False}; the infinite sum still tends towards infinity. The series
+      does converge to zero, however.
+
+      \vspace{30pt}
       \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}}\) because
         \(\displaystyle \lim_{n \to \infty}\frac{1}{\sqrt{n} } = 0\)
-      \vspace{110pt}
+
+      \vspace{16pt}
+      \false{False}; again, same reasoning, the infinite sum will still tend
+      toward infinity. This series does not converge, however.
+
     \end{enumerate}
+    \vspace{60pt}
 
   \item Find an \(N\) such that \(S_N > 25\) for the series \(\displaystyle
     \sum_{n=1}^{\infty} 2\).
-    \vspace{110pt}
+
+    \[%%%%%%%%%%
+    \frac{25}{2} = 12.5, ~\text{thus,}~ N = 13
+    \]%%%%%%%%%%
+    \vspace{60pt}
 
   \item Does there exist an \(N\) such that \(S_N > 25\) for the series
-    \(\sum_{n=1}^{\infty} 2^{-n}\)? Explain.
-    \vspace{90pt}
+    \(\displaystyle \sum_{n=1}^{\infty} 2^{-n}\)? Explain.
+
+    \vspace{16pt}
+    \false{No}; the series converges to 1 and is increasing, thus \(S_N \leq
+    1\) for all \(N\).
 
   \newpage
-
-  \item Give an example of a divergent infinite series whose general term tends
-    to zero.
-    \vspace{90pt}
 
   \item For the series \(\displaystyle \sum_{n=1}^{\infty} a_n\), if the
     partial sums \(S_N\) are increasing, then (choose the correct conclusion):
     \begin{enumerate}
-      \item \({a_n}\) is an increasing sequence.
-      \item \({a_n}\) is a positive sequence.
+      \item \(\{a_n\}\) is an increasing sequence. \false{false}
+      \item \(\{a_n\}\) is a positive sequence. \true{true}
     \end{enumerate}
   \vspace{60pt}
-
-  \item What are the hypotheses of the Integral Test?
-  \vspace{110pt}
 
   \item Which test would you use to determine whether the following series converge?
   \begin{enumerate}
     \item \(\displaystyle \sum_{n=1}^{\infty} n^{-3.2}\)
-  \vspace{110pt}
+      \vspace{16pt}
+
+      \(p\)-Series \(\left( \frac{1}{n^{3.2}} \right) \), or the Integral Test.
+
+      \vspace{60pt}
 
     \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{2^n + \sqrt{n} }\)
-  \vspace{110pt}
+
+      \vspace{16pt}
+      Direct Comparison Test; as it is easy to choose \(a_n\) and \(b_n\)
   \end{enumerate}
 
 \end{enumerate}
