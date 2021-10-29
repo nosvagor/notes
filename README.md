@@ -24,8 +24,6 @@ ancient philosophy in general.
   <a href=water/ title="computation (water)"><img width="150" src="assets/images/water.jpg" alt="water"></a>
   <br><br>
   computer science
-  <br><br>
-  focus: c++
 </kbd>
 <kbd>
   evolution
@@ -33,8 +31,6 @@ ancient philosophy in general.
   <a href=earth/ title="evolution (earth)"><img width="150" src="assets/images/earth.jpg" alt="earth"></a>
   <br><br>
   biology, chemistry
-  <br><br>
-  focus: none
 </kbd>
 <kbd>
   mathematics
@@ -42,8 +38,6 @@ ancient philosophy in general.
   <a href=fire/ title="mathematics (fire)"><img width="150" src="assets/images/fire.jpg" alt="fire"></a>
   <br><br>
   pure, applied
-  <br><br>
-  focus: calculus
 </kbd>
 <kbd>
   epistemology
@@ -51,8 +45,6 @@ ancient philosophy in general.
   <a href=air/ title="epistemology (air)"><img width="150" src="assets/images/air.jpg" alt="air"></a>
   <br><br>
   philosophy, misc
-  <br><br>
-  focus: none
 </kbd>
 </p>
 
