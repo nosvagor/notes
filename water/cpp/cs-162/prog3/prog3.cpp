@@ -110,6 +110,7 @@ void updt_cur(){
 // │ │ │ ││  │ └┬┘  ├┤ │ │││││   │ ││ ││││└─┐
 // └─┘ ┴ ┴┴─┘┴  ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 
+
 char yes_no() {
   char response {};
 
@@ -187,12 +188,15 @@ int menu() {
         break;
       case 2:
         disp_inc();
+        call_menu(response);
         break;
       case 3:
         read_inc();
+        call_menu(response);
         break;
       case 4:
         disp_cur();
+        call_menu(response);
         break;
       case 5:
         cout << string(69, '\n');
