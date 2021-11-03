@@ -1,3 +1,5 @@
-name|species|breed|service|msc
-name2|species|breed|service|msc
-name3|species|breed|service|msc
+Napoleon|pig|berkshire boar|farm leader|an allegory of Joseph Staln
+Old Major|pig|middle white boar|provides inspiration|an allegory of Karl Marx + Valdimir Lenin
+Boxer|equine|unsure|strong, hard-working cart-house|an allegory of Alexey Stakhanov his respective movement
+Benjamin|equine|unsure|wise, cynical, and skeptical farm elder|"a touch of Orwell himself"
+Squealer|pig|white porker|second in command|an allegory of Vyacheslav Molotov

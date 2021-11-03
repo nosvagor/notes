@@ -21,15 +21,16 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 // Constants
-const int N {79};       // default array size.
-const int MAX {10};     // max number of animals support for manual input.
-const int MAXL {256};   // max chars in line
+const int N {69};      // default array size.
+const int MAX {2};     // max number of animals support for manual input.
 
 const char *CUR_ANIMALS = "animals.txt";    // main data file
-const char *DLM = "|";                      // delimiter used when parsing file
+const char DLM = '|';                       // delimiter used when parsing file
 
 // Structure
 struct animal {
@@ -42,7 +43,6 @@ struct animal {
   animals_all[(2*MAX)-1];   // new animals and/or current list of animals.
 
 // Function Declarations {
-
 // MAIN FUNCTIONS
 void new_animals();   // add new animal via manual input by user.
 void read_inc();      // add new animal(s) via reading from an external file.
@@ -115,22 +115,69 @@ void new_animals() {
         (yes_no("Add another?") == 'n') ? response = 'n' : response = 'y';
       } while (!(response == 'y' || response == 'n'));
     } else if (i+1 == MAX) {
-      cout << "Max number new animals reached for manual input" << endl;
-    }
-
+      cout << "Max number new animals reached for manual input... Echoing input..." << endl;
+      this_thread::sleep_for(chrono::milliseconds(1500));
+    };
   };
 }
 
 void read_inc(){
-  cout << endl << "read inc" << endl;
+  char new_animals[N];
+  int i {0};
+
+  cout << endl
+       << "Automatic animal registration in progress..."
+       << endl << endl;
+  cout << "Please provide file name of animals you wish to send to the farm.\n"
+       << "\t E.g., example_list.txt is provided for demonstration of automatic entries. \n\n"
+       << "The Provided file must have lines in format of\n\n"
+       << "\tName|Species|Breed|Service|Miscellaneous\n\n"
+       << "Please enter \"none\" if these is no extra info associated with the animal,\n"
+       << "and \"unsure\" for data for other entries."
+       << endl << endl;
+
+  cout << "File name: ";
+  cin.get(new_animals, N, '\n');
+  cin.ignore(420, '\n');
+
+  ifstream in_file;
+
+  in_file.open(new_animals);
+
+  while (in_file && !in_file.eof() && i < MAX) {
+    in_file.get(animals[i].name, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals[i].species, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals[i].breed, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals[i].service, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals[i].misc, N, '\n');
+    in_file.ignore(100, '\n');
+
+    ++i;
+  };
+
+  disp_inc();
+
+  if (i >= MAX) {
+    cout << "!! Attention !! --- New animal registration can only support "
+         << MAX << " animals at once.\nOnly the first "
+         << MAX << " made it in."
+         << endl << endl;
+  };
+
+  in_file.close();
+  in_file.clear();
 }
 
 void disp_inc(){
-  cout << endl << "Display incoming..." << endl << endl;
-
-  if (animals[0].name[0] == 0) {
-    cout << "No incoming animals, returning to menu..." << endl << endl;
-  };
+  cout << endl << "Displaying incoming farm animals:" << endl << endl;
 
   for (int i = 0; i < MAX; i++) {
     if (!(animals[i].name[0] == 0)) {
@@ -151,24 +198,56 @@ void disp_inc(){
 void disp_cur(){
   cout << endl << "Displaying current..." << endl << endl;
 
-  char line[MAXL];
+  int i {0};
+
   ifstream in_file;
-  ofstream out_file;
 
   in_file.open(CUR_ANIMALS);
 
-  if (in_file) {
-    in_file.get(line, MAXL, '\n');
-    while (in_file && !in_file.eof()) {
-      cout << line << endl;
-      in_file.ignore(100, '\n');
-      in_file.get(line, MAXL, '\n');
-    };
-    in_file.close();
-    in_file.clear();
+  while (in_file && !in_file.eof() && i < 2*MAX) {
+    in_file.get(animals_all[i].name, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals_all[i].species, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals_all[i].breed, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals_all[i].service, N, DLM);
+    in_file.ignore(100, DLM);
+
+    in_file.get(animals_all[i].misc, N, '\n');
+    in_file.ignore(100, '\n');
+
+    ++i;
   };
 
-  cout << endl << endl;
+  for (int i = 0; i < 2*MAX; i++) {
+    if (!(animals_all[i].name[0] == 0)) {
+      cout << "Name: "
+           << animals_all[i].name << "\n";
+      cout << "  - Species: "
+           << animals_all[i].species << "\n";
+      cout << "  - Breed: "
+           << animals_all[i].breed << "\n";
+      cout << "  - Service: "
+           << animals_all[i].service << "\n";
+      cout << "  - Misc: "
+           << animals_all[i].misc << "\n"
+           << endl;
+    };
+  };
+
+  if (i >= 2*MAX) {
+    cout << "!! Attention !! --- Farm at capacity! Only the first "
+         << 2*MAX << " made it in!"
+         << endl << endl;
+  };
+
+  in_file.close();
+  in_file.clear();
+
 }
 
 void updt_cur(){
@@ -176,11 +255,6 @@ void updt_cur(){
 
 
 }
-
-
-// ┬ ┬┌┬┐┬┬ ┌┬┐┬ ┬  ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
-// │ │ │ ││  │ └┬┘  ├┤ │ │││││   │ ││ ││││└─┐
-// └─┘ ┴ ┴┴─┘┴  ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 
 int menu() {
   int response {0};
@@ -217,8 +291,13 @@ int menu() {
         if (response == 'y') cout << "yes edit" << endl;
         break;
       case 2:
-        disp_inc();
-        call_menu(response);
+        if (animals[0].name[0] == 0) {
+          cout << "\nNo incoming animals, returning to menu..." << endl << endl;
+          this_thread::sleep_for(chrono::milliseconds(1500));
+        } else {
+          disp_inc();
+          call_menu(response);
+        }
         break;
       case 3:
         read_inc();
@@ -236,9 +315,14 @@ int menu() {
       case 6:
         farewell();
         break;
-    };
+  };
   return response;
 }
+
+
+// ┬ ┬┌┬┐┬┬ ┌┬┐┬ ┬  ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+// │ │ │ ││  │ └┬┘  ├┤ │ │││││   │ ││ ││││└─┐
+// └─┘ ┴ ┴┴─┘┴  ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 
 void reset_struct() {
   memset(animals, 0, sizeof(animals));
@@ -287,10 +371,10 @@ void greeting() {
 
   cout
     << "Users of this program are free to add new animals manually, or provide\n"
-    << "a list of animals that wish to join the farm.\n"
+    << "a list of animals that wish to join the farm.\n\n"
     << "\t Max number of new animals: "<< MAX << "\n"
     << "\t Max number of total animals: " << 2*MAX << "\n\n"
-    << "New members of our farm require a name, species, breed, and the service they \n"
+    << "New members of our farm require a name, species, breed, service they \n"
     << "provide to be admitted; other additional information may be added if desired."
     << endl << endl;
 
