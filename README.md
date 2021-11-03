@@ -55,11 +55,6 @@ revisit subjects in philosophy and biology in greater depth, but for now my
 interest is elsewhere; most content will probably be computer science
 and math related for the foreseeable future.
 
-Each directory has a more elaborate README for navigational purposes. Listed
-below will be links to directories containing relevant content based on where
-my current focus is. If it proves useful, then please use, redistribute, or do
-what ever you want with anything pushed here.
-
 <h1 align="center">🏛️ University Resources 🏛️</h1>
 <p align="center">
 <kbd>
