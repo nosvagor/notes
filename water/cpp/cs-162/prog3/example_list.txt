@@ -1,3 +1,10 @@
 Muriel|goat|alpine|can read|none
 Moses|raven|common|likes to talk a lot|gets an allowance of a gill of beer daily
 Clover|equine|unsure|gentle and caring|none
+Muriel|goat|alpine|can read|none
+Moses|raven|common|likes to talk a lot|gets an allowance of a gill of beer daily
+Clover|equine|unsure|gentle and caring|none
+Muriel|goat|alpine|can read|none
+Moses|raven|common|likes to talk a lot|gets an allowance of a gill of beer daily
+Clover|equine|unsure|gentle and caring|none
+Clover|equine|unsure|gentle and caring|none

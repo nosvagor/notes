@@ -40,32 +40,31 @@ struct animal {
   char service[N];  // type of service the animal provides.
   char misc[2*N];   // other special information, specific to each animal.
 } animals[MAX-1],           // for input of new animals.
-  animals_all[(2*MAX)-1];   // new animals and/or current list of animals.
+  animals_all[(2*MAX)-1];   // current list of animals.
 
-// Function Declarations {
-// MAIN FUNCTIONS
+// Main functions
 void new_animals();   // add new animal via manual input by user.
 void read_inc();      // add new animal(s) via reading from an external file.
 void disp_inc();      // display list of unsaved animals (animals array).
+void edit_inc();      // edit incoming animals
 
 void read_cur();      // read in current members from external file.
 void updt_cur();      // write unsaved animals to main list
-void disp_all();      // update and display main list of recorded animals.
+void disp_cur();      // update and display main list of recorded animals.
 
-// UTILITY FUNCTIONS
-void greeting();               // initial greeting and instructions.
-int menu();                    // recurring menu option for program navigation.
-void call_menu(int &response); // return to menu
-void farewell();               // exit message.
+// Utility functions
+void greeting();      // initial greeting and instructions.
+void farewell();      // exit message.
+void inc_greet();     // instructions for loading external file
+int menu();           // recurring menu option for program navigation.
 
-void reset_struct();           // resets stricture.
-char yes_no(const char* str);  // get a yes/no response.
-bool confirm();                // echo and confirm input.
+void call_edit();               // prompt to edit incoming animals.
+void call_menu(int &selection); // return to menu.
+char yes_no(const char* str);   // get a yes/no response.
 
-void reset_incoming();    // clear list of incoming animals (semi-restart)
-void reset_current();     // reset list to default case (semi-restart)
-bool restart();           // reset program to initial state (full-restart)
-// }
+void reset_incoming();         // clear list of incoming animals
+void reset_current();          // reset list to default list
+
 
 //             o  o  O  O  0 0
 //            ,______  ____    0
@@ -81,12 +80,46 @@ int main() {
 
   do {
     selection = menu();
+    switch (selection) {
+      case 1:
+        reset_incoming();
+        new_animals();
+        disp_inc();
+        call_edit();
+        break;
+      case 2:
+        if (animals[0].name[0] == 0) {
+          cout << "\nNo incoming animals, returning to menu..." << endl << endl;
+          this_thread::sleep_for(chrono::milliseconds(1500));
+        } else {
+          disp_inc();
+          call_edit();
+        };
+        break;
+      case 3:
+        reset_incoming();
+        read_inc();
+        call_edit();
+        break;
+      case 4:
+        disp_cur();
+        call_menu(selection);
+        break;
+      case 5:
+        cout << string(69, '\n');
+        reset_current();
+        greeting();
+        break;
+      case 6:
+        farewell();
+        break;
+    };
   } while (selection < 1 || selection != 6);
 
   return 0;
 };
-//=============================================================================
 
+//=============================================================================
 // ┌┬┐┌─┐┬┌┐┌  ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 // │││├─┤││││  ├┤ │ │││││   │ ││ ││││└─┐
 // ┴ ┴┴ ┴┴┘└┘  └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
@@ -95,7 +128,7 @@ int main() {
 void new_animals() {
   char response {'y'};
 
-  cout << "Adding new farm members... " << endl << endl;
+  cout << "\nManual addition of new farm members... " << endl << endl;
 
   for (int i = 0; i < MAX && response == 'y'; i++) {
     cout << "Name: ";
@@ -121,26 +154,17 @@ void new_animals() {
   };
 }
 
-void read_inc(){
+
+void read_inc() {
   char new_animals[N];
   int i {0};
+  ifstream in_file;
 
-  cout << endl
-       << "Automatic animal registration in progress..."
-       << endl << endl;
-  cout << "Please provide file name of animals you wish to send to the farm.\n"
-       << "\t E.g., example_list.txt is provided for demonstration of automatic entries. \n\n"
-       << "The Provided file must have lines in format of\n\n"
-       << "\tName|Species|Breed|Service|Miscellaneous\n\n"
-       << "Please enter \"none\" if these is no extra info associated with the animal,\n"
-       << "and \"unsure\" for data for other entries."
-       << endl << endl;
+  inc_greet();
 
   cout << "File name: ";
   cin.get(new_animals, N, '\n');
   cin.ignore(420, '\n');
-
-  ifstream in_file;
 
   in_file.open(new_animals);
 
@@ -163,17 +187,17 @@ void read_inc(){
     ++i;
   };
 
-  disp_inc();
-
-  if (i >= MAX) {
-    cout << "!! Attention !! --- New animal registration can only support "
-         << MAX << " animals at once.\nOnly the first "
-         << MAX << " made it in."
-         << endl << endl;
-  };
-
   in_file.close();
   in_file.clear();
+
+  disp_inc();
+
+  if (i == MAX) {
+    cout << "!! Attention !! --- New animal registration can only support "
+      << MAX << " animals at once.\nOnly the first "
+      << MAX << " made it in."
+      << endl << endl;
+  };
 }
 
 void disp_inc(){
@@ -195,11 +219,8 @@ void disp_inc(){
   };
 }
 
-void disp_cur(){
-  cout << endl << "Displaying current..." << endl << endl;
-
+void read_cur() {
   int i {0};
-
   ifstream in_file;
 
   in_file.open(CUR_ANIMALS);
@@ -223,7 +244,24 @@ void disp_cur(){
     ++i;
   };
 
-  for (int i = 0; i < 2*MAX; i++) {
+  in_file.close();
+  in_file.clear();
+
+  if (i >= 2*MAX) {
+    cout << "\n!! Attention !! --- Farm at capacity! Only the first "
+         << 2*MAX << " made it in!"
+         << endl << endl;
+  };
+}
+
+void disp_cur() {
+  int i {0};
+
+  reset_current();
+  read_cur();
+  cout << endl;
+
+  for (i; i < 2*MAX; i++) {
     if (!(animals_all[i].name[0] == 0)) {
       cout << "Name: "
            << animals_all[i].name << "\n";
@@ -238,27 +276,54 @@ void disp_cur(){
            << endl;
     };
   };
+}
 
-  if (i >= 2*MAX) {
-    cout << "!! Attention !! --- Farm at capacity! Only the first "
-         << 2*MAX << " made it in!"
-         << endl << endl;
+void updt_cur() {
+  cout << endl << "Updating current farm animals..." << endl;
+}
+
+void edit_inc() {
+  int selection {-1};
+
+  cout << endl;
+  for (int i = 0; i < MAX; i++) {
+    if (!(animals[i].name[0] == 0)) {
+      cout <<"[" << i << "] " << animals[i].name << "\t";
+    };
+
+    if (i == 4) cout << endl;
   };
+  cout << endl << endl;
 
-  in_file.close();
-  in_file.clear();
-
+  do {
+    cout << "Please select one of the above to edit: ";
+    cin >> selection;
+    cin.clear();
+    cin.ignore(420, '\n');
+  } while (!(selection > -1 && selection < 9));
 }
 
-void updt_cur(){
-  cout << endl << "update current" << endl;
+// How do I split up files properly?
+//=============================================================================
+// ┬ ┬┌┬┐┬┬ ┌┬┐┬ ┬  ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+// │ │ │ ││  │ └┬┘  ├┤ │ │││││   │ ││ ││││└─┐
+// └─┘ ┴ ┴┴─┘┴  ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 
 
+void inc_greet() {
+  cout << endl
+       << "Automatic animal registration in progress..."
+       << endl << endl;
+  cout << "Please provide file name of animals you wish to send to the farm.\n"
+       << "\t E.g., example_list.txt is provided for demonstration of automatic entries. \n\n"
+       << "The Provided file must have lines in format of\n\n"
+       << "\tName|Species|Breed|Service|Miscellaneous\n\n"
+       << "Please enter \"none\" if these is no extra info associated with the animal,\n"
+       << "and \"unsure\" for data for other entries."
+       << endl << endl;
 }
 
-int menu() {
-  int response {0};
-
+void menu_greeting() {
   cout
     << endl
     << "\t\t\t\t ╔╦╗┌─┐┌┐┌┬ ┬ \n"
@@ -274,6 +339,12 @@ int menu() {
     << "[5] Restart\t\t\t\t"
     << "[6] Quit"
     << endl << endl;
+}
+
+int menu() {
+  int response {0};
+
+  menu_greeting();
 
   do {
     cout << "Please choose a menu option: ";
@@ -282,56 +353,21 @@ int menu() {
     cin.ignore(420, '\n');
   } while (response < 1 || response > 6);
 
-  switch (response) {
-      case 1:
-        reset_struct();
-        new_animals();
-        disp_inc();
-        response = yes_no("Would you like to edit any entries?");
-        if (response == 'y') cout << "yes edit" << endl;
-        break;
-      case 2:
-        if (animals[0].name[0] == 0) {
-          cout << "\nNo incoming animals, returning to menu..." << endl << endl;
-          this_thread::sleep_for(chrono::milliseconds(1500));
-        } else {
-          disp_inc();
-          call_menu(response);
-        }
-        break;
-      case 3:
-        read_inc();
-        call_menu(response);
-        break;
-      case 4:
-        disp_cur();
-        call_menu(response);
-        break;
-      case 5:
-        cout << string(69, '\n');
-        reset_struct();
-        greeting();
-        break;
-      case 6:
-        farewell();
-        break;
-  };
   return response;
 }
 
-
-// ┬ ┬┌┬┐┬┬ ┌┬┐┬ ┬  ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
-// │ │ │ ││  │ └┬┘  ├┤ │ │││││   │ ││ ││││└─┐
-// └─┘ ┴ ┴┴─┘┴  ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
-
-void reset_struct() {
+void reset_incoming() {
   memset(animals, 0, sizeof(animals));
   animals[MAX-1] = animal();
 }
 
+void reset_current() {
+  memset(animals_all, 0, sizeof(animals_all));
+  animals_all[2*MAX-1] = animal();
+}
+
 char yes_no(const char* str) {
   char response;
-
   do {
     cout << str << " [y/n]: ";
     cin >> response;
@@ -343,13 +379,20 @@ char yes_no(const char* str) {
   return 'y';
 }
 
-void call_menu (int &response) {
+void call_edit() {
+  char response;
   do {
-    (yes_no("Return to menu? (no = quit)") == 'n') ? response = 6 : response = 0;
-  } while (response != 0 && response != 6);
-  if (response == 6) farewell();
+    response = yes_no("Would you like to edit any entries?");
+    if (response == 'y') edit_inc();
+  } while (response != 'n');
 }
 
+void call_menu (int &selection) {
+  do {
+    (yes_no("Return to menu? (no = quit)") == 'n') ? selection = 6 : selection = 0;
+  } while (selection != 0 && selection != 6);
+  if (selection == 6) farewell();
+}
 
 void greeting() {
   cout
