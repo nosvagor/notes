@@ -26,11 +26,13 @@
 using namespace std;
 
 // Constants
-const int N {69};      // default array size.
-const int MAX {2};     // max number of animals support for manual input.
+const int N {69};       // default array size.
+const int MAX {5};  // max number of animals support for manual input.
+const int MAX_CUR {10}; // max number of animals on farm.
+const char DLM = '|';   // delimiter used when parsing file
 
-const char *CUR_ANIMALS = "animals.txt";    // main data file
-const char DLM = '|';                       // delimiter used when parsing file
+const char *CUR_ANIMALS = "animals.txt";            // main data file
+const char *ORIG_ANIMALS = "animals_original.txt";  // used for resetting
 
 // Structure
 struct animal {
@@ -40,17 +42,17 @@ struct animal {
   char service[N];  // type of service the animal provides.
   char misc[2*N];   // other special information, specific to each animal.
 } animals[MAX-1],           // for input of new animals.
-  animals_all[(2*MAX)-1];   // current list of animals.
+  animals_all[MAX_CUR-1];   // current list of animals.
 
 // Main functions
 void new_animals();   // add new animal via manual input by user.
-void read_inc();      // add new animal(s) via reading from an external file.
-void disp_inc();      // display list of unsaved animals (animals array).
+void read_inc(int &count);      // add new animal(s) via reading from an external file.
+int disp_inc();       // display list of unsaved animals (animals array).
 void edit_inc();      // edit incoming animals
 
-void read_cur();      // read in current members from external file.
-void updt_cur();      // write unsaved animals to main list
-void disp_cur();      // update and display main list of recorded animals.
+void read_cur();           // read in current members from external file.
+void updt_cur(int count);      // write unsaved animals to main list
+void disp_cur();           // update and display main list of recorded animals.
 
 // Utility functions
 void greeting();      // initial greeting and instructions.
@@ -58,12 +60,12 @@ void farewell();      // exit message.
 void inc_greet();     // instructions for loading external file
 int menu();           // recurring menu option for program navigation.
 
-void call_edit();               // prompt to edit incoming animals.
+void call_edit(int count);               // prompt to edit incoming animals.
 void call_menu(int &selection); // return to menu.
 char yes_no(const char* str);   // get a yes/no response.
 
 void reset_incoming();         // clear list of incoming animals
-void reset_current();          // reset list to default list
+void reset_current();          // reset list to original farm members
 
 
 //             o  o  O  O  0 0
@@ -75,6 +77,7 @@ int main() {
 
   // menu selection variable.
   int selection {0};
+  int inc_count {0};
 
   greeting();
 
@@ -84,37 +87,42 @@ int main() {
       case 1:
         reset_incoming();
         new_animals();
-        disp_inc();
-        call_edit();
+        inc_count = disp_inc();
+        call_edit(inc_count);
         break;
       case 2:
         if (animals[0].name[0] == 0) {
           cout << "\nNo incoming animals, returning to menu..." << endl << endl;
           this_thread::sleep_for(chrono::milliseconds(1500));
         } else {
-          disp_inc();
-          call_edit();
+          inc_count = disp_inc();
+          call_edit(inc_count);
         };
         break;
       case 3:
         reset_incoming();
-        read_inc();
-        call_edit();
+        read_inc(inc_count);
+        call_edit(inc_count);
         break;
       case 4:
         disp_cur();
         call_menu(selection);
         break;
       case 5:
-        cout << string(69, '\n');
-        reset_current();
-        greeting();
         break;
       case 6:
+        break;
+      case 7:
+        reset_current();
+        cout << string(69*2, '\n');
+        greeting();
+        break;
+      case 8:
+        reset_current();
         farewell();
         break;
     };
-  } while (selection < 1 || selection != 6);
+  } while (selection < 1 || selection != 8);
 
   return 0;
 };
@@ -155,7 +163,7 @@ void new_animals() {
 }
 
 
-void read_inc() {
+void read_inc(int &inc_count) {
   char new_animals[N];
   int i {0};
   ifstream in_file;
@@ -185,38 +193,20 @@ void read_inc() {
     in_file.ignore(100, '\n');
 
     ++i;
+
+    if (i == MAX && !in_file.eof()) {
+      cout << "\n!! Attention !! --- New animal registration can only support "
+        << MAX << " animals at once.\nOnly the first "
+        << i << " made it in."
+        << endl;
+      this_thread::sleep_for(chrono::milliseconds(2000));
+    };
   };
 
   in_file.close();
   in_file.clear();
 
-  disp_inc();
-
-  if (i == MAX) {
-    cout << "!! Attention !! --- New animal registration can only support "
-      << MAX << " animals at once.\nOnly the first "
-      << MAX << " made it in."
-      << endl << endl;
-  };
-}
-
-void disp_inc(){
-  cout << endl << "Displaying incoming farm animals:" << endl << endl;
-
-  for (int i = 0; i < MAX; i++) {
-    if (!(animals[i].name[0] == 0)) {
-      cout << "Name: "
-        << animals[i].name << "\n";
-      cout << "  - Species: "
-        << animals[i].species << "\n";
-      cout << "  - Breed: "
-        << animals[i].breed << "\n";
-      cout << "  - Service: "
-        << animals[i].service << "\n";
-      cout << "  - Misc: "
-        << animals[i].misc << "\n" << endl;
-    };
-  };
+  inc_count = disp_inc();
 }
 
 void read_cur() {
@@ -225,7 +215,7 @@ void read_cur() {
 
   in_file.open(CUR_ANIMALS);
 
-  while (in_file && !in_file.eof() && i < 2*MAX) {
+  while (in_file && !in_file.eof() && i < MAX_CUR) {
     in_file.get(animals_all[i].name, N, DLM);
     in_file.ignore(100, DLM);
 
@@ -242,44 +232,89 @@ void read_cur() {
     in_file.ignore(100, '\n');
 
     ++i;
+
+    if (i == MAX_CUR && !in_file.eof()) {
+      cout << "\n!! Attention !! --- Farm at capacity! Only the first "
+        << i << " made it in!"
+        << endl;
+      this_thread::sleep_for(chrono::milliseconds(2000));
+    };
   };
 
   in_file.close();
   in_file.clear();
+}
 
-  if (i >= 2*MAX) {
-    cout << "\n!! Attention !! --- Farm at capacity! Only the first "
-         << 2*MAX << " made it in!"
-         << endl << endl;
+int disp_inc(){
+  int i {0};
+
+  cout << endl << "Displaying incoming farm animals:" << endl << endl;
+
+  while (i < MAX && !(animals[i].name[0] == 0)) {
+    cout << "Name: "
+      << animals[i].name << "\n";
+    cout << "  - Species: "
+      << animals[i].species << "\n";
+    cout << "  - Breed: "
+      << animals[i].breed << "\n";
+    cout << "  - Service: "
+      << animals[i].service << "\n";
+    cout << "  - Misc: "
+      << animals[i].misc << "\n" << endl;
+    ++i;
   };
+
+  cout << "Total number of new animals: " << i << endl << endl;
+
+  return i;
 }
 
 void disp_cur() {
   int i {0};
 
-  reset_current();
+  memset(animals_all, 0, sizeof(animals_all));
+  animals_all[MAX_CUR-1] = animal();
+
   read_cur();
   cout << endl;
 
-  for (i; i < 2*MAX; i++) {
-    if (!(animals_all[i].name[0] == 0)) {
-      cout << "Name: "
-           << animals_all[i].name << "\n";
-      cout << "  - Species: "
-           << animals_all[i].species << "\n";
-      cout << "  - Breed: "
-           << animals_all[i].breed << "\n";
-      cout << "  - Service: "
-           << animals_all[i].service << "\n";
-      cout << "  - Misc: "
-           << animals_all[i].misc << "\n"
-           << endl;
-    };
+  while (i < MAX_CUR && !(animals_all[i].name[0] == 0)) {
+    cout << "Name: "
+      << animals_all[i].name << "\n";
+    cout << "  - Species: "
+      << animals_all[i].species << "\n";
+    cout << "  - Breed: "
+      << animals_all[i].breed << "\n";
+    cout << "  - Service: "
+      << animals_all[i].service << "\n";
+    cout << "  - Misc: "
+      << animals_all[i].misc << "\n"
+      << endl;
+    ++i;
   };
+
+  cout << "Total number of farm animals: " << i << endl << endl;
 }
 
-void updt_cur() {
+void updt_cur(int inc_count) {
   cout << endl << "Updating current farm animals..." << endl;
+
+  ofstream out_file;
+  out_file.open(CUR_ANIMALS, ios::app);
+
+  if (out_file) {
+    for (int i = 0; i < inc_count; i++) {
+      out_file
+        << animals[i].name << DLM
+        << animals[i].species << DLM
+        << animals[i].breed << DLM
+        << animals[i].service << DLM
+        << animals[i].misc << endl;
+    };
+  out_file.close();
+  };
+
+  reset_incoming();
 }
 
 void edit_inc() {
@@ -336,8 +371,10 @@ void menu_greeting() {
     << "[2] List INCOMING farm members\n"
     << "[3] Animal Registration -- Automatic\t"
     << "[4] List CURRENT farm members \n"
-    << "[5] Restart\t\t\t\t"
-    << "[6] Quit"
+    << "[5] Search current animals by species\t"
+    << "[6] Search current animals by breed\n"
+    << "[7] Restart\t\t\t\t"
+    << "[8] Quit"
     << endl << endl;
 }
 
@@ -347,11 +384,11 @@ int menu() {
   menu_greeting();
 
   do {
-    cout << "Please choose a menu option: ";
+    cout << "Please select a menu option: ";
     cin >> response;
     cin.clear();
     cin.ignore(420, '\n');
-  } while (response < 1 || response > 6);
+  } while (response < 1 || response > 8);
 
   return response;
 }
@@ -362,8 +399,31 @@ void reset_incoming() {
 }
 
 void reset_current() {
-  memset(animals_all, 0, sizeof(animals_all));
-  animals_all[2*MAX-1] = animal();
+  if (yes_no("\nReset current animal list?") == 'y') {
+    memset(animals_all, 0, sizeof(animals_all));
+    animals_all[MAX_CUR-1] = animal();
+
+    ifstream in_file;
+    ofstream out_file;
+
+    char line[N*5];
+
+    in_file.open(ORIG_ANIMALS);
+    if (in_file) {
+      out_file.open(CUR_ANIMALS);
+      if (out_file) {
+        in_file.get(line, N*6, '\n');
+        in_file.ignore(100, '\n');
+        while (in_file && !in_file.eof()) {
+          out_file << line << endl;
+          in_file.get(line, N*6, '\n');
+          in_file.ignore(100, '\n');
+        }
+      };
+      out_file.close();
+    };
+    in_file.close();
+  };
 }
 
 char yes_no(const char* str) {
@@ -379,19 +439,21 @@ char yes_no(const char* str) {
   return 'y';
 }
 
-void call_edit() {
+void call_edit(int inc_count) {
   char response;
   do {
     response = yes_no("Would you like to edit any entries?");
     if (response == 'y') edit_inc();
   } while (response != 'n');
+
+  if (yes_no("Update current animals?") == 'y') updt_cur(inc_count);
 }
 
 void call_menu (int &selection) {
   do {
-    (yes_no("Return to menu? (no = quit)") == 'n') ? selection = 6 : selection = 0;
-  } while (selection != 0 && selection != 6);
-  if (selection == 6) farewell();
+    (yes_no("Return to menu? (no = quit)") == 'n') ? selection = 8 : selection = 0;
+  } while (selection != 0 && selection != 8);
+  if (selection == 8) farewell();
 }
 
 void greeting() {
@@ -416,7 +478,7 @@ void greeting() {
     << "Users of this program are free to add new animals manually, or provide\n"
     << "a list of animals that wish to join the farm.\n\n"
     << "\t Max number of new animals: "<< MAX << "\n"
-    << "\t Max number of total animals: " << 2*MAX << "\n\n"
+    << "\t Max number of total animals: " << MAX_CUR << "\n\n"
     << "New members of our farm require a name, species, breed, service they \n"
     << "provide to be admitted; other additional information may be added if desired."
     << endl << endl;
