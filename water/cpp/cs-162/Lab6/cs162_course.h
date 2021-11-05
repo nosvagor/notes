@@ -20,14 +20,14 @@ using namespace std;
 const int SIZE {21};
 
 //Here is the class we will be working with to represent
-//a course that a student is taking. 
+//a course that a student is taking.
 class course
 {
     public:   //you will be implementing these functions:
        course();           //constructor
        void read_course(); //read in the course they are taking
        void display();     //display the course enrolled in
-       bool is_match(char a_first_name[], char a_last_name[]); 
+       bool is_match(char a_first_name[], char a_last_name[]);
        bool drop(int CRN); //remove the course information if matches CRN
 
 
@@ -38,15 +38,14 @@ class course
 
        //This function copies the argument's first and last names into
        //the data member and may be useful for the challenge question
-       void copy_name(char from_first[], char from_last[]); 
+       void copy_name(char from_first[], char from_last[]);
 
     private:
-       char first_name[SIZE]; 
+       char first_name[SIZE];
        char last_name[SIZE];
+       char crn[SIZE];
+       char description[SIZE];
+       char section[SIZE];
        //Place the rest of the data members here:
-
-
-
-
 };
 

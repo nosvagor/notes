@@ -8,9 +8,9 @@
 //Constructor - initialize all data members to their zero equivalent value
 course::course()
 {
-	//Place the code for the constructor here
-
-
+  crn[0] = '\0';
+  description[0] = '\0';
+  section[0] = '\0';
 }
 
 
@@ -18,27 +18,41 @@ course::course()
 //Store these into the private data members of the class
 void course::read_course()
 {
-        //Implement this function
+  cout << "\nCRN: ";
+  cin.get(crn, SIZE, '\n');
+  cin.ignore(100, '\n');
 
+  cout << "Course description: ";
+  cin.get(description, SIZE, '\n');
+  cin.ignore(100, '\n');
 
+  cout << "Section: ";
+  cin.get(section, SIZE, '\n');
+  cin.ignore(100, '\n');
 }
 
 
 //Display the name and course information
 void course::display()
 {
+  cout << "\nHello, " << first_name << " " << last_name << endl
+       << "Your course: \n";
 
-        //Implement this function
-
+  cout << "CRN: " << crn << " (" << section << ")"
+       << " --- " << description
+       << endl;
 }
 
 //Take the argument and compare it to the student's name
 //If it is the same, return a true - otherwise return false
 bool course::is_match(char a_first_name[], char a_last_name[])
 {
-       //Implement this function
+  bool res = false;
 
+  (!strcmp(a_first_name, first_name)) ? res = true : res = false;
+  (!strcmp(a_last_name, last_name)) ? res = true : res = false;
 
+  return res;
 }
 
 
@@ -48,8 +62,9 @@ bool course::is_match(char a_first_name[], char a_last_name[])
 //if the CRN doesn't match
 bool course::drop(int CRN)
 {
-      //Implement this function 
+      //Implement this function
 
+  return false;
 }
 
 
