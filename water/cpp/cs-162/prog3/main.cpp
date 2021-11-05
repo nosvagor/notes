@@ -25,48 +25,35 @@ int main() {
 
   greeting();
 
-  // do {
-  //   selection = menu();
-  //   switch (selection) {
-  //     case 1:
-  //       reset_incoming();
-  //       new_animals();
-  //       incoming_count = disp_inc();
-  //       call_edit(incoming_count);
-  //       break;
-  //     case 2:
-  //       if (animals[0].name[0] == 0) {
-  //         cout << "\nNo incoming animals, returning to menu..." << endl << endl;
-  //         this_thread::sleep_for(chrono::milliseconds(1500));
-  //       } else {
-  //         inc_count = disp_inc();
-  //         call_edit(inc_count);
-  //       };
-  //       break;
-  //     case 3:
-  //       reset_incoming();
-  //       read_inc(inc_count);
-  //       call_edit(inc_count);
-  //       break;
-  //     case 4:
-  //       disp_cur();
-  //       call_menu(selection);
-  //       break;
-  //     case 5:
-  //       break;
-  //     case 6:
-  //       break;
-  //     case 7:
-  //       reset_current();
-  //       cout << string(69*2, '\n');
-  //       greeting();
-  //       break;
-  //     case 8:
-  //       reset_current();
-  //       farewell();
-  //       break;
-  //   };
-  // } while (selection < 1 || selection != 8);
+  do {
+    selection = menu();
+    switch (selection) {
+      case 1:
+        cout << "1 selected" << endl;
+        break;
+      case 2:
+        cout << "2 selected" << endl;
+        break;
+      case 3:
+        cout << "3 selected" << endl;
+        break;
+      case 4:
+        cout << "4 selected" << endl;
+        break;
+      case 5:
+        cout << "5 selected" << endl;
+        break;
+      case 6:
+        cout << "6 selected" << endl;
+        break;
+      case 7:
+        cout << "7 selected" << endl;
+        break;
+      case 8:
+        cout << "8 selected" << endl;
+        break;
+    };
+  } while (selection < 1 || selection != 8);
 
   farewell();
 
