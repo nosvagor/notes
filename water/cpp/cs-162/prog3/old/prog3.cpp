@@ -31,8 +31,8 @@ const int MAX {5};  // max number of animals support for manual input.
 const int MAX_CUR {10}; // max number of animals on farm.
 const char DLM = '|';   // delimiter used when parsing file
 
-const char *CUR_ANIMALS = "animals.txt";            // main data file
-const char *ORIG_ANIMALS = "animals_original.txt";  // used for resetting
+const char *CUR_ANIMALS = "../src/animals.txt";            // main data file
+const char *ORIG_ANIMALS = "../src/animals_original.txt";  // used for resetting
 
 // Structure
 struct animal {
@@ -41,8 +41,8 @@ struct animal {
   char breed[N];    // if applicable, subgroup of species.
   char service[N];  // type of service the animal provides.
   char misc[2*N];   // other special information, specific to each animal.
-} animals[MAX-1],           // for input of new animals.
-  animals_all[MAX_CUR-1];   // current list of animals.
+} animals[MAX],           // for input of new animals.
+  animals_all[MAX_CUR];   // current list of animals.
 
 // Main functions
 void new_animals();   // add new animal via manual input by user.
