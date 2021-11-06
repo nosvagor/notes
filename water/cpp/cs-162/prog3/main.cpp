@@ -21,7 +21,6 @@ int main() {
 
   // menu selection variable.
   int selection {0};
-  int incoming_count {0};
 
   greeting();
 

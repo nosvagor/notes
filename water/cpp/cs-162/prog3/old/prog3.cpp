@@ -428,6 +428,7 @@ void reset_current() {
 
 char yes_no(const char* str) {
   char response;
+
   do {
     cout << str << " [y/n]: ";
     cin >> response;

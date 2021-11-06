@@ -14,3 +14,14 @@ animal::animal() {
   service[0] = '\0';
   misc[0] = '\0';
 }
+
+
+void animal::read() {}
+
+
+
+void animal::display() {}
+
+
+
+void animal::edit() {}

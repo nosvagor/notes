@@ -28,6 +28,9 @@ const char ORIGINAL[] = "src/animals_original.txt";  // used for resetting
 class animal {
   public:
     animal();
+    void read();
+    void display();
+    void edit();
 
   private:
     char name[SIZE];
@@ -38,24 +41,20 @@ class animal {
 };
 
 // Core Functions
-void new_animals();
-void read_inc(int &count);
-int disp_inc();
-void edit_inc();
-void read_cur();
-void updt_cur(int count);
-void disp_cur();
+void read();
+void display();
+void edit();
+void update();
+void search();
+void reset();
+
+int menu();
+char yes_no(const char* str);
+void call_menu(int &selection);
+void edit_update();
 
 // Greetings
 void greeting();
 void menu_greeting();
 void incoming_greeting();
 void farewell();
-
-// Utility Functions
-int menu();
-void call_edit(int count);
-void call_menu(int &selection);
-char yes_no(const char* str);
-void reset_incoming();
-void reset_current();
