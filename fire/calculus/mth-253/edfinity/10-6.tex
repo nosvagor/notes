@@ -34,5 +34,30 @@
     \) is valid for \(|x| < 1\). Used to derive expansions of other relations
     functions.
 
+  \item[1.] Use the Ratio Test to determine the radius of convergence of the
+    following series:
+    \begin{align*}
+      \sum_{n=0}^{\infty} \frac{x^n}{16^n} \\
+      &\then \lim_{n \to \infty}\frac{x^{n+1}}{16^{n+1}} \cdot \frac{16^n}{x^n}
+      = \frac{x}{16} \\
+      &\then R = 16
+    \end{align*}
 
+  \item[2.] Find the radius of convergence of the power series
+    \begin{align*}
+      \sum_{n= 1}^{\infty} \frac{x^n}{n^{\frac{1}{6}}} \\
+      &\then \lim_{n \to \infty} \frac{x^{n+1}}{(n+1)^{\frac{1}{6}}} \cdot \frac{n^{\frac{1}{6}}}{x^n}\\
+      &\then \lim_{n \to \infty} \frac{x}{1^{\frac{1}{6}}} \\
+      &\then R = 1^{\frac{1}{6}}
+    \end{align*}
+
+  \item[3.] Find the radius of convergence, and what is the interval?
+    \begin{align*}
+      \sum_{n=1}^{\infty} \frac{7^n x^n }{n!} \\
+      &\then \lim_{n \to \infty}\frac{7^n 7^1 x^n x^1}{(n+1)n!} \cdot \frac{n!}{7^n x^n } \\
+      &\then \lim_{n \to \infty} \frac{7x}{n+1} = 0\\
+      &\then R = \infty,\quad \I = -\infty < x < \infty
+    \end{align*}
+
+  \item[5.]
 \end{itemize}
