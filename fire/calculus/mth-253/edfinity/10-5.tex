@@ -1,0 +1,89 @@
+\section{10.5 Edfinity: The Ratio and Root Test}
+\begin{itemize}
+  \item The ratio test: assume \(\displaystyle \rho = \lim_{n \to \infty}
+    \left| \frac{a_{n+1}}{a_n} \right| \) exists, then:
+    \begin{itemize}
+      \item \(\sum a_n\) converges absolutely if \(\rho < 1\).
+      \item \(\sum\) diverges if \(\rho > 1\).
+      \item Inconclusive if \(\rho = 1\).
+    \end{itemize}
+  \item Root test: assume that \(\displaystyle L = \lim_{n \to \infty} \left|
+    a_n \right|^{\frac{1}{n}}\) exists, then
+    \begin{itemize}
+      \item \(\sum a_n\) converges absolutely if \(L < 1\).
+      \item \(\sum\) diverges if \(L > 1\).
+      \item Inconclusive if \(L = 1\).
+    \end{itemize}
+
+  \item[1.] Apply the Ratio test:
+  \begin{align*}
+    \sum_{n=1}^{\infty} 6^{-n}\\
+    a_{n+1} = 6^{-n-1}, \quad a_n = 6^{-1} \\
+    \then \rho = \lim_{n \to \infty} \left|  6^{-n-1}  \cdot 6^{n} \right| = 6^{-1}
+  \end{align*}
+
+  \item[2.] Apply the Ratio test:
+  \begin{align*}
+    \sum_{n=1}^{\infty} \frac{1}{n\ln n} \\
+    &\then \rho = \lim_{n \to \infty}
+    \left| \frac{n \ln  n}{(n+1) \ln (n+1)} \right| \\
+    &\then \lim_{n \to \infty} \frac{\ln n + 1}{\ln (n+1)+1} \\
+    &\then \lim_{i \to \infty} \frac{n}{n+1} \\
+    &\then \lim_{n \to \infty} = 1
+  \end{align*}
+
+  \item[3.] Apply the Ratio test:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \left|\frac{(-5)^k}{k!} \right| \\
+      \lim_{n \to \infty} = \frac{(5)^k+1}{(k+1)k!} \cdot \frac{k!}{(5)^k} =
+      \frac{5}{k+1} = 0
+    \end{align*}
+
+  \newpage
+
+  \item[4.] Apply the Root test:
+    \begin{align*}
+      \sum_{n=1}^{\infty} n^{-8n} \\
+      &\then \lim_{n \to \infty} (n^{-8n})^{n^{-1}} \\
+      &\then \lim_{n \to \infty} n^{-8} = 0
+    \end{align*}
+
+  \item[5.] Apply the Root test:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \left( \frac{n+9}{3n+14} \right)^n \\
+      \then \lim_{n \to \infty}\frac{n+9}{3n+14} = \frac{1}{3}
+    \end{align*}
+
+
+  \item[6.] Apply the Root test:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \left(1+(5n)^{-1}\right)^{-n^2}\\
+      \then \lim_{n \to \infty} \left|  \left(1+(5n)^{-1}\right)^{-n^2} \right|^{n^{-1}}  \\
+      \then  \lim_{n \to \infty} \left(1+(5n)^{-1}\right)^{-n} = e^{-\frac{1}{5}}
+    \end{align*}
+
+  \item Determine convergence:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \frac{n^2+9n+6}{9n^4 + 4n^3 + 4n^2 + 4} \\
+      a_n = \frac{n^2+9n+6}{9n^4 + 4n^3 + 4n^2 + 4}, \quad b_n = \frac{n^2+9n+6}{9n^4} \\
+      \then \lim_{n \to \infty}\frac{n^2+9n+6}{9n^4 + 4n^3 + 4n^2 + 4} \cdot \frac{9n^4}{n^2+9n+6} \\
+      \then \lim_{n \to \infty} \frac{1}{4n^3+4n^2+4} =0 \\
+    \end{align*}
+
+  \item Determine convergence:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \sin \left( n^{-2} \right) \\
+      a_n = \sin (n^{-2}), \quad b_n = n^{-2} \\
+      \sin n^{-2} \leq n^{-2} \\
+      \sum_{n=1}^{\infty}\sin n^{-2} \leq  \sum_{n=i}^{\infty}n^{-2} \\
+      b_n ~\text{converges by p-series}~\\
+      \then a_n ~\text{converges}~
+    \end{align*}
+
+  \item Determine convergence:
+    \begin{align*}
+      \sum_{n=1}^{\infty} \left( \frac{n}{n+13} \right) ^n \\
+      &\then \lim_{n \to \infty} \left( \frac{n}{n+13} \right)^n = e^{-13}
+    \end{align*}
+
+\end{itemize}

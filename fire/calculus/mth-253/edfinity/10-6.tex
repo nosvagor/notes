@@ -1,0 +1,38 @@
+\section{10.6 Edfinity: Power Series}
+\begin{itemize}
+  \item \dd{Power series}: infinite series of the form
+    \[%%%%%%%%%%
+    F (x) = \sum_{n=0}^{\infty} a_n (x - c)^n
+    \]%%%%%%%%%%
+  \item \dd{Radius of convergence, \(R\)}:
+    \begin{itemize}
+      \item \(F(x)\) converges absolutely for \(\left|x -c \right| < R\) and
+        diverges for \(\left|x - c\right| > R\)
+      \item \(F (x) \) may converge of diverge at the endpoints \(c-R\) and \(c+R\)
+      \item \(R=0 \iff F (x) \) converges for \(x = c \land R = \infty \iff F
+        (x)\) converges \(\forall x\)
+    \end{itemize}
+  \item \dd{Interval of convergence}: the open interval \((c-R, c+R)\) of
+    \(F(x) \), possibly including one or both endpoints.
+
+  \item The \aset{Ratio Test} can be used to find the \(R\). Endpoints must be
+    checked separately.
+
+  \item If \(R > 0\), then \(F\) is differential and has antiderivatives on the
+    interval of convergence. Obtained via differentiating/antidifferentiating
+    the respective power series for \(F\):
+    \[%%%%%%%%%%
+    F' (x) = \sum_{n=1}^{\infty} n a_n (x - c)^{n-1}, \qquad
+    \int F (x) dx = A + \sum_{n=0}^{\infty} \frac{a_n}{n+1}(x-c)^{n+1}
+    \]%%%%%%%%%%
+    \begin{itemize}
+      \item \(A\) is any constant.
+      \item Both power series have the same \(R\).
+    \end{itemize}
+
+  \item The expansion \(\displaystyle \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n
+    \) is valid for \(|x| < 1\). Used to derive expansions of other relations
+    functions.
+
+
+\end{itemize}
