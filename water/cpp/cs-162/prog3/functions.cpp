@@ -1,10 +1,78 @@
-// ╔═╗┬─┐┌─┐┌─┐┌┬┐┬┌┐┌┌─┐┌─┐
-// ║ ╦├┬┘├┤ ├┤  │ │││││ ┬└─┐
-// ╚═╝┴└─└─┘└─┘ ┴ ┴┘└┘└─┘└─┘
+// ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+// ├┤ │ │││││   │ ││ ││││└─┐
+// └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 // cullyn --- cs162
-// Purpose: functions that are essentially just cout statements.
+// Purpose: implementation of core functions of the program, does not include
+// class methods.
 
 #include "main.h"
+
+//=============================================================================
+
+// Menu displays menu options and waits until a valid entry is given, passing
+// result as an int to a switch statement.
+int menu() {
+  int selection {0};
+
+  menu_greeting();
+
+  do {
+    cout << "Please select a menu option: ";
+    cin >> selection;
+    cin.clear();
+    cin.ignore(420, '\n');
+  } while (selection < 1 || selection > 8);
+
+  return selection;
+}
+
+
+// yes_no is a confirmation function that takes in a custom array
+// of characters and returns a boolean (no=false, yes=true)
+char yes_no(const char * str) {
+  char response;
+
+  do {
+    cout << str << " [y/n]: ";
+    cin >> response;
+    tolower(response);
+    cin.ignore(420, '\n');
+    if (response == 'n') return 'n';
+  } while (response != 'y');
+
+  return 'y';
+}
+
+// edit_update optionally calls the edit, then asks to update the main list
+// (save changes).
+void edit_update() {
+  char response;
+
+  do {
+    response = yes_no("Would you like to edit any entries?");
+    if (response == 'y') return;
+  } while (response != 'n');
+
+  if (yes_no("Update current animals?") == 'y') return;
+}
+
+
+// sleep delays program for set period of time (milliseconds), useful for
+// displaying warning messages.
+void sleep(int ms) {
+  this_thread::sleep_for(chrono::milliseconds(ms));
+}
+
+
+// call_menu simply calls the menu function, updating the referenced selection variable
+// passed it. Selection 8 is part of the quit menu option.
+void call_menu (int &selection) {
+  do {
+    (yes_no("Return to menu? (no = quit)") == 'n') ? selection = 8 : selection = 0;
+  } while (selection != 0 && selection != 8);
+  if (selection == 8) farewell();
+}
+
 
 
 // greeting displays basics instructions on program start and restart
@@ -29,8 +97,7 @@ void greeting() {
   cout
     << "Users of this program are free to add new animals manually, or provide\n"
     << "a list of animals that wish to join the farm.\n\n"
-    << "\t Max number of new animals: " << INC << "\n"
-    << "\t Max number of total animals: " << CUR << "\n\n"
+    << "\t Max capacity: " << MAX << "\n"
     << "New members of our farm require a name, species, breed, service they \n"
     << "provide to be admitted; other additional information may be added if desired."
     << endl << endl;

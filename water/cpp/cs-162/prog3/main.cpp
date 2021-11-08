@@ -24,11 +24,15 @@ int main() {
 
   greeting();
 
+  animals incoming;
+
   do {
     selection = menu();
     switch (selection) {
       case 1:
         cout << "1 selected" << endl;
+        incoming.read_all();
+        incoming.display_all();
         break;
       case 2:
         cout << "2 selected" << endl;
