@@ -43,17 +43,39 @@ char yes_no(const char * str) {
   return 'y';
 }
 
-// edit_update optionally calls the edit, then asks to update the main list
-// (save changes).
-void edit_update() {
+void edit(animals group) {
   char response;
 
   do {
     response = yes_no("Would you like to edit any entries?");
-    if (response == 'y') return;
+    if (response == 'y') edit(group);
+    cout << "editing" << endl;
   } while (response != 'n');
 
-  if (yes_no("Update current animals?") == 'y') return;
+}
+
+void update(animals current) {
+  if (yes_no("\nUpdate current animals?") == 'y') {
+
+    ofstream out_file;
+    out_file.open(CURRENT, ios::app);
+
+    if (out_file) {
+
+
+
+
+      out_file.close();
+    }
+  }
+}
+
+void edit();
+
+// edit_update optionally calls the edit, then asks to update the main list
+// (save changes).
+void edit_update(animals group) {
+
 }
 
 
@@ -61,6 +83,16 @@ void edit_update() {
 // displaying warning messages.
 void sleep(int ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
+}
+
+void return_to_menu() {
+    cout << "\nReturning to menu" << flush;
+
+    for (int i = 0; i < 4; ++i) {
+      sleep(2000/4);
+      cout << "."<< flush;
+    }
+    cout << endl;
 }
 
 
@@ -116,11 +148,8 @@ void incoming_greeting() {
        << "Automatic animal registration in progress..."
        << endl << endl;
   cout << "Please provide file name of animals you wish to send to the farm.\n"
-       << "\t E.g., example_list.txt is provided for demonstration of automatic entries. \n\n"
-       << "The Provided file must have lines in format of\n\n"
-       << "\tName|Species|Breed|Service|Miscellaneous\n\n"
-       << "Please enter \"none\" if these is no extra info associated with the animal,\n"
-       << "and \"unsure\" for data for other entries."
+       << "The provided file must have lines in format of (no blank entries)\n\n"
+       << "\tName|Species|Breed|Service|Miscellaneous"
        << endl << endl;
 }
 

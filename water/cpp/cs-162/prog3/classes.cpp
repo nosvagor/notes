@@ -13,24 +13,6 @@
 // ┴ ┴┘└┘┴┴ ┴┴ ┴┴─┘
 // Object used to keep track of information about each animal.
 
-// class animal {
-//   public:
-//     animal();
-//     ~animal();
-
-//     void get_info(const char * str, char *& info);
-//     void read();
-//     void display();
-//     void edit();
-//     bool compare();
-
-//   private:
-//     char * name;
-//     char * species;
-//     char * breed;
-//     char * service;
-//     char * misc;
-// };
 
 animal::animal() {
   name = NULL;
@@ -54,17 +36,17 @@ animal::~animal() {
 
 
 void animal::get_info(const char * str, char *& info) {
-  char temp[69];
+  char temp[SIZE];
 
   cout << str ;
-  cin.get(temp, 69, '\n');
-  cin.ignore(69, '\n');
+  cin.get(temp, SIZE, '\n');
+  cin.ignore(SIZE, '\n');
 
   info = new char [strlen(temp) + 1];
   strcpy(info, temp);
 }
 
-void animal::read() {
+void animal::read_manual() {
   get_info("name: ", name);
   get_info("species: ", species);
   get_info("breed: ", breed);
@@ -72,17 +54,42 @@ void animal::read() {
   get_info("misc: ", misc);
 }
 
+void animal::get_info_auto(char *& info, char dlm, ifstream & in_file) {
+  char temp[SIZE];
+
+  in_file.get(temp, SIZE, dlm);
+  in_file.ignore(SIZE, dlm);
+
+  if (strlen(temp) == 0) return;
+
+  info = new char [strlen(temp) + 1];
+  strcpy(info, temp);
+}
+
+void animal::read_auto(ifstream & in_file) {
+  get_info_auto(name, DLM, in_file);
+  get_info_auto(species, DLM, in_file);
+  get_info_auto(breed, DLM, in_file);
+  get_info_auto(service, DLM, in_file);
+  get_info_auto(misc, '\n', in_file);
+}
 
 
-void animal::display() {
+
+bool animal::display() {
+
   if (!name) {
-    cout << "IS NULL" << endl;
-    return;
+    return false;
   }
 
-  cout
-    << name << '\t' << species << '\t' << breed << '\t' << service << '\t'
-    << misc << endl;
+  cout << "\nName: " << name
+       << "\n  - Species: " << species
+       << "\n  - Breed: " << breed
+       << "\n  - Service: " << service
+       << "\n  - Misc: " << misc
+       << endl;
+
+  return true;
 }
 
 
@@ -102,20 +109,6 @@ bool animal::compare() {
 // ┴ ┴┘└┘┴┴ ┴┴ ┴┴─┘└─┘
 // Object used to differentiate between groups of animals (incoming vs current)
 
-// class animals {
-//   public:
-//     animals();
-//     ~animals();
-
-//     void read_all();
-//     void display_all();
-//     void call_edit();
-//     bool search();
-
-//   private:
-//     animal group[MAX];
-//     int animal_count;
-// };
 
 animals::animals() {
 
@@ -137,22 +130,100 @@ void animals::read_all() {
 
   char response = 'y';
 
-  while (response == 'y' && animal_count < MAX) {
-     group[animal_count].read();
+  while (response != 'n' && animal_count < MAX) {
+     group[animal_count].read_manual();
      ++animal_count;
-     response = yes_no("Add another?");
+     response = yes_no("\nAdd another?");
   }
 
   if (response && animal_count >= MAX) {
-    cout << "!! Warning !! Farm at max capacity, cannot add another animal :(" << endl;
-    sleep(1500);
+    cout << "\n!! Warning !! Farm at max capacity, cannot add another animal :("
+         << endl;
+    return_to_menu();
   }
+}
+
+
+void animals::read_all_auto() {
+
+  int new_count {0};
+  char new_animals[SIZE];
+  ifstream in_file;
+
+  incoming_greeting();
+
+  if (yes_no("Use example file?") == 'y') {
+    in_file.open(EXAMPLE);
+  } else {
+    cout << "File name: ";
+    cin.get(new_animals, SIZE, '\n');
+    cin.ignore(SIZE, '\n');
+    in_file.open(new_animals);
+  }
+
+  if (!in_file) {
+    cout << "\n  !! Warning --- Unable to read file." << endl;
+    return_to_menu();
+  }
+
+  while (animal_count < MAX && in_file && !in_file.eof()) {
+     group[animal_count].read_auto(in_file);
+     ++animal_count;
+     ++new_count;
+  }
+
+  if (in_file && animal_count >= MAX) {
+    cout << "\n  !! Warning --- Farm at max capacity ("
+         << MAX << "), "
+         << new_count << " new animals were registered."
+         << endl;
+    return_to_menu();
+  }
+
+  in_file.close();
+  in_file.clear();
+}
+
+
+void animals::read_file_only() {
+
+  ifstream in_file;
+
+  in_file.open(CURRENT);
+
+  while (animal_count < MAX && in_file && !in_file.eof()) {
+     group[animal_count].read_auto(in_file);
+     ++animal_count;
+  }
+
+  if (in_file && animal_count >= MAX) {
+    cout << "\n  !! Warning --- Farm at max capacity ("
+         << MAX << "), only the first "
+         << animal_count << " made it in."
+         << endl;
+  }
+
+  in_file.close();
+  in_file.clear();
 }
 
 
 
 void animals::display_all() {
-  for (int i = 0; i < MAX; ++i) group[i].display();
+  cout << "\nDisplaying incoming farm animals:" << endl;
+
+  bool empty = true;
+
+  for (int i = 0; i < MAX; ++i) {
+
+    if (i == 0 && !empty) {
+      cout << "\n incoming animals" << endl;
+      return_to_menu();
+      return;
+    }
+
+    empty = group[i].display();
+  }
 }
 
 

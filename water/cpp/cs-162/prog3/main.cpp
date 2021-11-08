@@ -22,38 +22,35 @@ int main() {
   // menu selection variable.
   int selection {0};
 
-  greeting();
-
   animals incoming;
+  animals current;
+
+  greeting();
 
   do {
     selection = menu();
     switch (selection) {
-      case 1:
-        cout << "1 selected" << endl;
+      case 1:  // Manual animal registration.
         incoming.read_all();
+        break;
+      case 2:  // Display INCOMING animals.
         incoming.display_all();
+        if (incoming.animal_count > 0) update(current);
         break;
-      case 2:
-        cout << "2 selected" << endl;
+      case 3:  // Automatic animal registration.
+        incoming.read_all_auto();
         break;
-      case 3:
-        cout << "3 selected" << endl;
+      case 4:  // Display CURRENT animals.
+        current.read_file_only();
+        current.display_all();
         break;
-      case 4:
-        cout << "4 selected" << endl;
+      case 5:  // Search animals by species.
         break;
-      case 5:
-        cout << "5 selected" << endl;
+      case 6:  // Search animals by breed.
         break;
-      case 6:
-        cout << "6 selected" << endl;
+      case 7:  // Restart program.
         break;
-      case 7:
-        cout << "7 selected" << endl;
-        break;
-      case 8:
-        cout << "8 selected" << endl;
+      case 8:  // Quit program.
         break;
     };
   } while (selection < 1 || selection != 8);

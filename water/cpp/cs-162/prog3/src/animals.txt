@@ -3,7 +3,3 @@ Old Major|pig|middle white boar|provides inspiration|an allegory of Karl Marx + 
 Boxer|equine|unsure|strong, hard-working cart-house|an allegory of Alexey Stakhanov his respective movement
 Benjamin|equine|unsure|wise, cynical, and skeptical farm elder|"a touch of Orwell himself"
 Squealer|pig|white porker|second in command|an allegory of Vyacheslav Molotov
-Muriel|goat|alpine|can read|none
-Moses|raven|common|likes to talk a lot|gets an allowance of a gill of beer daily
-Clover|equine|unsure|gentle and caring|none
-Muriel|goat|alpine|can read|none
