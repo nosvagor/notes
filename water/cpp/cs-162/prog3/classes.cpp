@@ -2,7 +2,9 @@
 // │  │  ├─┤└─┐└─┐├┤ └─┐
 // └─┘┴─┘┴ ┴└─┘└─┘└─┘└─┘
 // cullyn --- cs162
-// Purpose: this file implementations class methods
+// Purpose: this file implements class methods. Includes animal class (for each
+// specific animal), and animals class (used to manage a collection of
+// animals).
 
 #include "main.h"
 
@@ -153,7 +155,6 @@ bool animal::compare(char * match, const char * info) {
 
   return false;
 }
-
 
 
 // ┌─┐┌┐┌┬┌┬┐┌─┐┬  ┌─┐

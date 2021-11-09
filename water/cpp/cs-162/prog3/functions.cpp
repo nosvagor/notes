@@ -44,11 +44,13 @@ char yes_no(const char * str) {
 }
 
 
+
 // sleep delays program for set period of time (milliseconds), useful for
 // displaying warning messages.
 void sleep(int ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
 }
+
 
 
 // return_to_menu provides a short delay before returning to menu selection;
@@ -61,16 +63,6 @@ void return_to_menu() {
       cout << "."<< flush;
     }
     cout << endl;
-}
-
-
-// call_menu simply calls the menu function, updating the referenced selection variable
-// passed it. Selection 8 is part of the quit menu option.
-void call_menu (int &selection) {
-  do {
-    (yes_no("Return to menu? (no = quit)") == 'n') ? selection = 8 : selection = 0;
-  } while (selection != 0 && selection != 8);
-  if (selection == 8) farewell();
 }
 
 

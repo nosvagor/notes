@@ -17,7 +17,7 @@ using namespace std;
 // Constants
 const int SIZE {69};    // standard input array size.
 const int MAX {10};     // max number of animals.
-const char DLM = '|';   // delimiter used when parsing file
+const char DLM = '|';   // delimiter used when parsing/writing to external file.
 
 // File Locations
 const char CURRENT[] = "src/animals.txt";            // main data file
@@ -67,7 +67,6 @@ class animals {
 // Utility
 int menu();
 char yes_no(const char * str);
-void call_menu(int &selection);
 void sleep(int seconds);
 void return_to_menu();
 void file_reset();
