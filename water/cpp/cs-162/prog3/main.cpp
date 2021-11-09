@@ -19,14 +19,15 @@
 //=============oo--oo==o--OOO\\================================================
 int main() {
 
-  // menu selection variable.
-  int selection {0};
+  int selection {0};  // menu selection variable.
+  animals incoming;   // object of objects, for new animals
+  animals current;    // object of objects, for existing animals.
 
-  animals incoming;
-  animals current;
+  current.read_file_only();
 
   greeting();
 
+  // continue to call menu until quit.
   do {
     selection = menu();
     switch (selection) {
@@ -34,23 +35,52 @@ int main() {
         incoming.read_all();
         break;
       case 2:  // Display INCOMING animals.
+        bool reset;
         incoming.display_all();
-        if (incoming.animal_count > 0) update(current);
+
+        if (incoming.animal_count > 0) {
+          reset = incoming.call_update();
+        } else {
+          cout << "\nNo incoming animals, please register new animals." << endl;
+          return_to_menu();
+        }
+
+        // reset incoming animals object is is right way.
+        if (reset) {
+          incoming.~animals();      // call destructor
+          new (&incoming) animals;  // call constructor again.
+        }
         break;
       case 3:  // Automatic animal registration.
         incoming.read_all_auto();
         break;
       case 4:  // Display CURRENT animals.
+        current.~animals();
+        new (&current) animals;
         current.read_file_only();
         current.display_all();
+        cout << "\nAll current farm animals listed." << endl;
+        return_to_menu();
         break;
       case 5:  // Search animals by species.
+        current.display_all();
+        current.call_compare("species");
+        return_to_menu();
         break;
       case 6:  // Search animals by breed.
+        current.display_all();
+        current.call_compare("breed");
+        return_to_menu();
         break;
       case 7:  // Restart program.
+        // always reset incoming on restart
+        incoming.~animals();
+        new (&incoming) animals;
+
+        file_reset();
         break;
       case 8:  // Quit program.
+        file_reset();
         break;
     };
   } while (selection < 1 || selection != 8);

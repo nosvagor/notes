@@ -16,12 +16,12 @@ using namespace std;
 
 // Constants
 const int SIZE {69};    // standard input array size.
-const int MAX {10};      // max number of animals.
+const int MAX {10};     // max number of animals.
 const char DLM = '|';   // delimiter used when parsing file
 
 // File Locations
 const char CURRENT[] = "src/animals.txt";            // main data file
-const char EXAMPLE[] = "src/example_list.txt";   // testing purposes
+const char EXAMPLE[] = "src/example_list.txt";       // example external file
 const char ORIGINAL[] = "src/animals_original.txt";  // used for resetting
 
 // Classes
@@ -35,8 +35,8 @@ class animal {
     void get_info_auto(char *& info, char dlm, ifstream & in_file);
     void read_auto(ifstream & in_file);
     bool display();
-    void edit();
-    bool compare();
+    void update(int animal_count);
+    bool compare(char * match, const char * info);
 
   private:
     char * name;
@@ -55,8 +55,8 @@ class animals {
     void read_all_auto();
     void read_file_only();
     void display_all();
-    void call_edit();
-    bool search();
+    bool call_update();
+    void call_compare(const char * info);
 
     int animal_count;
 
@@ -66,13 +66,11 @@ class animals {
 
 // Utility
 int menu();
-void get_info(const char * str, char * info);
-char yes_no(const char* str);
+char yes_no(const char * str);
 void call_menu(int &selection);
-void edit(animals group);
-void update(animals current);
 void sleep(int seconds);
 void return_to_menu();
+void file_reset();
 
 // Greetings
 void greeting();

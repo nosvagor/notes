@@ -9,10 +9,10 @@
 
 //=============================================================================
 
-// Menu displays menu options and waits until a valid entry is given, passing
+// menu displays menu options and waits until a valid entry is given, passing
 // result as an int to a switch statement.
 int menu() {
-  int selection {0};
+  int selection {0};    // used for cases, see menu greeting for mappings.
 
   menu_greeting();
 
@@ -43,41 +43,6 @@ char yes_no(const char * str) {
   return 'y';
 }
 
-void edit(animals group) {
-  char response;
-
-  do {
-    response = yes_no("Would you like to edit any entries?");
-    if (response == 'y') edit(group);
-    cout << "editing" << endl;
-  } while (response != 'n');
-
-}
-
-void update(animals current) {
-  if (yes_no("\nUpdate current animals?") == 'y') {
-
-    ofstream out_file;
-    out_file.open(CURRENT, ios::app);
-
-    if (out_file) {
-
-
-
-
-      out_file.close();
-    }
-  }
-}
-
-void edit();
-
-// edit_update optionally calls the edit, then asks to update the main list
-// (save changes).
-void edit_update(animals group) {
-
-}
-
 
 // sleep delays program for set period of time (milliseconds), useful for
 // displaying warning messages.
@@ -85,6 +50,9 @@ void sleep(int ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
+
+// return_to_menu provides a short delay before returning to menu selection;
+// includes animated ellipses for UX experience to indicate program isn't frozen.
 void return_to_menu() {
     cout << "\nReturning to menu" << flush;
 
@@ -105,6 +73,43 @@ void call_menu (int &selection) {
   if (selection == 8) farewell();
 }
 
+
+
+// file_reset takes the original animal provided and overwrites any appended
+// content to the main working file (animals.txt)
+void file_reset() {
+  if (yes_no("\nReset current animal list?") == 'y') {
+
+    // local variables
+    int N = 512;        // line size, large just in case
+    ifstream in_file;   // in file (src/animals_original.txt)
+    ofstream out_file;  // out file (src/animals.txt)
+
+    char line[N];       // get line input
+
+    in_file.open(ORIGINAL);
+
+    if (in_file) {
+
+      out_file.open(CURRENT);
+
+      if (out_file) {
+
+        in_file.get(line, N, '\n');
+        in_file.ignore(100, '\n');
+
+        while (in_file && !in_file.eof()) {
+
+          out_file << line << endl;
+          in_file.get(line, N*6, '\n');
+          in_file.ignore(100, '\n');
+        }
+      }
+      out_file.close();
+    }
+    in_file.close();
+  }
+}
 
 
 // greeting displays basics instructions on program start and restart
