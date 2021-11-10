@@ -66,10 +66,10 @@
 
   \setcounter{tocdepth}{2}
 
-  \titlecontents{chapter}[0 em]
-  {\vspace{12pt}\large\bfseries\color{title-color}}
-  {}{}
-  {\hfill}[\vspace{-3pt}]
+  % \titlecontents{chapter}[0 em]
+  % {\vspace{12pt}\large\bfseries\color{title-color}}
+  % {}{}
+  % {\hfill}[\vspace{-3pt}]
 
   \titlecontents{section}[0.809 em]
   {\vspace{3pt}\bfseries}
@@ -267,6 +267,32 @@
   \cfoot{\textsc{\institution}}
   \rfoot{\thepage}
   \lfoot{\class}
+}
+
+
+\DeclareOption{basic} {
+
+\pagecolor{white}
+\color{black}
+
+\titlecontents{subsection}[1.618 em]
+{\color{black}}
+{}{}
+{\titlerule*[0.42 em]{.}\contentspage}
+
+\titleformat{\section}
+{\Large\bfseries\color{black}}
+{}{0pt}{}
+
+\titleformat{\subsection}
+{\large\bfseries\color{black}}
+{}{0pt}{}
+
+
+\setlist[itemize,1]{label=\small{\(\bullet\)}}
+\setlist[itemize,2]{label=\small{\(\circ\)}}
+\setlist[itemize,3]{label=\small{\textbullet}}
+
 }
 
 \ProcessOptions\relax
