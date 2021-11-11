@@ -4,17 +4,44 @@
 \begin{itemize}
   \item[]
 
-  \subsection{Properties of Eigenvalues and Eigenvectors}
-  Strang provided a list of properties of Eigenvectors and Eigenvalues at the
-  end of chapter 5, but I wanted to explore them first before diving into the
-  practice problems. The following is my attempt at restating such properties
-  and their significance.
-
   \subsection{Problems 39, 40}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}
+    \minor{\item[39.]  Challenge problem: Is there a real 2 by 2 matrix (other
+      than \(I\)) with \(\bm{A}^3 = I\)? Its eigenvalues must satisfy \(\lambda^3 =
+      I\). They can be \(e^{ 2\pi /3}\) and \( e^{-2\pi i/3}\).
 
+      What trace and determinant would this give? Construct \tbm{A}.
+    }
+    \begin{itemize}
+      \item
+    \end{itemize}
+
+
+    \minor{\item[40.] There are six 3 by 3 permutation matrices \tbm{P}.
+      \begin{enumerate}
+        \item What numbers can be the determinants of \tbm{P}?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item What numbers can be pivots?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item What numbers can be the trace of \tbm{P}?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item What four numbers can be eigenvalues of \tbm{P}?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+      \end{enumerate}
+    }
+  \end{enumerate}
 \end{itemize}
 
 \section{5.2 Diagonalization of a Matrix}
@@ -22,10 +49,47 @@
   \item []
 
   \subsection{Problems 11, 14, 39}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}
+    \minor{\item[11.] If the eigenvalues of A are 1, 1, 2, which of the
+      following are certain to be true? Give a reason if true or a
+      counterexample if false:
+      \begin{enumerate}
+        \item \tbm{A} is invertible.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
 
+        \item \tbm{A} is diagonalizable.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item \tbm{A} is not diagonalizable.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+      \end{enumerate}
+    }
+
+    \minor{\item[14.] Suppose the eigenvector matrix \tbm{S} has \(\bm{S}^T =
+      \bm{S}^{-1}\). Show that \(\bm{A} = \bm{S\Lambda S}^{-1}\) is symmetric
+    }
+    \begin{itemize}
+      \item
+    \end{itemize}
+
+
+    \minor{\item[39.] Suppose \(\bm{Ax} = \lambda \bm{x}\). If \(\lambda = 0,\)
+      then \(x\) is in the nullspace. If \(\lambda \neq 0\), then \(x\) is in
+      the column space. Those spaces have dimensions \((n-r)+r = n\). So why
+      doesn't every square matrix have \(n\) linearly independent eigenvectors?
+    }
+    \begin{itemize}
+      \item
+    \end{itemize}
+
+  \end{enumerate}
 \end{itemize}
 
 \section{5.5 Complex Matrices}
@@ -33,10 +97,60 @@
   \item []
 
   \subsection{Problems 2, 12, 50}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}
+    \minor{\item[2.] What can you say about
+      \begin{enumerate}
+        \item the sum of a complex number and its conjugate?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
 
+        \item the conjugate of a number on the unit circle?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item the product of two numbers on the unit circle?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item the sum of two numbers on the unit circle?
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+      \end{enumerate}
+    }
+
+    \minor{\item[12.] Give a reason if true or a counterexample if false:
+      \begin{enumerate}
+        \item If \tbm{A} is Hermitian, then \(\bm{A} + \i I\) is invertible.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item If \tbm{Q} is orthogonal, then \(\bm{Q} +\frac{1}{2} \bm{I}\) is
+          invertible.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+        \item If \tbm{A} is real, then \(\bm{A} + \i \bm{I}\) is invertible.
+        \begin{itemize}\color{foreground}
+          \item
+        \end{itemize}
+
+      \end{enumerate}
+    }
+
+    \minor{\item[50.] A matrix with the orthonormal eigenvectors has the form
+      \(\bm{A} = \bm{U\Lambda U}^{-1} = \bm{U\Lambda U}^{\t}\). Prove that
+      \(\bm{AA}^{\t} = \bm{A}^{\t} \bm{A}\). These are exactly the normal
+      matrices.
+    }
+
+  \end{enumerate}
 \end{itemize}
 
 \section{5.6 Similarity Transformations}
@@ -44,8 +158,29 @@
   \item []
 
   \subsection{Problems 17, 21, 42}
-  \begin{itemize}
-    \item
-  \end{itemize}
+  \begin{enumerate}
+    \minor{\item[17.] Prove that every unitary matrix \tbm{A} is
+      diagonalizable, in two steps:
+      \begin{enumerate}
+        \item If \tbm{A} is unitary, and \tbm{U} is too, then so it \(\bm{T} =
+          \bm{U}^{-1}\bm{AU}.\)
 
+        \item An upper triangular \(\bm{T}\) that is unitary must be diagonal.
+          Thus, \(\bm{T}=\bm{A}\).
+
+      \end{enumerate}
+
+      Any unitary matrix \tbm{A} (distinct eigenvalues or not) has a complete set of orthonormal eigenvectors. All eigenvalues satisfy \(|\lambda | = 1\).
+
+    }
+
+    \minor{\item[21.] Prove that a matrix with orthonormal eigenvectors must be
+      normal, as claimed: if \(\bm{U}^{-1} \bm{NU} = \bm{A}\) or \(\bm{N} =
+      \bm{U\Lambda U}^{\t}\), then \(\bm{NN}^{\t} = \bm{N}^{\t}\bm{N}.\)
+    }
+
+    \minor{\item[42.] Prove that \tbm{AB} has the same eigenvalues as \tbm{BA}.
+    }
+
+  \end{enumerate}
 \end{itemize}
