@@ -66,10 +66,10 @@
 
   \setcounter{tocdepth}{2}
 
-  % \titlecontents{chapter}[0 em]
-  % {\vspace{12pt}\large\bfseries\color{title-color}}
-  % {}{}
-  % {\hfill}[\vspace{-3pt}]
+  \titlecontents{chapter}[0 em]
+  {\vspace{12pt}\large\bfseries\color{title-color}}
+  {}{}
+  {\hfill}[\vspace{-3pt}]
 
   \titlecontents{section}[0.809 em]
   {\vspace{3pt}\bfseries}
@@ -276,16 +276,16 @@
 \color{black}
 
 \titlecontents{subsection}[1.618 em]
-{\color{black}}
+{\color{black!85!white}}
 {}{}
 {\titlerule*[0.42 em]{.}\contentspage}
 
 \titleformat{\section}
-{\Large\bfseries\color{black}}
+{\Large\bfseries\color{black!85!white}}
 {}{0pt}{}
 
 \titleformat{\subsection}
-{\large\bfseries\color{black}}
+{\large\bfseries\color{black!85!white}}
 {}{0pt}{}
 
 
