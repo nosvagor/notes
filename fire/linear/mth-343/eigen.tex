@@ -8,35 +8,54 @@
   \begin{enumerate}
     \minor{\item[39.]  Challenge problem: Is there a real 2 by 2 matrix (other
       than \(I\)) with \(\bm{A}^3 = I\)? Its eigenvalues must satisfy \(\lambda^3 =
-      I\). They can be \(e^{ 2\pi /3}\) and \( e^{-2\pi i/3}\).
+      I\). They can be \(e^{ 2\pi\i /3}\) and \( e^{-2\pi\i i/3}\).
 
       What trace and determinant would this give? Construct \tbm{A}.
     }
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \begin{align*}
+      \det{\bm{A}} = e^{\frac{2\pi\i}{3}} \cdot e^{-\frac{2\pi\i}{3}} = e^0 = 1 \\
+      \tr{\bm{A}} = e^{\frac{2\pi\i}{3}} + e^{-\frac{2\pi\i}{3}} = -1 \\
+      \text{A rotation matrix satisfies the condition, thus:}~ \\
+      \bm{A} =
+      \begin{bmatrix}
+        \cos \frac{2\pi}{3}  & -\sin \frac{2\pi}{3}  \\
+        \sin \frac{2\pi}{3} & \cos \frac{2\pi}{3}
+      \end{bmatrix}
+    \end{align*}
 
 
     \minor{\item[40.] There are six 3 by 3 permutation matrices \tbm{P}.
+
+      \fg{Note: \ulink{s:Problems 14, 18}{Section 1.5, problem 14} lists the 6
+        permutation matrices; all of which can represented as the product of
+        elementary matrices.}
+
       \begin{enumerate}
         \item What numbers can be the determinants of \tbm{P}?
+
         \begin{itemize}\color{foreground}
-          \item
+          \item Multiplication by an elementary matrix at most produces a sign flip,
+          thus, the determinants are \(\pm 1\).
         \end{itemize}
 
         \item What numbers can be pivots?
         \begin{itemize}\color{foreground}
-          \item
+          \item All pivots must be equal to 1 (only nonzero number available).
         \end{itemize}
 
         \item What numbers can be the trace of \tbm{P}?
         \begin{itemize}\color{foreground}
-          \item
+          \item Ranges from 0--3, depends on how many 1's are present in the diagonal.
         \end{itemize}
 
-        \item What four numbers can be eigenvalues of \tbm{P}?
+        \item What numbers can be eigenvalues of \tbm{P}?
         \begin{itemize}\color{foreground}
-          \item
+          \item \(\lambda^3 - 1 = 0\), thus:
+            \begin{itemize}
+              \item \(\lambda_1 = 1\)
+              \item \(\displaystyle \lambda_2 = -\frac{1}{2} - \frac{i\sqrt{3} }{2}\)
+              \item \(\displaystyle \lambda_3 = -\frac{1}{2} + \frac{i\sqrt{3}}{2}\)
+            \end{itemize}
         \end{itemize}
 
       \end{enumerate}
@@ -50,23 +69,41 @@
 
   \subsection{Problems 11, 14, 39}
   \begin{enumerate}
-    \minor{\item[11.] If the eigenvalues of A are 1, 1, 2, which of the
+    \minor{\item[11.] If the eigenvalues of \tbm{A} are 1, 1, 2, which of the
       following are certain to be true? Give a reason if true or a
       counterexample if false:
       \begin{enumerate}
         \item \tbm{A} is invertible.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; none of the eigenvalues are zero, meaning the
+            determinant is nonzero, which means \tbm{A} is non-degenerate (invertible).
         \end{itemize}
 
         \item \tbm{A} is diagonalizable.
         \begin{itemize}\color{foreground}
-          \item
+          \item \false{false}; depends on number of linearly independent
+            igenvectors.
+          \[%%%%%%%%%%
+          \bm{A} =
+          \begin{bmatrix}
+            1 & 1 & 1\\
+            0 & 1 & 1 \\
+            0 & 0 & 2
+          \end{bmatrix}
+          \]%%%%%%%%%%
         \end{itemize}
 
         \item \tbm{A} is not diagonalizable.
         \begin{itemize}\color{foreground}
-          \item
+          \item \false{false}; the following is certainly a diagonal matrix.
+          \[%%%%%%%%%%
+          \bm{A} =
+          \begin{bmatrix}
+            1 & 0 & 0\\
+            0 & 1 & 0 \\
+            0 & 0 & 2
+          \end{bmatrix}
+          \]%%%%%%%%%%
         \end{itemize}
 
       \end{enumerate}
@@ -74,10 +111,16 @@
 
     \minor{\item[14.] Suppose the eigenvector matrix \tbm{S} has \(\bm{S}^T =
       \bm{S}^{-1}\). Show that \(\bm{A} = \bm{S\Lambda S}^{-1}\) is symmetric
+      and has orthogonal eigenvectors.
     }
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \begin{align*}
+      \bm{A} &= \bm{S\Lambda S}^{-1}  \\
+      \bm{A}^T  &= (\bm{S\Lambda S}^{-1})^T   \\
+      \bm{A}^T  &= (\bm{S}^{-1})^T \Lambda^T \bm{S}^T     \\
+      \bm{A}^T  &= \bm{S} \Lambda \bm{S}^T = \bm{S} \Lambda \bm{S}^{-1}  && \bm{S}^T = \bm{S}^{-1}\\
+                &\then \bm{A} = \bm{A}^T && ~\text{\tbm{A} is symmetric}~ \\\\
+      \bm{S}^T \bm{S} &= \bm{S}^{-1}\bm{S} = \bm{I} && ~\text{\tbm{S} is orthonormal}~
+    \end{align*}
 
 
     \minor{\item[39.] Suppose \(\bm{Ax} = \lambda \bm{x}\). If \(\lambda = 0,\)
@@ -86,7 +129,12 @@
       doesn't every square matrix have \(n\) linearly independent eigenvectors?
     }
     \begin{itemize}
-      \item
+      \item Because the dimensions of the \textit{row space} and null space
+        must equal \(n\), the \textit{column space} and null space can overlap.
+      \item This means that not every independent vector is an independent
+        eigenvector. Non-distinct eigenvalues could map to the same
+        eigenvector, but still yield independent columns in the original
+        matrix.
     \end{itemize}
 
   \end{enumerate}
@@ -102,22 +150,25 @@
       \begin{enumerate}
         \item the sum of a complex number and its conjugate?
         \begin{itemize}\color{foreground}
-          \item
+          \item is \(2x\) the real component; the imaginary component cancels out.
         \end{itemize}
 
         \item the conjugate of a number on the unit circle?
         \begin{itemize}\color{foreground}
-          \item
+          \ite also on the unit circle, but with an inverted handed angle
+          (reflected about the real axis).
         \end{itemize}
 
         \item the product of two numbers on the unit circle?
         \begin{itemize}\color{foreground}
-          \item
+          \item is also on the unit circle, with real axis equal to the sum of
+            angels of the factors of the product.
         \end{itemize}
 
         \item the sum of two numbers on the unit circle?
         \begin{itemize}\color{foreground}
-          \item
+          \item not on the unit circle, but lies on a circle that is less on or
+            inside another circle with the radius of 2.
         \end{itemize}
 
       \end{enumerate}
@@ -125,20 +176,34 @@
 
     \minor{\item[12.] Give a reason if true or a counterexample if false:
       \begin{enumerate}
-        \item If \tbm{A} is Hermitian, then \(\bm{A} + \i I\) is invertible.
+        \item If \tbm{A} is Hermitian, then \(\bm{A} + \i \bm{I}\) is invertible.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; \(\bm{A} + \i\bm{I}\) is guaranteed to have all
+            non-zero complex entries along the diagonal, making it nonsingular.
         \end{itemize}
 
         \item If \tbm{Q} is orthogonal, then \(\bm{Q} +\frac{1}{2} \bm{I}\) is
           invertible.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; \(\bm{Q}\bm{Q}^{-1} = \bm{Q}^{-1}\bm{Q} = \bm{I}\) remains true.
         \end{itemize}
 
         \item If \tbm{A} is real, then \(\bm{A} + \i \bm{I}\) is invertible.
         \begin{itemize}\color{foreground}
-          \item
+          \item \false{false}; counterexample:
+            \[%%%%%%%%%%
+            \bm{A} =
+            \begin{bmatrix}
+              0 & 1 \\
+              -1 & 0
+            \end{bmatrix} \then
+            \bm{A} + \i \bm{I} =
+            \begin{bmatrix}
+              \i & 1 \\
+              -1 & \i
+            \end{bmatrix}
+            \]%%%%%%%%%%
+            if \(\i = 0\), then this matrix would remain singular.
         \end{itemize}
 
       \end{enumerate}
@@ -149,6 +214,17 @@
       \(\bm{AA}^{\t} = \bm{A}^{\t} \bm{A}\). These are exactly the normal
       matrices.
     }
+    \begin{align*}
+      \bm{AA}^{\t} &= \bm{U\Lambda U}^{\t} (\bm{U\Lambda U}^{\t})^{\t}  \\
+                   &= \bm{U\Lambda U}^{\t} \bm{U\Lambda^{\t}  U}^{\t}  \\
+                   &= \bm{U\Lambda} \bm{\Lambda^{\t}  U}^{\t}
+      = \aset{\bm{U\Lambda}^{\t}  \bm{\Lambda  U}^{\t}}
+      && \bm{\Lambda\Lambda}^{\t} = \bm{\Lambda^{\t} \Lambda}\\\\
+      \bm{A^{\t} A} &= (\bm{U\Lambda U}^{\t})^{\t}  \bm{U\Lambda U}^{\t}  \\
+                    &= \bm{U \Lambda^{\t}  U}^{\t} \bm{U\Lambda  U}^{\t}  \\
+                    &= \aset{\bm{U\Lambda}^{\t}  \bm{\Lambda  U}^{\t}}
+                    &&\then \bm{AA}^{\t} = \bm{A^{\t} A}
+    \end{align*}
 
   \end{enumerate}
 \end{itemize}
