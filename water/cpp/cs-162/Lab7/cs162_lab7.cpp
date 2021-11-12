@@ -1,20 +1,14 @@
 #include "cs162_list.h"
 
-//Start in Step 3 by uncommenting out the code to create 
-//a list object and build it!
-
 int main()
 {
-    //Create an object of class list
-    //list my_list;
+    list my_list;
+    my_list.build();
 
-    //Call the build function to create a Linear Linked List
-    //(The build member function has already been written)
-    //my_list.build();
-
-
-    //Place your code here to call the functions for Lab #7
-
+    my_list.display_all();
+    cout << "\nNumber of head occurrence: " << my_list.count_first() << endl;
+    cout << "\nTail: " << my_list.get_last() << endl;
+    cout << "\nTail duplicates?: " << my_list.find_last() << endl;
 
     return 0;
 }
