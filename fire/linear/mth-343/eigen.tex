@@ -26,7 +26,7 @@
 
     \minor{\item[40.] There are six 3 by 3 permutation matrices \tbm{P}.
 
-      \fg{Note: \ulink{s:Problems 14, 18}{Section 1.5, problem 14} lists the 6
+      \fg{Note: \ulink{ss:Problems 14, 18}{Section 1.5, problem 14} lists the 6
         permutation matrices; all of which can represented as the product of
         elementary matrices.}
 
@@ -82,7 +82,7 @@
         \item \tbm{A} is diagonalizable.
         \begin{itemize}\color{foreground}
           \item \false{false}; depends on number of linearly independent
-            igenvectors.
+            eigenvectors.
           \[%%%%%%%%%%
           \bm{A} =
           \begin{bmatrix}
@@ -150,24 +150,25 @@
       \begin{enumerate}
         \item the sum of a complex number and its conjugate?
         \begin{itemize}\color{foreground}
-          \item is \(2x\) the real component; the imaginary component cancels out.
+          \item is twice the real component; the imaginary component cancels
+            out.
         \end{itemize}
 
         \item the conjugate of a number on the unit circle?
         \begin{itemize}\color{foreground}
-          \ite also on the unit circle, but with an inverted handed angle
+          \item is on the unit circle, but with an inverted handed angle
           (reflected about the real axis).
         \end{itemize}
 
         \item the product of two numbers on the unit circle?
         \begin{itemize}\color{foreground}
-          \item is also on the unit circle, with real axis equal to the sum of
+          \item is on the unit circle, with real axis equal to the sum of
             angels of the factors of the product.
         \end{itemize}
 
         \item the sum of two numbers on the unit circle?
         \begin{itemize}\color{foreground}
-          \item not on the unit circle, but lies on a circle that is less on or
+          \item is not on the unit circle, but lies on a circle that is less on or
             inside another circle with the radius of 2.
         \end{itemize}
 
@@ -240,22 +241,84 @@
       \begin{enumerate}
         \item If \tbm{A} is unitary, and \tbm{U} is too, then so it \(\bm{T} =
           \bm{U}^{-1}\bm{AU}.\)
+        \fg{\begin{align*}
+            \bm{TT}^{\t} &= \bm{U^{-1}A U} (\bm{UA U}^{-1})^{\t} \\
+                         &= \bm{U^{-1}A U} \bm{U^{\t} A^{\t}  U}^{\t} \\
+                         &= \bm{U^{-1}A }  \bm{A^{\t}  U}^{\t} \\
+                         &= \bm{U^{-1} } \bm{U}^{\t} \\
+                         &= \bm{I}
+        \end{align*}}
+        \vspace{-20pt}
 
         \item An upper triangular \(\bm{T}\) that is unitary must be diagonal.
-          Thus, \(\bm{T}=\bm{A}\).
-
+          Thus, \(\bm{T}=\bm{A}\)
       \end{enumerate}
 
-      Any unitary matrix \tbm{A} (distinct eigenvalues or not) has a complete set of orthonormal eigenvectors. All eigenvalues satisfy \(|\lambda | = 1\).
+      Any unitary matrix \tbm{A} (distinct eigenvalues or not) has a complete
+      set of orthonormal eigenvectors. All eigenvalues satisfy \(|\lambda | =
+      1\).
+      \begin{itemize}\color{foreground}
+        \item Unitary matrices are the analogous to orthonormal matrices, thus
+          each element along the diagonal must be nonzero and an absolute value
+          equal to 1, and all lower triangular elements must be zero in order
+          for \tbm{A} to be a series of unit vectors.
 
+          Hence, \tbm{A} must be upper triangular matrix in order to be
+          considered unitary.
+      \end{itemize}
     }
 
     \minor{\item[21.] Prove that a matrix with orthonormal eigenvectors must be
       normal, as claimed: if \(\bm{U}^{-1} \bm{NU} = \bm{A}\) or \(\bm{N} =
       \bm{U\Lambda U}^{\t}\), then \(\bm{NN}^{\t} = \bm{N}^{\t}\bm{N}.\)
     }
+    \begin{itemize}\color{foreground}
+      \item See \ulink{ss:Problems 2, 12, 50}{question 50 from 5.5}. If \(\bm{N} =
+        \bm{U\Lambda U}^{\t}, \) then \(\bm{NN}^{\t} = \bm{N}^{\t} \bm{N} \)
+        --- these are the normal matrices.
+    \end{itemize}
 
-    \minor{\item[42.] Prove that \tbm{AB} has the same eigenvalues as \tbm{BA}.
+    \minor{\item[41.] True or false, with a good reason:
+      \begin{enumerate}
+        \item An invertible matrix can't be similar to a singular matrix.
+          \begin{itemize}\color{foreground}
+            \item \true{true}; the product of the eigenvalues of invertible
+              matrices is always nonzero, while a singular matrix will have at
+              least 0 eigenvalue---thus, they aren't similar.
+          \end{itemize}
+
+        \item A symmetric matrix can't be similar to a nonsymmetric matrix.
+          \begin{itemize}\color{foreground}
+            \item \false{false}; \tbm{B} could be a product of permutations,
+              which means \tbm{A} could be symmetric, but \tbm{B} would not be;
+              \tbm{A} and \tbm{B} would still be similar.
+          \end{itemize}
+
+        \item \tbm{A} can't be similar to \tbm{-A} unless \(\bm{A}= 0\).
+          \begin{itemize}\color{foreground}
+            \item \false{false}; ~
+              \(%%%%%%%%%%
+              \bm{A} = \begin{bmatrix}
+                1 & 0  \\
+                0 & -1
+              \end{bmatrix}, \quad
+              -\bm{A} =
+              \begin{bmatrix}
+                -1 & 0 \\
+                 0 & 1
+              \end{bmatrix}
+              \)%%%%%%%%%%
+              ~--- these are similar.
+          \end{itemize}
+
+        \item \(\bm{A} - \bm{I} \) can be similar to \(\bm{A}+\bm{I}\).
+          \begin{itemize}\color{foreground}
+            \item \true{true}; similar matrices must have the same eigenvalues
+              --- if \tbm{A} was in upper triangular form, then subtracting vs.\@ adding 1 from all the eigenvalues will
+              certainly yield different eigenvalues.
+          \end{itemize}
+
+      \end{enumerate}
     }
 
   \end{enumerate}
