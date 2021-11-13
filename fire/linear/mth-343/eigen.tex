@@ -239,16 +239,17 @@
     \minor{\item[17.] Prove that every unitary matrix \tbm{A} is
       diagonalizable, in two steps:
       \begin{enumerate}
-        \item If \tbm{A} is unitary, and \tbm{U} is too, then so it \(\bm{T} =
+        \item If \tbm{A} is unitary, and \tbm{U} is too, then so is \(\bm{T} =
           \bm{U}^{-1}\bm{AU}.\)
         \fg{\begin{align*}
             \bm{TT}^{\t} &= \bm{U^{-1}A U} (\bm{UA U}^{-1})^{\t} \\
                          &= \bm{U^{-1}A U} \bm{U^{\t} A^{\t}  U}^{\t} \\
                          &= \bm{U^{-1}A }  \bm{A^{\t}  U}^{\t} \\
-                         &= \bm{U^{-1} } \bm{U}^{\t} \\
+                         &= \bm{U^{-1} } \bm{U}^{\t}
+            && \text{Given \tbm{A} is unitary}  \\
                          &= \bm{I}
-        \end{align*}}
-        \vspace{-20pt}
+        \end{align*}
+        \(\bm{TT}^{\t}  = \bm{I} \), thus \tbm{T} is unitary.}
 
         \item An upper triangular \(\bm{T}\) that is unitary must be diagonal.
           Thus, \(\bm{T}=\bm{A}\)

@@ -87,7 +87,7 @@
 % Spacing in
 \def\qand{\quad\text{and}\quad}
 
-% Redfined with color
+% Redefined with color
 \let\oldcup\cup
 \renewcommand{\cup}{\hspace{3pt}\FF{\oldcup}\hspace{2pt}}
 \let\oldcap\cap
@@ -99,14 +99,15 @@
 \renewcommand{\max}[1]{\RR{\oldmax\left(\fg{#1}\right)}}
 
 \let\oldland\land
-\renewcommand{\land}{\,~\TT{\oldland}~}
+\renewcommand{\land}{\hspace{4pt}\TT{\oldland}\hspace{4pt}}
 \let\oldlor\lor
-\renewcommand{\lor}{~\FF{\oldlor}~}
+\renewcommand{\lor}{\hspace{4pt}\FF{\oldlor}\hspace{4pt}}
 
 \RequirePackage{stackengine}
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
   \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
+\def\given{\leftarrow}
 \def\then{~\2{\implies}~}
 \def\thus{~\2{\therefore}~}
 
@@ -114,9 +115,3 @@
 
 \let\oldiff\iff
 \renewcommand{\iff}{~\2{\oldiff}~}
-
-\def\lt{~\BB{<}~}
-\def\gt{~\RR{>}~}
-
-\def\conv{\text{\TT{converges}}}
-\def\dive{\text{\FF{diverges}}}
