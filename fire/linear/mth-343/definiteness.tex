@@ -67,34 +67,54 @@
       convenient for \(\bm{A}+\bm{B}\). Much better to prove that \(\bm{x}^T
       (\bm{A}+\bm{B})\bm{x}>\nil\).
     }
+    \begin{align*}
+      &: \bm{x}^T \bm{A} \bm{x} > 0, \quad \bm{x}^T \bm{Bx} > 0
+      && \given \bm{x}^T \bm{kx} > 0 \quad\forall \bm{x} > \nil \in \R \\
+      &\then \bm{x}^T \bm{Ax} + \bm{x}^T \bm{Bx} > 0 \\
+      &\then \bm{x}^T (\bm{A}+\bm{B}) \bm{x} > 0
+    \end{align*}
 
     \minor{\item[12.] In three dimensions, \(\lambda_1y^2_1 + \lambda_1y^2_2 +
       \lambda_1y^2_3 = 1\) represents an ellipsoid when all \(\lambda_i > 0\).
       Describe all the different kinds of surfaces that appear in the positive
       semi-definite case when one or more of the eigenvalues is zero.
     }
+    \begin{itemize}
+      \item \(\times1 ~ \lambda = 0 \to \) the ellipsoid becomes an ellipse.
+      \item \(\times 2 ~ \lambda = 0 \to \) the ellipsoid projects down to a
+        parabola.
+      \item \(\times 3 ~ \lambda = 0 \to \) a point at the origin.
+    \end{itemize}
+
 
     \minor{\item[15.] Suppose \tbm{A} is symmetric positive definite and
-      \tbm{Q} is an orthogonal matrix. True of false:
+      \tbm{Q} is an orthogonal matrix. True or false:
       \begin{enumerate}
         \item \(\bm{Q}^T \bm{AQ}\) is a diagonal matrix.
         \begin{itemize}\color{foreground}
-          \item
+          \item \false{false}; \tbm{A} is diagonalizable, given it's symmetric
+            positive definite. \tbm{Q} needs to contain the eigenvectors of
+            \tbm{A}, however.
         \end{itemize}
 
         \item \(\bm{Q}^T \bm{AQ}\) is symmetric positive definite.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; \(\bm{Q}^T = \bm{Q}^{-1}\), and \(\bm{Q}^{-1}
+            \bm{AQ}\) has the same eigenvalues of \tbm{A}, thus \(\bm{Q}^T
+            \bm{AQ} \) is similar to \tbm{A} which implies it also symmetric
+            positive definite.
         \end{itemize}
 
         \item \(\bm{Q}^T \bm{AQ}\) has the same eigenvalues as \tbm{A}.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; see (b).
         \end{itemize}
 
         \item \(e^{-\bm{A}} \) is a symmetric positive definite.
         \begin{itemize}\color{foreground}
-          \item
+          \item \true{true}; again, \tbm{A} is symmetric positive definite,
+            thus eigenvalues of \(e^{-\bm{A}} = e^{-\lambda_{ii} } \), which
+            are always positive.
         \end{itemize}
 
       \end{enumerate}
