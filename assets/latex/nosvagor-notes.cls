@@ -13,6 +13,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nosvagor-notes}[2021/09/08 functional notes,]
 \LoadClass[12pt,a4paper]{report}
+\RequirePackage{nosvagor-commands}
 
 % ╔═╗┌─┐┌─┐┌─┐
 % ╠═╝├─┤│ ┬├┤
@@ -272,8 +273,41 @@
 
 \DeclareOption{basic} {
 
+\renewcommand{\RRR}[1]{{\color{red}{#1}}}
+\renewcommand{\RR}[1]{{\color{red+1}{#1}}}
+
+\renewcommand{\OOO}[1]{{\color{orange}{#1}}}
+\renewcommand{\OO}[1]{{\color{orange+1}{#1}}}
+
+\renewcommand{\YYY}[1]{{\color{yellow}{#1}}}
+\renewcommand{\YY}[1]{{\color{yellow+1}{#1}}}
+
+\renewcommand{\GGG}[1]{{\color{green}{#1}}}
+\renewcommand{\GG}[1]{{\color{green+1}{#1}}}
+
+\renewcommand{\CCC}[1]{{\color{cyan}{#1}}}
+\renewcommand{\CC}[1]{{\color{cyan+1}{#1}}}
+
+\renewcommand{\BBB}[1]{{\color{blue}{#1}}}
+\renewcommand{\BB}[1]{{\color{blue+1}{#1}}}
+
+\renewcommand{\MMM}[1]{{\color{magenta}{#1}}}
+\renewcommand{\MM}[1]{{\color{magenta+1}{#1}}}
+
+\renewcommand{\PPP}[1]{{\color{pink}{#1}}}
+\renewcommand{\PP}[1]{{\color{pink+1}{#1}}}
+
 \pagecolor{white}
 \color{black}
+
+\renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle\vspace{-12pt}}
+
+\definecolor{darkblue}{HTML}{212f6b}
+\renewcommand{\dd}[1]{{\color{darkblue}{\textbf{#1}}}}
+\renewcommand{\2}[1]{{\color{darkblue}{#1}}}
+
+\titleformat{\chapter}
+{\LARGE\centering\bfseries\color{title-color}}{}{0pt}{}[]
 
 \titlecontents{subsection}[1.618 em]
 {\color{black!85!white}}
