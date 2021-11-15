@@ -75,11 +75,6 @@ and math related for the foreseeable future.
     <td align="center"><a href="fire/linear/"><img src="assets/images/applied.ico"></a></td>
     <td align="center"><a href="fire/calculus/"><img src="assets/images/lorenz.ico"></a></td>
   </tr>
-  <tr>
-    <td align="center"></td>
-    <td align="center"><strong><a href="https://raw.githubusercontent.com/nosvagor/notes/main/fire/linear/mth-343/applied-linear.pdf">exercises</a></strong></td>
-    <td align="center"><strong><a href="https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/mth-253/calc-iii.pdf">exercises</a></strong></td>
-  </tr>
 </table>
 
 <br>

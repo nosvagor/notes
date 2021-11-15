@@ -31,7 +31,7 @@
 \RequirePackage{titlesec}
 \RequirePackage[object=vectorian]{pgfornament}
   \titleformat{\chapter}
-  {\LARGE\centering\bfseries\color{title-color}}
+  {\LARGE\centering\bfseries\scshape\color{title-color}}
   {}{0pt}{}[
   \vspace{-6pt}\hspace*{1pt}
     {\hyperlink{ToC}{\pgfornament[width=8cm]{84}}}
@@ -68,7 +68,7 @@
   \setcounter{tocdepth}{2}
 
   \titlecontents{chapter}[0 em]
-  {\vspace{12pt}\large\bfseries\color{title-color}}
+  {\vspace{12pt}\large\bfseries\scshape\color{title-color}}
   {}{}
   {\hfill}[\vspace{-3pt}]
 
@@ -88,8 +88,8 @@
 \RequirePackage{enumitem}
   \setlist[itemize,enumerate]{itemsep=-0.3ex,topsep=-0.3ex,partopsep=-0.3ex,leftmargin=\dimexpr1em}
 
-  \setlist[itemize,1]{label=\small{\color{primary}\(\bullet\)}}
-  \setlist[itemize,2]{label=\small{\color{primary-1}\(\circ\)}}
+  \setlist[itemize,1]{label=\raisebox{1pt}{\small\color{primary}\(\bullet\)}}
+  \setlist[itemize,2]{label=\raisebox{1pt}{\small\color{primary-1}\(\circ\)}}
   \setlist[itemize,3]{label=\small{\color{primary-2}\textbullet}}
 
   \setlist[enumerate]{leftmargin=\dimexpr1em}
@@ -302,29 +302,40 @@
 
 \renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle\vspace{-12pt}}
 
-\definecolor{darkblue}{HTML}{212f6b}
+\definecolor{darkblue}{HTML}{1d2c6d}
 \renewcommand{\dd}[1]{{\color{darkblue}{\textbf{#1}}}}
 \renewcommand{\2}[1]{{\color{darkblue}{#1}}}
 
 \titleformat{\chapter}
-{\LARGE\centering\bfseries\color{title-color}}{}{0pt}{}[]
+{\LARGE\centering\bfseries\scshape\color{title-color}}{}{0pt}{}[]
 
 \titlecontents{subsection}[1.618 em]
-{\color{black!85!white}}
+{\color{black!80!white}\itshape}
 {}{}
 {\titlerule*[0.42 em]{.}\contentspage}
 
+\titlecontents{section}[0.809 em]
+{\vspace{3pt}}
+{}{}
+{\hfill\contentspage}
+
+\titlecontents{chapter}[0 em]
+{\vspace{12pt}\large\bfseries\scshape\color{title-color}}
+{}{}
+{\hfill}[\vspace{-3pt}]
+
+
 \titleformat{\section}
-{\Large\bfseries\color{black!85!white}}
+{\Large\bfseries\color{darkblue!42!black}}
 {}{0pt}{}
 
 \titleformat{\subsection}
-{\large\bfseries\color{black!85!white}}
+{\vspace{16pt}\large\bfseries\itshape\color{darkblue!69!black}}
 {}{0pt}{}
 
 
-\setlist[itemize,1]{label=\small{\(\bullet\)}}
-\setlist[itemize,2]{label=\small{\(\circ\)}}
+\setlist[itemize,1]{label=\raisebox{1pt}{\small\(\bullet\)}}
+\setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
 \setlist[itemize,3]{label=\small{\textbullet}}
 
 }
