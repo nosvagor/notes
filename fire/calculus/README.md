@@ -17,5 +17,6 @@
 
 ## Exercises
 
-- [Calculus III](https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/mth-253/calc-iii.pdf)
 - [Calculus III - Blank midterm review](https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/mth-253/review/midterm-review-blank.pdf)
+  - [Answer key](https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/mth-253/review/midterm-review-answers.pdf)
+- [Calculus III - Blank final review (with notes)](https://raw.githubusercontent.com/nosvagor/notes/main/fire/calculus/mth-253/review/final/final-review-blank.pdf)
