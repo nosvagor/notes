@@ -2,7 +2,31 @@
 
 \section{Power Series Notes}
 \begin{itemize}
-  \item
+  \item \dd{Power series}: a infinite series in the form:
+    \[%%%%%%%%%%
+    F(x) = \sum_{n=0}^{\infty} a_n (x - c)^n
+    \]%%%%%%%%%%
+    Where the constant \(c\) is the \textit{center} of the power series F(x).
+
+  \item \dd{Radius of convergence \(R\)}: the range of values of the variable \(x\)
+    whereby the power series \(F(x)\) converges.
+    \begin{itemize}
+      \item Every power series converges at \(x = c\), as \((x-c)^0 = 1\),
+        though the series may diverge for other values of \(x\).
+
+      \item \(F(x)\) converges for \(\left| x - c \right| < R \) and diverges
+        for \(\left| x - c \right| > R \)
+
+      \item \(F(x)\) may converge of diverge at endpoints \(c-R\) and \(c+R\)
+
+      \item \dd{Interval of convergence}: the open interval \((c-R, c+R)\) and
+        possibly one of both of the endpoints, each must be tested.
+
+      \item In most cases, the \ulink{ss:Tests for Non-Positive Series}{ratio
+        test} can be used to find R.
+
+    \end{itemize}
+
 \end{itemize}
 
 \section{Power Series Problems}

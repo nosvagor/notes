@@ -17,7 +17,7 @@
 
       \dd{\(\bm{p}\)-Series}: converges if \(p > 1\).
       \[%%%%%%%%%%
-        \sum_{n=1}^{\infty} \frac{1}{n^p}
+        \sum_{n=0}^{\infty} \frac{1}{n^p}
       \]%%%%%%%%%%
       \(p < 1 \then \text{diverges}\)
     \end{multicols}
@@ -132,3 +132,62 @@
 %%%%%%%%%%%%%
 
 \section{Convergence Problems}
+Determine convergence or divergence using any method.
+\vspace{2em}
+\begin{enumerate}[itemsep=3em]
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{2^n + 4^n }{7^n}\)
+
+    \begin{align*}
+      &\then
+      \sum_{n=1}^{\infty} \frac{2^n}{7^n} +
+      \sum_{n=1}^{\infty} \frac{4^n }{7^n}
+      && \text{Separate into two \ulink{s:Convergence Notes}{geometric series}} \\
+      &\then
+      r = \frac{2}{7} < 1, \quad r = \frac{4}{7} < 1
+    \end{align*}
+
+    Both geometric series converge, thus the original series \aset{converges}.
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^3}{n!} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n}{2n+1} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} 2^\frac{1}{n} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{\sin n}{n^2} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n!}{(2n)!} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n + \sqrt{n} } \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n(\ln n)^3} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^3}{5^n} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2(\ln n)^3} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{n^3 - n^2}} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^2 + 4n}{3n^4 + 9} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} n^{-0.8}\)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} (0.8)^{-n} n^{-0.8}  \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} 4^{-2n+1}  \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{\sqrt{n} }  \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \sin \frac{1}{n^2}  \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-2)^n}{\sqrt{n} } \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} \left( \frac{n}{n+12} \right)^n \)
+
+  \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
+
+
+\end{enumerate}
+
