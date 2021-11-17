@@ -21,16 +21,83 @@
 
       \item \dd{Interval of convergence}: the open interval \((c-R, c+R)\) and
         possibly one of both of the endpoints, each must be tested.
+        \begin{itemize}
+          \item In most cases, the \ulink{ss:Tests for Non-Positive
+            Series}{ratio test} can be used to find R.
 
-      \item In most cases, the \ulink{ss:Tests for Non-Positive Series}{ratio
-        test} can be used to find R.
+          \item If \(R > 0\), then \(F\) is differentiable over the interval of
+            convergence; the derivative and antiderivative can be obtained
+            using the following:
+            \[%%%%%%%%%%
+            F'(x) = \sum_{n=1}^{\infty} na_n(x-c)^{n-1} \qquad \quad
+            F(x)dx = C + \sum_{n=0}^{\infty} \frac{a_n}{n+1}(x-c)^{n+1}
+            \]%%%%%%%%%%
+        \end{itemize}
+
+      \item \dd{Useful Power Series}: the following power series
+        (more examples: \dlink{s:Taylor Series Notes}{Taylor series}) can be used to drive
+        expansions of other related functions via substitution, integration, or
+        differentiation:
+        \[%%%%%%%%%%
+          \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n \quad \given |x| < 1
+          \qquad \qquad
+          e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+        \]%%%%%%%%%%
 
     \end{itemize}
 
 \end{itemize}
 
 \section{Power Series Problems}
-\begin{itemize}
-  \item
-\end{itemize}
 
+\subsection{10.6 Preliminary Questions}
+\begin{enumerate}
+  \item Suppose that \(\sum a_nx^n\) converges for \(x=5\). Must it also
+    converge for \(x=4\)? What about \(x=-3\)?
+    \begin{align*}
+      R = 5, \quad c = 0 \then ~\text{series converges for}~|x| < 5 \\
+      \then -5 < x < 5
+    \end{align*}
+    Both -3 and 4 are inside the interval, thus it must \aset{converge for both}.
+
+  \item Suppose that \(\sum a_n(x-6)^n\) converges for \(x=10\). At which of
+    the following points must it also converge?
+    \begin{align*}
+      R = 10, c = 6 \then |x-6| < 4 \\
+      \then 2 < x < 10
+    \end{align*}
+    \begin{multicols}{2}
+    \begin{enumerate}
+      \item \(x=8\) \aset{converges}
+
+      \item \(x=11\) uncertain
+
+      \item \(x=3\) \aset{converges}
+
+      \item \(x=0\) uncertain
+    \end{enumerate}
+    \end{multicols}
+
+  \item What is the radius of converges of \(F(3x)\) if \(F(x)\) is a power
+    series with \(R=12\)?
+    \[%%%%%%%%%%
+    R = \frac{12}{3} = \aset{4}
+    \]%%%%%%%%%%
+
+  \item The power series \(\displaystyle F(x) = \sum_{n=1}^{\infty} nx^n\) has
+    a radius of converge \(R = 1\).
+
+    What is the power series expansion of \(F'(x)\) and what is its radius of
+    convergence?
+    \begin{align*}
+      F'(x) &= \aset{\sum_{n=1}^{\infty} n^2x^{n-1}}  && \given F'(x) = \sum_{n=1}^{\infty} na_n(x-c)^{n-1}\\
+      R &= \aset{1}
+    \end{align*}
+
+\end{enumerate}
+
+\subsection{10.6 Exercises}
+\begin{enumerate}
+  \item
+
+\end{enumerate}
