@@ -16,7 +16,7 @@ void list::insert(int to_add)
 int list::count_and_insert()
 {
      	//Step #6 - Write the code here
-        
+
 }
 
 //Append a node to the end of a linear linked list
@@ -39,9 +39,9 @@ list::~list()
         //Step #8 - Write the code here
 }
 
-//Challenge - 
+//Challenge -
 void list::copy_last()
 {
 
-}      
+}
 
