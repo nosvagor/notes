@@ -24,12 +24,11 @@ int main() {
   // menu selection variable.
   int selection {0};
 
-  // main list, from data from file
-  // list syntax;
-  // syntax.build();
+  // main list, constructed using data from file
+  list syntax;
 
-  // // temporary list, updates main list via external file if desired.
-  // list syntax_temp;
+  // temporary list, updates main list via external file if desired.
+  list syntax_temp;
 
   greeting();
 

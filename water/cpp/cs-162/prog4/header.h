@@ -7,6 +7,7 @@
 
 // INCLUDES
 #include <cctype>
+#include <typeinfo>
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -23,27 +24,23 @@ const char CURRENT[] = "src/current.txt";       // main data file
 const char EXAMPLE[] = "src/example.txt";       // example external file
 const char ORIGINAL[] = "src/original.txt";     // used for resetting
 
-// CLASSES
-class entry {
-  public:
-    entry();
-    ~entry();
+// STRUCTURES AND CLASSES
+struct entry {
+  entry();
+  ~entry();
 
-    void read_manual();
-    void read_auto(ifstream & in_file);
+  void read_manual();
+  void read_auto(ifstream & in_file);
+  void display();
+  void edit();
+  bool compare();
+  void write();
 
-    void display();
-    void edit();
-    bool compare();
-
-    void write();
-
-  private:
-    char * name;
-    char * description;
-    char * example;
-    int  difficulty;
-    bool used;
+  char * name;
+  char * description;
+  char * example;
+  int  difficulty;
+  bool used;
 };
 
 struct node {
@@ -57,7 +54,6 @@ class list {
     ~list();
 
     void build();
-
     void display_all();
     bool search();
     bool edit();
@@ -66,8 +62,8 @@ class list {
     void save();
 
   private:
-   node *head;
-   node *tail;
+    node *head;
+    node *tail;
 };
 
 // UTILITY FUNCTIONS
