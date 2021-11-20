@@ -28,29 +28,22 @@ int menu() {
 
 
 
-// yes_no is a confirmation function that takes in a custom array
-// of characters and returns response char; more idiomatic than boolean.
-char yes_no(const char * str) {
+// yes_no is a confirmation function that takes in a custom array of characters
+// and returns true false only if 'y' or 'n' is entered, respectively.
+bool yes_no(const char * str) {
   char response;
 
-  do {
+  while (response != 'y') {
     cout << str << " [y/n]: ";
     cin >> response;
     tolower(response);
     cin.ignore(420, '\n');
-    if (response == 'n') return 'n';
-  } while (response != 'y');
+    if (response == 'n') return false;
+  }
 
-  return 'y';
+  return true;
 }
 
-
-
-// sleep delays program for set period of time (milliseconds), useful for
-// displaying warning messages.
-void sleep(int ms) {
-  this_thread::sleep_for(chrono::milliseconds(ms));
-}
 
 
 
@@ -60,7 +53,7 @@ void return_to_menu() {
     cout << "\nReturning to menu" << flush;
 
     for (int i = 0; i < 4; ++i) {
-      sleep(2000/4);
+      this_thread::sleep_for(chrono::milliseconds(500));
       cout << "."<< flush;
     }
     cout << endl;
@@ -71,7 +64,7 @@ void return_to_menu() {
 // file_reset takes the original data provided and overwrites any appended
 // content to the main working file, effectively resetting program data.
 void file_reset() {
-  if (yes_no("\nReset current animal list?") == 'y') {
+  if (yes_no("\nReset current animal list?")) {
 
     // local variables
     int N = 512;        // line size, large just in case.
@@ -109,14 +102,14 @@ void file_reset() {
 void greeting() {
   cout
     << endl
-    << "\t\t  ┌─┐┬ ┬┌┐┌┌┬┐┌─┐─┐ ┬  ┬─┐┌─┐┬  ┬┬┌─┐┬ ┬ \n"
-    << "\t\t  └─┐└┬┘│││ │ ├─┤┌┴┬┘  ├┬┘├┤ └┐┌┘│├┤ │││ \n"
-    << "\t\t  └─┘ ┴ ┘└┘ ┴ ┴ ┴┴ └─  ┴└─└─┘ └┘ ┴└─┘└┴┘ \n"
+    << "\t\t   ┌─┐┬ ┬┌┐┌┌┬┐┌─┐─┐ ┬  ┬─┐┌─┐┬  ┬┬┌─┐┬ ┬ \n"
+    << "\t\t   └─┐└┬┘│││ │ ├─┤┌┴┬┘  ├┬┘├┤ └┐┌┘│├┤ │││ \n"
+    << "\t\t   └─┘ ┴ ┘└┘ ┴ ┴ ┴┴ └─  ┴└─└─┘ └┘ ┴└─┘└┴┘ \n"
     << endl;
 
   cout
     << "This program keep track of useful syntax, providing a short description,\n"
-    << " example, difficulty level (1--5), and whether or not you've used it.\n"
+    << "example, difficulty level (1--5), and whether or not you've used it.\n"
     << endl;
 
   cout
@@ -128,11 +121,12 @@ void greeting() {
 
 // menu_greeting simply displays menu options; is used in menu function.
 void menu_greeting() {
-  cout
+ cout
     << endl
-    << "\t\t\t\t ╔╦╗┌─┐┌┐┌┬ ┬ \n"
-    << "\t\t\t\t ║║║├┤ ││││ │ \n"
-    << "\t\t\t\t ╩ ╩└─┘┘└┘└─┘ \n"
+    << "\t\t\t\t╔╦╗┌─┐┌┐┌┬ ┬\n"
+    << "\t\t\t\t║║║├┤ ││││ │\n"
+    << "\t\t\t\t╩ ╩└─┘┘└┘└─┘\n"
+    << "=========================================================================="
     << endl;
 
   cout
@@ -142,11 +136,12 @@ void menu_greeting() {
     << "[4] SEARCH new syntax entries \n"
     << "[5] EDIT an existing syntax entry\t"
     << "[6] EDIT a new syntax entry\n"
-    << "[7] UPDATE existing with new entries\t"
-    << "[8] UPDATE new entries (manual or auto)\n"
+    << "[7] ADD new entries to existing\t\t"
+    << "[8] ADD new entries (manual/auto)\n"
     << "[9] Reset\t\t\t\t"
     << "[0] Quit\n"
-    << endl;
+    << "=========================================================================="
+    << endl << endl;
 }
 
 

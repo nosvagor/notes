@@ -7,7 +7,6 @@
 
 // INCLUDES
 #include <cctype>
-#include <typeinfo>
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -24,23 +23,25 @@ const char CURRENT[] = "src/current.txt";       // main data file
 const char EXAMPLE[] = "src/example.txt";       // example external file
 const char ORIGINAL[] = "src/original.txt";     // used for resetting
 
-// STRUCTURES AND CLASSES
-struct entry {
-  entry();
-  ~entry();
+// STRUCTS & CLASSES
+class entry {
+  public:
+    entry();
+    ~entry();
 
-  void read_manual();
-  void read_auto(ifstream & in_file);
-  void display();
-  void edit();
-  bool compare();
-  void write();
+    void read_manual();
+    void read_auto(ifstream & in_file);
+    void display();
+    void edit();
+    bool compare();
+    void write();
 
-  char * name;
-  char * description;
-  char * example;
-  int  difficulty;
-  bool used;
+  private:
+    char * name;
+    char * description;
+    char * example;
+    bool used;
+    int  difficulty;
 };
 
 struct node {
@@ -51,25 +52,25 @@ struct node {
 class list {
   public:
     list();
+    void build_manual(node *& head);
+    void build_auto(node *& head);
+    void destroy(node *& head);
     ~list();
 
-    void build();
-    void display_all();
-    bool search();
-    bool edit();
-    void sort();
+    void display_all(node *& head);
+    bool search(node *& head);
+    bool edit(node *& head);
+    void sort(node *& head);
+    void save(node *& head);
 
-    void save();
-
-  private:
     node *head;
     node *tail;
+  private:
 };
 
 // UTILITY FUNCTIONS
 int menu();
-char yes_no(const char * str);
-void sleep(int ms);
+bool yes_no(const char * str);
 void return_to_menu();
 void file_reset();
 
