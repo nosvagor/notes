@@ -52,11 +52,11 @@ struct node {
 class list {
   public:
     list();
-    void build_manual(node *& head);
-    void build_auto(node *& head);
+    void build(node *& head, ifstream & in_file);
     void destroy(node *& head);
     ~list();
 
+    void insert(node *& head);
     void display_all(node *& head);
     bool search(node *& head);
     bool edit(node *& head);

@@ -60,15 +60,38 @@ void entry::read_manual() {
   }
 
   do {
-    cout << "Difficulty [1--5]: ";
+    cout << "Difficulty [1--10]: ";
     cin >> difficulty;
     cin.clear();
     cin.ignore(420, '\n');
-  } while (difficulty < 0 || difficulty > 5);
+  } while (difficulty < 0 || difficulty > 10);
 }
 
 void entry::read_auto(ifstream & in_file) {
 
+  auto read_line = [](char *& member, ifstream & in_file) {
+    char temp[SIZE];
+
+    in_file.get(temp, SIZE, DLM);
+    in_file.ignore(SIZE, DLM);
+    if (!strlen(temp)) return;
+
+    member = new char [strlen(temp) + 1];
+    strcpy(member, temp);
+  };
+
+  read_line(name, in_file);
+  read_line(description, in_file);
+  read_line(example, in_file);
+
+  char temp[2];
+  in_file.get(temp, 2, DLM);
+  in_file.ignore(SIZE, DLM);
+  used = ((temp[0] - '0') != 0) ? true : false;
+
+  in_file.get(temp, 2, '\n');
+  in_file.ignore(SIZE, '\n');
+  difficulty = temp[0] - '0';
 }
 
 
@@ -76,12 +99,13 @@ void entry::read_auto(ifstream & in_file) {
 void entry::display() {
 
   if (!name) return;
+  const char * used_str = used ? "true" : "false";
 
   cout << "\nName: " << name
        << "\n  - Description: " << description
        << "\n  - Example: " << example
-       << "\n  - Used?: " << used
-       << "\n  - Difficulty: " << difficulty
+       << "\n  - Used?: " << used_str
+       << " ==> difficulty: " << difficulty
        << endl;
 }
 

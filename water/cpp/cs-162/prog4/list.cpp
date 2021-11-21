@@ -20,16 +20,17 @@ list::list() {
   tail = NULL;
 }
 
-void list::build_manual(node *& head) {
+void list::build(node *& head, ifstream & in_file) {
 
-  if (!head) {
-    head = new node;
-    head->data.read_manual();
-    head->next = NULL;
+  while (!in_file.eof()) {
+    if (!head) {
+      head = new node;
+      head->data.read_auto(in_file);
+      head->next = NULL;
+    }
+
+    build(head->next, in_file);
   }
-
-  if (yes_no("Add another entry?")) build_manual(head->next);
-
 }
 
 void list::destroy(node *& head) {
@@ -48,6 +49,18 @@ list::~list() {
 // │  │└─┐ │   ├┤ │ │││││   │ ││ ││││└─┐
 // ┴─┘┴└─┘ ┴   └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
 //===========================================================================//
+
+void list::insert(node *& head) {
+
+  if (!head) {
+    head = new node;
+    head->data.read_manual();
+    head->next = NULL;
+  }
+
+  if (yes_no("Add another entry?")) insert(head->next);
+
+}
 
 void list::display_all(node *& head) {
 

@@ -27,6 +27,12 @@ int main() {
   // main list, constructed using data from file
   list syntax;
 
+  ifstream in_file;
+  in_file.open(CURRENT);
+  syntax.build(syntax.head, in_file);
+  in_file.close();
+  in_file.clear();
+
   // temporary list, updates main list via external file if desired.
   list syntax_temp;
 
@@ -38,10 +44,10 @@ int main() {
     switch (selection) {
       //=====================================================================//
       case 1:  // DISPLAY ALL entries in MAIN list --------------------------//
+        syntax_temp.display_all(syntax.head);
         return_to_menu();
         break;
       //=====================================================================//
-
       //=====================================================================//
       case 2:  // DISPLAY ALL entries in TEMPORARY list ---------------------//
         syntax_temp.display_all(syntax_temp.head);
@@ -81,7 +87,7 @@ int main() {
 
       //=====================================================================//
       case 8:  // UPDATE TEMP list with new input (manual or auto) ----------//
-        syntax_temp.build_manual(syntax_temp.head);
+        syntax_temp.insert(syntax_temp.head);
         return_to_menu();
         break;
       //=====================================================================//
