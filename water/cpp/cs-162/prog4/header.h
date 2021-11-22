@@ -32,9 +32,9 @@ class entry {
     void read_manual();
     void read_auto(ifstream & in_file);
     void display();
-    void edit();
-    bool compare();
     void write();
+    bool compare(char query[SIZE], int search_select);
+    // void edit();
 
   private:
     char * name;
@@ -58,19 +58,19 @@ class list {
 
     void insert(node *& head);
     void display_all(node *& head);
-    bool search(node *& head);
-    bool edit(node *& head);
-    void sort(node *& head);
+    int search(char query[SIZE], node *& head, int search_select);
+    // bool edit(node *& head);
+    // void sort(node *& head);
 
     node *head;
     node *tail;
 
   private:
-    // might move some nodes and functions to private
+    // might move nodes and some functions to private in a refactor.
 };
 
 // UTILITY FUNCTIONS
-int menu();
+int menu(int low, int high, int selection);
 bool yes_no(const char * str);
 void return_to_menu();
 void save(node *& head);
@@ -79,4 +79,5 @@ void file_reset();
 // GREETINGS
 void greeting();
 void menu_greeting();
+void menu_mini_greeting();
 void farewell();

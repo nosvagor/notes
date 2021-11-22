@@ -40,44 +40,87 @@ int main() {
 
   // continue to call menu until quit option is selected.
   do {
-    selection = menu();
+    selection = menu(0, 9, 1);
     switch (selection) {
       //=====================================================================//
       case 1:  // DISPLAY ALL entries in MAIN list --------------------------//
         syntax.display_all(syntax.head);
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
+
       //=====================================================================//
       case 2:  // DISPLAY ALL entries in TEMPORARY list ---------------------//
         syntax_temp.display_all(syntax_temp.head);
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 3:  // SEARCH MAIN list ------------------------------------------//
+        {
+        int search_select = 0;
+        char query[SIZE];
+        int matches {0};
+
+        search_select = menu(1,2,2);
+
+        cout << "\nSearch query: ";
+        cin.get(query, SIZE, '\n');
+        cin.clear();
+        cin.ignore(SIZE, '\n');
+
+        matches = syntax_temp.search(query, syntax.head, search_select);
+        cout << "\nSearch complete --- total matches: " << matches << endl;
         return_to_menu();
-        break;
+        }
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 4:  // SEARCH TEMPORARY list -------------------------------------//
+        if (!syntax_temp.head) {
+          cout << "\nWARNING: nothing to search." << endl;
+          return_to_menu();
+          break;
+        }
+
+        {
+        int search_select = 0;
+        char query[SIZE];
+        int matches {0};
+
+        search_select = menu(1,2,2);
+
+        cout << "\nSearch query: ";
+        cin.get(query, SIZE, '\n');
+        cin.clear();
+        cin.ignore(SIZE, '\n');
+
+        matches = syntax.search(query, syntax.head, search_select);
+        cout << "\nSearch complete --- total matches: " << matches << endl;
         return_to_menu();
-        break;
+        }
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 5:  // EDIT an entry in MAIN list --------------------------------//
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 6:  // EDIT an entry in TEMPORARY list ---------------------------//
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 7:  // UPDATE MAIN list with temporary list ----------------------//
@@ -105,8 +148,9 @@ int main() {
           syntax.display_all(syntax.head);
 
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 8:  // UPDATE TEMP list with new input (manual or auto) ----------//
@@ -141,12 +185,14 @@ int main() {
           in_file.clear();
         }
 
-        if (yes_no("\nNew entries added; display new entries list now?"))
+        cout << endl;
+        if (yes_no("New entries added; display new entries list now?"))
           syntax_temp.display_all(syntax_temp.head);
 
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 9:  // RESET -----------------------------------------------------//
@@ -155,18 +201,38 @@ int main() {
         syntax_temp.~list();
         new (& syntax_temp) list;
 
-        if (yes_no("\nReset current file with original list?"))
+        if (yes_no("\nReset current file with original list?")) {
+
           file_reset();
+          syntax.destroy(syntax.head);
+          syntax.~list();
+          new (& syntax) list;
+
+          in_file.open(CURRENT);
+          syntax.build(syntax.head, syntax.tail, in_file);
+          in_file.close();
+          in_file.clear();
+        }
 
         cout << "\nRequested files reset." << endl;
 
         return_to_menu();
-        break;
+        break; // -----------------------------------------------------------//
       //=====================================================================//
+
 
       //=====================================================================//
       case 0:  // QUIT ------------------------------------------------------//
-        break;
+        if (syntax_temp.head) {
+          cout << "\nWARNING: unsaved entries.\n" << endl;
+          if (yes_no("Update current file with new entries?")) {
+            save(syntax_temp.head);
+            cout << "\nFiles updated!" << endl;
+            syntax_temp.destroy(syntax_temp.head);
+            syntax_temp.~list();
+          }
+        }
+        break; // -----------------------------------------------------------//
       //=====================================================================//
     };
   } while (selection != 0);

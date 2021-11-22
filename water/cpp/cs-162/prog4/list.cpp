@@ -13,13 +13,14 @@
 // │  │└─┐ │   │││├─┤│││├─┤│ ┬├┤ │││├┤ │││ │
 // ┴─┘┴└─┘ ┴   ┴ ┴┴ ┴┘└┘┴ ┴└─┘└─┘┴ ┴└─┘┘└┘ ┴
 //===========================================================================//
-
 // constructor
 list::list() {
   head = NULL;
   tail = NULL;
 }
 
+
+// automatic build using external file
 void list::build(node *& head, node *& tail, ifstream & in_file) {
 
   while (!in_file.eof()) {
@@ -34,6 +35,8 @@ void list::build(node *& head, node *& tail, ifstream & in_file) {
   }
 }
 
+
+// recursive destructor
 void list::destroy(node *& head) {
   if (!head) return;
 
@@ -46,6 +49,8 @@ void list::destroy(node *& head) {
   }
 }
 
+
+// destructor (do I need this?)
 list::~list() {
   head = NULL;
   tail = NULL;
@@ -81,5 +86,24 @@ void list::display_all(node *& head) {
 
   head->data.display();
   display_all(head->next);
+
+}
+
+
+int list::search(char query[SIZE], node *& head, int search_select) {
+
+  int res {0};
+
+  if (!head) return 0;
+
+  if (head->next) {
+    if (head->data.compare(query, search_select)) {
+      head->data.display();
+      ++res;
+    }
+    res += search(query, head->next, search_select);
+  }
+
+  return res;
 }
 //===========================================================================//

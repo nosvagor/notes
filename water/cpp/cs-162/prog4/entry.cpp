@@ -123,4 +123,25 @@ void entry::write() {
     out_file.close();
     out_file.clear();
 }
+
+
+
+bool entry::compare(char query[SIZE], int search_select) {
+
+  bool result = false;
+
+  switch (search_select) {
+    case 1: // name
+      if (!strcmp(query, name))
+        result = true;
+      break;
+
+    case 2: // difficulty
+      if (query[0] + query[1] - '0' == difficulty)
+        result = true;
+      break;
+  }
+
+  return result;
+}
 //===========================================================================//

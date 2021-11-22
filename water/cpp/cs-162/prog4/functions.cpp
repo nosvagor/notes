@@ -11,11 +11,18 @@
 
 // menu displays menu options and waits until a valid entry is given, passing
 // result as an int to a switch statement.
-int menu() {
+int menu(int low, int high, int size) {
   char response[2];
   int selection;
 
-  menu_greeting();
+  switch (size) {
+    case 1:
+      menu_greeting();
+      break;
+    case 2:
+      menu_mini_greeting();
+      break;
+  }
 
   do {
     cout << "Please select a menu option: ";
@@ -23,7 +30,7 @@ int menu() {
     cin.clear();
     cin.ignore(100, '\n');
     selection = response[0] - '0';
-  } while (!(selection >= 0 && selection <= 9));
+  } while (!(selection >= low && selection <= high));
 
   return selection;
 }
@@ -108,9 +115,12 @@ void save(node *& head) {
 void greeting() {
   cout
     << endl
-    << "\t\t   ┌─┐┬ ┬┌┐┌┌┬┐┌─┐─┐ ┬  ┬─┐┌─┐┬  ┬┬┌─┐┬ ┬ \n"
-    << "\t\t   └─┐└┬┘│││ │ ├─┤┌┴┬┘  ├┬┘├┤ └┐┌┘│├┤ │││ \n"
-    << "\t\t   └─┘ ┴ ┘└┘ ┴ ┴ ┴┴ └─  ┴└─└─┘ └┘ ┴└─┘└┴┘ \n"
+    << "\t    ███████╗██╗   ██╗███╗   ██╗████████╗ █████╗ ██╗  ██╗\n"
+    << "\t    ██╔════╝╚██╗ ██╔╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗██╔╝\n"
+    << "\t    ███████╗ ╚████╔╝ ██╔██╗ ██║   ██║   ███████║ ╚███╔╝ \n"
+    << "\t    ╚════██║  ╚██╔╝  ██║╚██╗██║   ██║   ██╔══██║ ██╔██╗ \n"
+    << "\t    ███████║   ██║   ██║ ╚████║   ██║   ██║  ██║██╔╝ ██╗\n"
+    << "\t    ╚══════╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝\n"
     << endl;
 
   cout
@@ -148,6 +158,14 @@ void menu_greeting() {
     << "[0] Quit\n"
     << "=========================================================================="
     << endl << endl;
+}
+
+void menu_mini_greeting() {
+  cout
+    << "\nSearch by:\n\n"
+    << "  --- [1] Name"
+    << "  [2] Difficulty ---\n"
+    << endl;
 }
 
 
