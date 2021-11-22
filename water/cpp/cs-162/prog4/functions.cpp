@@ -12,16 +12,18 @@
 // menu displays menu options and waits until a valid entry is given, passing
 // result as an int to a switch statement.
 int menu() {
-  int selection {-1};
+  char response[2];
+  int selection;
 
   menu_greeting();
 
   do {
     cout << "Please select a menu option: ";
-    cin >> selection;
+    cin.get(response, 2, '\n');
     cin.clear();
-    cin.ignore(420, '\n');
-  } while (selection < 0 || selection > 9);
+    cin.ignore(100, '\n');
+    selection = response[0] - '0';
+  } while (!(selection >= 0 && selection <= 9));
 
   return selection;
 }
@@ -52,8 +54,8 @@ bool yes_no(const char * str) {
 void return_to_menu() {
     cout << "\nReturning to menu" << flush;
 
-    for (int i = 0; i < 4; ++i) {
-      this_thread::sleep_for(chrono::milliseconds(500));
+    for (int i = 0; i < 3; ++i) {
+      this_thread::sleep_for(chrono::milliseconds(420));
       cout << "."<< flush;
     }
     cout << endl;
@@ -64,39 +66,43 @@ void return_to_menu() {
 // file_reset takes the original data provided and overwrites any appended
 // content to the main working file, effectively resetting program data.
 void file_reset() {
-  if (yes_no("\nReset current animal list?")) {
+  // local variables
+  int N = 512;        // line size, large just in case.
+  ifstream in_file;   // in file, most cases: src/original.txt
+  ofstream out_file;  // out file, most cases: src/current.txt
 
-    // local variables
-    int N = 512;        // line size, large just in case.
-    ifstream in_file;   // in file, most cases: src/original.txt
-    ofstream out_file;  // out file, most cases: src/current.txt
+  char line[N];       // get line input
 
-    char line[N];       // get line input
+  in_file.open(ORIGINAL);
 
-    in_file.open(ORIGINAL);
+  if (in_file) {
 
-    if (in_file) {
+    out_file.open(CURRENT);
 
-      out_file.open(CURRENT);
+    if (out_file) {
 
-      if (out_file) {
+      in_file.get(line, N, '\n');
+      in_file.ignore(100, '\n');
 
-        in_file.get(line, N, '\n');
+      while (in_file && !in_file.eof()) {
+
+        out_file << line << endl;
+        in_file.get(line, N*6, '\n');
         in_file.ignore(100, '\n');
-
-        while (in_file && !in_file.eof()) {
-
-          out_file << line << endl;
-          in_file.get(line, N*6, '\n');
-          in_file.ignore(100, '\n');
-        }
       }
-      out_file.close();
     }
-    in_file.close();
+    out_file.close();
   }
+  in_file.close();
 }
 
+void save(node *& head) {
+
+  if (!head) return;
+
+  head->data.write();
+  save(head->next);
+}
 
 // greeting displays basics instructions on program start and restart
 void greeting() {
@@ -109,7 +115,7 @@ void greeting() {
 
   cout
     << "This program keep track of useful syntax, providing a short description,\n"
-    << "example, difficulty level (1--5), and whether or not you've used it.\n"
+    << "example, difficulty level (1--10), and whether or not you've used it.\n"
     << endl;
 
   cout

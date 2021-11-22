@@ -1,0 +1,3 @@
+#include|provides access to header files or user-defined files|(1) #include <cctype>  (2) #include <header.h>|1|1
+Ternary operator|a shorthand conditional operator that returns one of two values|ch = (a > b) ? a : b|1|3
+vector|dynamically created arrays of contiguous memeory|vector<int> array|0|0

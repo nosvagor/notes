@@ -29,7 +29,7 @@ int main() {
 
   ifstream in_file;
   in_file.open(CURRENT);
-  syntax.build(syntax.head, in_file);
+  syntax.build(syntax.head, syntax.tail, in_file);
   in_file.close();
   in_file.clear();
 
@@ -44,7 +44,7 @@ int main() {
     switch (selection) {
       //=====================================================================//
       case 1:  // DISPLAY ALL entries in MAIN list --------------------------//
-        syntax_temp.display_all(syntax.head);
+        syntax.display_all(syntax.head);
         return_to_menu();
         break;
       //=====================================================================//
@@ -81,19 +81,85 @@ int main() {
 
       //=====================================================================//
       case 7:  // UPDATE MAIN list with temporary list ----------------------//
+        if (!syntax_temp.head) {
+          cout << "\nWARNING: nothing to add." << endl;
+          return_to_menu();
+          break;
+        }
+
+        save(syntax_temp.head);
+        syntax_temp.destroy(syntax_temp.head);
+        syntax_temp.~list();
+        new (& syntax_temp) list;
+
+        syntax.destroy(syntax.head);
+        syntax.~list();
+        new (& syntax) list;
+
+        in_file.open(CURRENT);
+        syntax.build(syntax.head, syntax.tail, in_file);
+        in_file.close();
+        in_file.clear();
+
+        if (yes_no("\nNew entries written to file. Display updated list?"))
+          syntax.display_all(syntax.head);
+
         return_to_menu();
         break;
       //=====================================================================//
 
       //=====================================================================//
       case 8:  // UPDATE TEMP list with new input (manual or auto) ----------//
-        syntax_temp.insert(syntax_temp.head);
+
+        cout << endl;
+        if (yes_no("Manual entry?")) {
+          syntax_temp.insert(syntax_temp.head);
+        } else {
+
+          char file_path[SIZE];
+          ifstream in_file;
+
+          cout << endl;
+          if (yes_no("Automatic entry: use example file?")) {
+            in_file.open(EXAMPLE);
+          } else {
+            cout << "File path: ";
+            cin.get(file_path, SIZE, '\n');
+            cin.clear();
+            cin.ignore(SIZE, '\n');
+            in_file.open(file_path);
+
+            if (!in_file) {
+              cout << "WARNING: Unable to read file." << endl;
+              return_to_menu();
+              break;
+            }
+          }
+
+          syntax_temp.build(syntax_temp.head, syntax_temp.tail, in_file);
+          in_file.close();
+          in_file.clear();
+        }
+
+        if (yes_no("\nNew entries added; display new entries list now?"))
+          syntax_temp.display_all(syntax_temp.head);
+
         return_to_menu();
         break;
       //=====================================================================//
 
       //=====================================================================//
       case 9:  // RESET -----------------------------------------------------//
+        save(syntax_temp.head);
+        syntax_temp.destroy(syntax_temp.head);
+        syntax_temp.~list();
+        new (& syntax_temp) list;
+
+        if (yes_no("\nReset current file with original list?"))
+          file_reset();
+
+        cout << "\nRequested files reset." << endl;
+
         return_to_menu();
         break;
       //=====================================================================//

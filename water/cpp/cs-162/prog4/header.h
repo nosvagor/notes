@@ -15,7 +15,7 @@
 using namespace std;
 
 // CONSTANTS
-const int SIZE {69};    // standard input size.
+const int SIZE {128};   // standard input size.
 const char DLM = '|';   // delimiter used when reading/writing external files.
 
 // EXTERNAL FILE PATHS
@@ -52,7 +52,7 @@ struct node {
 class list {
   public:
     list();
-    void build(node *& head, ifstream & in_file);
+    void build(node *& head, node *& tail, ifstream & in_file);
     void destroy(node *& head);
     ~list();
 
@@ -61,17 +61,19 @@ class list {
     bool search(node *& head);
     bool edit(node *& head);
     void sort(node *& head);
-    void save(node *& head);
 
     node *head;
     node *tail;
+
   private:
+    // might move some nodes and functions to private
 };
 
 // UTILITY FUNCTIONS
 int menu();
 bool yes_no(const char * str);
 void return_to_menu();
+void save(node *& head);
 void file_reset();
 
 // GREETINGS

@@ -20,7 +20,7 @@ list::list() {
   tail = NULL;
 }
 
-void list::build(node *& head, ifstream & in_file) {
+void list::build(node *& head, node *& tail, ifstream & in_file) {
 
   while (!in_file.eof()) {
     if (!head) {
@@ -29,18 +29,26 @@ void list::build(node *& head, ifstream & in_file) {
       head->next = NULL;
     }
 
-    build(head->next, in_file);
+    if (!in_file.eof()) tail = head;
+    build(head->next, tail, in_file);
   }
 }
 
 void list::destroy(node *& head) {
+  if (!head) return;
 
+  if (!head->next) {
+    head->data.~entry();
+    head = NULL;
+    delete head;
+  } else {
+    destroy(head->next);
+  }
 }
 
-// destructor
 list::~list() {
-
-
+  head = NULL;
+  tail = NULL;
 }
 //===========================================================================//
 
@@ -58,7 +66,12 @@ void list::insert(node *& head) {
     head->next = NULL;
   }
 
-  if (yes_no("Add another entry?")) insert(head->next);
+  if (head->next) {
+    insert(head->next);
+    return;
+  }
+
+  if (yes_no("\nEntries exist. Add another entry?")) insert(head->next);
 
 }
 

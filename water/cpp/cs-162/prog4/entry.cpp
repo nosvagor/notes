@@ -64,7 +64,7 @@ void entry::read_manual() {
     cin >> difficulty;
     cin.clear();
     cin.ignore(420, '\n');
-  } while (difficulty < 0 || difficulty > 10);
+  } while (!(difficulty > 0 && difficulty <= 10));
 }
 
 void entry::read_auto(ifstream & in_file) {
@@ -105,21 +105,22 @@ void entry::display() {
        << "\n  - Description: " << description
        << "\n  - Example: " << example
        << "\n  - Used?: " << used_str
-       << " ==> difficulty: " << difficulty
+       << " ==> difficulty [1--10]: " << difficulty
        << endl;
 }
 
+void entry::write() {
+    ofstream out_file;
+    out_file.open(CURRENT, ios::app);
 
+    out_file
+      << name << DLM
+      << description << DLM
+      << example << DLM
+      << used << DLM
+      << difficulty << endl;
 
-void entry::edit() {
-
+    out_file.close();
+    out_file.clear();
 }
-
-
-
-bool entry::compare() {
-  return false;
-}
-
-void write();
 //===========================================================================//
