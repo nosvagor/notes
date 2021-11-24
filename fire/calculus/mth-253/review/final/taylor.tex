@@ -1,12 +1,75 @@
-\chapter{Taylor Series: 10.7--10.8}
+\chapter{Power/Taylor Series: 10.6--10.8}
 
-\section{Taylor Series Notes}
+\section{Power/Taylor Series Notes}
+
+\vspace{-16pt}
+\subsection{Power Series}
 \begin{itemize}
-  \item
+  \item \dd{Power series}: a infinite series in the form:
+    \[%%%%%%%%%%
+    F(x) = \sum_{n=0}^{\infty} a_n (x - c)^n
+    \]%%%%%%%%%%
+    Where the constant \(c\) is the \textit{center} of the power series F(x).
+
+  \item \dd{Radius of convergence \(R\)}: the range of values of the variable \(x\)
+    whereby the power series \(F(x)\) converges.
+    \begin{itemize}
+      \item Every power series converges at \(x = c\), as \((x-c)^0 = 1\),
+        though the series may diverge for other values of \(x\).
+
+      \item \(F(x)\) converges for \(\left| x - c \right| < R \) and diverges
+        for \(\left| x - c \right| > R \)
+
+      \item \(F(x)\) may converge of diverge at endpoints \(c-R\) and \(c+R\)
+
+      \item \dd{Interval of convergence}: the open interval \((c-R, c+R)\) and
+        possibly one of both of the endpoints, each must be tested.
+        \begin{itemize}
+          \item In most cases, the \ulink{ss:Tests for Non-Positive
+            Series}{ratio test} can be used to find R.
+
+          \item If \(R > 0\), then \(F\) is differentiable over the interval of
+            convergence; the derivative and antiderivative can be obtained
+            using the following:
+            \[%%%%%%%%%%
+            F'(x) = \sum_{n=1}^{\infty} na_n(x-c)^{n-1} \qquad \quad
+            F(x)dx = C + \sum_{n=0}^{\infty} \frac{a_n}{n+1}(x-c)^{n+1}
+            \]%%%%%%%%%%
+        \end{itemize}
+
+      \item \dd{Useful Power Series}: the following power series
+        (more examples: \dlink{ss:Taylor Series}{Taylor series}) can be used to drive
+        expansions of other related functions via substitution, integration, or
+        differentiation:
+        \[%%%%%%%%%%
+          \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n \quad \given |x| < 1
+          \qquad \qquad
+          e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+        \]%%%%%%%%%%
+
+    \end{itemize}
 \end{itemize}
 
-\section{Taylor Series Problems}
+
+%%%%%%%%%%%%%
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+\subsection{Taylor Series}
 \begin{itemize}
   \item
+
 \end{itemize}
 
+\section{Power/Taylor Series Problems}
+
+\subsection{10.6 Exercises}
+\begin{enumerate}[itemsep=3em]
+  \item
+
+\end{enumerate}
+
+\subsection{10.8 Exercises}
+\begin{enumerate}[itemsep=3em]
+  \item
+\end{enumerate}

@@ -273,6 +273,22 @@
 
 \DeclareOption{basic} {
 
+\definecolor{darkblue}{HTML}{1d2c6d}
+
+%hack
+\definecolor{red}{HTML}{161926}
+\definecolor{accent}{HTML}{2346b0}
+\definecolor{accent-alt}{HTML}{b02357}
+\definecolor{link-int}{HTML}{216b27}
+
+\renewcommand{\ulink}[2]{%
+  \hyperref[#1]{{\color{link-int}{#2}\small\(\,^\uparrow\)}\hspace{-3pt}}
+}
+
+\renewcommand{\dlink}[2]{%
+  \hyperref[#1]{{\color{link-int}{#2}\small\(\,^\downarrow\)}\hspace{-3pt}}
+}
+
 \renewcommand{\RRR}[1]{{\color{red}{#1}}}
 \renewcommand{\RR}[1]{{\color{red+1}{#1}}}
 
@@ -302,7 +318,6 @@
 
 \renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle\vspace{-12pt}}
 
-\definecolor{darkblue}{HTML}{1d2c6d}
 \renewcommand{\dd}[1]{{\color{darkblue}{\textbf{#1}}}}
 \renewcommand{\2}[1]{{\color{darkblue}{#1}}}
 
@@ -315,7 +330,7 @@
 {\titlerule*[0.42 em]{.}\contentspage}
 
 \titlecontents{section}[0.809 em]
-{\vspace{3pt}}
+{\color{darkblue!60!black}\bfseries\vspace{3pt}}
 {}{}
 {\hfill\contentspage}
 
@@ -326,11 +341,11 @@
 
 
 \titleformat{\section}
-{\Large\bfseries\color{darkblue!42!black}}
+{\Large\bfseries\color{darkblue!60!black}}
 {}{0pt}{}
 
 \titleformat{\subsection}
-{\vspace{16pt}\large\bfseries\itshape\color{darkblue!69!black}}
+{\vspace{16pt}\large\bfseries\itshape\color{darkblue!85!black}}
 {}{0pt}{}
 
 
