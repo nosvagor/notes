@@ -135,8 +135,9 @@
 \subsection{10.5 Exercises}
 Determine convergence or divergence using any method.
 \vspace{1em}
-\begin{enumerate}[itemsep=3em]
+\begin{enumerate}[itemsep=12em]
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{2^n + 4^n }{7^n}\)
+
     \begin{align*}
       &\then
       \sum_{n=1}^{\infty} \frac{2^n}{7^n} +
@@ -239,7 +240,6 @@ Determine convergence or divergence using any method.
 
   The improper integral converges, thus the original series \aset{converges}.
 
-  \vspace{120pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^3}{5^n} \)
     \begin{align*}
       \then \rho &= \lim_{n \to \infty} \left| \frac{(n+1)^3}{5^{n+1} }
@@ -251,17 +251,47 @@ Determine convergence or divergence using any method.
 
   \(\rho = \dfrac{1}{5} < 1\), thus the series \aset{converges}.
 
-%%%%%%%%%%%%%
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
 
-  \item \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{n^3 - n^2}} \)
+  \item \(\displaystyle \sum_{n=2}^{\infty} \frac{1}{\sqrt{n^3 - n^2}} \)
+    \begin{align*}
+      L &= \lim_{n \to \infty} \frac{a_n}{b_n}, \quad b_n = \frac{1}{\sqrt{n^3} }
+      && \text{Apply the \ulink{ss:Tests for Positive Series}{limit comparison test}} \\
+      \then L &= \lim_{n \to \infty} \frac{1}{\sqrt{n^3 - n^2}}
+      \cdot \frac{\sqrt{n^3}}{1} \\
+      &= \lim_{n \to \infty} \sqrt{\frac{n^3}{n^3(1-n ^{-1})}} \\
+      &= \sqrt{\frac{1}{1(1-0)}} = 1
+    \end{align*}
+    \(L > 0\), thus \(a_n\) converges if \(b_n\) converges.
+
+    \(b_n\) converges by the \(p\)-series test, as \(\frac{3}{2} > 1\), thus
+    \(a_n\) \aset{converges}.
+
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^2 + 4n}{3n^4 + 9} \)
+    \begin{align*}
+      L &= \lim_{n \to \infty} \frac{a_n}{b_n}, \quad b_n = \frac{1}{n^2}
+      && \text{Apply the \ulink{ss:Tests for Positive Series}{limit comparison test}} \\
+      &= \lim_{n \to \infty} \frac{n^2 + 4n}{3n^4 + 9} \cdot n^2 \\
+      &= \lim_{n \to \infty} \frac{n^4 + 4n^3}{3n^4 + 9} \cdot \frac{n^{-4}}{n^{-4}} \\
+      &= \lim_{n \to \infty} \frac{1 + 4n^{-1}}{3 + 9n^{-4}} = \frac{1}{3}
+    \end{align*}
 
-  \item \(\displaystyle \sum_{n=1}^{\infty} n^{-0.8}\)
+    \(L > 0\), thus \(a_n\) converges if \(b_n\) converges.
+
+    \(b_n\) converges by the \(p\)-series test, as \(2 > 1\), thus
+    \(a_n\) \aset{converges}.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} (0.8)^{-n} n^{-0.8}  \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+     && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+     &= \lim_{n \to \infty}
+     \left|  \frac{(0.8)^{-(n+1)} (n+1)^{-0.8}}{(0.8)^{-n} n^{-0.8}} \right| \\
+     &= \lim_{n \to \infty}  \frac{(0.8)^{n} n^{0.8}}{(0.8)^{n+1} (n+1)^{0.8}} \\
+     &= \lim_{n \to \infty}  \frac{1}{0.8} = 1.25
+    \end{align*}
+
+    \(\rho = 1.25 > 1 \), thus \(a_n\) \aseg{diverges}.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} 4^{-2n+1}  \)
 
