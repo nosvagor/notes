@@ -345,7 +345,7 @@
 {}{0pt}{}
 
 \titleformat{\subsection}
-{\vspace{16pt}\large\bfseries\itshape\color{darkblue!85!black}}
+{\large\bfseries\itshape\color{darkblue!85!black}}
 {}{0pt}{}
 
 
