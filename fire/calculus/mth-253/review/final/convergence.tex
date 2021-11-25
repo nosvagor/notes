@@ -123,6 +123,14 @@
       alternating; simply test if \(\sum |a_n| \) converges using the test
       for positive series.
 
+      \vspace{16pt}
+
+      \(\sum a_n\) converges \dd{conditionally} if \(\sum a_n\) converges, but \(\sum
+      |a_n|\) diverges.
+
+      \(\sum a_n\) converges \dd{absolutely} if \(\sum |a_n|\) converges.
+
+
   \end{itemize}
 
 
@@ -294,10 +302,42 @@ Determine convergence or divergence using any method.
     \(\rho = 1.25 > 1 \), thus \(a_n\) \aseg{diverges}.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} 4^{-2n+1}  \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+           &= \lim_{n \to \infty} \frac{4^{-2(n+1) + 1}}{4^{-2n+1} } \\
+           &= \lim_{n \to \infty} \frac{4^{-2n-1}}{4^{-2n+1} } \\
+           &= \lim_{n \to \infty} \frac{4^{-2n} 4^{-1}}{4^{-2n}4} = \frac{1}{16}
+    \end{align*}
+
+  \(\rho = \frac{1}{16} < 1 \), thus \(a_n\) \aset{converges}.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{\sqrt{n} }  \)
+    \begin{align*}
+      &\sum_{n=1}^{\infty} \left| a_n \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{Absolute convergence test}} \\
+           &\then \sum_{n=1}^{\infty} \left|  \frac{(-1)^{n-1}}{\sqrt{n} }\right|
+           = \sum_{n=1}^{\infty} \frac{1}{n^{\frac{1}{2}} }
+    \end{align*}
+    \(|a_n|\) diverges by the \(p\)-series, as \(\frac{1}{2} < 1\), meaning
+    \(a_n\) \aset{converges conditionally} since \(|a_n|\) decreases monotonically and
+    \(\lim_{n \to \infty} a_n = 0\)
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \sin \frac{1}{n^2}  \)
+    \begin{align*}
+     L &= \lim_{n \to \infty} \frac{a_n}{b_n}, \quad b_n = \frac{1}{n^2}
+       && \text{Apply the \ulink{ss:Tests for Positive Series}{limit comparison test}} \\
+       &\then \lim_{n \to \infty} \frac{\sin(n^{-2})}{n^{-2}} =  \frac{0}{0} \\
+       &= \lim_{n \to \infty} \frac{\cos (n^{-2})(-2n^{-3})}{-2n^{-3}}
+       && \text{by \hopital's Rule} \\
+       &= \lim_{n \to \infty} \cos (n^{-2}) = 1
+    \end{align*}
+
+    \(L > 0\), thus \(a_n\) converges if \(b_n\) converges.
+
+    \(b_n\) converges by the \(p\)-series test, as \(2 > 1\), thus
+    \(a_n\) \aset{converges}.
+
 
   \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
 
