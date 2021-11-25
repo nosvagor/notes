@@ -11,16 +11,19 @@
 
 // menu displays menu options and waits until a valid entry is given, passing
 // result as an int to a switch statement.
-int menu(int low, int high, int size) {
+int menu(int low, int high, int menu_type) {
   char response[2];
   int selection;
 
-  switch (size) {
+  switch (menu_type) {
     case 1:
       menu_greeting();
       break;
     case 2:
-      menu_mini_greeting();
+      menu_search_greeting();
+      break;
+    case 3:
+      menu_edit_greeting();
       break;
   }
 
@@ -103,6 +106,8 @@ void file_reset() {
   in_file.close();
 }
 
+
+// save write data to the main external file (CURRENT) by traversing the LLL.
 void save(node *& head) {
 
   if (!head) return;
@@ -160,11 +165,22 @@ void menu_greeting() {
     << endl << endl;
 }
 
-void menu_mini_greeting() {
+void menu_search_greeting() {
   cout
     << "\nSearch by:\n\n"
     << "  --- [1] Name"
     << "  [2] Difficulty ---\n"
+    << endl;
+}
+
+void menu_edit_greeting() {
+  cout
+    << "\nEdit:\n\n"
+    << "  --- [1] Name"
+    << "  [2] Description"
+    << "  [3] Example"
+    << "  [4] Used"
+    << "  [5] Difficulty ---\n"
     << endl;
 }
 

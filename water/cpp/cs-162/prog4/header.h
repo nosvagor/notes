@@ -34,7 +34,7 @@ class entry {
     void display();
     void write();
     bool compare(char query[SIZE], int search_select);
-    // void edit();
+    void edit();
 
   private:
     char * name;
@@ -59,8 +59,9 @@ class list {
     void insert(node *& head);
     void display_all(node *& head);
     int search(char query[SIZE], node *& head, int search_select);
-    // bool edit(node *& head);
-    // void sort(node *& head);
+    void edit(char name[SIZE], node *& head);
+
+    // void sort(node *& head); // for program 5
 
     node *head;
     node *tail;
@@ -79,5 +80,6 @@ void file_reset();
 // GREETINGS
 void greeting();
 void menu_greeting();
-void menu_mini_greeting();
+void menu_search_greeting();
+void menu_edit_greeting();
 void farewell();

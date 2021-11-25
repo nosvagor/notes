@@ -32,21 +32,25 @@ entry::~entry() {
 
 
 //===========================================================================//
+// get_input is not an entry function per se, but it is used to get dynamically
+// allocated arrays in cases of manual input.
+void get_input (const char * str, char *& member) {
+  char temp[SIZE];
+
+  do {
+    cout << str;
+    cin.get(temp, SIZE, '\n');
+    cin.clear();
+    cin.ignore(SIZE, '\n');
+  } while (!temp[0]);
+
+  member = new char [strlen(temp) + 1];
+  strcpy(*& member, temp);
+}
+
+
+// wrapper function for manual input, self explanatory.
 void entry::read_manual() {
-  auto get_input = [](const char * str, char *& member) {
-    char temp[SIZE];
-
-    do {
-      cout << str;
-      cin.get(temp, SIZE, '\n');
-      cin.clear();
-      cin.ignore(SIZE, '\n');
-    } while (!temp[0]);
-
-    member = new char [strlen(temp) + 1];
-    strcpy(*& member, temp);
-    if (!temp[0]) memset(temp, 0, SIZE);
-  };
 
   get_input("Syntax name: ", name);
   get_input("description: ", description);
@@ -67,8 +71,13 @@ void entry::read_manual() {
   } while (!(difficulty > 0 && difficulty <= 10));
 }
 
+
+// updates entry with data from external file, assumes all data in external
+// file is in valid format.
 void entry::read_auto(ifstream & in_file) {
 
+  // read_line is the automatic version of get_input, used for creating
+  // dynamically allocated arrays when reading from external file.
   auto read_line = [](char *& member, ifstream & in_file) {
     char temp[SIZE];
 
@@ -84,22 +93,25 @@ void entry::read_auto(ifstream & in_file) {
   read_line(description, in_file);
   read_line(example, in_file);
 
-  char temp[2];
+  char temp[2]; // temp array for chars for input of used and difficulty data.
+
   in_file.get(temp, 2, DLM);
   in_file.ignore(SIZE, DLM);
-  used = ((temp[0] - '0') != 0) ? true : false;
+  used = ((temp[0] - '0') != 0) ? true : false; // convert input to boolean.
 
   in_file.get(temp, 2, '\n');
   in_file.ignore(SIZE, '\n');
-  difficulty = temp[0] - '0';
+  difficulty = temp[0] - '0'; // convert input to int
 }
 
 
-
+// display... Displays  the data...
 void entry::display() {
 
+  // if name is empty, then entire entry is empty.
   if (!name) return;
-  const char * used_str = used ? "true" : "false";
+
+  const char * used_str = used ? "true" : "false"; // convert boolean to string.
 
   cout << "\nName: " << name
        << "\n  - Description: " << description
@@ -109,6 +121,8 @@ void entry::display() {
        << endl;
 }
 
+
+// write... Writes the data contained in entries objects to an external file.
 void entry::write() {
     ofstream out_file;
     out_file.open(CURRENT, ios::app);
@@ -126,6 +140,8 @@ void entry::write() {
 
 
 
+// compare.. Compares a query with data member, given a selection option from
+// switch menu selector. Can easily be expanded for comparable fields.
 bool entry::compare(char query[SIZE], int search_select) {
 
   bool result = false;
@@ -143,5 +159,43 @@ bool entry::compare(char query[SIZE], int search_select) {
   }
 
   return result;
+}
+
+
+// edit... Edits the selected entry. Original data is not maintained, and new
+// entry simply overwrites current data.
+void entry::edit() {
+
+  int edit_select = {0}; // selection repose variable.
+
+  edit_select = menu(1,5,3); // edit search menu.
+
+ switch (edit_select) {
+    case 1:
+      get_input("Syntax name: ", name);
+      break;
+
+    case 2:
+      get_input("New description: ", description);
+      break;
+
+    case 3:
+      get_input("Example: ", example);
+      break;
+
+    case 4:
+      used = yes_no("Used?");
+      break;
+
+    case 5:
+      do {
+        cout << "Difficulty [1--10]: ";
+        cin >> difficulty;
+        cin.clear();
+        cin.ignore(420, '\n');
+      } while (!(difficulty > 0 && difficulty <= 10));
+      break;
+ }
+
 }
 //===========================================================================//
