@@ -120,7 +120,8 @@
       \vspace{16pt}
 
     \item \dd{Absolute Convergence}: used if the series \(\sum a_n\) is not
-      alternating; simply test if \(\sum |a_n| \) converges using the test
+      alternating \prn{if it is alternating, use the alternating test in
+      conjunction}; simply test if \(\sum |a_n| \) converges using the test
       for positive series.
 
       \vspace{16pt}
@@ -157,6 +158,7 @@ Determine convergence or divergence using any method.
 
     Both geometric series converge, thus the original series \aset{converges}.
 
+  \vspace{-64pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^3}{n!} \)
     \begin{align*}
       \then \rho &= \lim_{n \to \infty} \left| \frac{(n+1)^3}{(n+1)!} \cdot
@@ -171,16 +173,18 @@ Determine convergence or divergence using any method.
 
     \(\rho = 0 < 1\), thus the series \aset{converges}.
 
+  \vspace{-32pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n}{2n+1} \)
     \begin{align*}
       &\then \lim_{n \to \infty} \frac{n}{2n+1}
       && \text{Apply the \ulink{ss:Tests for Positive Series}{\(n^{th} \) term test}} \\
       &\then \lim_{n \to \infty} \frac{n}{2n+1} = \frac{1}{2}
-      && \text{by \hopital's Rule}
+      && \text{By \hopital's Rule}
     \end{align*}
 
     \(\lim_{n \to \infty} a_n \neq 0\), thus the series \aseg{diverges}.
 
+  \vspace{-32pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} 2^\frac{1}{n} \)
     \begin{align*}
       &\then \lim_{n \to \infty} 2^{\frac{1}{n}} = 2^0 = 1
@@ -323,6 +327,7 @@ Determine convergence or divergence using any method.
     \(a_n\) \aset{converges conditionally} since \(|a_n|\) decreases monotonically and
     \(\lim_{n \to \infty} a_n = 0\)
 
+  \vspace{-96pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \sin \frac{1}{n^2}  \)
     \begin{align*}
      L &= \lim_{n \to \infty} \frac{a_n}{b_n}, \quad b_n = \frac{1}{n^2}
@@ -338,15 +343,39 @@ Determine convergence or divergence using any method.
     \(b_n\) converges by the \(p\)-series test, as \(2 > 1\), thus
     \(a_n\) \aset{converges}.
 
-
+  \vspace{-80pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
+    \begin{align*}
+      &\sum_{n=1}^{\infty} (-1)^n a_n, \quad a_n = \cos (n^{-1})
+      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      &\then L = \lim_{n \to \infty} \cos (n^{-1}) = 1
+    \end{align*}
 
+    \(L \neq 0\), thus the series \aseg{diverges}
+
+\vspace{-64pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-2)^n}{\sqrt{n} } \)
+    \begin{align*}
+      \sum_{n=1}^{\infty} (-1)^n a_n, &\quad a_n = \frac{2^n}{\sqrt{n}}
+      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      \then L = \lim_{n \to \infty} \frac{2^n}{\sqrt{n} } &= \frac{\infty}{\infty} \\
+      &= \frac{2^n \ln 2}{\frac{1}{2} n^{-\frac{1}{2}}} = 2^n \ln 2 \cdot 2 \sqrt{n}
+      && \text{By \hopital's Rule} \\
+      &= 2 \lim_{n \to \infty} 2^n \ln(2) \sqrt{n} = \infty
+    \end{align*}
+
+    \(L \neq 0\), thus the series \aseg{diverges}
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \left( \frac{n}{n+12} \right)^n \)
+    \begin{align*}
+      L &= \lim_{n \to \infty} a_n \neq 0 \to ~\text{diverges}
+      && \text{Apply the \ulink{ss:Tests for Positive Series}{\(n^{th} \) term test}} \\
+      \then L &= \lim_{n \to \infty} \left( \frac{n}{n+12} \right)^n \\
+              &= \lim_{n \to \infty} e^{-12}
+      && \text{By common limit} \left( \frac{x}{x+k} \right)^x = e^{-k}  \\
+    \end{align*}
 
-  \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
-
+    \(L \neq 0\), thus the series \aseg{diverges}.
 
 \end{enumerate}
 
