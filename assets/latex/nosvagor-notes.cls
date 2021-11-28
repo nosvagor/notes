@@ -314,6 +314,8 @@
 \renewcommand{\PPP}[1]{{\color{pink}{#1}}}
 \renewcommand{\PP}[1]{{\color{pink+1}{#1}}}
 
+\definecolor{cyan+1}{HTML}{06cc87}
+
 \pagecolor{white}
 \color{black}
 
