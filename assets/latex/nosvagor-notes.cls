@@ -280,6 +280,7 @@
 \definecolor{accent}{HTML}{2346b0}
 \definecolor{accent-alt}{HTML}{b02357}
 \definecolor{link-int}{HTML}{216b27}
+\definecolor{foreground-1}{HTML}{3e426b}
 
 \renewcommand{\ulink}[2]{%
   \hyperref[#1]{{\color{link-int}{#2}\small\(\,^\uparrow\)}\hspace{-3pt}}
