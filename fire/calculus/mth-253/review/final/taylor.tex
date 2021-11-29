@@ -91,14 +91,113 @@ Find the interval of convergence.
 
 \begin{enumerate}[itemsep=24em]
   \item \(\displaystyle \sum_{n=0}^{\infty}  (-1)^n \frac{n}{4^n}x^{2n} \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+      &= \lim_{n \to \infty}
+      \left|  \frac{(-1)^{n+1}(n+1)(x^{2(n+1)})}{4^{n+1}}
+      \cdot
+        \frac{4^n}{(-1)^{n}n(x^{2n})}
+      \right| \\
+      &= \lim_{n \to \infty}
+      \frac{(n+1)(|x|^{2n} \cdot |x|^2)}{4^n \cdot 4}
+      \cdot
+      \frac{4^n}{n\cdot |x|^{2n}} \\
+      &= \lim_{n \to \infty}
+      \frac{(n+1)|x|^2}{4n} \cdot \frac{n^{-1}}{n^{-1}} \\
+      &= \lim_{n \to \infty}
+      \frac{(1+n^{-1})|x|^2}{4} = \frac{|x|^2}{4} \\\\
+      &\then \frac{|x|^2}{4} < 1
+      \then |x| < 2
+      && \text{converges for}~\rho < 1
+    \end{align*}
+    Both endpoints are alternating and tend toward \(\infty \) (diverge), \(R = 2, c = 0\), thus the interval of
+    convergence is \aset{\((-2,2)\)}.
+
+  \vspace{-22em}
   \item \(\displaystyle \sum_{n=8}^{\infty} n^7 x^n \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+      &\then \lim_{n \to \infty}  \left| \frac{(n+1)^7 x^{n+1}}{n^7x^n} \right| \\
+      &= \lim_{n \to \infty}  \frac{(n+1)^n \cdot |x|^n \cdot |x|}{n^7|x|^n} \\
+      &= \lim_{n \to \infty}  \frac{(n+1)^n|x|}{n^7} \cdot \frac{n^{-7}}{n^{-7}} \\
+      &= \lim_{n \to \infty}  (1+n^{-1})^{-7}|x|  = |x|\\\\
+      &\then |x| < 1
+      && \text{converges for}~\rho < 1
+    \end{align*}
+    Both endpoints tend toward \(\infty\) (diverge), \(R=1, c= 0\), thus the
+    interval of convergence is \aset{\((-1, 1)\)}.
+
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
 
   \item \(\displaystyle \sum_{n=2}^{\infty} \frac{x^n}{\ln n} \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+      &\then \lim_{n \to \infty}
+      \left| \frac{x^{n+1}}{\ln(n+1)} \cdot \frac{\ln n}{x^n}  \right| \\
+      &= \lim_{n \to \infty}
+     \frac{|x| \ln n}{\ln(n+1)} \\
+      &= |x| \lim_{n \to \infty}
+      \frac{\ln n}{\ln(n+1)}  = \frac{\infty}{\infty}\\
+      &= |x| \lim_{n \to \infty} \frac{n^{-1}}{(n+1)^{-1}}
+      && \text{By \hopital's Rule} \\
+      &= |x| \lim_{n \to \infty} \frac{n+1}{n} \\
+      &= |x| \lim_{n \to \infty} 1+n^{-1} = |x| \\
+      \\
+      &\then |x| < 1
+      && \text{converges for}~\rho < 1 \\
+      \\
+      f(1) &= \sum_{n=1}^{\infty} \frac{1}{\ln n} \\
+      &\then 0 \leq b_n \leq a_n
+           && \text{Apply the \ulink{ss:Tests for Positive Series}{Direct comparison test}} \\
+      &\then 0 \leq \frac{1}{n} \leq \frac{1}{\ln n} \\
+      &\then a_n ~\text{diverges}
+      && \frac{1}{n} \to \text{diverges as } p \leq 1 \\
+      \\
+      f(-1) &= \sum_{n=1}^{\infty} \frac{(-1)^n}{\ln n} \\
+      &\sum_{n=1}^{\infty} (-1)^n a_n, \quad a_n = \frac{1}{\ln n}
+      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      &\then \lim_{n \to \infty} \frac{1}{\ln n} = 0
+      && \text{Note:}~|a_n| ~\text{decreases monotonically}\\
+      \lim_{n \to \infty}  a_n &= 0 \to \text{converges}
+      && \text{By } n^{th} ~\text{test} \\
+    \end{align*}
+    \(R = 1, c = 0\); \(f(1)\) diverges and \(f(-1)\) converges, thus the
+    interval of convergence is \aset{\([-1,1)\)}
+
+%%%%%%%%%%%%%
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-5)^n(x-3)^n}{n^2} \)
+    \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+      &\then \lim_{n \to \infty} \left|
+      \frac{(-5)^{n+1} (x-3)^{n+1}}{(n+1)^2} \cdot
+      \frac{n^2}{(-5)^n(x-3)^n}
+      \right| \\
+      &= \lim_{n \to \infty}
+      \frac{5^n\cdot 5 \cdot (|x-3|)^{n} \cdot |x-3|}{n^2} \cdot
+      \frac{n^2}{5^n(|x-3|)^n} \\
+      &=\lim_{n \to \infty} 5|x-3| \\
+      &\then |x| < \frac{1}{5} + 3
+      && \text{converges for}~\rho < 1 \\
+      \\
+      f\left(\frac{14}{5}\right) &= \left(\frac{(-5)^n}{(-5)^n n^2}\right) = \frac{1}{n^2}
+      \\
+      f\left(\frac{16}{5}\right) &= \left(\frac{(-5)^n}{5^n n^2}\right) = \frac{(-1)^n}{n^2}
+    \end{align*}
+
+    \(\lim_{n \to \infty}  a_n\) (of both points) \(= 0\) and the \(|a_n|\) of both
+    endpoints decreases monotonically; \(R = \frac{1}{5}, c = 3\), thus the
+    interval of convergence is \aset{\(\left[\displaystyle \frac{14}{5}, \frac{16}{5}\right]\)}
+
 
 \end{enumerate}
 

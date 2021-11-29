@@ -3,33 +3,33 @@
 
 \subsection{Arc Length and Speed}
 \begin{itemize}
-  \item \dd{Arc Length of \(\mathcal{C}\)}: valid if \( c(t) = (x(t), y(t))\)
-    directly traverses \(\mathcal{C}\) for \(a \leq t \leq b\), then
-    \[%%%%%%%%%%
-      s = \int_{a}^{b} \sqrt{x'(t)^2 + y'(t)^2} dt
-    \]%%%%%%%%%%
-    \begin{itemize}
-      \item Can be interpreted as the \dd{distance traveled} along the
-        path from \(t = a \to b\)
-      \item \dd{Displacement}: less than or equal to the distance traveled;
-        simply the distance from starting point \(c(a)\) to endpoint \(c(b)\).
-      \item Distance traveled as as \dd{function of \(t\)}, starting at \(t_0\):
-        \[%%%%%%%%%%
-          s(t) = \int_{t_0}^{t_1}  \sqrt{x'(u)^2 + y'(u)^2} du
-        \]%%%%%%%%%%
-    \end{itemize}
+\item \dd{Arc Length of \(\mathcal{C}\)}: valid if \( c(t) = (x(t), y(t))\)
+  directly traverses \(\mathcal{C}\) for \(a \leq t \leq b\), then
+  \[%%%%%%%%%%
+    s = \int_{a}^{b} \sqrt{x'(t)^2 + y'(t)^2} dt
+  \]%%%%%%%%%%
+  \begin{itemize}
+    \item Can be interpreted as the \dd{distance traveled} along the
+      path from \(t = a \to b\)
+    \item \dd{Displacement}: less than or equal to the distance traveled;
+      simply the distance from starting point \(c(a)\) to endpoint \(c(b)\).
+    \item Distance traveled as as \dd{function of \(t\)}, starting at \(t_0\):
+      \[%%%%%%%%%%
+        s(t) = \int_{t_0}^{t_1}  \sqrt{x'(u)^2 + y'(u)^2} du
+      \]%%%%%%%%%%
+  \end{itemize}
 
-  \item \dd{Speed} at time \(t\):
-    \[%%%%%%%%%%
-      \frac{ds}{dt} = \sqrt{ x'(t)^2 +y'(t)^2}
-    \]%%%%%%%%%%
+\item \dd{Speed} at time \(t\):
+  \[%%%%%%%%%%
+    \frac{ds}{dt} = \sqrt{ x'(t)^2 +y'(t)^2}
+  \]%%%%%%%%%%
 
-  \item \dd{Surface area}: obtained via rotation of the parametric equation
-    about the \(x\)-axis for \(a \leq t \leq b\), given \(y(t) \geq 0, x(t)\)
-    is increasing, and \(x'(t) \oldland y'(t)\) are continuous:
-    \[%%%%%%%%%%
-      S = 2\pi \int_{a}^{b}  y(t) \sqrt{x'(t)^2 + y'(t)^2}  dt
-    \]%%%%%%%%%%
+\item \dd{Surface area}: obtained via rotation of the parametric equation
+  about the \(x\)-axis for \(a \leq t \leq b\), given \(y(t) \geq 0, x(t)\)
+  is increasing, and \(x'(t) \oldland y'(t)\) are continuous:
+  \[%%%%%%%%%%
+    S = 2\pi \int_{a}^{b}  y(t) \sqrt{x'(t)^2 + y'(t)^2}  dt
+  \]%%%%%%%%%%
 \end{itemize}
 
 %%%%%%%%%%%%%
@@ -38,62 +38,62 @@
 
 \subsection{Polar Coordinates}
 \begin{itemize}
-  \item \dd{Polar coordinate system}: a two-dimensional coordinate system
-    wherein each point is determined by the distance and angle from a reference
-    point and direction.
-    \begin{itemize}
-      \item \dd{Radial coordinate, \(r\)}: the distance from reference point.
-      \item \dd{Angular coordinate, \(\theta\)}: the angle from reference direction.
-      \item A point \(P\) has polar coordinates \((r, \theta)\) with the angle
-        measured in the counterclockwise direction by convention.
-    \end{itemize}
+\item \dd{Polar coordinate system}: a two-dimensional coordinate system
+  wherein each point is determined by the distance and angle from a reference
+  point and direction.
+  \begin{itemize}
+    \item \dd{Radial coordinate, \(r\)}: the distance from reference point.
+    \item \dd{Angular coordinate, \(\theta\)}: the angle from reference direction.
+    \item A point \(P\) has polar coordinates \((r, \theta)\) with the angle
+      measured in the counterclockwise direction by convention.
+  \end{itemize}
 
-  \item \dd{Conversion between polar and rectangular coordinates}:
-    \begin{align*}
-      x &= r \cos \theta \qquad
-      y = r \sin \theta \qquad
-      r = \sqrt{x^2 + y^2} \qquad
-      \tan \theta = \frac{y}{x} ~ \given  x\neq 0
-    \end{align*}
+\item \dd{Conversion between polar and rectangular coordinates}:
+  \begin{align*}
+    x &= r \cos \theta \qquad
+    y = r \sin \theta \qquad
+    r = \sqrt{x^2 + y^2} \qquad
+    \tan \theta = \frac{y}{x} ~ \given  x\neq 0
+  \end{align*}
 
-  \item \dd{If \(\bm{r > 0}\) then}: \((r,\theta)\) must lie in quadrant I or IV;
-    \[%%%%%%%%%%
-    \theta =
-      \begin{cases}
-        \tan ^{-1} \frac{y}{x} & \given x > 0 \\
-        \tan ^{-1} \frac{y}{x} + \pi & \given x < 0 \\
-        \oldpm \frac{\pi}{2} &\given x = 0
-      \end{cases}
-    \]%%%%%%%%%%
+\item \dd{If \(\bm{r > 0}\) then}: \((r,\theta)\) must lie in quadrant I or IV;
+  \[%%%%%%%%%%
+  \theta =
+    \begin{cases}
+      \tan ^{-1} \frac{y}{x} & \given x > 0 \\
+      \tan ^{-1} \frac{y}{x} + \pi & \given x < 0 \\
+      \oldpm \frac{\pi}{2} &\given x = 0
+    \end{cases}
+  \]%%%%%%%%%%
 
-  \item \dd{Non-uniqueness}: Multiple representations can represent the same point, i.e.,
-    \[%%%%%%%%%%
-      (r, \theta) \equiv (r, \theta + 2 n \pi) \equiv (-r, \theta + (2n +1)\pi) \qquad \given n \in \mathbb{Z}
-    \]%%%%%%%%%%
+\item \dd{Non-uniqueness}: Multiple representations can represent the same point, i.e.,
+  \[%%%%%%%%%%
+    (r, \theta) \equiv (r, \theta + 2 n \pi) \equiv (-r, \theta + (2n +1)\pi) \qquad \given n \in \mathbb{Z}
+  \]%%%%%%%%%%
 
-  \item \dd{Polar Equations}:
-    \begin{table}[h]
-      \centering
-      \begin{tabular}{lc}
-        \toprule
-         \dd{Curve} & \dd{Polar Equation} \\
-        \midrule
-         Circle of radius \(R\), center at origin
-                    & \(r = R\) \\\\
-         Line through origin slope \(m = \tan\theta_0\)
-                    & \(\theta = \theta_0\)  \\\\
-         Line, where \(P_0 = (d, \alpha) \) is closest to the origin
-                    & \( r = d \sec(\theta - \alpha)\)\\ \\
-        Circle radius \(a\), center at \((a,0)\)
-                    & \(r = 2a \cos \theta\) \\
-         \((x-a)^2 + y^2 = a^2\) \\\\
-        Circle radius \(a\), center at \((0,a)\)
-                    & \(r = 2a \sin \theta\) \\
-         \(x^2 + (y-a)^2 = a^2\) \\
-        \bottomrule
-       \end{tabular}
-     \end{table}
- \end{itemize}
+\item \dd{Polar Equations}:
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{lc}
+      \toprule
+       \dd{Curve} & \dd{Polar Equation} \\
+      \midrule
+       Circle of radius \(R\), center at origin
+                  & \(r = R\) \\\\
+       Line through origin slope \(m = \tan\theta_0\)
+                  & \(\theta = \theta_0\)  \\\\
+       Line, where \(P_0 = (d, \alpha) \) is closest to the origin
+                  & \( r = d \sec(\theta - \alpha)\)\\ \\
+      Circle radius \(a\), center at \((a,0)\)
+                  & \(r = 2a \cos \theta\) \\
+       \((x-a)^2 + y^2 = a^2\) \\\\
+      Circle radius \(a\), center at \((0,a)\)
+                  & \(r = 2a \sin \theta\) \\
+       \(x^2 + (y-a)^2 = a^2\) \\
+      \bottomrule
+     \end{tabular}
+   \end{table}
+\end{itemize}
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,17 +101,17 @@
 
 \subsection{Area and Arc Length in Polar Coordinates}
 \begin{itemize}
-  \item \dd{Area in Polar Coordinates}: given that \(f\) is continuous, then
-    the sector is bounded by:
-    \begin{itemize}
-      \item \dd{Polar curve, \(\bm{r}\)}: \(r = f(\theta)\)
-      \item \dd{Two rays, \(\bm{\alpha, \beta}\)}: where each ray is an angle
-        \(\theta\) with \(\alpha < \beta, \quad \beta = \theta - \alpha\)
-      \item Thus, the area is equal to the integral between \(\alpha\) and \(\beta\), i.e.
-        \[%%%%%%%%%%
-         A = \frac{1}{2} \int_{\alpha}^{\beta} f(\theta)^2 d\theta
-        \]%%%%%%%%%%
-    \end{itemize}
+\item \dd{Area in Polar Coordinates}: given that \(f\) is continuous, then
+  the sector is bounded by:
+  \begin{itemize}
+    \item \dd{Polar curve, \(\bm{r}\)}: \(r = f(\theta)\)
+    \item \dd{Two rays, \(\bm{\alpha, \beta}\)}: where each ray is an angle
+      \(\theta\) with \(\alpha < \beta, \quad \beta = \theta - \alpha\)
+    \item Thus, the area is equal to the integral between \(\alpha\) and \(\beta\), i.e.
+      \[%%%%%%%%%%
+       A = \frac{1}{2} \int_{\alpha}^{\beta} f(\theta)^2 d\theta
+      \]%%%%%%%%%%
+  \end{itemize}
 
   \item \dd{Arc length of polar curve}: given \(\alpha \leq \theta \leq \beta\):
     \[%%%%%%%%%%
