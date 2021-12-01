@@ -111,8 +111,8 @@ Find the interval of convergence.
       \then |x| < 2
       && \text{converges for}~\rho < 1
     \end{align*}
-    Both endpoints are alternating and tend toward \(\infty \) (diverge), \(R = 2, c = 0\), thus the interval of
-    convergence is \aset{\((-2,2)\)}.
+    Both endpoints tend toward \(\infty \) (diverge), thus the
+    interval of convergence is \aset{\((-2,2)\)}.
 
   \vspace{-22em}
   \item \(\displaystyle \sum_{n=8}^{\infty} n^7 x^n \)
@@ -120,13 +120,14 @@ Find the interval of convergence.
       \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
            && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
       &\then \lim_{n \to \infty}  \left| \frac{(n+1)^7 x^{n+1}}{n^7x^n} \right| \\
-      &= \lim_{n \to \infty}  \frac{(n+1)^n \cdot |x|^n \cdot |x|}{n^7|x|^n} \\
-      &= \lim_{n \to \infty}  \frac{(n+1)^n|x|}{n^7} \cdot \frac{n^{-7}}{n^{-7}} \\
-      &= \lim_{n \to \infty}  (1+n^{-1})^{-7}|x|  = |x|\\\\
+      &= \lim_{n \to \infty}  \frac{(n+1)^7 \cdot |x|^n \cdot |x|}{n^7|x|^n} \\
+      &= \lim_{n \to \infty}  \frac{(n+1)^7|x|}{n^7}\\
+      &= |x| \lim_{n \to \infty}  \left(\frac{n+1}{n}\right)^{7}  = |x| \\
+      \\
       &\then |x| < 1
       && \text{converges for}~\rho < 1
     \end{align*}
-    Both endpoints tend toward \(\infty\) (diverge), \(R=1, c= 0\), thus the
+    Both endpoints tend toward \(\infty\) (diverge), thus the
     interval of convergence is \aset{\((-1, 1)\)}.
 
 
@@ -154,7 +155,7 @@ Find the interval of convergence.
       \\
       f(1) &= \sum_{n=1}^{\infty} \frac{1}{\ln n} \\
       &\then 0 \leq b_n \leq a_n
-           && \text{Apply the \ulink{ss:Tests for Positive Series}{Direct comparison test}} \\
+           && \text{Apply the \ulink{ss:Tests for Positive Series}{direct comparison test}} \\
       &\then 0 \leq \frac{1}{n} \leq \frac{1}{\ln n} \\
       &\then a_n ~\text{diverges}
       && \frac{1}{n} \to \text{diverges as } p \leq 1 \\
@@ -164,11 +165,9 @@ Find the interval of convergence.
       && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
       &\then \lim_{n \to \infty} \frac{1}{\ln n} = 0
       && \text{Note:}~|a_n| ~\text{decreases monotonically}\\
-      \lim_{n \to \infty}  a_n &= 0 \to \text{converges}
-      && \text{By } n^{th} ~\text{test} \\
     \end{align*}
-    \(R = 1, c = 0\); \(f(1)\) diverges and \(f(-1)\) converges, thus the
-    interval of convergence is \aset{\([-1,1)\)}
+     \(f(-1)\) converges and \(f(1)\) diverges, thus the interval of convergence
+    is \aset{\([-1,1)\)}
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,16 +185,17 @@ Find the interval of convergence.
       \frac{5^n\cdot 5 \cdot (|x-3|)^{n} \cdot |x-3|}{n^2} \cdot
       \frac{n^2}{5^n(|x-3|)^n} \\
       &=\lim_{n \to \infty} 5|x-3| \\
-      &\then |x| < \frac{1}{5} + 3
+      &\then |x-3| < \frac{1}{5} \\
+      &\then -\frac{14}{5} < x < \frac{16}{5}
       && \text{converges for}~\rho < 1 \\
       \\
-      f\left(\frac{14}{5}\right) &= \left(\frac{(-5)^n}{(-5)^n n^2}\right) = \frac{1}{n^2}
+      f\left(\frac{14}{5}\right) &= \frac{(-5)^n\left(-\frac{1}{5}\right)^n}{n^2} = \frac{1}{n^2}
       \\
-      f\left(\frac{16}{5}\right) &= \left(\frac{(-5)^n}{5^n n^2}\right) = \frac{(-1)^n}{n^2}
+      f\left(\frac{14}{5}\right) &= \frac{(-5)^n\left(\frac{1}{5}\right)^n}{n^2} = \frac{(-1)^n}{n^2}
     \end{align*}
 
     \(\lim_{n \to \infty}  a_n\) (of both points) \(= 0\) and the \(|a_n|\) of both
-    endpoints decreases monotonically; \(R = \frac{1}{5}, c = 3\), thus the
+    endpoints decreases monotonically; \(R = \dfrac{1}{5}, c = 3\), thus the
     interval of convergence is \aset{\(\left[\displaystyle \frac{14}{5}, \frac{16}{5}\right]\)}
 
 

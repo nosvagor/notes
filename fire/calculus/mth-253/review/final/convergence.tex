@@ -327,14 +327,15 @@ Determine convergence or divergence using any method.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{\sqrt{n} }  \)
     \begin{align*}
-      &\sum_{n=1}^{\infty} \left| a_n \right|
-           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{Absolute convergence test}} \\
-           &\then \sum_{n=1}^{\infty} \left|  \frac{(-1)^{n-1}}{\sqrt{n} }\right|
-           = \sum_{n=1}^{\infty} \frac{1}{n^{\frac{1}{2}} }
+    \sum_{n=1}^{\infty} (-1)^n a_n, &\quad a_n = \frac{1}{\sqrt{n}}
+      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      \frac{1}{\sqrt{n}} &\to ~\text{diverges}
+      && \text{by \ulink{ss:Tests for Positive Series}{\(p\)-series}}\\
+      \lim_{n \to \infty} \frac{1}{\sqrt{n}} &= 0
     \end{align*}
-    \(|a_n|\) diverges by the \(p\)-series, as \(\frac{1}{2} < 1\), meaning
-    \(a_n\) \aset{converges conditionally} since \(|a_n|\) decreases monotonically and
-    \(\lim_{n \to \infty} a_n = 0\)
+    \(|a_n|\) decreases monotonically and \(\lim_{n \to \infty} a_n = 0\), but
+    \(a_n\) diverges, thus the series.
+    \aset{converges conditionally}
 
   \vspace{-96pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} \sin \frac{1}{n^2}  \)
@@ -349,14 +350,13 @@ Determine convergence or divergence using any method.
 
     \(L > 0\), thus \(a_n\) converges if \(b_n\) converges.
 
-    \(b_n\) converges by the \(p\)-series test, as \(2 > 1\), thus
-    \(a_n\) \aset{converges}.
+    \(b_n\) converges by the \(p\)-series test, thus \(a_n\) \aset{converges}.
 
   \vspace{-80pt}
   \item \(\displaystyle \sum_{n=1}^{\infty} (-1)^n \cos n^{-1} \)
     \begin{align*}
       &\sum_{n=1}^{\infty} (-1)^n a_n, \quad a_n = \cos (n^{-1})
-      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      && \text{Apply the \ulink{ss:Tests for Positive Series}{\(n^{th}\) term test}} \\
       &\then L = \lim_{n \to \infty} \cos (n^{-1}) = 1
     \end{align*}
 
@@ -366,7 +366,7 @@ Determine convergence or divergence using any method.
   \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(-2)^n}{\sqrt{n} } \)
     \begin{align*}
       \sum_{n=1}^{\infty} (-1)^n a_n, &\quad a_n = \frac{2^n}{\sqrt{n}}
-      && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+      && \text{Apply the \ulink{ss:Tests for Positive Series}{\(n^{th}\) term test}} \\
       \then L = \lim_{n \to \infty} \frac{2^n}{\sqrt{n} } &= \frac{\infty}{\infty} \\
       &= \frac{2^n \ln 2}{\frac{1}{2} n^{-\frac{1}{2}}} = 2^n \ln 2 \cdot 2 \sqrt{n}
       && \text{By \hopital's Rule} \\
@@ -377,9 +377,8 @@ Determine convergence or divergence using any method.
 
   \item \(\displaystyle \sum_{n=1}^{\infty} \left( \frac{n}{n+12} \right)^n \)
     \begin{align*}
-      L &= \lim_{n \to \infty} a_n \neq 0 \to ~\text{diverges}
+       L &= \lim_{n \to \infty} \left( \frac{n}{n+12} \right)^n
       && \text{Apply the \ulink{ss:Tests for Positive Series}{\(n^{th} \) term test}} \\
-      \then L &= \lim_{n \to \infty} \left( \frac{n}{n+12} \right)^n \\
               &= \lim_{n \to \infty} e^{-12}
       && \text{By common limit} \left( \frac{x}{x+k} \right)^x = e^{-k}  \\
     \end{align*}
