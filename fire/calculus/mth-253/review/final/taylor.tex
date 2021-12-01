@@ -26,7 +26,7 @@
   \item \dd{Interval of convergence}: the open interval \((c-R, c+R)\) and
     possibly one of both of the endpoints, each must be tested.
     \begin{itemize}
-      \item In most cases, the \ulink{s:Tests for Non-Positive
+      \item In most cases, the \ulink{ss:Tests for Non-Positive
         Series}{ratio test} can be used to find R.
 
       \item If \(R > 0\), then \(F\) is differentiable over the interval of
@@ -189,15 +189,14 @@ Find the interval of convergence.
       &\then -\frac{14}{5} < x < \frac{16}{5}
       && \text{converges for}~\rho < 1 \\
       \\
-      f\left(\frac{14}{5}\right) &= \frac{(-5)^n\left(-\frac{1}{5}\right)^n}{n^2} = \frac{1}{n^2}
+      &f\left(\frac{14}{5}\right) = \frac{(-5)^n\left(-\frac{1}{5}\right)^n}{n^2} = \frac{1}{n^2}
       \\
-      f\left(\frac{14}{5}\right) &= \frac{(-5)^n\left(\frac{1}{5}\right)^n}{n^2} = \frac{(-1)^n}{n^2}
+      &f\left(\frac{16}{5}\right) = \frac{(-5)^n\left(\frac{1}{5}\right)^n}{n^2} = \frac{(-1)^n}{n^2}
     \end{align*}
 
     \(\lim_{n \to \infty}  a_n\) (of both points) \(= 0\) and the \(|a_n|\) of both
-    endpoints decreases monotonically; \(R = \dfrac{1}{5}, c = 3\), thus the
+    endpoints decrease monotonically; \(R = \dfrac{1}{5}, c = 3\), thus the
     interval of convergence is \aset{\(\left[\displaystyle \frac{14}{5}, \frac{16}{5}\right]\)}
-
 
 \end{enumerate}
 
@@ -206,16 +205,43 @@ Find the interval of convergence.
 %%%%%%%%%%%%%
 
 Use the following equation to expand the function in a power series with \(c =
-0\) \[~\displaystyle \frac{1}{1-x} =
-\sum_{n=0}^{\infty} x^n ~\given |x| < 1 \]
+0\) \[~\displaystyle \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n ~\given |x| < 1 \]
 and determine the interval of convergence.
 
 \begin{enumerate}[itemsep=24em, resume]
-
   \item  \(\displaystyle f(x) = \frac{1}{4+3x} \)
+    \begin{align*}
+      \frac{1}{4+3x} &= \frac{\frac{1}{4}}{1 - (-\frac{3x}{4})} \\
+      &= \frac{1}{4} \sum_{n=0}^{\infty} \left( -\frac{3x}{4} \right)^n
+      = \sum_{n=0}^{\infty} (-1)^n \frac{3^nx^n}{4^{n+1} }
+      && \text{Expansion} \\
+      &\then \left| \frac{3x}{4} \right| < 1
+      && \sum_{n=1}^{\infty} \given |x| < 1 \\
+      &\then -\frac{4}{3} < x < \frac{4}{3}
+      && \text{Interval of convergence}
+    \end{align*}
+    Thus, \(\displaystyle \frac{1}{4+3x} =
+    \aset{\sum_{n=0}^{\infty} (-1)^n \frac{3^nx^n}{4^{n+1}}} \)
+    with an interval of convergence of
+   \aset{\(\displaystyle \left( -\frac{4}{3}, \frac{4}{3} \right) \)}
 
+  \vspace{-16em}
   \item  \(\displaystyle f(x) = \frac{1}{1-x^4} \)
+    \begin{align*}
+      \frac{1}{1-x^4} &= \sum_{n=0}^{\infty} \left( x^4 \right)^n
+      = \sum_{n=0}^{\infty} x^{4n}
+      && \text{Expansion} \\
+      &\then |x^4| < 1
+      && \sum_{n=1}^{\infty} \given |x| < 1 \\
+      &\then -1 < x < 1
+      && \text{Interval of convergence}
+    \end{align*}
+    Thus, \(\displaystyle \frac{1}{1-x^4} =
+    \aset{\sum_{n=0}^{\infty} x^{4n}}  \)
+    with an interval of convergence of
+   \aset{\(\displaystyle \left(-1, 1\right) \)}
 \end{enumerate}
+
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
@@ -226,7 +252,33 @@ Find the Maclaurin series and find the interval on which the expression is
 valid.
 \begin{enumerate}[itemsep=24em]
   \item \(\displaystyle  f(x) = \sin(2x) \)
+    \begin{align*}
+      \sin x &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n+1} }{(2n+1)!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      &\then \sin 2 x = (-1)^n \frac{(2x)^{2n+1} }{(2n+1)!}
+    \end{align*}
+    \(\sin(x)\) converges \(\forall x\), thus \(\sin(2x)\) also converges \(\forall x\).
+    Therefore:
+    \[%%%%%%%%%%
+      f(x) = \aset{(-1)^n \frac{(2x)^{2n+1} }{(2n+1)!}}
+      \qquad \given \forall x \in \R
+    \]%%%%%%%%%%
+
+  \vspace{-15em}
   \item \(\displaystyle  f(x) = x^2e^{x^{2} } \)
+    \begin{align*}
+      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      &\then e^{x^2} = \sum_{n=0}^{\infty} \frac{(x^2)^n}{n!} \\
+      &\then x^2e^{x^2} = \sum_{n=0}^{\infty} \frac{x^2 \cdot (x^2)^n}{n!}
+      = \sum_{n=0}^{\infty} \frac{x^{2n+2} }{n!}
+    \end{align*}
+    \(e^x\) converges \(\forall x\), thus \(e^{x^2} \) also converges \(\forall x\).
+    Therefore:
+    \[%%%%%%%%%%
+      f(x) = \aset{\sum_{n=0}^{\infty} \frac{x^{2n+2}}{n!}}
+      \qquad \given \forall x \in \R
+    \]%%%%%%%%%%
 \end{enumerate}
 
 %%%%%%%%%%%%%
@@ -237,8 +289,37 @@ Find the Taylor series centered at c and the interval on which the expansion is
 valid.
 \begin{enumerate}[itemsep=18em, resume]
   \item \(\displaystyle  f(x) = e^{3x}, \quad c = -1 \)
+    \begin{align*}
+      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      \then
+      f(x) &= e^{3(x-1)} = e^{-3} \cdot e^{3(x+1)}
+      && \text{Center series \((x-c\))} \\
+      &= e^{-3} \sum_{n=0}^{\infty} \frac{\left(3(x+1)\right)^n}{n!} \\
+      &= e^{-3} \sum_{n=0}^{\infty} \frac{3^n(x+1)^n}{n!}
+    \end{align*}
+    \(e^x\) converges \(\forall x\), thus \(e^{3x} \) also converges \(\forall x\).
+    Therefore:
+    \[%%%%%%%%%%
+      f(x) = \aset{e^{-3} \sum_{n=0}^{\infty} \frac{3^n(x+1)^n}{n!}}
+      \qquad \given \text{convergence interval:}~\aset{(-\infty, \infty)}
+    \]%%%%%%%%%%
+
+  \vspace{-12em}
   \item \(\displaystyle  f(x) = \sin(x), \quad c = \frac{\pi}{2} \)
-  \item \(\displaystyle  f(x) = \frac{1}{1-x^2}, \quad c = 3\)
+    \begin{align*}
+      \sin x &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n+1} }{(2n+1)!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      \then f(x) &= \sin\left(x-\frac{\pi}{2}\right) \\
+      &= \sum_{n=0}^{\infty} (-1)^n \frac{\left( x - \frac{\pi}{2}\right)^{2n+1} }{(2n+1)!}
+      && \text{Center series} (x-c)
+    \end{align*}
+    \(\sin(x)\) converges \(\forall x\), therefore:
+    \[%%%%%%%%%%
+      f(x)
+      = \aset{\sum_{n=0}^{\infty} (-1)^n \frac{\left( x-\frac{\pi}{2} \right) ^{2n+1} }{(2n+1)!}}
+      \qquad \given \text{convergence interval:}~\aset{(-\infty, \infty)}
+    \]%%%%%%%%%%
 \end{enumerate}
 
 
