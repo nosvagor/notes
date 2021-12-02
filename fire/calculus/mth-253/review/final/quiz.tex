@@ -153,8 +153,35 @@
     justification.
     \begin{enumerate}[itemsep=22em]
       \item \(\displaystyle \sum_{n=1}^{\infty} \frac{n^3}{n!} \)
+      \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+           &= \lim_{n \to \infty} \left|
+            \frac{(n+1)^3}{(n+1)!} \cdot \frac{n!}{n^3}
+           \right| \\
+           &= \lim_{n \to \infty}
+           \frac{(n+1)^3}{(n+1)n!} \cdot \frac{n!}{n^3} \\
+           &= \lim_{n \to \infty}
+           \frac{(n+1)^2}{n^3} \\
+           &= \lim_{n \to \infty}
+           \frac{n^2 + 2n + 1}{n^3} \cdot \frac{n^{-3}}{n^{-3}} \\
+           &= \lim_{n \to \infty}
+           n^{-1} + 2n^{-2} + n^{-3} = 0
+      \end{align*}
+      \(\rho < 1\), thus the series \aset{converges absolutely}.
 
+      \vspace{-16em}
       \item \(\displaystyle \sum_{n=0}^{\infty} \left( \frac{n}{3n+1} \right)^n  \)
+        \begin{align*}
+          C &= \lim_{n \to \infty} \left| a_n \right|^\frac{1}{n}
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{root test}} \\
+           &= \lim_{n \to \infty}  \left|
+              \left( \frac{n}{3n+1} \right)^n
+           \right|^{\frac{1}{n}}\\
+           &= \lim_{n \to \infty}  \frac{n}{3n +1} = \frac{1}{3}
+           && \text{By \hopital's Rule} \\
+        \end{align*}
+        \(C = \dfrac{1}{3} < 1\), thus the series \aset{converges absolutely}.
     \end{enumerate}
 
 %%%%%%%%%%%%%
@@ -163,6 +190,22 @@
 
   \item Find the Maclaurin series of (using substitution and/or multiplication)
     \[f(x) = x \cos (x^2)\]
+    \begin{align*}
+      \cos x &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n} }{(2n)!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      \then \cos(x^2) &= \sum_{n=0}^{\infty} \frac{(-1)^n(x^2)^{2n} }{(2n)!} \\
+                      &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{4n} }{(2n)!}
+      && \text{Substitution of}~x^2 \\
+      x \cdot \cos (x^2) &= x \cdot \sum_{n=0}^{\infty} \frac{(-1)^nx^{4n} }{(2n)!} \\
+                      &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{4n+1} }{(2n)!}
+      && \text{Multiply by } x
+    \end{align*}
+    \(\cos x\) converges \(\forall x\), thus \(x \cos {x^2} \) also converges \(\forall x\).
+    Therefore:
+    \[%%%%%%%%%%
+      f(x) =  x \cos(x^2) = \aset{\sum_{n=0}^{\infty} \frac{(-1)^nx^{4n+1} }{(2n)!}}
+      \qquad \given \forall x \in \R
+    \]%%%%%%%%%%
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,6 +216,21 @@
     \[%%%%%%%%%%
     \int_{0}^{1} e^{-x^2}  dx
     \]%%%%%%%%%%
+    \begin{align*}
+      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      \then f(x) &= e^{-x^2} =  \sum_{n=0}^{\infty} \frac{(-x^2)^n}{n!}  \\
+                 &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!}
+                 && \given \forall x \in \R\\
+      \\
+      \then \int_{0}^{1} e^{-x^2}  dx
+       &= \int_{0}^{1} \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!} dx \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \int_{0}^{1} x^{2n} dx \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \cdot \frac{x^{2n+1}}{2n+1} \bigg|_{0}^{1} \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)n!}
+       - 0 \\
+       &= \aset{\boxed{\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)n!}}}
+    \end{align*}
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -181,5 +239,14 @@
   \item Consider the curve with parametric representation \[c(t) = (\sin 2t +
     \cos t, \cos 2t - \sin t)\]
     Find an equation of the tangent line at \(t=\pi\)
-
+    \begin{align*}
+      \frac{dy}{dx} &= \frac{y'(t)}{x'(t)} \quad \given x'(t) \neq 0
+     &&\text{Note: \ulink{s:Parametric Equations Notes}{Slope of a tangent line}} \\
+     \\
+     &\then \frac{dy}{dx} = \frac{-2\sin(2t) - \cos t}{2\cos(2t) - \sin t} \\
+     &\then m = \frac{dy}{dx} \bigg|_{t=\pi} = \frac{0 - (-1)}{2 - 0} = \frac{1}{2}\\
+     \\
+     &\then \aset{\boxed{y - 1 = \frac{1}{2}(x+1)}}
+      && c(\pi) = (-1, 1)\\
+    \end{align*}
 \end{enumerate}
