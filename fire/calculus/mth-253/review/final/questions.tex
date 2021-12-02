@@ -12,8 +12,70 @@ quizzes, but will be duplicated here.
 
   \begin{enumerate}[itemsep=24em]
     \item \(\displaystyle \sum_{n=1}^{\infty} \frac{5^n}{n}x^n \)
+      \begin{align*}
+      C &= \lim_{n \to \infty} \left| a_n  \right|^{\frac{1}{n}}
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{root test}} \\
+           &= \lim_{n \to \infty}  \left|
+           \frac{5^nx^n}{n}
+          \right|^{\frac{1}{n}}  \\
+           &= 5|x| \lim_{n \to \infty}  \frac{1}{\sqrt{n}} = 5|x| \\
+           \\
+           &\then |x| < \frac{1}{5}
+           && \text{converges for } C <1 \\
+           \\
+           f\left(- \frac{1}{5}\right)
+           &= \sum_{n=1}^{\infty}  \frac{5^n}{n}\left(-\frac{1}{5}\right)^n \\
+           &= \sum_{n=1}^{\infty} (-1)^n \frac{1}{n}, \quad a_n = \frac{1}{n}
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+           \lim_{n \to \infty} a_n &= 0 \oldland
+           |a_n|~\text{decreases monotonically}
+                                   &&\then \text{converges} \\
+                                   \\
+           f\left(\frac{1}{5}\right)
+           &= \sum_{n=1}^{\infty}  \frac{5^n}{n}\left(\frac{1}{5}\right)^n
+           = \sum_{n=1}^{\infty} \frac{1}{n}
+           && \then \text{diverges by \ulink{ss: Test for Positive Series}{\(p\)-series}} \\
+           \\
+           &\then \text{Interval of convergence: } \aset{\left[-\frac{1}{5}, \frac{1}{5}\right)}
+    \end{align*}
 
-    \item \(\displaystyle \frac{(x-2)^n}{n^2+1} \)
+    \item \(\displaystyle \sum_{n=1}^{\infty} \frac{(x-2)^n}{n^2+1} \)
+      \begin{align*}
+      \rho &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n}  \right|
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{ratio test}} \\
+           &= \lim_{n \to \infty} \left|
+           \frac{(x-2)^{n+1}}{(n+1)^2 + 1} \cdot
+           \frac{n^2+1}{(x-2)^n}
+           \right| \\
+           &= \lim_{n \to \infty}
+           \frac{(|x-2|)^n \cdot |x-2|}{n^2 + 2n + 2} \cdot
+           \frac{n^2+1}{(|x-2|)^n} \\
+           &= |x-2| \lim_{n \to \infty}
+           \frac{n^2 + 1}{n^2+2n+2} \\
+           &= |x-2| \lim_{n \to \infty}
+           \frac{2}{2}
+           && \text{By \hopital's Rule} \\
+           \\
+           &\then |x-2| < 1
+           && \text{converges for } \rho <1 \\
+           &\then 1 < x < 3 \\
+           \\
+           f(1) &= \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2 + 1}
+           \quad a_n = \frac{1}{n^2 + 1}
+           && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
+           &\lim_{n \to \infty} a_n = 0 \oldland
+           |a_n|~\text{decreases monotonically}
+           &&\then \text{converges} \\
+           \\
+           f(3) &= \sum_{n=1}^{\infty} \frac{1}{n^2 + 1}\\
+                & b_n ~\text{converges} \to a_n~\text{converges}~
+                && \text{Apply the \ulink{ss:Tests for Positive Series}{direct comparison test}} \\
+           b_n &= \frac{1}{n^2} \then b_n ~\text{converges}
+                && \text{By \ulink{ss:Tests for Positive Series}{p-series}} \\
+                \\
+                &\then \text{Interval of convergence: }
+                \aset{\left[ 1, 3 \right] }
+      \end{align*}
   \end{enumerate}
 
 %%%%%%%%%%%%%
@@ -64,7 +126,7 @@ quizzes, but will be duplicated here.
 
       \item The ellipse
         \[%%%%%%%%%%
-          \left( \frac{x-1}{2} \right)^2 + \frac{y+1}{3}^2 = 1
+          \left( \frac{x-1}{2} \right)^2 + \left(\frac{y+1}{3}\right)^2 = 1
         \]%%%%%%%%%%
     \end{enumerate}
 
