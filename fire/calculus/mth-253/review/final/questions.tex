@@ -86,8 +86,21 @@ quizzes, but will be duplicated here.
     the given value of \(c\) using the definition.
     \begin{enumerate}[itemsep=24em]
       \item \(f(x) = e^x, \quad c = 2\)
+        \begin{align*}
+          e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}, \quad \given \forall n \geq 0
+              && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+              & && f^{(n)}(2) = e^2 \given f^{(n)}(x) = e^x\\
+                     &\then \aset{\boxed{\sum_{n=0}^{\infty} \frac{e^2(x-2)^n}{n!}}}
+                     && \text{Center series, } c= 2 \\
+        \end{align*}
 
+      \vspace{-16em}
       \item \(f(x) = \sqrt{x}, \quad c = 1\)
+        \begin{align*}
+      (1 + x)^\alpha  &= \sum_{n=0}^{\infty} \begin{pmatrix} \alpha \\ n
+      \end{pmatrix} x^n \quad \given |x| < 1
+          && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+        \end{align*}
     \end{enumerate}
 
 %%%%%%%%%%%%%
