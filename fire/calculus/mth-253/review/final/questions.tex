@@ -97,9 +97,13 @@ quizzes, but will be duplicated here.
       \vspace{-16em}
       \item \(f(x) = \sqrt{x}, \quad c = 1\)
         \begin{align*}
-      (1 + x)^\alpha  &= \sum_{n=0}^{\infty} \begin{pmatrix} \alpha \\ n
-      \end{pmatrix} x^n \quad \given |x| < 1
+          (1 + x)^\alpha  &= \sum_{n=0}^{\infty}
+          \begin{pmatrix} \alpha \\ n \end{pmatrix} x^n \quad \given |x| < 1
           && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+          &\then
+          \aset{\boxed{\sum_{n \geq 0}^{\infty}
+          \begin{pmatrix} \frac{1}{2} \\ n \end{pmatrix} (x-1)^n}}
+          && \text{note:}~(1+(x-1))^{\frac{1}{2}} = \sqrt{n} \\
         \end{align*}
     \end{enumerate}
 
@@ -112,7 +116,22 @@ quizzes, but will be duplicated here.
 
     \begin{enumerate}[itemsep=24em]
       \item \(f(x) = x \cos (2x)\)
+        \begin{align*}
+          \cos x &= \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n} }{(2n)!} \quad \given \forall x
+                 && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+          \then \cos(x^2) &= \sum_{n=0}^{\infty} \frac{(-1)^n(2x)^{2n} }{(2n)!} \\
+                          &= \sum_{n=0}^{\infty} \frac{(-1)^n 4^n x^{2n} }{(2n)!} \\
+                          &= \sum_{n=0}^{\infty} \frac{(-4)^n x^{2n} }{(2n)!}
+                          && \text{Substitution of}~x^2 \\
+          x \cdot \cos (2x) &= x \cdot \sum_{n=0}^{\infty} \frac{(-4)^nx^{2n} }{(2n)!} \\
+                            &= \sum_{n=0}^{\infty} \frac{(-4)^n x^{2n+1} }{(2n)!}
+                            && \text{Multiply by } x\\
+                            \\
+          \then f(x) &= \aset{\boxed{\sum_{n=0}^{\infty} \frac{(-4)^nx^{2n+1} }{(2n)!}}}
+          \qquad \given \forall x
+        \end{align*}
 
+      \vspace{-22em}
       \item \(f(x) = \dfrac{x^3}{1+x}\)
     \end{enumerate}
 
@@ -126,6 +145,21 @@ quizzes, but will be duplicated here.
     \[%%%%%%%%%%
     \int_{0}^{1} e^{-x^2}  dx
     \]%%%%%%%%%%
+    \begin{align*}
+      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+      && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+      \then f(x) &= e^{-x^2} =  \sum_{n=0}^{\infty} \frac{(-x^2)^n}{n!}  \\
+                 &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!}
+                 && \given \forall x \in \R\\
+      \\
+      \then \int_{0}^{1} e^{-x^2}  dx
+       &= \int_{0}^{1} \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!} dx \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \int_{0}^{1} x^{2n} dx \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \cdot \frac{x^{2n+1}}{2n+1} \bigg|_{0}^{1} \\
+       &= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)n!}
+       - 0 \\
+       &= \aset{\boxed{\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)n!}}}
+    \end{align*}
 
 %%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
