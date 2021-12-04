@@ -237,6 +237,18 @@ quizzes, but will be duplicated here.
     \[%%%%%%%%%%
       x = \frac{2}{3}t^2, \quad y = t^2 - 2, \qquad \given 0 \leq t \leq 2
     \]%%%%%%%%%%
+    \begin{align*}
+      s &= \int_{a}^{b} \sqrt{x'(t)^2 + y'(t)^2} dt \qquad \given
+      \text{\ulink{ss:Arc Length and Speed}{Arch length} }\\
+        &= \int_{0}^{2} \sqrt{\left(\frac{4}{3}t\right)^2 + \left( 2t \right) ^2} dt \\
+        &= \int_{0}^{2} \sqrt{\frac{16}{9}t^2 +  4t^2} ~dt \\
+        &= \int_{0}^{2} \sqrt{\frac{52t^2}{9}} ~dt
+         = \int_{0}^{2} \frac{2\sqrt{13}t}{3} ~dt \\
+        &= \frac{2\sqrt{13}t^2}{6} \bigg|_{0}^{2}
+         = \frac{t^2\sqrt{13}}{3} \bigg|_{0}^{2}
+         = \frac{4\sqrt{13}}{3} - 0 \\
+        &= \aset{\boxed{\frac{4\sqrt{13}}{3}}}
+    \end{align*}
 
 
 %%%%%%%%%%%%%
@@ -248,6 +260,19 @@ quizzes, but will be duplicated here.
     \[%%%%%%%%%%
     x = e^t - t, \quad y = 4e^{\frac{t}{2}}, \qquad \given 0 \leq t \leq 1
     \]%%%%%%%%%%
+    \begin{align*}
+      S &= 2\pi \int_{a}^{b} y(t) \sqrt{x'(t)^2 + y'(t)^2}~dt
+      \qquad \given  \text{\ulink{ss:Arc Length and Speed}{Surface area}} \\
+        &= 2\pi \int_{0}^{1} 4e^{\frac{t}{2}} \sqrt{(e^t - 1)^2 + (2e^{\frac{t}{2}})^2}~dt \\
+        &= 8\pi \int_{0}^{1} e^{\frac{t}{2}} \sqrt{e^{2t} - 2e^t + 1 + 4e^t}~dt\\
+        &= 8\pi \int_{0}^{1} e^{\frac{t}{2}} \sqrt{e^{2t} + 2e^t + 1}~dt \\
+        &= 8\pi \int_{0}^{1} e^{\frac{t}{2}} \sqrt{(e^t + 1)^2}~dt \\
+        &= 8\pi \int_{0}^{1} e^{\frac{t}{2}} (e^t + 1) dt \\
+        &= 8\pi \int_{0}^{1} \left(e^{\frac{3t}{2}}  + e^{\frac{t}{2}}\right)  dt \\
+        &= 8\pi \left(\frac{2}{3}e^{\frac{3t}{2}}  + 2e^{\frac{t}{2}}\right) \bigg|_{0}^{1}
+        = 8\pi \left(\left(\frac{2}{3}e^{\frac{3}{2}}  + 2e^{\frac{1}{2}}\right) - \left(\frac{3}{2} + 2\right)\right) \\
+        &= \aset{\boxed{8\pi \left(\frac{2}{3}e^{\frac{3}{2}}  + 2e^{\frac{1}{2}} - \frac{7}{2}\right)}} \\
+    \end{align*}
 
 
 %%%%%%%%%%%%%
@@ -268,16 +293,39 @@ quizzes, but will be duplicated here.
     \begin{enumerate}[label=(\roman*)]
       \item \(r^2 (1- 2 \sin ^2 \theta) = 4\)
       \item \(r (\cos \theta + \sin \theta ) = 4\)
-      \item \(r = \sin \theta\)
+      \item \(r = 2\sin \theta\)
       \item \(r = 2 \)
     \end{enumerate}
   \end{multicols}
 
-  \vspace{8em}
+  \vspace{1em}
+  \begin{center}
+  \ulink{ss:Polar Coordinates}{Polar Equations}
+  \end{center}
+
+  \begin{enumerate}
+    \item \(\given r = \sqrt{x^2 + y^2} \then r = \sqrt{4} \then \aset{(\text{iv})}\)
+    \item \(\given a^2 = \sqrt{x^2 + (y-a)^2} \then r = 2a \sin \theta \then \aset{(\text{iii})}\)
+    \item \(\then \aset{(\text{i})}\) ? Not sure how.
+    \item \(\given x = r\cos\theta, \quad y = r \sin \theta \then r(\cos\theta + \sin \theta) \then \aset{(\text{ii})}\)
+  \end{enumerate}
+
+  \vspace{4em}
 
   \item Find the area enclosed by one loop of the curve
     \[%%%%%%%%%%
     r^2 = \cos 2\theta
     \]%%%%%%%%%%
+    \begin{align*}
+      A &= \frac{1}{2} \int_{\alpha}^{\beta} f(\theta)^2 d\theta, \quad \alpha = -\frac{\pi}{4}, \beta = \frac{\pi}{4}
+        &&  \text{\ulink{ss:Area and Arc Length in Polar Coordinates}{Area in polar coordinates}} \\
+        \\
+      \then A &= \frac{1}{2} \int_{\frac{\pi}{4}}^{\frac{\pi}{4}} (\cos 2 \theta)^2 ~d\theta \\
+              &= \frac{1}{2}\cdot\frac{-\sin 2 \theta}{2} \bigg|_{\frac{-\pi}{4}}^{\frac{\pi}{4}}
+               = \frac{-\sin 2 \theta}{4} \bigg|_{\frac{\pi}{4}}^{\frac{-\pi}{4}} \\
+              &= \frac{\sin \frac{\pi}{2}}{4} - \frac{-\sin \frac{\pi}{2}}{4}
+              = \frac{1}{4} - \frac{-1}{4} \\
+              &= \aset{\boxed{\frac{1}{2}}}
+    \end{align*}
 
 \end{enumerate}
