@@ -62,12 +62,39 @@
 Find parametric equations for the given curve.
 \begin{enumerate}[itemsep=14em]
   \item Line through \((3,1)\) and \((-5, 4)\).
+    \begin{align*}
+      &P(3,1), \quad Q(-5, 4) \\
+      &\then m = \frac{y_Q - y_P}{x_Q - x_P}  = \frac{4-1}{-5 -3} = -\frac{3}{8} \\
+      &\then y = m (x-x_P) + y_P = -\frac{3}{8}(x-3) + 1 = -\frac{3}{8}x + \frac{17}{8}\\
+      &\begin{cases}
+        x = t \\
+        y = -\frac{3}{8}t + \frac{17}{8}
+      \end{cases}\\
+      &\then \aset{\boxed{c(t) = \left( t, -\frac{3}{8}t + \frac{17}{8} \right)}}
+    \end{align*}
 
-  \item Circle of radius 4 with center \((3, 9)\).
+  \vspace{-12em}
+  \item Circle of radius \(4\) with center \((3, 9)\).
+    \begin{align*}
+      c(t) &= (a + R \cos \theta , b + R \sin \theta) \quad
+      \given \text{ \ulink{s:Parametric Equations Notes}{Parametrization of a circle} }\\
+      \\
+      \then c(t) &= (3 + 4 \cos \theta, 9 + 4 \sin \theta) \in \left[ 0, 2\pi \right)
+    \end{align*}
 
+  \vspace{-9em}
   \item The following ellipse its center translated center to \((7, 4)\)
     \[%%%%%%%%%%
       \left( \frac{x}{5} \right)^2 + \left( \frac{y}{12} \right)^2 = 1
     \]%%%%%%%%%%
+    \begin{align*}
+      c(\theta) &= (a \cos \theta , b \sin \theta)
+                && \text{ \ulink{s:Parametric Equations Notes}{Parametrization of a ellipse} }\\
+      \\
+      c(\theta) &= (5 \cos \theta, 12 \sin \theta)
+                && \given \left( \frac{x}{5} \right)^2 + \left( \frac{y}{12} \right)^2 = 1 \\
+      c(\theta) &= \aset{\boxed{(7 + 5 \cos \theta, 4 + 12 \sin \theta)}}
+                && \given \left( \frac{x-7}{5} \right)^2 + \left( \frac{y-4}{12} \right)^2 = 1
+    \end{align*}
 
 \end{enumerate}

@@ -63,9 +63,9 @@ quizzes, but will be duplicated here.
            f(1) &= \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2 + 1}
            \quad a_n = \frac{1}{n^2 + 1}
            && \text{Apply the \ulink{ss:Tests for Non-Positive Series}{alternating series test}} \\
-           &\lim_{n \to \infty} a_n = 0 \oldland
-           |a_n|~\text{decreases monotonically}
-           &&\then \text{converges} \\
+           &\lim_{n \to \infty} a_n = 0
+           \then \text{converges}
+           && |a_n|~\text{decreases monotonically}\\
            \\
            f(3) &= \sum_{n=1}^{\infty} \frac{1}{n^2 + 1}\\
                 & b_n ~\text{converges} \to a_n~\text{converges}~
@@ -133,6 +133,13 @@ quizzes, but will be duplicated here.
 
       \vspace{-22em}
       \item \(f(x) = \dfrac{x^3}{1+x}\)
+        \begin{align*}
+          \frac{1}{1+x} &= \sum_{n=0}^{\infty} (-1)^n x^n \quad \given |x| < 1
+                 && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
+                 \\
+          \then \frac{x^3}{1+x} &= \sum_{n=1}^{\infty} (-1)^n (x^3)^n \\
+                 &= \aset{\boxed{\sum_{n=1}^{\infty} (-1)^n x^{n+3}}} \quad \given |x| < 1
+        \end{align*}
     \end{enumerate}
 
 %%%%%%%%%%%%%
@@ -146,11 +153,12 @@ quizzes, but will be duplicated here.
     \int_{0}^{1} e^{-x^2}  dx
     \]%%%%%%%%%%
     \begin{align*}
-      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+      e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!} \quad \given \forall x
       && \text{Use relevant \ulink{ss:Taylor Series}{Maclaurin series}} \\
-      \then f(x) &= e^{-x^2} =  \sum_{n=0}^{\infty} \frac{(-x^2)^n}{n!}  \\
+      \\
+      \then f(x) = e^{-x^2} &=  \sum_{n=0}^{\infty} \frac{(-x^2)^n}{n!}  \\
                  &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!}
-                 && \given \forall x \in \R\\
+                 && \given \forall x\\
       \\
       \then \int_{0}^{1} e^{-x^2}  dx
        &= \int_{0}^{1} \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{n!} dx \\
@@ -168,13 +176,40 @@ quizzes, but will be duplicated here.
   \item Find the parametric equations for the following curves.
     \begin{enumerate}[itemsep=16em]
       \item The line through \((3,6)\) and \((-2, 0)\).
+        \begin{align*}
+          &P(-2,0), \quad Q(3, 6) \\
+          &\then m = \frac{y_Q - y_P}{x_Q - x_P}  = \frac{6-0}{3+2} = \frac{6}{5} \\
+          &\then y = m (x-x_P) + y_P = \frac{6}{5}(x+2) + 0 = \frac{6}{5}x + \frac{12}{5}\\
+          &\begin{cases}
+            x = t \\
+            y = \frac{6}{5}x + \frac{12}{5}
+          \end{cases}\\
+          &\then \aset{\boxed{c(t) = \left( t, \frac{6}{5}t + \frac{12}{5}\right)}}
+        \end{align*}
 
+      \vspace{-13em}
       \item The circle of radius \(5\) centered at \((1,7)\).
+        \begin{align*}
+          c(t) &= (a + R \cos \theta , b + R \sin \theta) \quad
+          \given \text{ \ulink{s:Parametric Equations Notes}{Parametrization of a circle} }\\
+          \\
+          \then c(t) &= (1 + 5 \cos \theta, 7 + 5 \sin \theta) \in \left[ 0, 2\pi \right)
+        \end{align*}
 
+      \vspace{-10em}
       \item The ellipse
         \[%%%%%%%%%%
           \left( \frac{x-1}{2} \right)^2 + \left(\frac{y+1}{3}\right)^2 = 1
         \]%%%%%%%%%%
+        \begin{align*}
+          c(\theta) &= (a \cos \theta , b \sin \theta)
+                    && \text{ \ulink{s:Parametric Equations Notes}{Parametrization of a ellipse} }\\
+                    \\
+          c(\theta) &= (2 \cos \theta, 3 \sin \theta)
+                    && \given \left( \frac{x}{2} \right)^2 + \left( \frac{y}{3} \right)^2 = 1 \\
+          c(\theta) &= \aset{\boxed{(1 + 2 \cos \theta, -1 + 3 \sin \theta)}}
+                    && \given \left( \frac{x-1}{2} \right)^2 + \left( \frac{y+1}{3} \right)^2 = 1
+        \end{align*}
     \end{enumerate}
 
 %%%%%%%%%%%%%
@@ -186,15 +221,22 @@ quizzes, but will be duplicated here.
     x = \sin (2t) + \cos (t), \quad y = \cos (2t) - \sin (t), \qquad \given t
     = \pi
     \]%%%%%%%%%%
+    \begin{align*}
+      \frac{dy}{dx} &= \frac{y'(t)}{x'(t)} \quad \given x'(t) \neq 0
+     &&\text{\ulink{s:Parametric Equations Notes}{Slope of a tangent line}} \\
+     \\
+     &\then \frac{dy}{dx} = \frac{-2\sin(2t) - \cos t}{2\cos(2t) - \sin t} \\
+     &\then m = \frac{dy}{dx} \bigg|_{t=\pi} = \frac{0 - (-1)}{2 - 0} = \frac{1}{2}\\
+     \\
+     &\then \aset{\boxed{y - 1 = \frac{1}{2}(x+1)}}
+      && c(\pi) = (-1, 1)\\
+    \end{align*}
 
-%%%%%%%%%%%%%
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
-
-\item Find the arc length of the curve
-  \[%%%%%%%%%%
-  x = \frac{2}{3}t^2, \quad y = t^2 - 2, \qquad \given 0 \leq t \leq 2
-  \]%%%%%%%%%%
+  \vspace{3em}
+  \item Find the arc length of the curve
+    \[%%%%%%%%%%
+      x = \frac{2}{3}t^2, \quad y = t^2 - 2, \qquad \given 0 \leq t \leq 2
+    \]%%%%%%%%%%
 
 
 %%%%%%%%%%%%%
@@ -235,7 +277,7 @@ quizzes, but will be duplicated here.
 
   \item Find the area enclosed by one loop of the curve
     \[%%%%%%%%%%
-    r^2 \cos 2\theta
+    r^2 = \cos 2\theta
     \]%%%%%%%%%%
 
 \end{enumerate}
