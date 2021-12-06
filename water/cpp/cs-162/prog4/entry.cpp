@@ -1,7 +1,7 @@
 // ┌─┐┌┐┌┌┬┐┬─┐┬ ┬
 // ├┤ │││ │ ├┬┘└┬┘
 // └─┘┘└┘ ┴ ┴└─ ┴
-// cullyn --- cs162 --- program 4
+// cullyn --- cs162 --- program 5
 // Purpose: this file implements the class entry methods, used for manipulation
 // of each specific syntax entry.
 
@@ -22,9 +22,9 @@ entry::entry() {
 
 // destructor
 entry::~entry() {
-  if (name) delete [] name;
-  if (description) delete [] description;
-  if (example) delete [] example;
+  delete [] name;
+  delete [] description;
+  delete [] example;
   used = false;
   difficulty = 0;
 }
@@ -137,7 +137,6 @@ void entry::write() {
     out_file.close();
     out_file.clear();
 }
-
 
 
 // compare.. Compares a query with data member, given a selection option from

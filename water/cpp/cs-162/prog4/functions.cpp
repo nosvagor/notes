@@ -1,7 +1,7 @@
 // ┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 // ├┤ │ │││││   │ ││ ││││└─┐
 // └  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘└─┘
-// cullyn --- cs162 --- program 4
+// cullyn --- cs162 --- program 5
 // Purpose: implementation of core functions of the program, does not include
 // class methods, see classes.cpp.
 
@@ -107,7 +107,7 @@ void file_reset() {
 }
 
 
-// save write data to the main external file (CURRENT) by traversing the LLL.
+// save write data to the main external file (CURRENT) by traversing
 void save(node *& head) {
 
   if (!head) return;

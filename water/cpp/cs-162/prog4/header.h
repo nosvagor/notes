@@ -35,9 +35,9 @@ class entry {
     void write();
     bool compare(char query[SIZE], int search_select);
     void edit();
+    char * name;
 
   private:
-    char * name;
     char * description;
     char * example;
     bool used;
@@ -52,7 +52,7 @@ struct node {
 class list {
   public:
     list();
-    void build(node *& head, node *& tail, ifstream & in_file);
+    void build(node *& head, ifstream & in_file);
     void destroy(node *& head);
     ~list();
 
@@ -60,14 +60,9 @@ class list {
     void display_all(node *& head);
     int search(char query[SIZE], node *& head, int search_select);
     void edit(char name[SIZE], node *& head);
-
-    // void sort(node *& head); // for program 5
+    void sort(node *& head);
 
     node *head;
-    node *tail;
-
-  private:
-    // might move nodes and some functions to private in a refactor.
 };
 
 // UTILITY FUNCTIONS

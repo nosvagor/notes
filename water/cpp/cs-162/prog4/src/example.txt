@@ -1,2 +1,2 @@
-while|a repeated expression until the conditional statement becomes false.|while (condition) {cout << "still true";}|1|2
 for loop|essential a while loop, but with ability to set an init statement|for (int i = 0; i < 10; ++i) {cout << i << ",";}|1|3
+while|a repeated expression until the conditional statement becomes false.|while (condition) {cout << "still true";}|1|2

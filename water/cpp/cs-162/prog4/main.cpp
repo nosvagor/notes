@@ -1,7 +1,7 @@
 // ╔╦╗┌─┐┬┌┐┌
 // ║║║├─┤││││
 // ╩ ╩┴ ┴┴┘└┘
-// cullyn --- cs162 --- program 4
+// cullyn --- cs162 --- program 5
 // Purpose: file containing int main(). Switch statement used for menu options
 // that will allow user to navigate the program. Initial list of syntax entries
 // will be built from an external file, and stored as a linear linked list of
@@ -10,13 +10,6 @@
 // A temporary list can be updated with manual user input, or from an external
 // file. This temporary list will update the main list if desired, which will
 // write data to the external file that is used to build the main list.
-
-// NOTES:
-// Upon completing the program, I realized making two separate lists was
-// probably not the best approach. Interesting exercise, but could be done
-// better I suppose. I know this assignment is about creating a dynamically
-// allocated array of syntax items, not a LLL, but I did this is in program 3
-// and didn't want to do the exact same thing again.
 
 
 //             o  o  O  O  0 0
@@ -38,7 +31,7 @@ int main() {
   // Overall, it takes data from an external and builds main list.
   ifstream in_file;
   in_file.open(CURRENT);
-  syntax.build(syntax.head, syntax.tail, in_file);
+  syntax.build(syntax.head, in_file);
   in_file.close();
   in_file.clear();
   // }
@@ -164,37 +157,37 @@ int main() {
 
       //=====================================================================//
       case 6:  // EDIT an entry in TEMPORARY list ---------------------------//
+        {
         // Same as case 5, but for temporary list.
-        do {
-          if (!syntax_temp.head) {
-            cout << "\nWARNING: nothing to edit." << endl;
-            break;
-          }
+        if (!syntax_temp.head) {
+          cout << "\nWARNING: nothing to edit." << endl;
+          break;
+        }
 
-          char name[SIZE];
-          int matches {0};
+        char name[SIZE];
+        int matches {0};
 
-          cout << "\nName of entry to edit: ";
-          cin.get(name, SIZE, '\n');
-          cin.clear();
-          cin.ignore(SIZE, '\n');
+        cout << "\nName of entry to edit: ";
+        cin.get(name, SIZE, '\n');
+        cin.clear();
+        cin.ignore(SIZE, '\n');
 
-          matches = syntax_temp.search(name, syntax_temp.head, 1);
+        matches = syntax_temp.search(name, syntax_temp.head, 1);
 
-          if (matches == 0) {
-            cout << "\nWARNING: no match found." << endl;
-            break;
-          }
+        if (matches == 0) {
+          cout << "\nWARNING: no match found." << endl;
+          break;
+        }
 
-          if (matches > 1)
-            cout << "\nWARNING: duplicate matches. Editing first match."
-                 << endl;
+        if (matches > 1)
+          cout << "\nWARNING: duplicate matches. Editing first match."
+            << endl;
 
-          syntax_temp.edit(name, syntax_temp.head);
-          cout << "\nEdit complete! --- ";
-        } while (yes_no("Edit another entry?"));
+        syntax_temp.edit(name, syntax_temp.head);
+        cout << "\nEdit complete! --- ";
 
         return_to_menu();
+        }
         break; // -----------------------------------------------------------//
       //=====================================================================//
 
@@ -220,7 +213,7 @@ int main() {
         new (& syntax) list;
 
         in_file.open(CURRENT);
-        syntax.build(syntax.head, syntax.tail, in_file);
+        syntax.build(syntax.head, in_file);
         in_file.close();
         in_file.clear();
         // }
@@ -235,7 +228,6 @@ int main() {
 
       //=====================================================================//
       case 8:  // UPDATE TEMP list with new input (manual or auto) ----------//
-
         cout << endl;
         if (yes_no("Manual entry?")) {
           // insert new entry at end of LLL
@@ -265,7 +257,7 @@ int main() {
           }
 
           // build new list once file is opened and valid
-          syntax_temp.build(syntax_temp.head, syntax_temp.tail, in_file);
+          syntax_temp.build(syntax_temp.head, in_file);
           in_file.close();
           in_file.clear();
         }
@@ -297,7 +289,7 @@ int main() {
           new (& syntax) list;
 
           in_file.open(CURRENT);
-          syntax.build(syntax.head, syntax.tail, in_file);
+          syntax.build(syntax.head, in_file);
           in_file.close();
           in_file.clear();
         }
@@ -318,7 +310,7 @@ int main() {
             save(syntax_temp.head);
             cout << "\nFiles updated!" << endl;
 
-            // delete allocated memory... Is this necessary?
+            // delete allocated memory.
             syntax_temp.destroy(syntax_temp.head);
             syntax_temp.~list();
             syntax.destroy(syntax.head);

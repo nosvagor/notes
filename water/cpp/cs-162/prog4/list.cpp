@@ -1,7 +1,7 @@
 // ┬  ┬┌─┐┌┬┐
 // │  │└─┐ │
 // ┴─┘┴└─┘ ┴
-// cullyn --- cs162 --- program 4
+// cullyn --- cs162 --- program 5
 // Purpose: this file implements the class list methods, used for for managing
 // the list of syntax entries)
 
@@ -16,12 +16,11 @@
 // constructor
 list::list() {
   head = NULL;
-  tail = NULL;
 }
 
 
 // automatic build using external file
-void list::build(node *& head, node *& tail, ifstream & in_file) {
+void list::build(node *& head, ifstream & in_file) {
 
   // continue to append new nodes while each new line in read in.
   while (!in_file.eof()) {
@@ -31,9 +30,7 @@ void list::build(node *& head, node *& tail, ifstream & in_file) {
       head->next = NULL;
     }
 
-    // tail not used in this program at the moment, but was planning to use.
-    if (!in_file.eof()) tail = head;
-    build(head->next, tail, in_file);
+    build(head->next, in_file);
   }
 }
 
@@ -48,14 +45,13 @@ void list::destroy(node *& head) {
     delete head;
   } else {
     destroy(head->next);
+    head = NULL;
+    delete head;
   }
 }
-
-
 // destructor (do I need this?)
 list::~list() {
   head = NULL;
-  tail = NULL;
 }
 //===========================================================================//
 
@@ -86,6 +82,7 @@ void list::insert(node *& head) {
   if (yes_no("\nEntries exist. Add another entry?")) insert(head->next);
 
 }
+
 
 
 // display_all displays data of each syntax entry in the entire LLL.
@@ -137,4 +134,6 @@ void list::edit(char name[SIZE], node *& head) {
 
   return;
 }
+
+
 //===========================================================================//
