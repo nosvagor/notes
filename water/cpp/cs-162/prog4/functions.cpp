@@ -129,13 +129,7 @@ void greeting() {
     << endl;
 
   cout
-    << "This program keep track of useful syntax, providing a short description,\n"
-    << "example, difficulty level (1--10), and whether or not you've used it.\n"
-    << endl;
-
-  cout
-    << "Menu options will be provided to navigate the functionality of this program.\n"
-    << "Further prompts may be provided, depending on selection."
+    << "My best attempt at translating to program 5 from my improperly made program 4.\n"
     << endl;
 }
 
@@ -151,16 +145,16 @@ void menu_greeting() {
     << endl;
 
   cout
-    << "[1] DISPLAY existing entries [SORTED]\t"
-    << "[2] DISPLAY new entries [SORTED]\n"
+    << "[1] DISPLAY existing [SORTED, task 4]\t"
+    << "[2] DISPLAY existing entries [!SORTED]\n"
     << "[3] SEARCH existing syntax entries\t"
-    << "[4] SEARCH new syntax entries \n"
+    << "[4] DISPLAY new syntax entries [!SORTED] \n"
     << "[5] EDIT an existing syntax entry\t"
     << "[6] EDIT a new syntax entry\n"
     << "[7] ADD new entries to existing\t\t"
-    << "[8] [MANUAL INSERT] (auto removed)\n"
-    << "[9] Reset\t\t\t\t"
-    << "[0] Quit\n"
+    << "[8] [MANUAL INSERT] (recursively, task 3)\n"
+    << "[9] Reset [TASK 5]\t\t\t"
+    << "[0] Quit [TASK 5]\n"
     << "=========================================================================="
     << endl << endl;
 }

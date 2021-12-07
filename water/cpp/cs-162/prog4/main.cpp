@@ -47,36 +47,43 @@ int main() {
     selection = menu(0, 9, 1);
     switch (selection) {
       //=====================================================================//
-      case 1:  // DISPLAY ALL entries in MAIN list --------------------------//
-        {
-          bool sorted = false;
-          while (!sorted) {
-            sorted = syntax.sort(syntax.head);
-          }
-          syntax.display_all(syntax.head);
-        }
+      case 1:  // DISPLAY SORTED entries in main list --------------------------//
+
+        // I couldn't figure out how to get my recursive bubble sort to
+        // continue to loop until it was done. I tried various while loops,
+        // modification of referenced variables to indicate completion, and
+        // other various misc attempts. Thus, I just call it about 20 times...
+        // hoping the list is short. This works using the example files supply,
+        // but will break if manual too many iterations are needed.
+        //
+        // I know this is not ideal, but implementing sort on a LLL is way out
+        // of my depth, tried my best here.
+        for (int i = 0; i < 20; ++i) syntax.sort(syntax.head);
+        syntax.display_all(syntax.head);
         return_to_menu();
         break; // -----------------------------------------------------------//
       //=====================================================================//
 
 
       //=====================================================================//
-      case 2:  // DISPLAY ALL entries in TEMPORARY list ---------------------//
-        // check to make sure there is anything to display, since temp might be
-        // empty.
-        if (!syntax_temp.head) {
-          cout << "\nWARNING: nothing to display." << endl;
-          return_to_menu();
-          break;
-        }
+      case 2:  // DISPLAY UNSORTED entries in main list ---------------------//
 
-        syntax_temp.sort(syntax_temp.head);
-        syntax_temp.display_all(syntax_temp.head);
+        // Reset main entries LLL using external file, returning to unsorted
+        // order {
+        syntax.destroy(syntax.head); // delete dynamically allocated entries.
+        syntax.~list();
+        new (& syntax) list;
 
-        syntax_temp.display_all(syntax_temp.head);
+        in_file.open(CURRENT);
+        syntax.build(syntax.head, in_file); // rebuild from external file.
+        in_file.close();
+        in_file.clear();
+        // }
+
+        syntax.display_all(syntax.head);
         return_to_menu();
         break; // -----------------------------------------------------------//
-      //=====================================================================//
+        //=====================================================================//
 
 
       //=====================================================================//
@@ -104,31 +111,15 @@ int main() {
 
 
       //=====================================================================//
-      case 4:  // SEARCH TEMPORARY list -------------------------------------//
-        // Same thing as case 3, but takes into account temp list might be
-        // empty.
+      case 4:  // DISPLAY TEMPORARY list -------------------------------------//
         if (!syntax_temp.head) {
-          cout << "\nWARNING: nothing to search." << endl;
+          cout << "\nWARNING: nothing display." << endl;
           return_to_menu();
           break;
         }
 
-        {
-          int search_select = 0;
-          char query[SIZE];
-          int matches {0};
-
-          search_select = menu(1,2,2);
-
-          cout << "\nSearch query: ";
-          cin.get(query, SIZE, '\n');
-          cin.clear();
-          cin.ignore(SIZE, '\n');
-
-          matches = syntax_temp.search(query, syntax_temp.head, search_select);
-          cout << "\nSearch complete --- total matches: " << matches << endl;
-          return_to_menu();
-        }
+        syntax_temp.display_all(syntax_temp.head);
+        return_to_menu();
         break; // -----------------------------------------------------------//
       //=====================================================================//
 
@@ -243,9 +234,6 @@ int main() {
       //=====================================================================//
 
 
-      // ┌─┐┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ┌─┐┬┬  ┬┌─┐
-      // ├─┘├┬┘│ ││ ┬├┬┘├─┤│││  ├┤ │└┐┌┘├┤
-      // ┴  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴  └  ┴ └┘ └─┘
       //=====================================================================//
       case 8:  //  ----------//
         {

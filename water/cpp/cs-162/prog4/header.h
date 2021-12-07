@@ -61,7 +61,7 @@ class list {
     int search(char query[SIZE], node *& head, int search_select);
     void edit(char name[SIZE], node *& head);
     bool swap(node *& head);
-    bool sort(node *& head);
+    void sort(node *& head);
 
     node *head;
 };

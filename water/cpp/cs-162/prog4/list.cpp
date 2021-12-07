@@ -86,19 +86,24 @@ void list::insert(node *& head, bool &another) {
   insert(head->next, another);
 }
 
+
+// ============================================================================
+// ┌─┐┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ┌─┐┬┬  ┬┌─┐  ┌─┐┌─┐┌┐┌┌┬┐┌─┐┌┐┌┌┬┐
+// ├─┘├┬┘│ ││ ┬├┬┘├─┤│││  ├┤ │└┐┌┘├┤   │  │ ││││ │ ├┤ │││ │
+// ┴  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴  └  ┴ └┘ └─┘  └─┘└─┘┘└┘ ┴ └─┘┘└┘ ┴
+
+// primitive attempt at swapping nodes. Couldn't figure out how to swap them,
+// so i swapped the data instead. I know this is not ideal, but it worked, ish.
 bool list::swap(node *& head) {
 
   bool swap = false;
+
   if (head->data.name[0] > head->next->data.name[0]) swap = true;
 
   if (swap) {
     node *temp = new node;
     temp->data = head->data;
 
-    head->data.display();
-    head->next->data.display();
-
-    cout << "\nSwapping: " <<swap << endl;
     head->data = head->next->data;
     head->next->data = temp->data;
 
@@ -109,22 +114,33 @@ bool list::swap(node *& head) {
   return swap;
 }
 
+// primitive attempt at a recursive bubble sort. I think the way I implemented
+// has even worse time-space complexity, but I tried... I failed to get it to
+// restart once an entry is sorted, so I just call it several times in main.
+void list::sort(node *& head) {
 
-bool list::sort(node *& head) {
-  if (!head || !head->next) return false;
+  // check to see if list is empty, or if end of list is reached. If end of
+  // list is reached, it signals the entry has been sorted.
+  if (!head || !head->next->data.name) return;
 
   bool swapped = false;
 
-  if (!swapped)  swapped = swap(head);
+  // check to see if elements need to be swapped, return true if the were.
+  swapped = swap(head);
 
-  swapped = sort(head->next);
+  // restart sorting from beginning if element is swapped. (bubbling)
+  if (swapped) {
+    sort(head);
+    return;
+  }
 
-  cout << "SORTED?: "<< swapped << endl;
+  // if element is not swapped, then continue to check next two elements.
+  if (head->next) sort(head->next);
 
-  if (swapped) swapped = sort(head->next);
-
-  return swapped;
+  return;
 }
+
+//=============================================================================
 
 // display_all displays data of each syntax entry in the entire LLL.
 void list::display_all(node *& head) {
