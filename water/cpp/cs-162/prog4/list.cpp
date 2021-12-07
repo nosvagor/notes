@@ -40,7 +40,7 @@ void list::destroy(node *& head) {
   if (!head) return;
 
   if (!head->next) {
-    head->data.~entry();
+    head->data.~entry(); // delete dynamically allocated memory of each entry
     head = NULL;
     delete head;
   } else {
@@ -63,7 +63,7 @@ list::~list() {
 
 
 // insert inserts a new entry class object and end of a LLL via manual entry.
-void list::insert(node *& head) {
+void list::insert(node *& head, bool &another) {
 
   // signals end of LLL.
   if (!head) {
@@ -74,16 +74,57 @@ void list::insert(node *& head) {
 
   // traverse until the end of LLL is reached.
   if (head->next) {
-    insert(head->next);
+    insert(head->next, another);
     return;
   }
 
-  // prompt to continue manual entries, if desired.
-  if (yes_no("\nEntries exist. Add another entry?")) insert(head->next);
+  // end recursion if answer is no.
+  another = yes_no("\nAdd another entry?");
+  if (!another) return;
 
+  // continue adding new nodes
+  insert(head->next, another);
+}
+
+bool list::swap(node *& head) {
+
+  bool swap = false;
+  if (head->data.name[0] > head->next->data.name[0]) swap = true;
+
+  if (swap) {
+    node *temp = new node;
+    temp->data = head->data;
+
+    head->data.display();
+    head->next->data.display();
+
+    cout << "\nSwapping: " <<swap << endl;
+    head->data = head->next->data;
+    head->next->data = temp->data;
+
+    temp = NULL;
+    delete temp;
+  }
+
+  return swap;
 }
 
 
+bool list::sort(node *& head) {
+  if (!head || !head->next) return false;
+
+  bool swapped = false;
+
+  if (!swapped)  swapped = swap(head);
+
+  swapped = sort(head->next);
+
+  cout << "SORTED?: "<< swapped << endl;
+
+  if (swapped) swapped = sort(head->next);
+
+  return swapped;
+}
 
 // display_all displays data of each syntax entry in the entire LLL.
 void list::display_all(node *& head) {
@@ -92,7 +133,6 @@ void list::display_all(node *& head) {
 
   head->data.display();
   display_all(head->next);
-
 }
 
 

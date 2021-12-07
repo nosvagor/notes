@@ -151,14 +151,14 @@ void menu_greeting() {
     << endl;
 
   cout
-    << "[1] DISPLAY existing syntax entries\t"
-    << "[2] DISPLAY new syntax entries\n"
+    << "[1] DISPLAY existing entries [SORTED]\t"
+    << "[2] DISPLAY new entries [SORTED]\n"
     << "[3] SEARCH existing syntax entries\t"
     << "[4] SEARCH new syntax entries \n"
     << "[5] EDIT an existing syntax entry\t"
     << "[6] EDIT a new syntax entry\n"
     << "[7] ADD new entries to existing\t\t"
-    << "[8] ADD new entries (manual/auto)\n"
+    << "[8] [MANUAL INSERT] (auto removed)\n"
     << "[9] Reset\t\t\t\t"
     << "[0] Quit\n"
     << "=========================================================================="

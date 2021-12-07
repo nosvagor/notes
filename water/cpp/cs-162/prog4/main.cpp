@@ -48,7 +48,13 @@ int main() {
     switch (selection) {
       //=====================================================================//
       case 1:  // DISPLAY ALL entries in MAIN list --------------------------//
-        syntax.display_all(syntax.head);
+        {
+          bool sorted = false;
+          while (!sorted) {
+            sorted = syntax.sort(syntax.head);
+          }
+          syntax.display_all(syntax.head);
+        }
         return_to_menu();
         break; // -----------------------------------------------------------//
       //=====================================================================//
@@ -56,6 +62,17 @@ int main() {
 
       //=====================================================================//
       case 2:  // DISPLAY ALL entries in TEMPORARY list ---------------------//
+        // check to make sure there is anything to display, since temp might be
+        // empty.
+        if (!syntax_temp.head) {
+          cout << "\nWARNING: nothing to display." << endl;
+          return_to_menu();
+          break;
+        }
+
+        syntax_temp.sort(syntax_temp.head);
+        syntax_temp.display_all(syntax_temp.head);
+
         syntax_temp.display_all(syntax_temp.head);
         return_to_menu();
         break; // -----------------------------------------------------------//
@@ -121,7 +138,7 @@ int main() {
         // Another placed where inability to pass list as argument in function
         // failed me. Cases 5 and 6 are essentially the same, but for different
         // LLL.
-        do {
+        {
           if (!syntax.head) {
             cout << "\nWARNING: nothing to edit." << endl;
             break;
@@ -147,9 +164,8 @@ int main() {
                  << endl;
 
           syntax.edit(name, syntax.head);
-          cout << "\nEdit complete! --- ";
-        } while (yes_no("Edit another entry?"));
-
+          cout << "\nEdit complete!" << endl;
+        }
         return_to_menu();
         break; // -----------------------------------------------------------//
         //=====================================================================//
@@ -161,6 +177,7 @@ int main() {
         // Same as case 5, but for temporary list.
         if (!syntax_temp.head) {
           cout << "\nWARNING: nothing to edit." << endl;
+          return_to_menu();
           break;
         }
 
@@ -226,47 +243,20 @@ int main() {
       //=====================================================================//
 
 
+      // ┌─┐┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐  ┌─┐┬┬  ┬┌─┐
+      // ├─┘├┬┘│ ││ ┬├┬┘├─┤│││  ├┤ │└┐┌┘├┤
+      // ┴  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴  └  ┴ └┘ └─┘
       //=====================================================================//
-      case 8:  // UPDATE TEMP list with new input (manual or auto) ----------//
-        cout << endl;
-        if (yes_no("Manual entry?")) {
+      case 8:  //  ----------//
+        {
+          cout << "\nManual entry, adding to temporary list..." << endl;
           // insert new entry at end of LLL
-          syntax_temp.insert(syntax_temp.head);
-        } else {
+          bool another = true;
 
-          // string used for path to supplied external file.. if used.
-          char file_path[SIZE];
-          ifstream in_file;
+          syntax_temp.insert(syntax_temp.head, another);
 
-          // loads an external example file, simulating new data entries.
-          cout << endl;
-          if (yes_no("Automatic entry: use example file?")) {
-            in_file.open(EXAMPLE);
-          } else {
-            cout << "File path: ";
-            cin.get(file_path, SIZE, '\n');
-            cin.clear();
-            cin.ignore(SIZE, '\n');
-            in_file.open(file_path);
-
-            if (!in_file) {
-              cout << "WARNING: Unable to read file." << endl;
-              return_to_menu();
-              break;
-            }
-          }
-
-          // build new list once file is opened and valid
-          syntax_temp.build(syntax_temp.head, in_file);
-          in_file.close();
-          in_file.clear();
+          return_to_menu();
         }
-
-        cout << endl;
-        if (yes_no("New entries added; display new entries list now?"))
-          syntax_temp.display_all(syntax_temp.head);
-
-        return_to_menu();
         break; // -----------------------------------------------------------//
       //=====================================================================//
 
@@ -274,17 +264,17 @@ int main() {
       //=====================================================================//
       case 9:  // RESET -----------------------------------------------------//
 
-        //reset temp file {
+        //reset temp file and temp list {
         syntax_temp.destroy(syntax_temp.head);
         syntax_temp.~list();
         new (& syntax_temp) list;
         // }
 
-        // self explanatory...
+        // reset main list with backup of original main list
         if (yes_no("\nReset current file with original list?")) {
 
           file_reset();
-          syntax.destroy(syntax.head);
+          syntax.destroy(syntax.head); // delete dynamically allocated entries.
           syntax.~list();
           new (& syntax) list;
 
