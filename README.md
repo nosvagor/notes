@@ -1,59 +1,40 @@
 #### Introduction
 
-I, admittedly, am probably not using this repository as it's intended to be
-used. I'm taking steps to hopefully create a collaborative workflow of some
-kind that could enable others to work with me, but I doubt anything of the
-sorts will actually happen. Regardless, I definitely leverage the psychological
-motivation that GitHub's contribution tracker provides, so I have continued to
-attempt to push most learning related tasks here.
+I, admittedly, am not using this repository as it's intended to be used. Regardless, I
+definitely leverage the psychological motivation that GitHub's contribution
+tracker provides, so I have continued to attempt to push most learning related
+tasks here.
 
-I'm somewhat enamored with, or rather, persuaded by David Deutsch's arguments
-from his books [_The Fabric of
+I find David Deutsch's arguments (from [_The Fabric of
 Reality_](https://en.wikipedia.org/wiki/The_Fabric_of_Reality) and [_The
 Beginning of
-Infinity_](https://en.wikipedia.org/wiki/The_Beginning_of_Infinity), so I have
-incorporated a architectural scheme to organize my interests that plays on the
-four strands from his first book, a favorite show of mine, and a nod to
-ancient philosophy in general.
-
+Infinity_](https://en.wikipedia.org/wiki/The_Beginning_of_Infinity)) well
+reasoned, so I have incorporated a architectural scheme to organize my
+interests that plays on arguments from his first book, a favorite show
+of mine, and a nod to ancient philosophy in general.
 
 <p align="center">
 <kbd>
   computation
   <br><br>
   <a href=water/ title="computation (water)"><img width="150" src="assets/images/water.jpg" alt="water"></a>
-  <br><br>
-  computer science
 </kbd>
 <kbd>
   evolution
   <br><br>
   <a href=earth/ title="evolution (earth)"><img width="150" src="assets/images/earth.jpg" alt="earth"></a>
-  <br><br>
-  biology, chemistry
 </kbd>
 <kbd>
   mathematics
   <br><br>
   <a href=fire/ title="mathematics (fire)"><img width="150" src="assets/images/fire.jpg" alt="fire"></a>
-  <br><br>
-  pure, applied
 </kbd>
 <kbd>
   epistemology
   <br><br>
   <a href=air/ title="epistemology (air)"><img width="150" src="assets/images/air.jpg" alt="air"></a>
-  <br><br>
-  philosophy, misc
 </kbd>
 </p>
-
-Most previous learning of mine was centered around biology (my first
-bachelor's), some of that content can and be found in [an archived
-version](https://github.com/nosvagor/notes-old) of this repository. I intend to
-revisit subjects in philosophy and biology in greater depth, but for now my
-interest is elsewhere; most content will probably be computer science
-and math related for the foreseeable future.
 
 <h1 align="center">🏛️ University Resources 🏛️</h1>
 <p align="center">
