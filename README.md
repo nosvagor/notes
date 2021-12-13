@@ -1,12 +1,30 @@
 <h1 align="center">🌲🏛️ University Resources 🏛️🌲</h1>
 <p align="center">
 <kbd>
-  <img width="512" src=".assets/images/psu.jpg">
+  <img width="512" src=".assets/images/prior.jpg">
 </kbd>
+
+<tr>
+    <td>
+      <p align="center">
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
+        </a>
+        &nbsp;
+        &nbsp;
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/mth-261.pdf"> 📓 <strong>Linear Algebra</strong>
+        </a>
+        &nbsp;
+        &nbsp;
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/statistics.pdf">📓 <strong>Statistics</strong>
+        </a>
+      </p>
+    </td>
+  </tr>
 </p>
 
+<br>
 
-<h2 align="center">❄️  Winter 2022 ❄️</h2>
+<h3 align="center">❄️  Winter 2022 ❄️</h3>
 <table align="center">
   <tr>
     <td align="center"><strong><a href="water/python/mth-371/">mathematical<br>computing</a></strong></td>
@@ -23,38 +41,7 @@
 </table>
 
 <br>
-
-<table align="center">
-  <tr>
-    <th>
-      <h2 align="center">🎓 Prior Notes 🎓 </h4>
-    </th>
-  </tr>
-  <tr>
-    <td>
-      <p align='center'>
-        <br>
-        <img width="324" src=".assets/images/prior.jpg">
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p align="center">
-        <br>
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
-        </a>
-        <br>
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/mth-261.pdf"> 📓 <strong>Linear Algebra</strong>
-        </a>
-        &nbsp;
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/statistics.pdf">📓 <strong>Statistics</strong>
-        </a>
-      </p>
-    </td>
-  </tr>
-</table>
-
+<br>
 
 <h1 align="center">🌐 Turing-Complete 🌐</h1>
 
@@ -71,7 +58,7 @@
     <td align="center"><strong><a href="solidity/">solidity</a></strong></td>
     <td align="center"><strong><a href="go/">go</a></strong></td>
     <td align="center"><strong><a href="python/">python</a></strong></td>
-    <td align="center"><strong><a href="lua/">lua</a></strong></td>
+    <td align="center"><strong><a href="bash/">bash</a></strong></td>
   </tr>
   <tr>
     <td align="center"><a href="rust/"><img src=".assets/images/rust.ico"></a></td>
@@ -79,6 +66,6 @@
     <td align="center"><a href="solidity/"><img src=".assets/images/solidity.ico"></a></td>
     <td align="center"><a href="go/"><img src=".assets/images/go.ico"></a></td>
     <td align="center"><a href="python/"><img src=".assets/images/python.ico"></a></td>
-    <td align="center"><a href="lua/"><img src=".assets/images/lua.ico"></a></td>
+    <td align="center"><a href="bash/"><img src=".assets/images/bash.ico"></a></td>
   </tr>
 </table>
