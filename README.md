@@ -1,4 +1,4 @@
-<h1 align="center">🌲🏛️ University Resources 🏛️🌲</h1>
+<h1 align="center">🌲🏛️ Resources 🏛️🌲</h1>
 <p align="center">
 <kbd>
   <img width="512" src=".assets/images/prior.jpg">
@@ -7,11 +7,11 @@
 <tr>
     <td>
       <p align="center">
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/ch-335.pdf">📓 <strong>Organic Chemistry II</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/oragnic-chemistry-II.pdf">📓 <strong>Organic Chemistry II</strong>
         </a>
         &nbsp;
         &nbsp;
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/mth-261.pdf"> 📓 <strong>Linear Algebra</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/linear-algebra.pdf"> 📓 <strong>Linear Algebra</strong>
         </a>
         &nbsp;
         &nbsp;
@@ -27,16 +27,16 @@
 <h3 align="center">❄️  Winter 2022 ❄️</h3>
 <table align="center">
   <tr>
-    <td align="center"><strong><a href="water/python/mth-371/">mathematical<br>computing</a></strong></td>
-    <td align="center"><strong><a href="fire/statstics/stat-361/">statistical <br> methods</a></strong></td>
+    <td align="center"><strong><a href="python/mth-371/">mathematical<br>computing</a></strong></td>
+    <td align="center"><strong><a href="python/stat-361/">statistical <br> methods</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="water/python/mth-371/"><img src=".assets/images/applied.ico"></a></td>
-    <td align="center"><a href="fire/statistics/stat-361/"><img src=".assets/images/stat.ico"></a></td>
+    <td align="center"><a href="python/mth-371/"><img src=".assets/images/applied.ico"></a></td>
+    <td align="center"><a href="python/stat-361/"><img src=".assets/images/stat.ico"></a></td>
   </tr>
   <tr>
-    <td align="center"><strong><a href="water/python/mth-371/">MTH: 371</a></strong></td>
-    <td align="center"><strong><a href="fire/statistics/stat-361/">STAT: 361</a></strong></td>
+    <td align="center"><strong><a href="python/mth-371/">MTH: 371</a></strong></td>
+    <td align="center"><strong><a href="/stat-361/">STAT: 361</a></strong></td>
   </tr>
 </table>
 
