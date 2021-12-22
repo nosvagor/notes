@@ -1,0 +1,127 @@
+%  ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ █████╗ ███╗   ██╗██████╗ ███████╗
+% ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝
+% ██║     ██║   ██║██╔████╔██║██╔████╔██║███████║██╔██╗ ██║██║  ██║███████╗
+% ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
+% ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
+%  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+%  →-.   →  .-'.   →  .--.   →  .--.   →  .--.   →  .-→
+% →::.\::::::::.\::::::::.\::::::::.\::::::::.\:::::::→→ →
+% → →:.\:::: https://github.com/nosvagor/notes \:::→→ →  →  →
+% →::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::→  →
+%   → →   `--'  →   `.-'  →   `--'  →   `--'  →   `--' →  →
+
+% ╔═╗┌─┐┬  ┌─┐┬─┐┌─┐
+% ║  │ ││  │ │├┬┘└─┐
+% ╚═╝└─┘┴─┘└─┘┴└─└─┘
+\newcommand{\minimal}[1]{{\color{foreground-3}{#1}}}
+\newcommand{\minor}[1]{{\color{foreground-2}{#1}}}
+\newcommand{\context}[1]{{\color{foreground-1}{#1}}}
+\newcommand{\fg}[1]{{\color{foreground}{#1}}}
+\newcommand{\bright}[1]{{\color{foreground+1}{#1}}}
+
+\newcommand{\dark}[1]{{\color{background-1}{#1}}}
+\newcommand{\bg}[1]{{\color{foreground}{#1}}}
+\newcommand{\faint}[1]{{\color{background+1}{#1}}}
+
+\newcommand{\3}[1]{{\color{primary-2}{#1}}}
+\newcommand{\2}[1]{{\color{primary-1}{#1}}}
+\newcommand{\1}[1]{{\color{primary}{#1}}}
+
+\newcommand{\aset}[1]{{\color{accent}{#1}}}
+\newcommand{\aseg}[1]{{\color{accent-alt}{#1}}}
+
+\newcommand{\RR}[1]{{\color{red}{#1}}}
+\newcommand{\RRR}[1]{{\color{red+1}{#1}}}
+
+\newcommand{\OO}[1]{{\color{orange}{#1}}}
+\newcommand{\OOO}[1]{{\color{orange+1}{#1}}}
+
+\newcommand{\YY}[1]{{\color{yellow}{#1}}}
+\newcommand{\YYY}[1]{{\color{yellow+1}{#1}}}
+
+\newcommand{\GG}[1]{{\color{green}{#1}}}
+\newcommand{\GGG}[1]{{\color{green+1}{#1}}}
+
+\newcommand{\CC}[1]{{\color{cyan}{#1}}}
+\newcommand{\CCC}[1]{{\color{cyan+1}{#1}}}
+
+\newcommand{\BB}[1]{{\color{blue}{#1}}}
+\newcommand{\BBB}[1]{{\color{blue+1}{#1}}}
+
+\newcommand{\MM}[1]{{\color{magenta}{#1}}}
+\newcommand{\MMM}[1]{{\color{magenta+1}{#1}}}
+
+\newcommand{\PP}[1]{{\color{pink}{#1}}}
+\newcommand{\PPP}[1]{{\color{pink+1}{#1}}}
+
+% ╦  ┬┌┐┌┬┌─┌─┐
+% ║  ││││├┴┐└─┐
+% ╩═╝┴┘└┘┴ ┴└─┘
+
+\newcommand{\ulink}[2]{%
+  \hyperref[#1]{{\color{link-internal}{#2}\small\(\,^\uparrow\)}\hspace{-3pt}}
+}
+
+\newcommand{\dlink}[2]{%
+  \hyperref[#1]{{\color{link-internal}{#2}\small\(\,^\downarrow\)}\hspace{-3pt}}
+}
+
+\newcommand{\src}[1]{
+  {\vspace{-6pt}\color{link-external}{{\footnotesize\faGlobe}}}{\small{#1}}
+  \vspace{4pt}
+}
+
+\newcommand{\linkpy}[1]{
+  \href{https://github.com/nosvagor/notes/blob/main/fire/linear/mth-343/#1.py}
+  {\color{link-external}{{#1}\(\,^\text{\,\faPython}\)}}
+}
+
+\newcommand{\link}[2]{
+  \href{#1}{\color{link-external}{{#2}\small\(\,^\text{\faChain}\)}}
+}
+
+\newcommand{\linky}[2]{
+  \href{#1}{\color{link-external}{{#2}\small\(\,^\text{\,\faYoutubePlay}\)}}
+}
+
+\newcommand{\linkpdf}[3]{
+  \href{#1}{\color{link-external}#2 {{(#3)}\small\(~^\text{\faBook}\)}}
+}
+  \newcommand{\thomas}[1]{%
+    \linkpdf{https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981}
+    {Thomas}
+    {#1}
+  }
+  \newcommand{\rogawski}[1]{%
+    \linkpdf{https://www.amazon.com/Calculus-Jon-Rogawski/dp/1319050735}
+    {Rogawski}
+    {#1}
+  }
+
+
+% ╔╦╗┌─┐─┐ ┬┌┬┐
+%  ║ ├┤ ┌┴┬┘ │
+%  ╩ └─┘┴ └─ ┴
+
+% Definition
+\newcommand{\dd}[1]{{\color{primary-2}{\textbf{#1}}}}
+
+% Inline context
+\newcommand{\prn}[1]{\context{(#1)}}
+
+% Unsure*<?>
+\newcommand{\maybe}[1]{{\color{accent-alt}#1\(^\text{?}\)}}
+
+% Custom AND/OR notation
+\newcommand{\pand}[2]{\TT{\left\{ \fg{#1} \land \fg{#2} \right\}}}
+\newcommand{\por}[2]{\PPP{\left\{ \fg{#1} \lor \fg{#2} \right\}}}
+
+% Boolean
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{56}\,}
+
+\newcommand{\TT}[1]{{\color{cyan+1}{#1}}}
+\newcommand{\FF}[1]{{\color{pink+1}{#1}}}
+
+\newcommand{\true}[1]{\TT{\cmark~#1}}
+\newcommand{\false}[1]{\FF{\xmark#1}}
