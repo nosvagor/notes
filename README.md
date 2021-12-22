@@ -7,7 +7,7 @@
 <tr>
     <td>
       <p align="center">
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/oragnic-chemistry-II.pdf">📓 <strong>Organic Chemistry II</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/o-chem-II.pdf">📓 <strong>Organic Chemistry II</strong>
         </a>
         &nbsp;
         &nbsp;
