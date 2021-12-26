@@ -7,7 +7,7 @@
 <tr>
     <td>
       <p align="center">
-        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/o-chem-II.pdf">📓 <strong>Organic Chemistry II</strong>
+        <a href="http://raw.githubusercontent.com/nosvagor/notes/master/.assets/prior/o-chemistry-II.pdf">📓 <strong>Organic Chemistry II</strong>
         </a>
         &nbsp;
         &nbsp;
@@ -29,14 +29,17 @@
   <tr>
     <td align="center"><strong><a href="python/mth-371/">mathematical<br>computing</a></strong></td>
     <td align="center"><strong><a href="python/stat-361/">statistical <br> methods</a></strong></td>
+    <td align="center"><strong><a href="python/cs-250/">discrete <br> structures</a></strong></td>
   </tr>
   <tr>
     <td align="center"><a href="python/mth-371/"><img src=".assets/images/applied.ico"></a></td>
     <td align="center"><a href="python/stat-361/"><img src=".assets/images/stat.ico"></a></td>
+    <td align="center"><a href="python/cs-250/"><img src=".assets/images/discrete.ico"></a></td>
   </tr>
   <tr>
     <td align="center"><strong><a href="python/mth-371/">MTH: 371</a></strong></td>
-    <td align="center"><strong><a href="/stat-361/">STAT: 361</a></strong></td>
+    <td align="center"><strong><a href="python/stat-361/">STAT: 361</a></strong></td>
+    <td align="center"><strong><a href="python/cs-250/">CS: 250</a></strong></td>
   </tr>
 </table>
 
