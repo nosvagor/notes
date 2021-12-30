@@ -27,7 +27,7 @@
 <h3 align="center">❄️  Winter 2022 ❄️</h3>
 <table align="center">
   <tr>
-    <td align="center"><strong><a href="python/mth-371/">mathematical<br>computing</a></strong></td>
+    <td align="center"><strong><a href="python/mth-371/">large-scale<br>data algos</a></strong></td>
     <td align="center"><strong><a href="python/stat-361/">statistical <br> methods</a></strong></td>
     <td align="center"><strong><a href="python/cs-250/">discrete <br> structures</a></strong></td>
   </tr>
