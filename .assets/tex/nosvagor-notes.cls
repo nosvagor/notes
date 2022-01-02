@@ -260,17 +260,6 @@
 % ╔═╗┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 % ║ ║├─┘ │ ││ ││││└─┐
 % ╚═╝┴   ┴ ┴└─┘┘└┘└─┘
-\DeclareOption{assignment}{
-  \pagestyle{fancy}
-  \lhead{\userName}
-  \chead{\textsc{\theTitle}}
-  \rhead{\today}
-  \cfoot{\textsc{\institution}}
-  \rfoot{\thepage}
-  \lfoot{\class}
-}
-
-
 \DeclareOption{basic} {
 
 \definecolor{darkblue}{HTML}{1d2c6d}
@@ -319,7 +308,7 @@
 \pagecolor{white}
 \color{black}
 
-\renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle\vspace{-12pt}}
+\renewcommand{\contentsname}{\color{title-color}\hspace{2pt}\theTitle}
 
 \renewcommand{\dd}[1]{{\color{darkblue}{\textbf{#1}}}}
 \renewcommand{\2}[1]{{\color{darkblue}{#1}}}
@@ -357,5 +346,27 @@
 \setlist[itemize,3]{label=\small{\textbullet}}
 
 }
+
+\DeclareOption{header}{
+
+  \topmargin = -62pt
+  \headsep = 25pt
+  \textheight = 770pt
+  \renewcommand{\headrulewidth}{0.25pt}
+
+  \titlecontents{section}[0.809 em
+  {\color{darkblue!60!black}\bfseries\vspace{3pt}}
+  {}{}
+  {\hfill\contentspage}
+
+  \pagestyle{fancy}
+  \lhead{\userName}
+  \chead{\textsc{\theTitle}}
+  \rhead{\today}
+  \cfoot{\textsc{\institution}}
+  \rfoot{\thepage}
+  \lfoot{\class}
+}
+
 
 \ProcessOptions\relax
