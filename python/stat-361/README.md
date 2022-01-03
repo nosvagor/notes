@@ -69,4 +69,4 @@
   </tr>
 </table>
 
-<h4 align="center">Monday, March 14: Final Exam (weeks 5-10)</h4>
+<h4 align="center">Monday, March 14: Final Exam (weeks 5&ndash;10)</h4>

@@ -341,6 +341,7 @@
 {}{0pt}{}
 
 
+\setlist[itemize,enumerate]{leftmargin=\dimexpr2.5em}
 \setlist[itemize,1]{label=\raisebox{1pt}{\small\(\bullet\)}}
 \setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
 \setlist[itemize,3]{label=\small{\textbullet}}
@@ -349,9 +350,9 @@
 
 \DeclareOption{header}{
 
-  \topmargin = -62pt
+  \topmargin = -56pt
   \headsep = 25pt
-  \textheight = 770pt
+  \textheight = 758pt
   \renewcommand{\headrulewidth}{0.25pt}
 
   \titlecontents{section}[0.809 em
