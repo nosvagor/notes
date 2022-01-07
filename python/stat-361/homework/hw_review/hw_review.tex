@@ -13,24 +13,55 @@
 
 \begin{document}
 
-\section{Part 1}
-\begin{enumerate}[label=(\alph*)]
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-  \item
-
+\section{Part 1: Evaluate}
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+  \item \(7! = 7 \cdot 6 \cdot 5 \ldots \cdot 1 = 5040 \)
+  \item \(\displaystyle \sum_{x=1}^{20} x = 1 + 2 + 3 + \ldots + 20 = 210 \)
+  \item \(\displaystyle \sum_{i=1}^{20} w = 20w \)
+  \item \(\displaystyle \sum_{x=1}^{3} \left[cx^3 + 1\right] = (c+1) + (c8 + 1) + (c 27 + 1) = 36c +3\)
+  \item Expand \((x+4)^2 \to (x^2+8x + 16)\)
+  \item Expand \((x-4)^2 \to (x^2-8x + 16)\)
+  \item If \(\displaystyle f(x) =
+    \begin{cases}
+      \frac{1}{8} : x = 0,3 \\
+      \frac{3}{8} : x = 1,2 \\
+      0 : ~\text{otherwise}~
+    \end{cases}
+    \), then compute the following:
+    \begin{enumerate}[label=(\roman*)]
+      \item \(\displaystyle \sum_{\forall x} \left[ x f(x) \right] = 3\cdot\frac{1}{8} + 2\cdot \frac{3}{8} + \frac{3}{8} = \frac{12}{8} = \frac{3}{2}\)
+      \item \(\displaystyle \sum_{\forall x} \left[ (x-1.5)^2 f(x) \right] =
+        (-1.5)^2\frac{1}{8} + (-0.5)^2\frac{3}{8} + (0.5)^2\frac{3}{8} + (1.5)^2\frac{1}{8} =
+        \frac{3}{4}\)
+    \end{enumerate}
+  \item \(\displaystyle \int_{0}^{1} x~dx = \frac{x^2}{2} \bigg|_{0}^{1} = \frac{1}{2} - 0 = \frac{1}{2} \)
+  \item \(\displaystyle \int_{1}^{3} x^2 ~dx = \frac{x^3}{3} \bigg|_{1}^{3}
+        = 9 - \frac{1}{3} = \frac{26}{3}
+    \)
+  \item \(\displaystyle \int_{0}^{1} (x^3 + 1)dx = \frac{x^4}{4} \bigg|_{0}^{1} + x \bigg|_{0}^{1}   = \frac{1}{4} + 1 = \frac{5}{4} \)
+  \item \(\displaystyle \int_{0}^{\infty} \left[ ke^{-\frac{x}{3}}  \right] dx
+      = k \int_{0}^{\infty} e^{-\frac{x}{3}} dx
+      = -3ke^{-\frac{x}{3}} \bigg|_{0}^{\infty} = 0 - (-3k) = 3k
+      \)
+    \item If \(\displaystyle f(x) =
+    \begin{cases}
+      \frac{x^2}{3} : -1 < x < 2 \\
+      0 : ~\text{otherwise}~
+    \end{cases}
+    \) , then compute the following:
+    \begin{enumerate}[label=(\roman*)]
+      \item \(\displaystyle \int_{-\infty}^{\infty} \left[ xf(x) \right] dx
+          = \int_{-1}^{2} \frac{x^3}{3} dx = \frac{1}{3} \int_{-1}^{2} x^3 dx= \frac{1}{3} \cdot \frac{x^4}{4}\bigg|_{-1}^{2}
+          = \frac{1}{3} \cdot \frac{15}{4} = \frac{5}{4}
+          \)
+      \item \(\displaystyle \int_{-\infty}^{\infty} \left[ x^2f(x) \right] dx
+          = \int_{-1}^{2} \frac{x^4}{3} dx = \frac{1}{3} \int_{-1}^{2} x^4 dx= \frac{1}{3} \cdot \frac{x^5}{5}\bigg|_{-1}^{2}
+          = \frac{1}{3} \cdot \frac{33}{5} = \frac{11}{5}
+          \)
+    \end{enumerate}
 \end{enumerate}
 
-\section{Part 2}
+\section{Part 2: Sketch}
 \begin{enumerate}[label=(\alph*)]
   \item
   \item

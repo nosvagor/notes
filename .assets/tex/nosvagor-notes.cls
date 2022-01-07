@@ -321,6 +321,7 @@
   \setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
   \setlist[itemize,3]{label=\small{\textbullet}}
 
+  \setlist[itemize,enumerate]{leftmargin=\dimexpr1em}
 }
 
 \DeclareOption{header}{
