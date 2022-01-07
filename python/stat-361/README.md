@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td align="center">1</td>
-    <td align="center">Review Homework</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw_review/hw_review.pdf">Homework Review</a></td>
   </tr>
   <tr>
     <td align="center">2</td>

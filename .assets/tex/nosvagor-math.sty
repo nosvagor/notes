@@ -18,8 +18,10 @@
 % ╚  └─┘┴└─┴ ┴┴ ┴ ┴  ┴ ┴┘└┘└─┘
 \RequirePackage{
   mathtools, amssymb, bm, relsize, esvect,tikz,tikz-cd, array,marvosym,
-  etoolbox, mathdots,
+  etoolbox, mathdots, pgfplots
 }
+
+  \pgfplotsset{compat=newest}
 
   \apptocmd{\lim}{\limits}{}{}
 
