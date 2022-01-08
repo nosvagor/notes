@@ -1,0 +1,98 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{\href{https://github.com/nosvagor/notes}{Homework 1}}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{CS-250}
+\newcommand{\institution}{Portland State}
+
+% blatantly stolen from MIT resources for teachers.
+% lets me set up +*- equations easily
+\newcommand\divi[2]{
+    \texttt{#1} \: \begin{array}{|l}
+        \hline \texttt{#2}
+\end{array}
+}
+\newcommand\mult[2]{
+$\begin{array}{rr}
+   & \texttt{#1} \\
+    \times & \texttt{#2} \\ \hline
+ \end{array}$}
+
+\newcommand\addi[2]{
+  $\begin{array}{rr}
+      &  \texttt{#1} \\
+      + & \texttt{#2} \\ \hline
+  \end{array}$}
+\newcommand\subt[2]{
+  $\begin{array}{rr}
+      & \texttt{#1} \\
+      - & \texttt{#2} \\ \hline
+  \end{array}$}
+\newcommand\answ[1]{\texttt{#1}\,\,}
+
+\begin{document}
+
+\begin{enumerate}
+  \item Fill in the following table of numbers in decimal, binary, octal, and
+    hexadecimal.
+
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{r|c||cccc}
+        \toprule
+        base        & example &            \\
+        \midrule
+        decimal     &      10 & 256         &         512 & 32           &    \BB{512} \\
+        binary      &   b1010 & b10000000   & b1000000000 & \BB{b100000} & b1000000000 \\
+        octal       &     o12 & o400        &  \BB{o1000} & o40          &       o1000 \\
+        hexadecimal &     0xA & \BB{0x100}  &       0x200 & 0x20         &       0x200 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    note: why are there duplicate columns?
+
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{r|c||cccc}
+        \toprule
+         base       & example &                  \\
+        \midrule
+        decimal     &      10 & 31582             &            153 & 196       &              \BB{65535} \\
+        binary      &   b1010 & b111101101011110  & \BB{b10011001} & b11000100 & b1\ldots1 (\(2^{16} \)) \\
+        octal       &     o12 & \BB{o75536}       &              o231 & o304         &                 o177777 \\
+        hexadecimal &     0xA & 0x7B5E            &           0x99 & \BB{0xC4} &                  0xFFFF \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    note: I used expansion steps in a calculator, e.g., o75536:
+    \[%%%%%%%%%%
+      7\cdot8^4 + 5\cdot8^3 + 5\cdot 8^2 + 3\cdot 8^1 + 6 = 31582
+    \]%%%%%%%%%%
+    but then on then it got tedious rather than insightful, so then I used python.
+
+  \vspace{2em}
+
+  \item Complete the following:
+
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{rrr}
+      \addi{0x189}{0x345}   & \addi{b1010010100}{b0101101011} & \addi{o743}{o265} \\
+                            &              \answ{b1111111111} &                   \\
+                            &                                 &                   \\
+      \addi{0xDEAD}{0xBEEF} &          \addi{b1111111111}{b1} & \addi{o100}{o777} \\
+                            &             \answ{b10000000000} &                   \\
+                            &                                 &                   \\
+      \mult{0x89}{0xAB}     & \mult{b0111111111}{b1000000001} & \mult{o74}{o26}   \\
+                            &             \answ{b10000000000} &                   \\
+    \end{tabular}
+  \end{table}
+
+\end{enumerate}
+
+\end{document}
