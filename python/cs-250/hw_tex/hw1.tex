@@ -35,7 +35,7 @@ $\begin{array}{rr}
 
 \begin{document}
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=2em]
   \item Fill in the following table of numbers in decimal, binary, octal, and
     hexadecimal.
 
@@ -73,25 +73,58 @@ $\begin{array}{rr}
     \[%%%%%%%%%%
       7\cdot8^4 + 5\cdot8^3 + 5\cdot 8^2 + 3\cdot 8^1 + 6 = 31582
     \]%%%%%%%%%%
-    but then on then it got tedious rather than insightful, so then I used python.
+    but then it got tedious rather than insightful, so then I used python.
 
-  \vspace{2em}
 
-  \item Complete the following:
+  \item Complete the following:  \prn{A:10,B:11,C:12,D:13,E:14,F:15}
 
   \begin{table}[h]
     \centering
     \begin{tabular}{rrr}
-      \addi{0x189}{0x345}   & \addi{b1010010100}{b0101101011} & \addi{o743}{o265} \\
-                            &              \answ{b1111111111} &                   \\
-                            &                                 &                   \\
-      \addi{0xDEAD}{0xBEEF} &          \addi{b1111111111}{b1} & \addi{o100}{o777} \\
-                            &             \answ{b10000000000} &                   \\
-                            &                                 &                   \\
-      \mult{0x89}{0xAB}     & \mult{b0111111111}{b1000000001} & \mult{o74}{o26}   \\
-                            &             \answ{b10000000000} &                   \\
+      \addi{0x189}{0x345}   &         \addi{b1010010100}{b0101101011} & \addi{o743}{o265} \\
+      \answ{0x4CE}          &                      \answ{b1111111111} & \answ{o1230}      \\
+                            &                                         &                   \\
+      \addi{0xDEAD}{0xBEEF} &                  \addi{b1111111111}{b1} & \addi{o100}{o777} \\
+       \answ{0x19D9C}       &                     \answ{b10000000000} & \answ{o1077}      \\
+                            &                                         &                   \\
+      \mult{0x89}{0xAB}     &         \mult{b0111111111}{b1000000001} & \mult{o74}{o26}   \\
+        \answ{0x5B83}       & \addi{b1000000000}{b111111110000000000} & \answ{o2450}      \\
+                            &              \answ{b111111111111111111} &                   \\
     \end{tabular}
   \end{table}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Compute the following sets. The universe for all of these sets is \tbm{Z},
+  \tbm{P} is the set of prime numbers, \tbm{E} is the set of even numbers, and \tbm{O} is the set of odd numbers.
+  \begin{enumerate}
+    \item \(\{1,2,3,5,8,13,21,35\} \cup \{2,3,5,7,11,13,17,19\} = \)
+    \item \(\{1,2,3,5,8,13,21,35\} \cap \{2,3,5,7,11,13,17,19\} = \)
+    \item \(\bm{E} \cap \bm{O} = \)
+    \item \(\bm{P} \cap \bm{E} = \)
+    \item \(\bm{N}^{'} = \)
+    \item \(\bm{E}^{'} \cap \bm{O}^{'} = \)
+    \item \(\{x : y \in \bm{N}, x = y^2\} \cap \{x : y \in \bm{N}, x = y^3\} = \)
+    \item \(P\left(\{1,2,3\}\right) \cap P\left(\{2,3,4\}\right) = \)
+  \end{enumerate}
+
+  \item Give the truth tables for the following. Which are tautologies, and which
+  are satisfiable?
+  \begin{enumerate}
+    \item \(a \land (b \lor a)\)
+    \item \((a \land b) \lor (a \land b) \)
+
+    \item \(a \lor \lnot a\)
+
+    \item \(\lnot (a \lor b)\)
+
+    \item \(\lnot a \land (\lnot b)\)
+
+    \item \(\lnot a \land (\lnot b \lor c)\)
+
+  \end{enumerate}
 
 \end{enumerate}
 
