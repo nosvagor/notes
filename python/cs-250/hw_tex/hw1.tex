@@ -5,8 +5,11 @@
 \newcommand{\theTitle}{\href{https://github.com/nosvagor/notes}{Homework 1}}
 
 \newcommand{\userName}{Cullyn Newman}
-\newcommand{\class}{CS-250}
+\newcommand{\class}{CS: 250}
 \newcommand{\institution}{Portland State}
+
+\usepackage{circuitikz}
+\tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
 
 % blatantly stolen from MIT resources for teachers.
 % lets me set up +*- equations easily
@@ -100,32 +103,195 @@ $\begin{array}{rr}
   \item Compute the following sets. The universe for all of these sets is \tbm{Z},
   \tbm{P} is the set of prime numbers, \tbm{E} is the set of even numbers, and \tbm{O} is the set of odd numbers.
   \begin{enumerate}
-    \item \(\{1,2,3,5,8,13,21,35\} \cup \{2,3,5,7,11,13,17,19\} = \)
-    \item \(\{1,2,3,5,8,13,21,35\} \cap \{2,3,5,7,11,13,17,19\} = \)
-    \item \(\bm{E} \cap \bm{O} = \)
-    \item \(\bm{P} \cap \bm{E} = \)
-    \item \(\bm{N}^{'} = \)
-    \item \(\bm{E}^{'} \cap \bm{O}^{'} = \)
-    \item \(\{x : y \in \bm{N}, x = y^2\} \cap \{x : y \in \bm{N}, x = y^3\} = \)
-    \item \(P\left(\{1,2,3\}\right) \cap P\left(\{2,3,4\}\right) = \)
+    \item \(\{1,2,3,5,8,13,21,35\} \cup \{2,3,5,7,11,13,17,19\}
+      = \left\{ 1,2,3,5,7,8,11,13,17,19,21,35 \right\}
+      \)
+    \item \(\{1,2,3,5,8,13,21,35\} \cap \{2,3,5,7,11,13,17,19\}
+      = \left\{ 2,3,5,13 \right\}
+      \)
+    \item \(\bm{E} \cap \bm{O} = \nil \)
+    \item \(\bm{P} \cap \bm{E} = \left\{ x \in \bm{P} : x \in \bm{E} \right\} \)
+    \item \(\bm{N}^{'} = \bm{N} \) \prn{\tbm{N} has not been defined?, assuming \(\N\)}
+    \item \(\bm{E}^{'} \cap \bm{O}^{'} = \nil \)
+    \item \(\{x : y \in \bm{N}, x = y^2\} \cap \{x : y \in \bm{N}, x = y^3\}
+      = \left\{0, 1 \right\}
+      \)
+    \item \(P\left(\{1,2,3\}\right) \cap P\left(\{2,3,4\}\right) =
+      \left\{ \nil, \left\{ 1 \right\}, \left\{ 2 \right\}, \left\{ 3 \right\},  \left\{ 2,3 \right\}    \right\} \)
   \end{enumerate}
 
   \item Give the truth tables for the following. Which are tautologies, and which
   are satisfiable?
+  \begin{multicols}{2}
   \begin{enumerate}
-    \item \(a \land (b \lor a)\)
-    \item \((a \land b) \lor (a \land b) \)
+    \item \(a \land (b \lor a)\) ; \textbf{satisfiable}
+      \[%%%%%%%%%%
+        \begin{array}{|ll|c|c|}
+          \hline
+          a & b & (b \lor a)  & (a)\\
+          \hline
+          1 & 1 & 1 & 1 \\
+          1 & 0 & 1 & 1 \\
+          0 & 1 & 1 & 0 \\
+          0 & 0 & 0 & 0 \\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
 
-    \item \(a \lor \lnot a\)
 
-    \item \(\lnot (a \lor b)\)
+    \item \((a \land b) \lor (a \land a) \) ; \textbf{satisfiable}
 
-    \item \(\lnot a \land (\lnot b)\)
+      \[%%%%%%%%%%
+        \begin{array}{|ll|c|c|}
+          \hline
+          a & b & (a \land b) & (b) \\
+          \hline
+          1 & 1 & 1 & 1 \\
+          1 & 0 & 0 & 1 \\
+          0 & 1 & 0 & 0 \\
+          0 & 0 & 0 & 0 \\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
 
-    \item \(\lnot a \land (\lnot b \lor c)\)
+    \item \(a \lor \lnot a\) ; \textbf{tautology}
+      \[%%%%%%%%%%
+        \begin{array}{|ll|c|}
+          \hline
+            a & \lnot a & (c) \\
+          \hline
+            1 & 0 & 1 \\
+            1 & 0 & 1 \\
+            0 & 1 & 1 \\
+            0 & 1 & 1 \\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
+
+    \item \(\lnot (a \lor b)\) ; \textbf{satisfiable}
+      \[%%%%%%%%%%
+        \begin{array}{|ll|c|}
+          \hline
+            a & b & (d) \\
+          \hline
+            1 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
+
+    \item \((\lnot a) \land (\lnot b)\) ; \textbf{satisfiable}
+      \[%%%%%%%%%%
+        \begin{array}{|ll|c|}
+          \hline
+            \lnot a & \lnot b & (e) \\
+          \hline
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            1 & 1 & 1 \\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
+
+    \item \(\lnot a \land (\lnot b \lor c)\) ; \textbf{satisfiable}
+      \[%%%%%%%%%%
+        \begin{array}{|ccc|c|c|c|}
+          \hline
+          a & b & c & \lnot a & \lnot b \lor c & (f)\\
+          \hline
+          1 & 1 & 1 & 0 & 1 & 0\\
+          1 & 1 & 0 & 0 & 0 & 0\\
+          1 & 0 & 1 & 0 & 1 & 0\\
+          1 & 0 & 0 & 0 & 1 & 0\\
+          0 & 1 & 1 & 1 & 1 & 1\\
+          0 & 1 & 0 & 1 & 0 & 0\\
+          0 & 0 & 1 & 1 & 1 & 1\\
+          0 & 0 & 0 & 1 & 1 & 1\\
+          \hline
+        \end{array}
+      \]%%%%%%%%%%
 
   \end{enumerate}
+  \end{multicols}
+\item Now we're going to learn how to add with logic. Instead of thinking of
+  using logic with true and false \(\left(\top ~\text{or}~ \bot\right)\), let's
+  use 1 and 0. This yields the following truth table and circuit:
 
+  \begin{center}
+      \(
+      \begin{array}{|ll|c|}
+        \hline
+        a & b & (a \lor b)\\
+        \hline
+        1 & 1 & 1 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 0 \\
+        \hline
+      \end{array}
+      \)
+
+      \begin{circuitikz}
+        \node (x) at (0, 1) {$a$};
+        \node (y) at (0, 0) {$b$};
+        \node[or port, draw] at (2,.5) (xory) {};
+        \draw (x) -- (xory.in 1);
+        \draw (y) -- (xory.in 2);
+        \node (y) at (2.65, .5) {$a \lor b$};
+      \end{circuitikz}
+  \end{center}
+
+    Now we're going to add 2 1-bit numbers, but there's a problem: adding 2
+    1-bit numbers might give us a two bit answer. Thus, we’ll break the into
+    two problems the bit on the right will be the sum bit \(s\), and the bit on the
+    left will be the carry bit \(c\), .e.g,
+    \[%%%%%%%%%%
+      b_1 + b_2 = cs
+    \]%%%%%%%%%%
+
+    \begin{enumerate}
+      \item give the truth table for the \textit{sum} bit \(\rotatebox[origin=c]{270}{\Rsh}\)
+      \item give the truth table for the \textit{carry} bit \(\rotatebox[origin=c]{270}{\Rsh}\)
+        \[%%%%%%%%%%
+          \begin{array}{|ll||c|c|}
+            \hline
+            b_1 & b_2 & c & s \\
+            \hline
+            1 & 1 & 1 & 0 \\
+            1 & 0 & 0 & 1 \\
+            0 & 1 & 0 & 1  \\
+            0 & 0 & 0 & 0  \\
+            \hline
+          \end{array}
+        \]%%%%%%%%%%
+      \item give the logical formulas for the sum and carry bits.
+        \[%%%%%%%%%%
+            b_1 \land b_2 \then c \qquad (b_1 \lor b_2) \land \lnot(b_1 \land b_2) ~\text{~i.e.,}~ \(b_1 \oplus b_2 \) \then s
+        \]%%%%%%%%%%
+      \item give a circuit representing a \textit{sum} gate. This gate should have 2
+        \(b_1, b_2\) inputs and 2 outputs \(s, c\)
+    \end{enumerate}
+    \begin{center}
+      \begin{circuitikz}
+        \node (b1) at (-2.5,0.3) {\(b_1\)};
+        \node (b2) at (-2.5,-0.2) {\(b_2\)};
+        \node (b1) at (-2.2,-0.7) {\(b_1\)};
+        \node (b2) at (-2.2,-1.3) {\(b_2\)};
+        \node (c) at (2.3,-1) {\(c\)};
+        \node (s) at (0.3,0) {\(s\)};
+        \draw (0,0) node[xor port](xor1) {}
+        (2,-1) node[and port] (and2) {}
+        (and2.in 2) -- +(-2.6,0)
+        (and2.in 1) -- +(-2.6,0)
+        (xor1.in 2) -- +(-0.8,0)
+        (xor1.in 1) -- +(-0.8,0);
+      \end{circuitikz}
+    \end{center}
+
+    note: I'm not familiar with circuitikz, I'm  not sure how to connect inputs.
 \end{enumerate}
 
 \end{document}

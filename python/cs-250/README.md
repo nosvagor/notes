@@ -32,7 +32,7 @@
     <td align="center">2</td>
     <td align="center">1,4,6,7,8</td>
     <td align="center">functions, relations, proofs</td>
-    <td align="center">tex-w1 | py-w1</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_tex/hw1.pdf">tex-w1</a> | <a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_python/hw1.py">py-w1</a></td>
   </tr>
   <tr>
     <td align="center">3</td>
