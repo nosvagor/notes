@@ -320,6 +320,8 @@
   \setlist[itemize,1]{label=\raisebox{1pt}{\small\(\bullet\)}}
   \setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
   \setlist[itemize,3]{label=\small{\textbullet}}
+
+  \setlist[itemize,enumerate]{leftmargin=\dimexpr2em}
 }
 
 \DeclareOption{header}{
