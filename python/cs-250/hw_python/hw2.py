@@ -5,10 +5,9 @@
 # Cullyn Newman
 # CS: 250
 
-# ┌─┐┌─┐┌┬┐┌─┐
-# └─┐├┤  │ └─┐
-# └─┘└─┘ ┴ └─┘
+# In this Python homework we're going to explore sets
 
+# We'll start with Sets.
 # In Python, we can make a set with curly braces
 # example
 s1 = {1, 2, 3}

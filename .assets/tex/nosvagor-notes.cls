@@ -290,6 +290,9 @@
   \renewcommand{\dd}[1]{{\color{darkblue}{\textbf{#1}}}}
   \renewcommand{\2}[1]{{\color{darkblue}{#1}}}
 
+  \colorlet{link-internal}{link-int}
+  \colorlet{link-external}{link-int}
+
   \titleformat{\chapter}
   {\LARGE\centering\bfseries\scshape\color{title-color}}{}{0pt}{}[]
 
@@ -321,7 +324,7 @@
   \setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
   \setlist[itemize,3]{label=\small{\textbullet}}
 
-  \setlist[itemize,enumerate]{leftmargin=\dimexpr2em}
+  \setlist[itemize,enumerate]{leftmargin=\dimexpr1.5em}
 }
 
 \DeclareOption{header}{

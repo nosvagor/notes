@@ -13,13 +13,139 @@
 
 \begin{document}
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=5em]
   \item Determine if the following are 1 to 1, onto, or total. Justify your answer.
-  \begin{enumerate}[leftmargin=2em]
+  \begin{enumerate}
     \item \(f : \R \to \R, \quad f(x) = \sin x\)
+      \begin{itemize}
+        \item
+      \end{itemize}
+
+    \item \(f : \R \to \R^+, \quad f(x) = \sqrt{x}\)
+      \begin{itemize}
+        \item
+      \end{itemize}
+    \item \(f : \R^+ \to \N, \quad f(x) = \sqrt{x}\)
+      \begin{itemize}
+        \item
+      \end{itemize}
+    \item \(f : \R \to \R^+, \quad f(x) = x^2\)
+      \begin{itemize}
+        \item
+      \end{itemize}
+    \item \(f : \R \to \R, \quad f(x) = x^3\)
+      \begin{itemize}
+        \item
+      \end{itemize}
 
   \end{enumerate}
 
-\end{enumerate}
+  \item Determine if the following relations are reflexive, symmetric,
+    antisymmetric, or  transitive. For this question $a,b \in \N$, $\frac p
+    q, \frac m n \in \Q$, and $s, t\in \Sigma^*$.
+    \begin{enumerate}
+      \item $a \sim b$ if $a + b = 10$
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+      \item $a \sim b$ if $a$ and $b$ are both even, or both odd.
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+      \item $\frac p q \sim \frac r s$ if $q \le s$
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+      \item if $s$ and $t$ are strings, then $s \sim t$ if $s = reverse(t)$
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+      \item $a \sim b$ if $b = c \cdot a$ for some $c$
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+      \item $a \sim b$ if $a^b = b^a$
+        \begin{itemize}
+          \item
+        \end{itemize}
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item Prove that if $f : B \to C$ is 1 to 1, and $g : A \to B$ is 1 to 1,
+      then $f \circ g$ is also 1 to 1.
+
+    \item Prove or disprove:
+      \begin{enumerate}
+        \item for any sets $A$ and $B$, $P(A\cap B) = P(A) \cap P(B)$
+
+        \item for any sets $A$ and $B$, $P(A\cup B) = P(A) \cup P(B)$
+
+      \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item DeMorgan's rule is a logical equivalence $(\lnot a) \lor (\lnot b) =
+      \lnot (a \lor b)$\\ You can verify this equivalence with a truth table.
+
+      Set theory also has a version of DeMorgan's rule. Let $A$ and $B$ be sets
+      in universe $U$. Prove that $A^{'} \cup B^{'} = (A \cap B)^{'}$
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item Mathologer is a YouTube channel that does videos illustrating math
+      concepts. He did a video on the fair division problem
+      \begin{center}
+        \linky{https://www.youtube.com/watch?v=7s-YM-ACME}{NWT: Spanner's lemma defeats the rental harmony problem}
+      \end{center}
+
+      It's an interesting proof about coloring triangles. Unfortunately, He
+      doesn't complete the proof. At about the 5 minute mark he says that
+      ``there will always be an odd number of doors at the bottom of the
+      triangle'',  but he never proves this. Show that there will always be an
+      odd number of doors on the bottom of the triangle.
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item In class I said that two functions were equal if they give the same
+      output for every input. So, if
+      \[f : A \to B ~\text{and}~ g : A \to B, ~\text{and}~ \forall x\in A,
+      f(x) = g(x)
+      \then f= g
+      \]
+      Show that this is actually an equivalence relation.
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item In a dictionary all of the words are arranged in a specific order.
+      ``a'', ``aardvark'', and so on.  This is called the dictionary order for
+      words.
+
+      Our ordering here is very simple.  Look at the first character of two
+      words $w_1$ and $w_2$.  If the first character of $w_1$ comes before
+      $w_2$ ($w_1[0] < w_2[0]$) then $w_1 < w_2$.
+
+      If the characters are equal, then we move on to the second character. We
+      continue this until we find a different character, or one of the words
+      ends. Show that this dictionary order is a partial order (reflexive,
+      antisymmetric, and transitive).
+
+  \end{enumerate}
 
 \end{document}

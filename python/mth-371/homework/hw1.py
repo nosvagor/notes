@@ -80,6 +80,8 @@ print(f"Matrix:\n {A}\n")
 
 p, L, U = lu(A)
 print(f"permutation: \n{p}\n")
+print(f"Lower matrix:\n {L}\n")
+
 x1 = solveLU(L, U, b, dense=True)
 x2 = np.linalg.solve(A, b)
 x3 = lu_solve(lu_factor(A), b)  # should be same as np.linalg.solve
@@ -104,7 +106,7 @@ for i in range(n):
 
 print("-" * 79)
 print(f"Matrix(dense):\n{A.todense()}\n")
-print(f"Matrix(csr):\n  (row, col)\t(data)\n\t\n{A}")
+print(f"Matrix(csc):\n  (row, col)\t(data)\n\t\n{A}")
 print("-" * 79, "\n")
 
 # A = read_data("data/25.txt")
