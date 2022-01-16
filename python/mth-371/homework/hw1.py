@@ -3,7 +3,7 @@ import pandas
 from scipy import stats
 from scipy.linalg import lu, lu_factor, lu_solve
 from scipy.sparse import csc_matrix, random
-from scipy.sparse.linalg import splu, spsolve, spsolve_triangular
+from scipy.sparse.linalg import splu
 
 
 def read_data(filepath):
@@ -70,28 +70,31 @@ def solveLU(L, U, b, dense=False, sparse=False):
 
 print("\n---DENSE---\n")
 
-np.random.seed(1123423)
-n = 4
-A = np.random.rand(n, n)
+np.random.seed(420)
+# n = 6
+# A = np.random.rand(n, n)
+
+n = 25
+A = read_data("data/25.txt").todense()
+
 b = np.random.rand(1, n)[0]
 
-
-print(f"Matrix:\n {A}\n")
+# print(f"Matrix:\n {A}\n")
 
 p, L, U = lu(A)
-print(f"permutation: \n{p}\n")
-print(f"Lower matrix:\n {L}\n")
+# print(f"permutation: \n{p}\n")
+# print(f"Lower matrix:\n {L}\n")
 
-x1 = solveLU(L, U, b, dense=True)
+x_custom = solveLU(L, U, b, dense=True)
 x2 = np.linalg.solve(A, b)
 x3 = lu_solve(lu_factor(A), b)  # should be same as np.linalg.solve
 
 print(f"given b: \n{b}\n")
-print(f"x(custom): \n{x1}\n")
+print(f"x(custom): \n{x_custom}\n")
 print(f"x_(np): \n{x2}\n")
 print(f"x_(scipy): \n{x3}\n")
-print(f"b_(A@x_custom): \n{A@x1}\n")
-print(f"b_(A@x_np): \n{A@x2}\n")
+print(f"b_(p@A@x_custom[reversed]): \n{(p@A@x_custom)[::-1]}\n")  # should be same as b
+print(f"b_(A@x_np): \n{A@x2}\n")  # should be same as b
 
 print("\n---SPARSE---\n")
 
@@ -105,9 +108,9 @@ for i in range(n):
     A[i, i] = D[i]
 
 print("-" * 79)
+print("# trying to understand csc/csr format\n")
 print(f"Matrix(dense):\n{A.todense()}\n")
-print(f"Matrix(csc):\n  (row, col)\t(data)\n\t\n{A}")
-print("-" * 79, "\n")
+print(f"Matrix(csc):\n  (row, col)\t(data)\t\n{A}\n")
 
 # A = read_data("data/25.txt")
 b = np.random.randint(1, 10, (n, 1))
@@ -115,6 +118,7 @@ B = splu(A)
 
 print(f"L(dense):\n{B.L.todense()}\n")
 print(f"U(dense):\n{B.U.todense()}\n")
+print("-" * 79, "\n")
 
 x_c = solveLU(B.L, B.U, b, sparse=True)
 x_s = B.solve(b)
