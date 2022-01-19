@@ -40,7 +40,7 @@
   </tr>
   <tr>
     <td align="center">Jan 17&ndash;19</td>
-    <td align="center">Homework 1</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw1.py">Homework 1</a></td>
   </tr>
   <tr>
     <td align="center">Jan 24&ndash;26</td>

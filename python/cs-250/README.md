@@ -38,13 +38,13 @@
     <td align="center">3</td>
     <td align="center">4</td>
     <td align="center">proofs, algos</td>
-    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_tex/hw2.pdf">pdf-w1</a> | <a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_python/hw1.py">py-w2</a></td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_tex/hw2.pdf">pdf-w2</a> | <a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_python/hw2.py">py-w2</a></td>
   </tr>
   <tr>
     <td align="center">4</td>
     <td align="center">4,7</td>
     <td align="center">algos, infinity</td>
-    <td align="center">pdf-w3 | py-w3</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_tex/hw3.pdf">pdf-w3</a> | <a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_python/hw3.py">py-w3</a></td>
   </tr>
   <tr>
     <td align="center">5</td>
