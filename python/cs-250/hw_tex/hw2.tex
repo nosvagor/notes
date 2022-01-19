@@ -136,7 +136,7 @@
 
       \item $s \sim t$ if $s = reverse(t)$
         \begin{itemize}
-          \item Reflexive: \false{false}: \(\text{hannah} \nsim \text{bob} \)
+          \item Reflexive: \true{true}: \(\forall s,t \in \Sigma^* s\sim s \land~ t \sim t\)
           \item Symmetric: \true{true}: \(\forall s,t \in \Sigma^*, \quad s \sim t \iff t \sim s\)
           \item Antisymmetric: \true{true}: \(\forall s,t \in \Sigma^*, \quad s\sim t, t\sim s \iff s = t\)
           \item Transitive: \true{true}: \(\forall s,t,w \in \Sigma^*, \quad  s \sim w \iff s = t = w\)
@@ -262,7 +262,7 @@
           \end{enumerate}
         \item Thus, max number of doors \(= 1 + 2n\) (always odd)
 
-        \item note: this proof inspired by Fiefo's YouTube comment, but I think I
+        \item note: this proof inspired by Fejfo's YouTube comment, but I think I
           made it more clear.
       \end{itemize}
 
