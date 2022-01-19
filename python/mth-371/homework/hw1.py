@@ -25,44 +25,20 @@ def LU_factor(sparse_matrix):
     return lu.L, lu.U
 
 
-def solveLU(L, U, b, dense=False, sparse=False):
+# Works on dense and sparse? Is there a difference?
+def solveLU(L, U, b):
     n, _ = np.shape(L)
     y = np.zeros(n)
     x = np.zeros(n)
 
-    if dense:
-        # forward sub
-        for i in range(n):
-            sumj = 0
-            for j in range(i):
-                sumj += L[i, j] * y[j]
-            y[i] = (b[i] - sumj) / L[i, i]
+    for i in range(n):
+        y[i] = (b[i] - np.sum(L[i, :i] * y[:i])) / L[i, i]
 
-        # backward sub
-        for i in range(n - 1, -1, -1):
-            sumj = 0
-            for j in range(i + 1, n):
-                sumj += U[i, j] * x[j]
-            x[i] = (y[i] - sumj) / U[i, i]
+    # backward sub
+    for i in range(n - 1, -1, -1):
+        x[i] = (y[i] - np.sum(U[i, i + 1 : n] * x[i + 1 : n])) / U[i, i]
 
-        return x
-
-    # Haven't adjusted for sparse, but below is same as dense using slices.
-    # Np.sum(slice * x[i+1:n]) is essentially second for loop
-    if sparse:
-        # forward sub
-        for i in range(n):
-            y[i] = (b[i] - np.sum(L[i, :i] * y[:i])) / L[i, i]
-
-        # backward sub
-        for i in range(n - 1, -1, -1):
-            x[i] = (y[i] - np.sum(U[i, i + 1 : n] * x[i + 1 : n])) / U[i, i]
-
-        return x
-
-    else:
-        print("Please select sparse or dense matrix")
-        return b
+    return np.array(x)
 
 
 ###############################################################################
@@ -71,60 +47,56 @@ def solveLU(L, U, b, dense=False, sparse=False):
 print("\n---DENSE---\n")
 
 np.random.seed(420)
-# n = 6
-# A = np.random.rand(n, n)
 
+# # Load external data
+A = read_data("data/25.txt")
 n = 25
-A = read_data("data/25.txt").todense()
 
-b = np.random.rand(1, n)[0]
+b = np.random.rand(n, 1)
 
-# print(f"Matrix:\n {A}\n")
+# Decomposition into L, U
+L, U = LU_factor(A)
 
-p, L, U = lu(A)
-# print(f"permutation: \n{p}\n")
-# print(f"Lower matrix:\n {L}\n")
+# Back to dense for comparison
+A = A.todense()
 
-x_custom = solveLU(L, U, b, dense=True)
-x2 = np.linalg.solve(A, b)
-x3 = lu_solve(lu_factor(A), b)  # should be same as np.linalg.solve
+x_custom = solveLU(L, U, b)
+x_np = np.linalg.solve(A, b)
+x_scipy = lu_solve(lu_factor(A), b)  # should be same as np.linalg.solve
 
-print(f"given b: \n{b}\n")
+print(f"given b: \n{b.T}\n")
 print(f"x(custom): \n{x_custom}\n")
-print(f"x_(np): \n{x2}\n")
-print(f"x_(scipy): \n{x3}\n")
-print(f"b_(p@A@x_custom[reversed]): \n{(p@A@x_custom)[::-1]}\n")  # should be same as b
-print(f"b_(A@x_np): \n{A@x2}\n")  # should be same as b
+print(f"x_(np): \n{x_np.T}\n")
+print(f"x_(scipy): \n{x_scipy.T}\n")
+print(f"b_(A@x_custom): \n{A@x_custom}\n")  # should be same as b
+print(f"b_(A@x_np): \n{(A@x_scipy).T}\n")  # should be same as b
+
+print("=" * 79)
 
 print("\n---SPARSE---\n")
 
-n = 5
-rvs = stats.poisson(4, loc=3).rvs
-A = random(n, n, density=0.25, format="csc", data_rvs=rvs, dtype="int")
+# Random sparse matrix
+# n = 5
+# A = random(n, n, density=0.25, format="csc")
+# D = np.random.rand(n, 1)
+# for i in range(n):
+#     A[i, i] = D[i]
 
-# make sure it's nonsingular by creating diagonal data entries
-D = np.random.randint(1, 10, (1, n))[0]
-for i in range(n):
-    A[i, i] = D[i]
+# Load external matrix
+A = read_data("data/25.txt")
+n = 25
+b = np.random.rand(n, 1)
 
-print("-" * 79)
-print("# trying to understand csc/csr format\n")
-print(f"Matrix(dense):\n{A.todense()}\n")
-print(f"Matrix(csc):\n  (row, col)\t(data)\t\n{A}\n")
+# custom
+L, U = LU_factor(A)
+x_c = solveLU(L, U, b)
 
-# A = read_data("data/25.txt")
-b = np.random.randint(1, 10, (n, 1))
+# scipy
 B = splu(A)
-
-print(f"L(dense):\n{B.L.todense()}\n")
-print(f"U(dense):\n{B.U.todense()}\n")
-print("-" * 79, "\n")
-
-x_c = solveLU(B.L, B.U, b, sparse=True)
 x_s = B.solve(b)
 
 print(f"given b: \n{b.T[0]}\n")
 print(f"x_custom: \n{x_c}\n")
 print(f"x_(scipy.splu): \n{x_s.T[0]}\n")
-print(f"b(A@x_custom): \n{(A @ x_c).T}\n")
+print(f"b(p@A@x_custom): \n{A @ x_c}\n")
 print(f"b(A@x_scipy): \n{(A @ x_s).T[0]}\n")
