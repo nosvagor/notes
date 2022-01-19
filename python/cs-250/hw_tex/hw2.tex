@@ -43,8 +43,8 @@
     \item \(f : \R \to \R, \quad f(x) = \sqrt{x}\)
       \begin{itemize}
         \item Total: \false{false}: e.g., \(f(-1) = i, i \not\in \R\)
-        \item Injective: \true{true (partial)}: \(\forall x,y \in \R^+ : x = y \then f(x) = f(y)\)
-        \item Surjective: \true{true (partial)}: \(\forall y \in \R^+, \exists x \in \R : f(x) = y\)
+        \item Injective: \true{true (partial)}: \(\forall x,y \in \R, : x = y \iff f(x) = f(y)\)
+        \item Surjective: \false{false}: \(\forall y \in \R^{-}, \quad \nexists x \in \R \then f(x) \neq y\)
       \end{itemize}
 
     \item \(f : \N \to \R^+, \quad f(x) = \sqrt{x}\)
@@ -87,7 +87,7 @@
     \begin{itemize}
       \item
         \dd{\link{https://en.wikipedia.org/wiki/Equivalence_relation}{Equivalence}}:
-        \(\sim, \equiv,\) "is equal to"
+        \(\sim, \equiv \iff\) a relation is reflexive, symmetric, and transitive.
 
       \item
         \dd{\link{https://en.wikipedia.org/wiki/Reflexive_relation}{Reflexive}}:
@@ -108,53 +108,67 @@
     \end{itemize}
     \vspace{1em}
 
-    \begin{enumerate}
+    \begin{enumerate}[itemsep=2.5em]
       \item $a \sim b$ if $a + b = 10$
         \begin{itemize}
           \item Reflexive: \false{false}: \(6 \nsim 6\)
           \item Symmetric: \true{true}: \(a = 10 - b, b = 10 - a\)
-          \item Antisymmetric: \false{false}: \(6 \sim 4, a \neq b \then b \nsim a\)
-          \item Transitive: \false{false}: \(4 \sim 6, 5 \sim 5, 4 \nsim 5\)
+          \item Antisymmetric: \false{false}: \(6 \sim 4, 4\sim 6, \quad 6 \neq 4\)
+          \item Transitive: \false{false}: \(4 \sim 6, 6 \sim 4, 4 \nsim 4\)
         \end{itemize}
 
-      \item $a \sim b$ if $a$ and $b$ are both even/odd
+      \item $a \sim b$ if $a$ and $b$ are both even (E) or both odd (O)
         \begin{itemize}
-          \item Reflexive:
-          \item Symmetric:
-          \item Antisymmetric:
-          \item Transitive:
+          \item Reflexive: \true{true}: \(a \sim a, b \sim b \iff a \land b \in (E \oplus O) \)
+          \item Symmetric: \true{true}: \(\forall a,b \in (O \oplus E), \quad a \sim b \iff b \sim a\)
+          \item Antisymmetric: \false{false}: \(2 \sim 4, 4\sim 2, \quad 2 \neq 4 \)
+          \item Transitive: \true{true}: \(\forall a,b \in (O \oplus E ), \quad a \sim b, b \sim c \then a \sim c\)
         \end{itemize}
 
-      \item $\frac p q \sim \frac r s$ if $q \le s$
+      \item $\frac p q  \sim \frac r s $ if $q \le s$
         \begin{itemize}
-          \item Reflexive:
-          \item Symmetric:
-          \item Antisymmetric:
-          \item Transitive:
+          \item let \(a = \frac{p}{q}, b = \frac{r}{s}, X = \left\{ a\sim b \right\}  \given q \leq s\)
+          \item Reflexive: \true{true}: \(\forall x \in X, \quad x \sim x\)
+          \item Symmetric: \true{true}: \(\forall x,y \in X, \quad x \sim y \iff y \sim x\)
+          \item Antisymmetric: \false{false}: \(\frac{1}{2} \sim \frac{2}{2}, \frac{2}{2} \sim \frac{1}{2}, \quad \frac{1}{2} \neq \frac{2}{2}\)
+          \item Transitive: \true{true}: \(\forall x,y,z \in X, \quad x \sim z \given x \sim y, y\sim z \)
         \end{itemize}
 
       \item $s \sim t$ if $s = reverse(t)$
         \begin{itemize}
-          \item Reflexive:
-          \item Symmetric:
-          \item Antisymmetric:
-          \item Transitive:
+          \item Reflexive: \false{false}: \(\text{hannah} \nsim \text{bob} \)
+          \item Symmetric: \true{true}: \(\forall s,t \in \Sigma^*, \quad s \sim t \iff t \sim s\)
+          \item Antisymmetric: \true{true}: \(\forall s,t \in \Sigma^*, \quad s\sim t, t\sim s \iff s = t\)
+          \item Transitive: \true{true}: \(\forall s,t,w \in \Sigma^*, \quad  s \sim w \iff s = t = w\)
         \end{itemize}
 
-      \item $a \sim b$ if $b = c \cdot a$ for some $c$
+      \item $a \sim b$ if $b = ca$ for some $c$
         \begin{itemize}
-          \item Reflexive:
-          \item Symmetric:
-          \item Antisymmetric:
-          \item Transitive:
+          \item Reflexive: \true{true}: \(\forall x \in \N, x \sim x \given c = 1\)
+          \item Symmetric: \false{false}: \(2 \sim 4 \given c = 2, \quad 4 \nsim 2\)
+            \begin{itemize}
+              \item \true{true}: if \(c\) is allowed to vary between relations.
+            \end{itemize}
+
+          \item Antisymmetric: \true{true}: \(\forall a,b \in \N, a \sim b, b \sim a \iff c = 1 \land a = b\)
+            \begin{itemize}
+              \item \false{false}: if c is allowed to vary between relations.
+            \end{itemize}
+
+          \item Transitive: \false{false}: \(2 \sim 4, \quad 4 \sim 8, \quad 2 \nsim 8 \)
+            \begin{itemize}
+              \item \true{true}: if c is allowed to vary between relations.
+            \end{itemize}
+
         \end{itemize}
 
       \item $a \sim b$ if $a^b = b^a$
         \begin{itemize}
-          \item Reflexive:
-          \item Symmetric:
-          \item Antisymmetric:
-          \item Transitive:
+          \item let \(X = \left\{ a\sim b \right\} \given a^b = b^a\)
+          \item Reflexive: \true{true}: \(\forall x \in X, \quad x^x = x^x\)
+          \item Symmetric: \true{true}: \(\forall a,b \in \N, : a^b = b^a \then b^a = a^b\)
+          \item Antisymmetric: \false{false}: \(2 \sim 4, 4\sim 2, \quad 2\neq 4\)
+          \item Transitive: \true{true}: \(\forall a,b,c \in \N, a \sim b \)
         \end{itemize}
 
     \end{enumerate}
@@ -165,12 +179,35 @@
 
     \item Prove that if $f : B \to C$ is 1 to 1, and $g : A \to B$ is 1 to 1,
       then $f \circ g$ is also 1 to 1.
+        \begin{align*}
+          & f \circ g = f(g(x)) = f: (g : A \to B ) \to C \\\\
+          : ~   & \forall x, y \in A, \quad g(x) = g(y) \then x = y \\
+          : ~   & \forall x, y \in B, \quad f(x) = f(y) \then x = y \\
+          \thus & \forall x, y \in C, \quad f(g(x)) = f(g(y)) \then x = y
+        \end{align*}
 
-    \item Prove or disprove:
+    \item Prove or disprove (where \(P\) is the power set):
       \begin{enumerate}
         \item for any sets $A$ and $B$, $P(A\cap B) = P(A) \cap P(B)$
 
+          \true{true}:
+          \begin{align*}
+            P(A) &= \{ S : S \subseteq A\}, \quad P(B) = \{ S : S \subseteq B \} \\
+                 & ~: A \cap B \subseteq A, \qquad  : B \cap A \subseteq B \\
+                 & \then P(A \cap B) = \{ S : S \subseteq A \cap B \}
+          \end{align*}
+
+
         \item for any sets $A$ and $B$, $P(A\cup B) = P(A) \cup P(B)$
+
+          \false{false}:
+          \begin{align*}
+            A &= \{42\}, \quad B = \{69\}, \quad A \cup B = \{ 42, 69 \} \\
+            P(A) \cup P(B) &= \{\nil, \{ 42 \}, \{ 69 \} \} \\
+            P (A \cap B ) &= \{ \nil, \{ 42 \}, \{ 69 \}, \{ 42, 69 \} \} \\
+                          &\then P(A) \cup P(B) \neq P(A \cup B)
+          \end{align*}
+
 
       \end{enumerate}
 
@@ -183,10 +220,13 @@
 
       Set theory also has a version of De Morgan's rule. Let $A$ and $B$ be sets
       in universe $U$. Prove that $A^{'} \cup B^{'} = (A \cap B)^{'}$
-
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+      \begin{align*}
+        A \cap B &= \{ x : x \in A \land x \in B \} \\
+        (A \cap B)^{'}   & = \{ x : x \in U \land x \not\in (A \cap B) \}  \\
+        A^{'} \cup B^{'} & = \{ x : x \not\in A \lor x \not\in B \} \\
+                         & = \{ x : x \in U \land x \not\in (A \cap B) \} \\
+                         & = (A \cap B)^{'}
+      \end{align*}
 
     \item Mathologer is a YouTube channel that does videos illustrating math
       concepts. He did a video on the fair division problem
@@ -200,6 +240,21 @@
       triangle'',  but he never proves this. Show that there will always be an
       odd number of doors on the bottom of the triangle.
 
+      \begin{itemize}
+        \item Vertices of the main triangle must be of different colors, thus every
+          time the triangle is increased in size, then at least one connection
+          is split.
+        \item Since the red cannot go on the bottom side, then that leaves only
+          BG/BB/GG connections, which yields options \(\{ BBB, BBG, BGB, BGG, GGG, GGB \}\)
+          \begin{enumerate}[leftmargin=2em]
+            \item
+
+            \item Not a door ? \(\to + 4\) doors, two doors and two non-doors
+
+          \end{enumerate}
+
+      \end{itemize}
+
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
@@ -212,9 +267,12 @@
       \]
       Show that this is actually an equivalence relation.
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+      \begin{itemize}
+        \item Reflexive: \(\forall x \in X, \quadc f(x) = g(x) \then x \sim x\)
+        \item Symmetric: \(\forall x,y \in X, \quad f(x) = f(y) \then x \sim y \iff g(x) = g(y) \then y \sim x\)
+        \item Transitive: \(\forall x,y,z \in X, \quad x \sim y, y \sim z, : f(x) = f(y) \land f(y) = f(z) \then x \sim z\)
+        \item All three relations hold, thus the function can be said to be equivalent by it's equivalence relations.
+      \end{itemize}
 
     \item In a dictionary all of the words are arranged in a specific order.
       ``a'', ``aardvark'', and so on.  This is called the dictionary order for
