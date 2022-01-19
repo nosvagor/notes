@@ -228,6 +228,8 @@
                          & = (A \cap B)^{'}
       \end{align*}
 
+      \vspace{-4em}
+
     \item Mathologer is a YouTube channel that does videos illustrating math
       concepts. He did a video on the fair division problem
       \begin{center}
@@ -243,16 +245,25 @@
       \begin{itemize}
         \item Vertices of the main triangle must be of different colors, thus every
           time the triangle is increased in size, then at least one connection
-          is split.
+          is split, increasing number of connections on the bottom side by two.
         \item Since the red cannot go on the bottom side, then that leaves only
-          BG/BB/GG connections, which yields options \(\{ BBB, BBG, BGB, BGG, GGG, GGB \}\)
+          BG/BB/GG connections, which yields \(\{ BBB, BBG, BGB, BGG, GGG, GGB \}\)
+        \item Starting with BG, then only options are BBG or GBB, thus number of odd doors is at least 1.
+        \item Each new increase will do one of two options:
           \begin{enumerate}[leftmargin=2em]
-            \item
+            \item Split a door: yielding a miniature starting case (BBG, GBB) (doors += 0)
 
-            \item Not a door ? \(\to + 4\) doors, two doors and two non-doors
+            \item Split a non-door:
+              \begin{enumerate}
+                \item into two doors (BGB, GBG) (doors += 2)
+                \item into two non-doors (GGG, BBB) (doors += 0)
+              \end{enumerate}
 
           \end{enumerate}
+        \item Thus, max number of doors \(= 1 + 2n\) (always odd)
 
+        \item note: this proof inspired by Fiefo's YouTube comment, but I think I
+          made it more clear.
       \end{itemize}
 
 %%%%%%%%%%%%%
@@ -286,6 +297,12 @@
       continue this until we find a different character, or one of the words
       ends. Show that this dictionary order is a partial order (reflexive,
       antisymmetric, and transitive).
+
+      \begin{itemize}
+        \item Reflexive: \(\forall  s \in \Sigma^*, s \sim s \)
+        \item Antisymmetric: \(\forall s, t \in \Sigma^*, s\sim t, t \sim s \iff s = t\) (not symmetric)
+        \item Transitive: \(\forall s, t, w \in \Sigma^*, s \sim t, t \sim w \iff s = t = w \then s \sim w\)
+      \end{itemize}
 
   \end{enumerate}
 
