@@ -32,11 +32,11 @@
   </tr>
   <tr>
     <td align="center">2</td>
-    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw_1.pdf">Homework 1</a></td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw1.pdf">Homework 1</a></td>
   </tr>
   <tr>
     <td align="center">3</td>
-    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw_2.pdf">Homework 2</a></td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw2.pdf">Homework 2</a></td>
   </tr>
   <tr>
     <td align="center">4</td>

@@ -12,26 +12,334 @@
 
 \begin{document}
 
-\begin{enumerate}[itemsep=4em]
-  \item
+\begin{enumerate}[itemsep=8em]
 
-  \item
+  \item (2.49) Find the errors in each of the following statements:
+  \begin{enumerate}
 
-  \item
+    \item The probabilities that an automobile salesperson will sell 0, 1, 2,
+      or 3 cars on any given day in February are, respectively, 0.19, 0.38,
+      0.29, and 0.15.
+      \begin{itemize}
+        \item Error: \(P(\Omega) \nleq 1; 0.19 + 0.38 + 0.29 + 0.15 = 1.01\)
 
-  \item
+      \end{itemize}
 
-  \item
 
-  \item
+    \item The probability that it will rain tomorrow is 0.40, and the
+      probability that it will not rain tomorrow is 0.52.
+      \begin{itemize}
+        \item Error: \(P(A) + P(A^{'}) \neq 1; 0.40 + 0.52 = 0.92 \)
 
-  \item
+      \end{itemize}
 
-  \item
 
-  \item
+    \item The probabilities that a printer will make 0, 1, 2, 3, or 4 or more
+      mistakes in setting a document are, respectively, 0.19, 0.34, -0.25,
+      0.43, and 0.29.
+      \begin{itemize}
+        \item Error: \(P(E) \ngeq 0; -0.25 < 0\)
 
-  \item
+      \end{itemize}
+
+    \item On a single draw from a deck of playing cards, the probability of
+      selecting a heart is 1/4, the probability of selecting a black card is
+      1/2, and the probability of selecting both a heart and a black card is
+      1/8.
+      \begin{itemize}
+        \item Error: \(P(\blacksquare) \cap P(\text{\RR{\faHeart}}) = \nil; P(E \in \F) = 0 \neq \frac{1}{8}\)
+
+      \end{itemize}
+
+  \end{enumerate}
+
+  \item (2.53) The probability that an American industry will locate in
+    Shanghai, China, is 0.7, the probability that it will locate in Beijing,
+    China, is 0.4, and the probability that it will locate in either Shanghai
+    or Beijing or both is 0.8. What is the probability that the industry will
+    locate
+    \[%%%%%%%%%%
+    : P(S) = 0.7, \quad P(C) = 0.4, \quad P(S \cup C) = 0.8
+    \]%%%%%%%%%%
+    \begin{enumerate}
+      \item in both cities?
+        \begin{itemize}
+          \item \(P(S \cap C) = 0.7 + 0.4 - 0.8 = 0.3\)
+
+        \end{itemize}
+
+      \item in neither city?
+        \begin{itemize}
+          \item \(P(S^{'} \cap C^{'}) = 1 - 0.8 = 0.2\)
+
+        \end{itemize}
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item (2.54) From past experience, a stockbroker believes that under
+    present economic conditions a customer will invest in tax-free bonds with a
+    probability of 0.6, will invest in mutual funds with a probability of 0.3,
+    and will invest in both tax-free bonds and mutual funds with a probability
+    of 0.15. At this time, find the probability that a customer will invest
+    \[%%%%%%%%%%
+      : P(T) = 0.6, \quad P(M) = 0.3, \quad P(T \cap M) = 0.15
+    \]%%%%%%%%%%
+    \begin{enumerate}
+      \item in either tax-free bonds or mutual funds;
+        \begin{itemize}
+          \item \(P(T \cup M) = 0.6 + 0.3 - 0.15 = 0.75\)
+        \end{itemize}
+
+      \item in neither tax-free bonds nor mutual funds.
+        \begin{itemize}
+          \item \(P(T^{'} \cap M^{'}) = 1 - 0.75 = 0.25\)
+
+
+        \end{itemize}
+
+    \end{enumerate}
+
+    \vspace{-5em}
+
+  \item (2.55) If each coded item in a catalog begins with 3 distinct
+    letters followed by 4 distinct nonzero digits, find the probability of
+    randomly selecting one of these coded items with the first letter a vowel
+    and the last digit even.
+      \begin{align*}
+          N  &= {}_{26}P_3 \cdot {}_9P_4
+             = \frac{26!}{(26-3)!}\cdot \frac{9!}{(9-4)!}
+             = \num{47174400}\\
+          n &= 5 \cdot {}_{25}P_2 \cdot 4 \cdot {}_8P_3 = \num{4032000} \\
+          P\left(\frac{n}{N}\right)  &= 0.085
+      \end{align*}
+
+    \vspace{-5em}
+
+  \item (2.61) In a high school graduating class of 100 students, 54
+    studied mathematics, 69 studied history, and 35 studied both mathematics
+    and history. If one of these students is selected at random, find the
+    probability that
+    \[%%%%%%%%%%
+      P(M) = 0.54, \quad P(H) = 0.69, \quad P(M\cap H) = 0.35
+    \]%%%%%%%%%%
+    \begin{enumerate}
+      \item the student took mathematics or history;
+        \begin{itemize}
+          \item \(P(M \cup H) = 0.54 + 0.69 - 0.35 = 0.88\)
+
+        \end{itemize}
+
+      \item the student did not take either of these subjects;
+        \begin{itemize}
+          \item \(P(M' \cap H') = 1 - 0.88 = 0.12\)
+
+        \end{itemize}
+
+      \item the student took history but not mathematics.
+        \begin{itemize}
+          \item \(P(H \cap M') = P(H) - P(H \cap M) = 0.69 - 0.35 = 0.34 \)
+
+        \end{itemize}
+
+    \end{enumerate}
+
+  \item (2.66) Factory workers are constantly encouraged to practice zero
+    tolerance when it comes to accidents in factories. Accidents can occur
+    because the working environment or conditions themselves are unsafe. On
+    the other hand, accidents can occur due to carelessness or so-called human
+    error. In addition, the worker’s shift, 7:00 A.M.--3:00 P.M. (day shift),
+    3:00 P.M.--11:00 P.M. (evening shift), or 11:00 P.M.--7:00 A.M. (graveyard
+    shift), may be a factor. During the last year, 300 accidents have
+    occurred. The percentages of the accidents for the condition combination
+    are as follows:
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{lcc}
+        \toprule
+         Shift      & Unsafe Conditions & Human Error \\
+        \midrule
+          Day       &               5\% & 32\%        \\
+          Evening   &               6\% & 25\%        \\
+          Graveyard &               2\% & 30\%        \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    If an accident report is selected randomly from the 300 reports,
+    \begin{enumerate}
+
+     \item what is the probability that the accident occurred on the
+     graveyard shift?
+     \begin{itemize}
+       \item \(P(G) = 0.3 + 0.02 = 0.32\)
+
+     \end{itemize}
+
+     \item what is the probability that the accident occurred
+     due to human error?
+     \begin{itemize}
+       \item \(P(H) = 0.32 + 0.25 + 0.3 = 0.87\)
+
+     \end{itemize}
+
+     \item what is the probability that the accident occurred
+     due to unsafe conditions?
+     \begin{itemize}
+       \item \(P(U) = 0.05 + 0.06 + 0.02 = 0.13\)
+
+     \end{itemize}
+
+     \item what is the probability that the accident
+     occurred on either the evening or the graveyard shift?
+     \begin{itemize}
+       \item \(P(E \cup G) = P(D') = 1 - (0.05 + 0.32) = 0.63\)
+
+     \end{itemize}
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item (2.69) It is common in many industrial areas to use a filling
+    machine to fill boxes full of product. This occurs in the food industry as
+    well as other areas in which the product is used in the home, for example,
+    detergent. These machines are not perfect, and indeed they may \(A\), fill to
+    specification, \(B\), underfill, and \(C\), overfill. Generally, the practice of
+    underfilling is that which one hopes to avoid. Let \(P(B) = 0.001\) while
+    \(P(A) = 0.990\)
+    \begin{enumerate}
+
+      \item Give \(P(C)\).
+        \begin{itemize}
+          \item \(P(C) = P((A \cup B)') = 1 - (0.99 + 0.001) = 0.009\)
+
+        \end{itemize}
+
+      \item What is the probability that the machine does not underfill?
+        \begin{itemize}
+          \item \(P(B') = 1 - 0.001 = 0.999\)
+
+        \end{itemize}
+
+      \item  What is the probability that the machine either overfills or
+        underfills?
+        \begin{itemize}
+          \item \(P(A') = 1 - 0.99 = 0.01 \)
+
+        \end{itemize}
+
+    \end{enumerate}
+
+
+
+  \item (2.76) In an experiment to study the relationship of hypertension
+    and smoking habits, the following data are collected for 180 individuals:
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{lccc}
+        \toprule
+           & Nonsmokers \(A\) & Moderate \(B\) & Heavy \(C\) \\
+        \midrule
+        H  &         21 & 36       &    30 \\
+        H' &         48 & 26       &    19 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    where H and H' in the table stand for Hypertension and Non-hypertension,
+    respectively. If one of these individuals is selected at random, find the
+    probability that the person is
+    \[%%%%%%%%%%
+      P(H) = \frac{87}{180}, \quad P(H') = \frac{93}{180}
+    \]%%%%%%%%%%
+
+    \begin{enumerate}
+      \item experiencing hypertension, given that the person is a heavy smoker;
+        \begin{itemize}
+          \item \(\displaystyle P(H \mid C) = \frac{P(H\cap C)}{P(C)} = \frac{30}{49} \)
+
+        \end{itemize}
+      \item a nonsmoker, given that the person is experiencing no hypertension.
+        \begin{itemize}
+          \item \(\displaystyle P(A \mid H' ) = \frac{P(A \cap H')}{P(H')} = \frac{48}{93} \)
+
+        \end{itemize}
+    \end{enumerate}
+
+
+  \item (2.80) The probability that an automobile being filled with
+    gasoline also needs an oil change is 0.25; the probability that it needs
+    a new oil filter is 0.40; and the probability that both the oil and the
+    filter need changing is 0.14.
+    \[%%%%%%%%%%
+      P(O) = 0.25, \quad P(F) = 0.40, \quad P(O \cap F) = 0.14
+    \]%%%%%%%%%%
+    \begin{enumerate}
+
+      \item If the oil has to be changed, what is the probability that a new
+        oil filter is needed?
+        \begin{itemize}
+          \item \(\displaystyle P(F \mid O) = \frac{0.14}{0.25} = 0.56 \)
+
+        \end{itemize}
+
+      \item If a new oil filter is needed, what is the probability that the
+        oil has to be changed?
+        \begin{itemize}
+          \item \(\displaystyle P(O \mid F) = \frac{0.14}{0.40} = 0. \)
+
+        \end{itemize}
+
+    \end{enumerate}
+
+    \vspace{-4em}
+  \item (2.126) During bad economic times, industrial workers are
+    dismissed and are often replaced by machines. The history of 100 workers
+    whose loss of employment is attributable to technological advances is
+    reviewed. For each of these individuals, it is determined if he or she was
+    given an alternative job within the same company, found a job with another
+    company in the same field, found a job in a new field, or has been
+    unemployed for 1 year. In addition, the union status of each worker is
+    recorded. The following table summarizes the results.
+    \begin{table}[htpb]
+      \centering
+      \begin{tabular}{lcc}
+        \toprule
+                                  & \(U\) Union & \(U'\) Non-union \\
+        \midrule
+         \(S\) Same Company             &    40 & 15        \\
+         \(C\) New Company (same field) &    13 & 10        \\
+         \(F\) New Field                &     4 & 11        \\
+         \(N\) Unemployed               &     2 & 5         \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+    \vspace{-1em}
+      \[%%%%%%%%%%
+        P(U) = 59
+      \]%%%%%%%%%%
+    \begin{enumerate}
+
+      \item  If the selected worker found a job with a new company in the
+        same field, what is the probability that the worker is a union member?
+        \begin{itemize}
+          \item \(\displaystyle P(U \mid C) = \frac{13}{13+10} = 0.5652 \)
+
+        \end{itemize}
+      \item  If the worker is a union member, what is the probability that
+        the worker has been unemployed for a year?
+        \begin{itemize}
+          \item \(\displaystyle P(N \mid U) = \frac{2}{59} = 0.034\)
+
+        \end{itemize}
+
+    \end{enumerate}
 
 \end{enumerate}
 
