@@ -40,7 +40,7 @@
   </tr>
   <tr>
     <td align="center">4</td>
-    <td align="center">Homework 3</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw3.pdf">Homework 3</a></td>
   </tr>
   <tr>
     <td align="center">5</td>

@@ -44,7 +44,7 @@
   </tr>
   <tr>
     <td align="center">Jan 24&ndash;26</td>
-    <td align="center">Homework 2</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw2.py">Homework 2</a></td>
   </tr>
   <tr>
     <td align="center">Jan 31 &ndash; Feb 2</td>
