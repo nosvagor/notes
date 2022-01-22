@@ -18,26 +18,48 @@
   \item A function \(f : A \to B \) is \textit{linear} if, \(\forall a,b \in
     \R, f(ax + b) = a f(x) + b\). \\
     Apply the definition of linear to:
-    \begin{enumerate}[itemsep=4em]
+    \begin{enumerate}[itemsep=3em]
 
       \item \(f(x) = 2x\)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \then \forall a,b \in \R, \quad 2(ax + b) =  a 2x + b
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item \(f(x) = x^2\)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \then \forall a,b \in \R, \quad (ax + b)^2 = ax^2 + b
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item \(\displaystyle f(x) = \sum_{i=0}^{\infty} a_i x^i \)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \then \forall a,b \in \R, \quad \sum_{i=0}^{\infty} a_i (ax + b)^i =  a \left(\sum_{i=0}^{\infty} a_i x^i\right) + b
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
   \item A function \(f : \R \to \R \) is \textit{continuous} if, \(\forall
-    \epsilon > 0, \exists \delta > 0 : f(x+\delta) - f(x) < \epsilon\).\\
+    \depsilon > 0, \exists \delta > 0 : f(x+\delta) - f(x) < \depsilon\).\\
     Apply the definition of continuous to:
-    \begin{enumerate}[itemsep=4em]
+    \begin{enumerate}[itemsep=3em]
 
       \item \(f(x) = |2x - 1|\)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \forall \epsilon > 0, \exists \delta > 0 :
+          |2(x+\delta) - 1 | - |2x -1 | < \epsilon
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item \(f(x) = x^{-1}\)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \forall \epsilon > 0, \exists \delta > 0 :
+          (x + \delta)^{-1} - x^{-1} < \epsilon
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item \(\displaystyle f(x) = \sum_{n=0}^{\infty} \cos(b^n \pi x)\)
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          \forall \epsilon > 0, \exists \delta > 0 :
+          \sum_{n=0}^{\infty} \cos (b^n \pi (x+\delta)) -
+          \sum_{n=0}^{\infty} \cos (b^n \pi x) < \epsilon
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
@@ -49,15 +71,31 @@
     x\sim y \lor y \sim x\) \\
     Apply the definition of chain to:
 
-    \begin{enumerate}[itemsep=4em]
+    \begin{enumerate}[itemsep=2em]
 
       \item \(x \sim y, : x,y \in \R \land |x| \leq |y|\)
+        \begin{align*}
+          \forall x,y \in \R, &\quad |x| \leq |y|
+          \lor
+          |y| \leq |x|
+        \end{align*}
 
       \item \(S\sim T \given S \in P(T)\), where \(S,T\) are sets and \(P()\)
         denotes power set.
+        \begin{align*}
+          \forall S \in P(T) &\then S \sim T \\
+            &\lor \\
+          \forall T \in P(S) &\then T \sim S
+        \end{align*}
 
-      \item \(\sigma_1 \sim \sigma_2 \given \sigma_1, \sigma_2 : A\to A\) are
-        functions and \(\sigma_1 = \tau \circ \sigma_2 \) for some function \(\tau\).
+      \item \(\sigma_1 \sim \sigma_2 \given \sigma_1, \sigma_2, : A\to A\) are
+        functions and \(\exists \tau : \sigma_1 = \tau \circ \sigma_2 \)
+        \begin{align*}
+          \forall \sigma_1, \sigma_2 \in A, \quad \exists \tau :
+          \sigma_1 = \tau \circ \sigma_2
+          \lor
+          \exists \tau : \sigma_2 = \tau \circ \sigma_1
+        \end{align*}
 
     \end{enumerate}
 

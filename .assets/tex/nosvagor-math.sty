@@ -38,12 +38,12 @@
 
   % bigger epsilon fonts
   \let\origVarEpsilon\varepsilon
-  \renewcommand*\varepsilon{\mathlarger{\mathlarger{\mathlarger\origVarEpsilon}}}
-  \def\dvarepsilon{\mathsmaller{\varepsilon}}
+  \renewcommand*\varepsilon{\mathlarger{\mathlarger\origVarEpsilon}}
+  \def\dvarepsilon{\mathlarger{\varepsilon}} % inline text
 
   \let\origEpsilon\epsilon
-  \renewcommand*\epsilon{\mathlarger{\mathlarger{\mathlarger\origEpsilon}}}
-  \def\depsilon{\mathsmaller{\epsilon}}
+  \renewcommand*\epsilon{\mathlarger{\mathlarger\origEpsilon}}
+  \def\depsilon{\mathlarger{\epsilon}} % inline text
 
 % ╔═╗┌─┐┌┬┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐
 % ║  │ │││││││├─┤│││ ││└─┐
