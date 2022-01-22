@@ -75,7 +75,7 @@
 
       \item \(x \sim y, : x,y \in \R \land |x| \leq |y|\)
         \begin{align*}
-          \forall x,y \in \R, &\quad |x| \leq |y|
+          \forall x,y \in \R \times \R, &\quad |x| \leq |y|
           \lor
           |y| \leq |x|
         \end{align*}
@@ -99,16 +99,27 @@
 
     \end{enumerate}
 
-  \item
-    \begin{enumerate}[itemsep=4em]
+    \item
+    \begin{enumerate}[itemsep=3em]
 
       \item Prove that there is no smallest positive rational number greater
         than 0.
+        \begin{align*}
+          \forall p,q \in \N, \exists q : 0 < \frac{p}{q+1} < \frac{p}{q}
+        \end{align*}
 
       \item Prove that for every positive real number greater than 0 there is a
         smaller positive rational number.
 
+        There is no smallest positive rational number by theorem (a), thus
+        for any given positive real number there is always some rational number
+        that could be smaller.
+
+
       \item Prove that there is no smallest positive real number greater than 0.
+        \[\Q \subset \R\]
+        Thus, for any given real number there is always a smaller positive real
+        number by theorem (b).
 
     \end{enumerate}
 
@@ -119,8 +130,23 @@
   \item Fermat’s Last theorem is a famous theorem in Math that was unproven for
     200 years. The theorem says \(\forall n > 2,~ a,b,c \in \N \then  a^n +
     b^n \neq c^n\). Another way to state this is \(a^n + b^n = c^n\) has no integer
-    solutions for n larger than 2. Use this theorem to prove that \(\sqrt[n]{2}\) is
-    irrational for n larger than 2.
+    solutions for $n$ larger than 2. Use this theorem to prove that \(\sqrt[n]{2}\) is
+    irrational for $n$ larger than 2.
+    \begin{align*}
+      \sqrt[n]{2} \in \Q &\then \exists a,b \in \Z : \gcd{(a,b)}=1 \\
+                         &\then a^n = 2b^n \then a^n = b^n + b^n
+    \end{align*}
+    Thus, this contradicts Fermat's Last theorem implying \(\sqrt[n]{2}\) is
+    irrational for \(n > 2\).
+
+    \begin{itemize}
+      \item \textit{ Note: this is essentially
+        \link{https://math.stackexchange.com/q/783392}{zscoder's proof}. No
+        credit here, couldn't figure it out myself at first; it's pretty
+        simple, so I couldn't formulate something else that was better
+        without adding unnecessary steps}.
+
+    \end{itemize}
 
 \end{enumerate}
 
