@@ -1,6 +1,14 @@
-# CS 250
-# homework 3: relations and partial orders
+# ┬ ┬┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─  ┌┬┐┬ ┬┬─┐┌─┐┌─┐
+# ├─┤│ ││││├┤ ││││ │├┬┘├┴┐   │ ├─┤├┬┘├┤ ├┤
+# ┴ ┴└─┘┴ ┴└─┘└┴┘└─┘┴└─┴ ┴   ┴ ┴ ┴┴└─└─┘└─┘
+# relations and partial orders
+# cullyn newman | CS: 250
 
+###############################################################################
+
+# ┬┌┐┌┌┬┐┬─┐┌─┐
+# ││││ │ ├┬┘│ │
+# ┴┘└┘ ┴ ┴└─└─┘
 
 # today we're going to look at relations.
 # In class I said that we usually use relations for documentation.
@@ -19,19 +27,19 @@ def topsort(lst, lteq):
     for x in lst:
         indegree[x] = 0
         for y in lst:
-            if lteq(x,y):
+            if lteq(x, y):
                 indegree[x] += 1
         # if the in-degree is 1
         # then there is no y such that x <= y
         # so x can go at the front of our list
-        # remember: x <= x so indegree will always be at least 1
+        # remember: x <= x so in-degree will always be at least 1
         if indegree[x] == 1:
             out.append(x)
 
     # now pick any item x with an in-degree of 1
     # and we'll "remove" this item from the list.
     # Just loop through every y in the list,
-    # and if y <= x we decrement the indegree counter.
+    # and if y <= x we decrement the in-degree counter.
     #
     # if y now has an in-degree of 1, then we add it to the output list.
     for i in range(len(lst)):
@@ -43,7 +51,7 @@ def topsort(lst, lteq):
 
     # remember we started with the biggest thing, so we need to reverse the list
     return list(reversed(out))
-# end of topsort
+
 
 # This topological sort is a more general version of
 # the sorting we all know and love...
@@ -60,10 +68,11 @@ def topsort(lst, lteq):
 def numberLteq(x, y):
     return x <= y
 
-sortedNumbers = topsort([1,3,2,4,5], numberLteq)
+
+sortedNumbers = topsort([1, 3, 2, 4, 5], numberLteq)
 
 # going back to week 1, this means that topsort is a higher order function
-# because we passed a funciton in as the argument.
+# because we passed a function in as the argument.
 
 # That's cool, I have an inefficient complicated way to sort things.  yay?
 # What makes topsort different?
@@ -90,9 +99,10 @@ sortedNumbers = topsort([1,3,2,4,5], numberLteq)
 # We say these players are "incomparible"
 # So we can make a comparison for players
 def playerLteq(player1, player2):
-    (speed1,strength1) = player1
-    (speed2,strength2) = player2
+    (speed1, strength1) = player1
+    (speed2, strength2) = player2
     return speed1 <= speed2 and strength1 <= strength2
+
 
 # You can test this out
 # playerLteq((3,3), (3,5)) is True
@@ -100,7 +110,7 @@ def playerLteq(player1, player2):
 # playerLteq((3,3), (2,5)) is False and playerLteq((2,5), (3,3)) is False
 
 # What happens when I try to sort the following players?
-topsort([(1,1), (2,2), (1,2), (2,1)], playerLteq)
+topsort([(1, 1), (2, 2), (1, 2), (2, 1)], playerLteq)
 
 # Interesting It makes sense that (1,1) is first, and (2,2) is last
 # but what about the other two? Well it doesn't really matter.
@@ -129,13 +139,19 @@ topsort([(1,1), (2,2), (1,2), (2,1)], playerLteq)
 # but it's up to the programmer to make sure that lteq is a partial order.
 
 
-# problems
+# ┌─┐┬─┐┌─┐┌┐ ┬  ┌─┐┌┬┐┌─┐
+# ├─┘├┬┘│ │├┴┐│  ├┤ │││└─┐
+# ┴  ┴└─└─┘└─┘┴─┘└─┘┴ ┴└─┘
+
 # 1. What goes wrong with the following function?
 #    What property are we missing?
 def badLteq(x, y):
     return x < y
 
+
+# 1(my answer): reflexive, no element in the set relates to itself.
 # topsort([1,2,3,4,5], badLteq)
+
 
 # 2. Is the relation a partial order?
 #    If not, what property is missing
@@ -143,17 +159,21 @@ def badLteq(x, y):
 def eq(x, y):
     return x == y
 
-# topsort([3,2,1,5,4], eq)
+
+# 2(my answer): it is partial order, it is
+# reflexive, antisymmetric, and  transitive.
+# topsort([3, 2, 1, 5, 4], eq)
 
 
 # 3. one parital order we'll talk about is divides on natrual numbers.
 #    a divides b iff b % a == 0
 #    Fill in the divides function, and check the results
-def divides(a,b):
-    return False
+def divides(a, b):
+    return b % a == 0
 
-# topsort([64,8,16,2,32,128,4], divides)
-# topsort([2,3,6,12,8,9], divides)
+
+print(topsort([64, 8, 16, 2, 32, 128, 4], divides))
+print(topsort([2, 3, 6, 12, 8, 9], divides))
 
 # 4. In python we can test for substrings with "in"
 #    so "ham" in "hamburger" is True and "dent" in "student" is True.
@@ -161,8 +181,10 @@ def divides(a,b):
 #    (Hint: if s is a substring of w, then we can break w up into b+s+e for two string b and e)
 #    Anyway, that means we can use substring in topsort
 
-def substring(s, w):
-    return False
 
-# topsort(["speed","of","art","speedofart","speedo","fart"], substring)
+def substring(s, w):
+    return s in w
+
+
+print(topsort(["speed", "of", "art", "speedofart", "speedo", "fart"], substring))
 # This is a really good example of why checking for substrings is important.
