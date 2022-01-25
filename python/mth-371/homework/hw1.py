@@ -2,12 +2,12 @@ import numpy as np
 import pandas
 from scipy import stats
 from scipy.linalg import lu, lu_factor, lu_solve
-from scipy.sparse import csc_matrix, random
+from scipy.sparse import coo_matrix, csc_matrix, random
 from scipy.sparse.linalg import splu
 
 
 def read_data(filepath):
-    data = pandas.read_csv(filepath, sep=" ", header=None)
+    data = read_csv(filepath, sep=" ", header=None)
     data.columns = ["col", "row", "data"]
     matrix = csc_matrix((data["data"], (data["row"], data["col"])))
 
@@ -81,6 +81,14 @@ print("\n---SPARSE---\n")
 # D = np.random.rand(n, 1)
 # for i in range(n):
 #     A[i, i] = D[i]
+
+# Random sparse matrix
+# n = 5
+# A = random(n, n, density=0.25, format="csc")
+# D = np.random.rand(n, 1)
+# for i in range(n):
+#     A[i, i] = D[i]
+
 
 # Load external matrix
 A = read_data("data/25.txt")
