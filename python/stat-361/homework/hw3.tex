@@ -13,16 +13,16 @@
 
 \begin{document}
 
-\begin{enumerate}[itemsep=7em]
+\begin{enumerate}[itemsep=4em]
 
   \item (2.85) The probability that a doctor correctly diagnoses a particular
-    illness is 0.7. Given that the doctor makes an incorrect diagnosis, the
-    probability that the patient files a lawsuit is 0.9. What is the probability that the doctor makes an incorrect diagnosis and
-    the patient sues?
-    \begin{itemize}
-      \item
-
-    \end{itemize}
+    illness is \(0.7 = P(C)\). Given that the doctor makes an incorrect diagnosis, the
+    probability that the patient files a lawsuit is \(0.9 = P(L \mid C')\) . What is the
+    probability that the doctor makes an incorrect diagnosis and the patient
+    sues \(P(S)\)?
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      P(S) = P(C' \cap L ) = P(L\mid C')P(C') = (0.9)(0.3) = \boxed{0.27}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \item (2.89) A town has two fire engines operating independently. The
     probability that a specific engine is available when needed is 0.96.
@@ -30,17 +30,15 @@
     \begin{enumerate}
 
       \item What is the probability that neither is available when needed?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(U) = P(A' \cap B') = (0.04)(0.04) = \boxed{0.0016}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item What is the probability that a fire engine is available when
         needed?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(U') = 1 - 0.0016 = \boxed{0.9984}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
@@ -51,20 +49,23 @@
     in 5\% of the rooms at the Ramada Inn, in 4\% of the rooms at the Sheraton,
     and in 8\% of the rooms at the Lakeview Motor Lodge, what is the
     probability that
+      \begin{align*}
+        P(R) = 0.2, P(F_r) = 0.05, P(F_r \cap R) = 0.01 \\
+        P(S) = 0.5, P(F_s) = 0.04, P(F_s \cap S) = 0.02 \\
+        P(L) = 0.3, P(F_l) = 0.08, P(F_l \cap L) = 0.024
+      \end{align*}
     \begin{enumerate}
 
       \item a client will be assigned a room with faulty plumbing?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(F) = 0.01 + 0.02 + 0.024 = \boxed{0.054}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item a person with a room having faulty plumbing was assigned
         accommodations at the Lakeview Motor Lodge?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(L \mid F) = \frac{P(F_l \cap L)}{P(F)} = \frac{0.024}{0.54} = \boxed{\frac{4}{9}}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
@@ -73,21 +74,24 @@
 %%%%%%%%%%%%%
 
   \item (2.113) From a box containing 6 black balls and 4 green balls, 3 balls
-    are drawn in succession, each ball being re- placed in the box before the
+    are drawn in succession, each ball being replaced in the box before the
     next draw is made. What is the probability that
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      P(B_i) = \frac{6}{10}, \quad P(G_i) = \frac{4}{10}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     \begin{enumerate}
 
       \item all 3 are the same color?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(A) = P\left((B_1 \cap B_2 \cap B_3) \cup (G_1 \cap G_2 \cap G_3)\right)
+          = 0.6^3 + 0.4^3 = \boxed{0.28}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item each color is represented?
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(A') = 1 - 0.28 = \boxed{0.72}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
@@ -98,32 +102,32 @@
 
       \item X: the number of automobile accidents per year in Virginia.
         \begin{itemize}
-          \item
+          \item \textbf{discrete}
 
         \end{itemize}
       \item Y: the length of time to play 18 holes of golf.
         \begin{itemize}
-          \item
+          \item \textbf{continuous}
 
         \end{itemize}
       \item M: the amount of milk produced yearly by a particular cow.
         \begin{itemize}
-          \item
+          \item \textbf{continuous}
 
         \end{itemize}
       \item N: the number of eggs laid each month by a hen.
         \begin{itemize}
-          \item
+          \item \textbf{discrete}
 
         \end{itemize}
       \item P: the number of building permits issued each month in a certain city.
         \begin{itemize}
-          \item
+          \item \textbf{discrete}
 
         \end{itemize}
       \item Q: the weight of grain produced per acre.
         \begin{itemize}
-          \item
+          \item \textbf{continuous}
 
         \end{itemize}
 
@@ -137,28 +141,32 @@
     number of tails in three tosses of a coin. List the elements of the sample
     space \(S\) for the three tosses of the coin and to each sample point assign a
     value \(w\) of \(W\).
+    \begin{align*}
+      S = \left\{ HHH, HHT, HTH, THH, TTH, THT, TTH, TTT \right\} \\
+      W = \left[ 3, 1, 1, 1, -1, -1, -1, -3 \right] \\
+      S_i \to W_i
+    \end{align*}
 
   \item (3.35) Suppose it is known from large amounts of historical data that
-    X, the number of cars that arrive at a specific intersection during a
+    \(X\), the number of cars that arrive at a specific intersection during a
     20 second time period, is characterized by the following discrete
     probability function:
     \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      f(x) = e^{-6}\frac{6^x}{x!}, \forall x \in \Z^+
+      f(x) = e^{-6}\frac{6^x}{x!}, \forall x \geq 0 \in \Z
     \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{enumerate}
 
       \item Find the probability that in a specific 20 second
         time period, more than 8 cars arrive at the intersection.
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \begin{align*}
+          P(x \leq 8) = \sum_{x=0}^{8} e^{-6} \frac{6^{x}}{x!} = 0.847 \\
+          P(x > 8) = 1 - P(x \leq 8) = \boxed{0.153}
+        \end{align*}
 
       \item Find the probability that only 2 cars arrive.
-        \begin{itemize}
-          \item
-
-        \end{itemize}
+        \begin{align*}
+          f(2) = e^{-6}\frac{6^2}{2!} = \boxed{0.045}
+        \end{align*}
 
     \end{enumerate}
 
