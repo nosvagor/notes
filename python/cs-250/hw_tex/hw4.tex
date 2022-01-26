@@ -1,0 +1,81 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Homework 4}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{CS: 250}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+\begin{enumerate}[itemsep=10em]
+
+  \item Prove that \(n^2 \neq 2 \bmod 3, \quad \forall n \in \Z \)
+
+  \item Fermat’s Last theorem is a famous theorem in Math that was unproven for
+    200 years. The theorem says \(\forall n > 2,~ a,b,c \in \N \then  a^n +
+    b^n \neq c^n\). Another way to state this is \(a^n + b^n = c^n\) has no integer
+    solutions for $n$ larger than 2. Use this theorem to prove that \(\sqrt[n]{2}\) is
+    irrational for $n$ larger than 2.
+    \begin{align*}
+      \sqrt[n]{2} \in \Q &\then \exists a,b \in \Z : \gcd{(a,b)}=1 \\
+                         &\then a^n = 2b^n \then a^n = b^n + b^n
+    \end{align*}
+    Thus, this contradicts Fermat's Last theorem implying \(\sqrt[n]{2}\) is
+    irrational for \(n > 2\).
+
+    \textit{Note: this is essentially
+      \link{https://math.stackexchange.com/q/783392}{zscoder's proof}. No real
+      credit here; I couldn't figure it out myself at first. It's pretty simple
+      though, so I couldn't formulate something else that was better without
+      adding unnecessary steps (originally completed in hw3)}.
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item Prove that for any \(a,b,c \in \Z, \exists x,y \in \Z : a|bx+cy
+      \given a|b \land a|c\)
+
+    \item Prove that for any \( n,a,b \in \Z, n|a-b \iff a\%n = b\%n\)
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item Let \(a, b \in \Z, n \in \N\). Prove that \[a \sim b \given a \equiv
+      b \bmod n\]
+      is a n
+      \link{https://en.wikipedia.org/wiki/Equivalence_relation}{equivalence~relation}
+      for any \(n\).
+
+    \item The greatest common divisor of natural numbers \(a, b; \gcd(a,b) \),
+      is the largest number \(\delta\) such that \(\delta|a \land \delta|b\)
+      \begin{enumerate}
+
+        \item Let \(\delta = \gcd(b, a\%b)\), prove that \(\delta|a \land
+          \delta|b\)
+
+        \item Use part (a) to show that \(\gcd(a,b) = \gcd(b, a\%b)\)
+
+      \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item We defined the identity function
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \id : A \to A, \quad \id(x) = x, \quad  \text{has property:}~\forall f :
+       A\to A,~ \id \circ f = f \circ \id = f
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      Prove that \(\id\) is the only function that can have this property.
+
+\end{enumerate}
+
+\end{document}
