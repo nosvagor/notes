@@ -17,8 +17,8 @@
 % ╠╣ │ │├┬┘│││├─┤ │  │ │││││ ┬
 % ╚  └─┘┴└─┴ ┴┴ ┴ ┴  ┴ ┴┘└┘└─┘
 \RequirePackage{
-  mathtools, amssymb, bm, relsize, esvect,tikz,tikz-cd, array,marvosym,
-  etoolbox, mathdots, pgfplots
+  mathtools, amssymb, amsthm, bm, relsize, esvect,tikz,tikz-cd, array,marvosym,
+  etoolbox, mathdots, pgfplots,
 }
 
   \pgfplotsset{compat=newest}
@@ -102,9 +102,11 @@
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
   \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
+\def\plet{\2{\textsl{\textrm{let}}}~}
 \def\given{~\2{\impliedby}~}
 \def\then{~\2{\implies}~}
 \def\thus{~\2{\therefore}~}
+\renewcommand{\qed}{\qquad\2{\blacksquare}}
 
 \def\t{\dagger}
 

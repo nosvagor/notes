@@ -13,18 +13,29 @@
 
 \begin{document}
 
-\begin{enumerate}[itemsep=10em]
+\begin{enumerate}[itemsep=4em]
 
   \item Prove that \(n^2 \neq 2 \bmod 3, \quad \forall n \in \Z \)
+
+    \dd{Theorem 1}: if \(n\) is even then \(n^2\) is even.
+
+    \dt{Proof by}:
+    \begin{align*}
+      &\forall n \in E, 2|n  \then 2|n^2 \quad \dt{by theorem 1} \\
+      &2|n^2 = 2 \bmod 0 \neq 2 \bmod 3 \qed
+    \end{align*}
 
   \item Fermat’s Last theorem is a famous theorem in Math that was unproven for
     200 years. The theorem says \(\forall n > 2,~ a,b,c \in \N \then  a^n +
     b^n \neq c^n\). Another way to state this is \(a^n + b^n = c^n\) has no integer
     solutions for $n$ larger than 2. Use this theorem to prove that \(\sqrt[n]{2}\) is
     irrational for $n$ larger than 2.
+
+    \dt{Proof by}:
     \begin{align*}
-      \sqrt[n]{2} \in \Q &\then \exists a,b \in \Z : \gcd{(a,b)}=1 \\
-                         &\then a^n = 2b^n \then a^n = b^n + b^n
+    \sqrt[n]{2} \in \Q &\then \exists a,b \in \Z : \gcd{(a,b)}=1 \\
+                         &\then \sqrt[n]{2} = \frac{a}{b} \then a^n = 2b^n \\
+                         &\then a^n = b^n + b^n \qed
     \end{align*}
     Thus, this contradicts Fermat's Last theorem implying \(\sqrt[n]{2}\) is
     irrational for \(n > 2\).
@@ -34,10 +45,6 @@
       credit here; I couldn't figure it out myself at first. It's pretty simple
       though, so I couldn't formulate something else that was better without
       adding unnecessary steps (originally completed in hw3)}.
-
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
 
     \item Prove that for any \(a,b,c \in \Z, \exists x,y \in \Z : a|bx+cy
       \given a|b \land a|c\)

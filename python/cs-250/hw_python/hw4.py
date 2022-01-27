@@ -5,22 +5,19 @@
 # cullyn newman
 # CS: 250
 
-# Here's the part of the class where we finally get to talking about code.
-# So far I haven't assumed any knowledge of how to program,
-# but we're going to need at least a little bit to apply concepts in class.
+# Here's the part of the class where we finally get to talking about code. So
+# far I haven't assumed any knowledge of how to program, but we're going to
+# need at least a little bit to apply concepts in class.
 
-# Why are we doing this when talking about proofs?
-# Writing a programs is a lot like writing a math proof.
-# We need to break down the problems,
-# and work out step by step how to solve it,
-# and then explain the steps
-#
+# Why are we doing this when talking about proofs? Writing a programs is a lot
+# like writing a math proof. We need to break down the problems, and work out
+# step by step how to solve it, and then explain the steps
+
 # In fact, there's an entire area of CS devoted to automatic theorem proving.
-# The theorems are types in a programming language
-# and the proofs are programs in that language.
+# The theorems are types in a programming language and the proofs are programs
+# in that language.
 
-# so let's look at programming in Python.
-# most of you will already know this.
+# so let's look at programming in Python. Most of you will already know this.
 
 ##################################
 # Operators
