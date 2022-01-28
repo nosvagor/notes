@@ -90,19 +90,19 @@
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 
 % Spacing in
-\def\qand{\quad\text{and}\quad}
+% \def\qand{\quad\text{and}\quad}
 
-\let\oldmin\min
-\renewcommand{\min}[1]{\BB{\oldmin\left(\fg{#1}\right)}}
-\let\oldmax\max
-\renewcommand{\max}[1]{\RR{\oldmax\left(\fg{#1}\right)}}
+% \let\oldmin\min
+% \renewcommand{\min}[1]{\BB{\oldmin\left(#1\right)}}
+% \let\oldmax\max
+% \renewcommand{\max}[1]{\RR{\oldmax\left(#1\right)}}
 
 \RequirePackage{stackengine}
 \let\oldpm\pm
 \renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
   \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
 
-\def\plet{\2{\textsl{\textrm{let}}}~}
+\def\plet{\2{\textsl{ \textrm{let}}}~}
 \def\given{~\2{\impliedby}~}
 \def\then{~\2{\implies}~}
 \def\thus{~\2{\therefore}~}

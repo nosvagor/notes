@@ -25,15 +25,15 @@
     &\dd{(3)} \quad a \equiv b \bmod n \iff n|b - a
   \end{align*}
 
-  \dd{Theorem 4.1}: if \(n\) is even then \(n^2\) is even. \quad \prn{source: lecture}\\
-  % \dd{Theorem 4.2}: \(a|b \land a|c \then a|b+c\) \quad \prn{source: notes\_4.pdf}\\
-  % \dd{Theorem 4.3}: \(a \equiv a \% n \bmod n\) \quad \prn{source: notes\_4.pdf}\\
+  \dd{Theorem 4.1}: if \(n\) is even then \(n^2\) is even. \psrc{lecture}\\
+  \dd{Theorem 4.2}: \(a|b \land a|c \then a|b+c\) \psrc{notes\_4.pdf}\\
+  \dd{Theorem 4.3}: \(a \equiv a \% n \bmod n\) \psrc{notes\_4.pdf}\\
 
 \hrulefill
 
 \vspace{2em}
 
-\begin{enumerate}[itemsep=4em]
+\begin{enumerate}[itemsep=8em]
 
   \item Prove that \(n^2 \neq 2 \bmod 3, \quad \forall n \in \Z \)
 
@@ -61,7 +61,7 @@
       \link{https://math.stackexchange.com/q/783392}{zscoder's proof}. No real
       credit here; I couldn't figure it out myself at first. It's pretty simple
       though, so I couldn't formulate something else that was better without
-      adding unnecessary steps (originally completed in hw3)}.
+      adding unnecessary steps (originally completed in hwy)}.
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,9 +91,8 @@
       \end{align*}
       Thus, if \(a\%n = b\%n\) then one integer is guaranteed to be a
       multiple of the other, which must be true for \(a-b\) to be divisible by
-      \(n\). Alternatively, a contradiction arises because
-      every integer should be able to represented as a multiple of some other
-      integer.
+      \(n\). Alternatively, a contradiction arises because every integer should
+      be able to be represented as a multiple of some other integer.
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,9 +100,23 @@
 
     \item Let \(a, b \in \Z, n \in \N\). Prove that \[a \sim b \given a \equiv
       b \bmod n\]
-      is a n
+      is an
       \link{https://en.wikipedia.org/wiki/Equivalence_relation}{equivalence~relation}
       for any \(n\).
+
+      \dt{Proof.}
+      \begin{align*}
+        a\sim a \land b \sim b \quad \dt{by theorem 4.3} &\then \text{\true{reflexive}} \\\\
+        n|b-a = n|a-b &\then
+        a \sim b \iff b \sim a
+        \quad \dt{by definition 3} \\
+                         &\then \text{\true{symmetric}} \\\\
+        n|b-a &\then a \sim b \land n|c-b \\
+              \then b \sim c \then n|c-a &\then a \sim c \\
+                         &\then \text{\true{transitive}} \qed
+      \end{align*}
+
+\vspace{-7em}
 
     \item The greatest common divisor of natural numbers \(a, b; \gcd(a,b) \),
       is the largest number \(\delta\) such that \(\delta|a \land \delta|b\)
@@ -112,7 +125,29 @@
         \item Let \(\delta = \gcd(b, a\%b)\), prove that \(\delta|a \land
           \delta|b\)
 
-        \item Use part (a) to show that \(\gcd(a,b) = \gcd(b, a\%b)\)
+          \dt{Proof.}
+          \begin{align*}
+            a\%b = 0 &\then a|b,~\gcd{(b,0)} = b \\
+                     &\then b = \delta,~ b = ca \\
+                     &\then \delta|b,~ \delta|ca \\
+                     &\then \delta|b \land \delta|a
+          \end{align*}
+          \begin{align*}
+            a\%b \neq 0 &\then a\%b = r \quad \dt{by definition 2} \\
+                        &\then r|b-a \quad \dt{by definition 3} \\
+                        &\then r|a \land r|b \quad \dt{by question 3} \\
+                        \delta | r \quad \dt{by definition of gcd}
+                        &\then \delta|a \land \delta|b \qed
+          \end{align*}
+
+        \item Use (a) to show that \(\gcd(a,b) = \gcd(b, a\%b)\)
+
+          \dt{Proof.}
+          \begin{align*}
+            a\%b = 0 &\then a \leq b, \delta = \max(a,b) = b \quad \dt{by part (a)} \\
+            a\%b \neq 0 &\then \delta|r, 0 < r < a \leq b \quad \dt{by part (a)} \\
+            &\then \delta = \max(b, r) = b \qed
+          \end{align*}
 
       \end{enumerate}
 
@@ -126,6 +161,14 @@
        A\to A,~ \id \circ f = f \circ \id = f
       \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       Prove that \(\id\) is the only function that can have this property.
+
+      \dt{Proof by contradiction.}
+      \begin{align*}
+        \quad g \neq \id, \forall g : A \to A \then \forall a \in A : g(a)\not\in A \land \id(a) \in A \qed
+      \end{align*}
+
+      I.e., there is no unique function that can map all element in a set to
+      themselves while still remaining one-to-one.
 
 \end{enumerate}
 
