@@ -5,143 +5,44 @@
 # cullyn newman
 # CS: 250
 
-# Here's the part of the class where we finally get to talking about code. So
-# far I haven't assumed any knowledge of how to program, but we're going to
-# need at least a little bit to apply concepts in class.
+import math
 
-# Why are we doing this when talking about proofs? Writing a programs is a lot
-# like writing a math proof. We need to break down the problems, and work out
-# step by step how to solve it, and then explain the steps
-
-# In fact, there's an entire area of CS devoted to automatic theorem proving.
-# The theorems are types in a programming language and the proofs are programs
-# in that language.
-
-# so let's look at programming in Python. Most of you will already know this.
-
-##################################
-# Operators
-##################################
-
-# We can use python like a calculator
-# There are several operators we can use
-# They're generally split into three classes
-# arithmetic operators work on numbers
-# boolean operators work on the boolean values True and False.
-# comparison operators work on most any type of data, and return boolean values.
-
-# Arithmetic operators:
-# We have the operators +, -, *, /, and ** from hw1.
-# We also have the % operator for modulus.
-
-# comparison operators:
-# a == b a and b are equal
-# a != b a and b are not equal
-# a < b a is less than b
-# a > b a is greater than b
-# a <= b a is less than or equal to b
-# a >= b a is greater than or equal to b
-
-
-# boolean operators: also from homework 1
-# a and b
-# a or b
-# not a
-
-##################################
-# Variables and Assignment
-##################################
-# We can make a variable with
-# name = expression
-# for example
-x = 2 * 3 + 6
-# Now the name x has the value 12
-print("x =", x)
-
-# unlike variables in math, we can change the definition of x at any time
-x = 13
-print("x =", x)
-
-
-##################################
-# IF Statements
-##################################
-
-# If statements let us choose between two branches
-# in python an if statement doesn't need parentheses
-# but it does need a colon
-# and everything after the if statement must be tabbed in
-# It's an error in python if you have bad formatting.
-
-# if boolean expression:
-#     true branch
-# else:
-#     false branch
-
-if x < 10:
-    print("x is less than 10")
-else:
-    print("x is greater than or equal to 10")
-
-##################################
-# WHILE loops
-##################################
-
-# We can also repeat things in Python.
-# the syntax is
-# while boolean expression:
-#    loop body
-#
-# Again, you need to indent the loop body
-# otherwise it's an error.
-#
-# Usually we use a loop to count things
-i = 0
-while i < 10:
-    print("i =", i)
-    i = i + 1
-
-# The last line is called an increment.
-# It's a little weird to have i on both sides of an assignment
-# i = i + 1
-# If i is 0 when we get to this line,
-# then i = 0 + 1, so i is now 1.
-# if i = 1 when we get to the line,
-# then i = 1 + 1, so i is now 2.
-# We're just adding 1 to the current value of i.
-
-# but we can do more than just increment i
-# we can also keep a running total of something
-# 2^n = 2 * 2 * 2 ... 2, n times.
-# We can compute this with a loop
-def twoToThe(n):
-    total = 1
-    i = 0
-    while i < n:
-        total = total * 2
-        i = i + 1
-    return total
-
-
-##################################
-# problems
-##################################
 
 # problem 1:
 # Write a function to compute the division algorithm
 # That is, assume a >= b
-# return a q and r such that a = qb + r
+# return q and r such that a = qb + r
 def division(a, b):
-    q = 0
-    r = 0
+    q = a // b
+    r = a % b
     return (q, r)
+
+
+# --- Question 1 --- #
+print("\n" + "-" * 42)
+print("Question 1:\n")
+a = 6
+b = 6
+q, r = division(a, b)
+print(f"a,b = {a,b}\nq = {q}, r = {r}")
+print(f"a == qb + r -> {a == q * b + r}")
+print("-" * 42)
 
 
 # Problem 2:
 # write a function that returns True if a | b
 # you can use problem 1 for this, but you don't need to.
 def divides(a, b):
-    return False
+    return True if (a % b == 0) else False
+
+
+# --- Question 2 --- #
+print("\n" + "-" * 42)
+print("Question 2:\n")
+
+print(f"a divides b -> {divides(a, b)}")
+
+print("-" * 42)
 
 
 # problem 3: factorial
@@ -152,7 +53,18 @@ def divides(a, b):
 # Since you don't know how big n is, you're going to need to use a loop.
 # You should keep track of your running total.
 def factorial(n):
-    return 1
+    return 1 if (n == 1) else n * factorial(n - 1)
+
+
+# --- Question 3 --- #
+print("\n" + "-" * 42)
+print("Question 3:\n")
+n = 9
+
+print(f"n! = {factorial(n)}")
+
+print(f"factorial(n) = math.factorial(n) -> {factorial(n) == math.factorial(n)}")
+print("-" * 42)
 
 
 # Problem 4: euclids algorithm
@@ -170,4 +82,16 @@ def factorial(n):
 #
 # write a function to compute gad, you can assume a > b.
 def gcd(a, b):
-    return 1
+    q, r = division(a, b)
+    return b if r == 0 else gcd(a, r)
+
+
+# --- Question 4 --- #
+print("\n" + "-" * 42)
+print("Question 4:\n")
+
+a, b = 135, 117
+print(gcd(135, 117))
+
+print(f"gcd(a,b) = math.gcd(a,b) -> {gcd(a,b) == math.gcd(a,b)}")
+print("-" * 42)

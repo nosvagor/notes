@@ -44,7 +44,7 @@
     <td align="center">4</td>
     <td align="center">4,7</td>
     <td align="center">algos, infinity</td>
-    <td align="center">pdf-w4 | py-w4</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_tex/hw4.pdf">pdf-w4</a> | <a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/hw_python/hw4.py">py-w4</a></td>
   </tr>
   <tr>
     <td align="center">5</td>
