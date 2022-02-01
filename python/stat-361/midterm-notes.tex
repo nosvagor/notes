@@ -1,0 +1,87 @@
+\documentclass[basic]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Midterm Notes}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{Class}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+% \begin{multicols}{2}
+
+  \chonk{Chapter 2}
+
+  \begin{itemize}
+    \item \dd{Permutations}: \(\displaystyle  {}_nP_r = \frac{n!}{(n-r)!}, \quad
+      \begin{pmatrix} n \\ r \end{pmatrix} = \frac{n!}{r!(n-r)!}
+      \)
+
+    \item \dd{Additive rule}: \(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)
+
+    \item \dd{Conditional probability}: \(\displaystyle P(B|A) = \frac{P(A \cap
+      B)}{P(A)},\)
+
+    \item \dd{Independence}: \(P(A|B) = P(A) \then P(A \cup B) = P(A)P(B)\)
+
+    \item \dd{Total probability}: \(\displaystyle P(A) = \sum_{n=1}^{k} P(B_i
+      \cap A) = \sum_{n=1}^{k} P(B_i)P(A|B_i)\)
+
+    \item \dd{Bayes' Rule}: \(\P\) of even in a partitioned \(\Omega\), \(\displaystyle  P(B_r|A) = \frac{P(B_r)P(A|B_r)}{\sum_{n=1}^{\infty} P(B_i)P(A|B_i)}\)
+
+  \end{itemize}
+
+  \hrulefill
+
+  \chonk{Chapter 3}
+  \begin{itemize}
+    \item \dd{Probability mass function}: describes the probability that a
+      \aset{discrete} random variable is exactly equal to some value, i.e.,
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        p : R \to [0,1] \quad  p(x) = \P(X = x) \given p(x) \geq 0, \sum_{i}^{} = p(x_i) = 1
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item \dd{Probability density function}: describes relative probabilities
+      for a set of exclusive \aset{continuous} events, i.e.,
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \hspace{-2em}
+        \P(a \leq X \leq b) = \int_{a}^{b} f(x)\,dx \given
+        f(x) \geq 0, \forall x \in \R, \quad
+        \displaystyle \int_{-\infty}^{\infty} f(x)\,dx = 1
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item \dd{Cumulative density function}: the sum of continuous probabilities
+      up to a particular point (CDF can be > 1), i.e.,
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        f(x) = \int_{-\infty}^{x} f(u)\, du \then \sum_{i=1}^{a} p(x_i)
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \end{itemize}
+
+  \hrulefill
+
+  \chonk{Chapter 4}
+  \begin{itemize}
+    \item \dd{Expected value \(E[X], \bar{X}\)}: a generalized weighted
+      average, essentially the arithmetic mean of a large number of
+      realizations of some random variable \(X\).
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \text{Discrete: } E[X] = \sum_{x}^{} x f(x), \quad \text{Continuous: }
+        E[X] = \int_{-\infty}^{\infty} x f(x)\, dx
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{itemize}
+      \item Note: \(x\) can be a probability function.
+      \item Applying the mean value \(\mu\) allows for expected variance, i.e.,
+        \(\sigma^2 = E[(X-\mu)^2]\)
+    \end{itemize}
+
+  \end{itemize}
+
+% \end{multicols}
+
+\end{document}

@@ -281,7 +281,7 @@
   \renewcommand{\PP}[1]{{\color{pink+1}{#1}}}
 
 
-  \renewcommand{\TT}[1]{{\color{blue+1}{#1}}}
+  \renewcommand{\TT}[1]{{\color{green+1}{#1}}}
 
   \pagecolor{white}
   \color{black}
@@ -324,8 +324,6 @@
   \setlist[itemize,1]{label=\raisebox{1pt}{\small\(\bullet\)}}
   \setlist[itemize,2]{label=\raisebox{1pt}{\small\(\circ\)}}
   \setlist[itemize,3]{label=\small{\textbullet}}
-
-  \setlist[itemize,enumerate]{leftmargin=\dimexpr1.5em}
 }
 
 \DeclareOption{header}{

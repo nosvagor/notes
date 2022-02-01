@@ -44,7 +44,7 @@
   </tr>
   <tr>
     <td align="center">5</td>
-    <td align="center">Midterm (weeks 1-4)</td>
+    <td align="center">Midterm <a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/midterm-notes.pdf">(note sheet)</a></td>
   </tr>
 
   <tr>
