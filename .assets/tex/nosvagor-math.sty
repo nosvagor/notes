@@ -23,8 +23,6 @@
 
   \pgfplotsset{compat=newest}
 
-  \apptocmd{\lim}{\limits}{}{}
-
   \numberwithin{equation}{chapter}
   \DeclareMathSizes{12}{14}{10}{8}
 
@@ -93,26 +91,13 @@
 \newcommand{\proj}[2]{\operatorname{proj}_{\bm{#1}}\bm{#2}}
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 
-% Spacing in
-% \def\qand{\quad\text{and}\quad}
-
-% \let\oldmin\min
-% \renewcommand{\min}[1]{\BB{\oldmin\left(#1\right)}}
-% \let\oldmax\max
-% \renewcommand{\max}[1]{\RR{\oldmax\left(#1\right)}}
-
-\RequirePackage{stackengine}
-\let\oldpm\pm
-\renewcommand{\pm}{\mathbin{\ensurestackMath{\abovebaseline[-4pt]{%
-  \stackunder[-4pt]{\color{red}\mathsmaller{+}}{\color{blue}-}}}}}
-
-\def\plet{\2{\textsl{ \textrm{let}}}~}
 \def\given{~\2{\impliedby}~}
 \def\then{~\2{\implies}~}
 \def\thus{~\2{\therefore}~}
 \renewcommand{\qed}{\qquad\2{\blacksquare}}
+\let\oldiff\iff
+\renewcommand{\iff}{~\2{\oldiff}~}
 
 \def\t{\dagger}
 
-\let\oldiff\iff
-\renewcommand{\iff}{~\2{\oldiff}~}
+
