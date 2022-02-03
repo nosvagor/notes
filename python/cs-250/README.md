@@ -6,7 +6,7 @@
 
 <p align="center">
     <a href="cs-250-syllabus.pdf">
-    <img title="Syllabus" src="https://img.shields.io/badge/STAT: 361-syllabus-informational?logo=adobe-acrobat-reader" > </a>
+    <img title="Syllabus" src="https://img.shields.io/badge/CS: 250-syllabus-informational?logo=adobe-acrobat-reader" > </a>
 </p>
 
 ### Course Materials
@@ -50,7 +50,7 @@
     <td align="center">5</td>
     <td align="center">Review</td>
     <td align="center">Midterm</td>
-    <td align="center"></td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/cs-250/midterm-notes.pdf">midterm notes</a></td>
   </tr>
 
   <tr>
