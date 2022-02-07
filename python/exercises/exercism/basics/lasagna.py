@@ -1,5 +1,4 @@
 # TODO: define the 'EXPECTED_BAKE_TIME' constant
-eee
 
 # TODO: define the 'bake_time_remaining()' function
 def bake_time_remaining():
