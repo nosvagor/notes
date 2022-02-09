@@ -1,0 +1,148 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Homework 5}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{CS: 250}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+\begin{enumerate}[itemsep=4em]
+
+  \item Use induction to prove the following summation formulas. Remember rules
+    of logs. Specifically \(\log(ab) = \log(a) + \log(b)\).
+    \begin{enumerate}[leftmargin=2em]
+      \item \(\displaystyle \sum_{i=1}^{n} a_i + b_i = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} b_i  \)
+
+      \item \(\displaystyle \sum_{i=1}^{n}ca_i = c \sum_{i=1}^{n} a_i \)
+
+      \item \(\displaystyle \sum_{i=1}^{n} \log(a_i) = \log \left( \prod_{i=1}^{n} a \right) \)
+
+      \item \(\displaystyle \sum_{i=1}^{n} 2i - 1 = n^2 \)
+
+      \item \(\displaystyle \sum_{i=1}^{n} i^3 = \left( \frac{n(n+1)}{2} \right)^2 \)
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Prove that \(\displaystyle n! > 2^n \quad \forall n > 4 \)
+
+  \item A prime number \(p\) is a natural number greater than \(1\) where
+    \(1|p\) and \(p|p\) and nothing else divides \(p\). In class we showed that
+    if \(n^2\) is even, then \(n\) is even. Extend this to any prime number.
+
+    Prove that if \(p\) is prime and \(p|n^2\) then \(p|n\).
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Prove:
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \sum_{i=1}^{n} ia^i = \frac{a-(n+1)a^{n+1} + na^{n+2}}{(a-1)^2}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \item Let’s prove some theorems about cardinality. For each of the following
+    equations, give a bijection between the two sets.
+
+    Hint: you can (should) reuse a bijection you've already defined.
+    \begin{enumerate}[leftmargin=2em]
+
+      \item \(\displaystyle |E| = |\N| \)
+
+      \item \(\displaystyle |\N| = |\Z| \)
+
+      \item \(\displaystyle |\N| = |\Q^+| \)
+
+      \item \(\displaystyle |\Z| = |\Q| \)
+
+      \item \(\displaystyle |E| = |\Q| \)
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Prove that \(\displaystyle \forall n, |\N| = |\N^n|\).
+
+    You can assume that \(d : \N \to \N \times \N\) is the diagonal bijection
+    from class.
+
+  \item A language is decidable if there is a program that can (eventually)
+    produce any string in that language. We want to prove that there is at
+    least 1 undecidable language. That is, there is a problem that can’t be
+    solved by a program.
+
+    \begin{enumerate}[leftmargin=2em]
+
+      \item Show that there are countably many programs we can write.
+
+      \item Show that are uncountably many languages.
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Show why the following two lemmas are actually invalid.\\
+
+    Note: the theorem is actually true despite this.
+
+    Hint: part 1 is a problem with induction and part 2 is a problem with
+    infinity.
+
+    \dt{Lemma 0.1}. \textit{There are infinitely many green vegetables}.
+
+    \dt{Proof.}
+
+    Base case: There exists a head of lettuce.\\
+    Inductive hypothesis: there is a set of \(k\) green vegetables.\\
+    Inductive case: Suppose, by the inductive hypothesis, there are \(k\) green vegetables.
+
+    Remember that head of lettuce from from the base case? Let’s add that into our set of k vegetables.
+    Now we have a set of \(k + 1\) green vegetables.
+
+    Therefore we must have a set of \(n\) vegetables for any \(n\), which means
+    we have infinitely many green vegetables. \tqed
+
+    \dt{Lemma 0.2}. \textit{Every green edible thing is a vegetable}.
+
+    \dt{Proof.}
+
+    Let’s consider the set of all possible green edible things G. By the
+    previous lemma it’s clearly an infinite set. I’ll sort the set putting all
+    of the green vegetables at the front. Now we want to show that there are
+    ONLY vegetables in this set.
+
+    Base case: the first element is that dang head of lettuce from the last
+    proof.\\ Inductive hypothesis: The first k elements of G are vegetables.\\
+    Inductive case: Assume, by the inductive hypothesis, that the first k
+    elements are vegetables. Then the next element must also be a vegetable. If
+    it wasn't then there would only be a finite number of vegetables, but by
+    the last theorem this is impossible.
+
+    Therefore, the first k + 1 elements of G must be vegetables. Thus, for all
+    n, the first n elements of G are vegetables. Now, since G is a countably
+    infinite set, and we've shown that each position in the set is a vegetable,
+    it must be the case that the set contains only vegetables.
+
+    \dt{Theorem 0.2.1}: \textit{Mountain Dew is a vegetable}.
+
+    \dt{Proof.}
+
+    It’s green and edible. From the previous two lemmas, it’s clearly a vegetable. \tqed
+
+\end{enumerate}
+
+\end{document}

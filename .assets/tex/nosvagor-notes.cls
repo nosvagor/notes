@@ -240,6 +240,7 @@
 \DeclareOption{basic} {
 
   \definecolor{darkblue}{HTML}{1d2c6d}
+  \definecolor{primary-1}{HTML}{1d2c6d}
 
   %hack
   \definecolor{red}{HTML}{161926}
