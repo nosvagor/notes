@@ -20,18 +20,88 @@
     \begin{enumerate}[leftmargin=2em]
       \item \(\displaystyle \sum_{i=1}^{n} a_i + b_i = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} b_i  \)
 
-        \dt{Proof.}
+        \dt{Proof.}\\
+        Base case: \(n = 1 \then
+          a_1 + b_1 = a_1 + b_1\) \\
+        Inductive hypothesis: \(\displaystyle
+        n = k \then
+        \sum_{i=1}^{k} a_i + b_i = \sum_{i=1}^{k} a_i + \sum_{i=1}^{k} b_i
+        \)
         \begin{align*}
-           x &= y
+          \then
+          \sum_{i=1}^{k+1} a_i + b_i
+          &= \left(\sum_{i=1}^{k} a_i + \sum_{i=1}^{k} b_i\right) a_{k+1} + b_{k+1}
+          & \text{by I.H.} \\
+          &= a_k + b_k + a_{k+1} + b_{k+1} & \qed
         \end{align*}
 
       \item \(\displaystyle \sum_{i=1}^{n}ca_i = c \sum_{i=1}^{n} a_i \)
 
+        \dt{Proof.}\\
+        Base case: \(n = 1 \then ca_1 = ca_1\)\\
+        Inductive hypothesis: \(\displaystyle n = k
+        \then
+        \sum_{i=1}^{k} ca_i = c \sum_{i=1}^{k} a_i\)
+        \begin{align*}
+          \then \sum_{i=1}^{k+1} ca_i
+           &= \left( c\sum_{i=1}^{k} a_i \right) + ca_{k+1} & \text{by I.H.}\\
+           &= ca_k + ca_{k+1}  = c(a_k + a_{k+1} ) & \qed
+        \end{align*}
+
       \item \(\displaystyle \sum_{i=1}^{n} \log(a_i) = \log \left( \prod_{i=1}^{n} a \right) \)
+
+        \dt{Proof.}\\
+        Base case: \(n=1 \then \log(a_1) = \log(a_1)\) \\
+        Inductive hypothesis: \(\displaystyle n= k
+        \then
+        \sum_{i=1}^{k} \log(a_i) = \log\left( \prod_{i=1}^{k} a_i  \right) \)
+        \begin{align*}
+          \then \sum_{i=1}^{k+1} \log(a_i) &= \log\left( \prod_{i=1}^{k} a_i  \right) + \log(a_{k+1} )
+          & \text{by I.H.} \\
+          &= \log(a_k a_{k+1} ) & \qed
+        \end{align*}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 
       \item \(\displaystyle \sum_{i=1}^{n} 2i - 1 = n^2 \)
 
+        \dt{Proof.}\\
+        Base case: \(n = 1 \then 2 - 1 = 1 = 1^2\) \\
+        Inductive hypothesis: \(\displaystyle
+        n = k \then
+        \sum_{i=1}^{k} 2i - 1 = k^2\)
+        \begin{align*}
+          \then
+          \sum_{i=1}^{k+1} 2i - 1 &= k^2 + 2(k + 1) - 1
+          & \text{by I.H.} \\
+                                  &= k^2 + 2k + 1 \\
+                                  &= (k+1)^2 & \qed
+        \end{align*}
+
       \item \(\displaystyle \sum_{i=1}^{n} i^3 = \left( \frac{n(n+1)}{2} \right)^2 \)
+
+        \dt{Proof.}\\
+        Base case: \(n = 1 \then \frac{1(1+1)}{2} = 1 = 1^3\) \\
+        Inductive hypothesis: \(\displaystyle
+        n = k \then
+        \sum_{i=1}^{k} i^3 = \left( \frac{k(k+1)}{2} \right)^2
+        \)
+        \begin{align*}
+          \then
+          \sum_{i=1}^{k+1} i^3 &=
+          \left( \frac{k(k+1)}{2} \right)^2
+          + (k+1)^3
+          & \text{by I.H.} \\
+          &= \left( \frac{k^2 (k+1)^2}{4}\right) + (k+1)^3 \\
+          &=  \frac{k^4 + 2k^3+k^2}{4} +
+          \frac{4k^3+12k^2+12k+4}{4} \\
+          &=  \frac{k^4 + 6k^3+13k^2 + 4}{4} \\
+          &= \frac{(k+1)^2 (k+2)^2}{4}\\
+          &= \left(\frac{(k+1)(k+2)}{2}\right)^2
+          & \qed
+        \end{align*}
 
     \end{enumerate}
 
@@ -40,6 +110,23 @@
 %%%%%%%%%%%%%
 
   \item Prove that \(\displaystyle n! > 2^n \quad \forall n > 4 \)
+
+    \dt{Proof.}\\
+    Base case: \(n = 5 \then 5! > 2^5 \to 120 > 32 \) \\
+    Inductive hypothesis: \(\displaystyle
+    k \geq n
+    \then
+    k! > 2^k \quad \forall k > 4
+    \)
+    \begin{align*}
+      \then (k+1)! > 2^{k+1}
+      &= k!(k+1) > 2^{k}(k+1)
+      & \text{by I.H.} \\
+      &> 2^k(2) = 2^{k+1} \\
+      &\thus k!(k+1) > 2^{k+1}
+      & \qed
+    \end{align*}
+
 
   \item A prime number \(p\) is a natural number greater than \(1\) where
     \(1|p\) and \(p|p\) and nothing else divides \(p\). In class we showed that
@@ -56,6 +143,27 @@
       \sum_{i=1}^{n} ia^i = \frac{a-(n+1)a^{n+1} + na^{n+2}}{(a-1)^2}
     \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    \dt{Proof.}\\
+    Base case: \(n = 1 \then\)
+    \begin{align*}
+     a &= \frac{a - 2a^2 + a^3}{(a-1)^2} = \frac{a(a^2 - 2a + 1)}{a^2 - 2a + 1} = a
+    \end{align*}
+    Inductive hypothesis: \(\displaystyle
+    n=k
+    \then
+      \sum_{i=1}^{k} ia^i = \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2}
+     \)
+    \begin{align*}
+      \then
+      \sum_{i=1}^{k+1} ia^i &= \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} + (k+1)a^{k+1}
+      \qquad \text{by I.H.} \\
+      &-\frac{a-(k+1+1)a^{k+1+1} + (k+1)a^{k+1+2}}{(a-1)^2} =0 \\
+      &\hspace{-2em}\frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} -
+      \frac{a-(k+2)a^{k+2} + (k+1)a^{k+3}}{(a-1)^2} \\
+      &= -a^{k+1} - ka^{k+1} = -(k+1)a^{k+1} \quad~\text{by expand}\to \text{factor}~\\
+      &\then -(k+1)^{k+1} + (k+1)a^{k+1}  =0 \\
+      &\thus 0 = 0 \qquad \qed
+    \end{align*}
   \item Let’s prove some theorems about cardinality. For each of the following
     equations, give a bijection between the two sets.
 
@@ -136,7 +244,7 @@
     Now we have a set of \(k + 1\) green vegetables.
 
     Therefore we must have a set of \(n\) vegetables for any \(n\), which means
-    we have infinitely many green vegetables. \tqed
+    we have infinitely many green vegetables. \(\tqed\)
 
     \dd{Lemma 0.2}. \textit{Every green edible thing is a vegetable}.
 
