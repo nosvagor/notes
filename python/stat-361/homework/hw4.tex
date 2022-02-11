@@ -1,0 +1,195 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Homework 4}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{STAT: 361}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=4em]
+
+  \item \textbf{4.35} The random variable X, representing the number of
+    errors per 100 lines of software code, has the following probability
+    distribution:
+
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{c|ccccc}
+        x &  2 & 3 & 4  & 5 & 6 \\
+        \midrule
+        \(f(x)\)  & 0.01 & 0.25 &0.4 & 0.3 & 0.04 \\
+      \end{tabular}
+    \end{table}
+
+    Using Theorem 4.2 on page 121, find the variance of \(X\).
+
+  \item \textbf{4.36} Suppose that the probabilities are \(0.4, 0.3, 0.2,
+    ~\text{and}~ 0.1\), respectively, that \(0, 1, 2, ~\text{or}~ 3\) power
+    failures will strike a certain subdivision in any given year.
+
+    Find the mean and variance of the random variable \(X\) representing the
+    number of power failures striking this subdivision.
+
+  \item \textbf{4.37} A dealer’s profit, in units of \$5000, on a new
+    automobile is a random variable \(X\) having the density function given in
+    Exercise 4.12 on page 117.
+
+    Find the variance of \(X\).
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{4.38} The proportion of people who respond to a certain
+    mail-order solicitation is a random variable \(X\) having the density
+    function given in Exercise 4.14 on page 117.
+
+    Find the variance of \(X\).
+
+  \item \textbf{4.43 (Bonus)} The length of time, in minutes, for an airplane
+    to obtain clearance for takeoff at a certain airport is a random variable
+    \(Y = 3X - 2\), where \(X\) has the density function
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      f(x) =
+      \begin{cases}
+        \frac{1}{4}e^{-\frac{x}{4}}, & x > 0 \\
+        0, & ~\text{elsewhere}~
+      \end{cases}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    Find the mean and variance of the random variable \(Y\).
+
+  \item \textbf{4.50} For a laboratory assignment, if the equipment is working,
+    the density function of the observed outcome \(X\) is
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      f(x) =
+      \begin{cases}
+        2(1-x), & 0 < x < 1, \\
+        O,      & \text{elsewhere}
+      \end{cases}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    Find the variance and standard deviation of \(X\).
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{4.54} Using Theorem 4.5 and Corollary 4.6, find the mean and
+    variance of the random variable \(Z = 5X +3\), where \(X\) has the probability
+    distribution of Exercise 4.36 on page 127.
+
+  \item \textbf{4.71 (Bonus)} The length of time \(Y\), in minutes, required
+    to generate a human reflex to tear gas has the density function
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      f(y) =
+      \begin{cases}
+        \frac{1}{4}e^{-\frac{y}{4}}, & 0 \leq y < \infty \\
+         0, & \text{elsewhere}
+      \end{cases}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item What is the mean time to reflex?
+
+      \item Find \(E(Y^2)\) and \(\var(Y)\).
+
+    \end{enumerate}
+
+  \item \textbf{4.101} Consider Review Exercise 3.73 on page 108. It
+    involved \(Y\), the proportion of impurities in a batch, and the density
+    function is given by
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      f(y) =
+      \begin{cases}
+        10(1-y)^9,			& 0 \leq y < 1, \\
+        0, & \text{elsewhere}
+      \end{cases}
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item Find the expected percentage of impurities.
+
+      \item Find expected value of proportion of quality material, i.e.,
+        \(E(1-Y)\).
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{4.62} If \(X\) and \(Y\) are independent random variables with
+    variances \(\sigma^2_X = 5 ~\text{and}~ \sigma^2_Y = 3\), find the variance
+    of the random variable \(Z = -2X + 4Y - 3\).
+
+  \item \textbf{4.63} Repeat Exercise 4.62 if X and Y are not independent and
+    \(\sigma_{XY} = 1\).
+
+  \item Let \(X\) and \(Y\) be random variables with the following information:
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     \hspace{-4em} E(X) = 6, \quad E(Y) = -\frac{1}{2}, \quad \var(X) = 4, \quad \var(Y) = 6, \quad \cov(X,Y) = 2
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item Compute \(E(3X - 4Y)\)
+      \item Compute \(\var(3X - 4Y)\)
+      \item Compute \(E(2X - Y^2)\)
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Let \(X\) and \(Y\) be independent random variables with the following
+    information:
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     E(X) = -1, \quad E(Y) = 4, \quad \var(X) = 6, \quad \var(Y) = 8
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item Compute \(E(9X + 2Y)\)
+      \item Compute \(\var(9X + 2Y)\)
+
+    \end{enumerate}
+
+  \item \textbf{6.3} The daily amount of coffee, in liters, dispensed by a
+    machine located in an airport lobby is a random variable \(X\) having a
+    continuous uniform distribution with \(A = 7 ~\text{and}~ B = 10\).
+
+    Find the probability that on a given day the amount of coffee dispensed by
+    this machine will be
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item at most 8.8 liters;
+
+      \item more than 7.4 liters but less than 9.5 liters;
+
+      \item at least 8.5 liters.
+
+    \end{enumerate}
+
+  \item \textbf{6.4} A bus arrives every 10 minutes at a bus stop. It is
+    assumed that the waiting time for a particular individual is a random
+    variable with a continuous uniform
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item What is the probability that the individual waits more than 7
+        minutes?
+
+      \item  What is the probability that the individual waits between 2 and 7
+        minutes?
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
