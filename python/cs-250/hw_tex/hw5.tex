@@ -17,22 +17,24 @@
 
   \item Use induction to prove the following summation formulas. Remember rules
     of logs. Specifically \(\log(ab) = \log(a) + \log(b)\).
-    \begin{enumerate}[leftmargin=2em]
+    \begin{enumerate}[leftmargin=2em, itemsep=8em]
       \item \(\displaystyle \sum_{i=1}^{n} a_i + b_i = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} b_i  \)
 
         \dt{Proof.}\\
         Base case: \(n = 1 \then
-          a_1 + b_1 = a_1 + b_1\) \\
+        (a_1 + b_1) = (a_1) + (b_1)\) \\
         Inductive hypothesis: \(\displaystyle
         n = k \then
         \sum_{i=1}^{k} a_i + b_i = \sum_{i=1}^{k} a_i + \sum_{i=1}^{k} b_i
         \)
+
+        Inductive case:
         \begin{align*}
-          \then
           \sum_{i=1}^{k+1} a_i + b_i
-          &= \left(\sum_{i=1}^{k} a_i + \sum_{i=1}^{k} b_i\right) a_{k+1} + b_{k+1}
-          & \text{by I.H.} \\
-          &= a_k + b_k + a_{k+1} + b_{k+1} & \qed
+          &= \left(\sum_{i=1}^{k} a_i + b_i\right) + (a_{k+1} + b_{k+1}) \\
+          \BB{\left(\sum_{i=1}^{k+1} a_i + \sum_{i=1}^{k+1} b_i\right)}
+          &= \BB{\left(\sum_{i=1}^{k} a_i + \sum_{i=1}^{k} b_i\right)} + (a_{k+1} + b_{k+1})
+          \quad  \text{\BB{by I.H.}} \hspace{-1.8em}\qed
         \end{align*}
 
       \item \(\displaystyle \sum_{i=1}^{n}ca_i = c \sum_{i=1}^{n} a_i \)
@@ -42,11 +44,19 @@
         Inductive hypothesis: \(\displaystyle n = k
         \then
         \sum_{i=1}^{k} ca_i = c \sum_{i=1}^{k} a_i\)
+
+        Inductive case:
         \begin{align*}
-          \then \sum_{i=1}^{k+1} ca_i
-           &= \left( c\sum_{i=1}^{k} a_i \right) + ca_{k+1} & \text{by I.H.}\\
-           &= ca_k + ca_{k+1}  = c(a_k + a_{k+1} ) & \qed
+          \sum_{i=1}^{k+1} ca_i
+           &= \left( \sum_{i=1}^{k} ca_i \right) + ca_{k+1}\\
+           \BB{c \sum_{i=1}^{k+1} a_i}
+           &= \BB{\left(c \sum_{i=1}^{k} a_i\right)} + ca_{k+1}
+           & \text{\BB{by I.H.}} \qed \\
         \end{align*}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 
       \item \(\displaystyle \sum_{i=1}^{n} \log(a_i) = \log \left( \prod_{i=1}^{n} a \right) \)
 
@@ -55,15 +65,16 @@
         Inductive hypothesis: \(\displaystyle n= k
         \then
         \sum_{i=1}^{k} \log(a_i) = \log\left( \prod_{i=1}^{k} a_i  \right) \)
+
+        Inductive case:
         \begin{align*}
-          \then \sum_{i=1}^{k+1} \log(a_i) &= \log\left( \prod_{i=1}^{k} a_i  \right) + \log(a_{k+1} )
-          & \text{by I.H.} \\
-          &= \log(a_k a_{k+1} ) & \qed
+         \sum_{i=1}^{k+1} \log(a_i)
+         &= \sum_{i=1}^{k} \log(a_i) + \log(a_{k+1} )\\
+         \BB{ \log\left(\prod_{i=1}^{k+1} a_i \right)}
+         &= \BB{\log\left( \prod_{i=1}^{k} \right)} + \log(a_{k+1} )
+         & \text{\BB{by I.H.}} \qed \\
         \end{align*}
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
 
       \item \(\displaystyle \sum_{i=1}^{n} 2i - 1 = n^2 \)
 
@@ -72,13 +83,19 @@
         Inductive hypothesis: \(\displaystyle
         n = k \then
         \sum_{i=1}^{k} 2i - 1 = k^2\)
+
+        Inductive case:
         \begin{align*}
-          \then
-          \sum_{i=1}^{k+1} 2i - 1 &= k^2 + 2(k + 1) - 1
-          & \text{by I.H.} \\
-                                  &= k^2 + 2k + 1 \\
-                                  &= (k+1)^2 & \qed
+          \sum_{i=1}^{k+1} 2i - 1
+          &= \left( \sum_{i=1}^{k} 2i - 1 \right)  + 2(k + 1) - 1\\
+          &= \BB{k^2} + 2(k+1) -1 & \text{\BB{by I.H.}} \\
+          &= k^2 + 2k + 1 \\
+          &= (k+1)^2 & \qed
         \end{align*}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 
       \item \(\displaystyle \sum_{i=1}^{n} i^3 = \left( \frac{n(n+1)}{2} \right)^2 \)
 
@@ -116,7 +133,7 @@
     Inductive hypothesis: \(\displaystyle
     k \geq n
     \then
-    k! > 2^k \quad \forall k > 4
+    k! > 2^k
     \)
     \begin{align*}
       \then (k+1)! > 2^{k+1}
@@ -132,7 +149,16 @@
     \(1|p\) and \(p|p\) and nothing else divides \(p\). In class we showed that
     if \(n^2\) is even, then \(n\) is even. Extend this to any prime number.
 
-    Prove that if \(p\) is prime and \(p|n^2\) then \(p|n\).
+    Prove that if \(p\) is prime and \(p|n^2 \then p|n\).\\
+    Equivalent Theorem: \(p \not| n \then p \not| n^2\).
+
+    \dt{Proof.}
+    \begin{align*}
+      p \not| n &\then n = pq + r, \quads \exists r > 0 \\
+                &\then n^2 = nn = (pq+r)(pq+r) = p(pq^2 + 2qr) + r^2
+    \end{align*}
+
+
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,17 +179,19 @@
     \then
       \sum_{i=1}^{k} ia^i = \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2}
      \)
+
+    Inductive case:
     \begin{align*}
-      \then
-      \sum_{i=1}^{k+1} ia^i &= \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} + (k+1)a^{k+1}
-      \qquad \text{by I.H.} \\
-      &-\frac{a-(k+1+1)a^{k+1+1} + (k+1)a^{k+1+2}}{(a-1)^2} =0 \\
-      &\hspace{-2em}\frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} -
-      \frac{a-(k+2)a^{k+2} + (k+1)a^{k+3}}{(a-1)^2} \\
-      &= -a^{k+1} - ka^{k+1} = -(k+1)a^{k+1} \quad~\text{by expand}\to \text{factor}~\\
-      &\then -(k+1)^{k+1} + (k+1)a^{k+1}  =0 \\
-      &\thus 0 = 0 \qquad \qed
+      &p\sum_{i=1}^{k+1} ia^i = \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} + (k+1)a^{k+1}\\
+      &\mathsmaller{\BB{\frac{a-(k+1+1)a^{k+1+1} + (k+1)a^{k+1+2}}{(a-1)^2}} =
+      \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} + (k+1)a^{k+1}}
+      \quad \text{\BB{by I.H.}} \\
+      &\mathsmaller{\frac{a-(k+1+1)a^{k+1+1} + (k+1)a^{k+1+2}}{(a-1)^2} -
+      \frac{a-(k+1)a^{k+1} + ka^{k+2}}{(a-1)^2} - (k+1)a^{k+1} = 0}\\
+      &(k+1)a^{k+1}  - (k+1)a^{k+1} = 0 \qquad~\text{by lots of algebra (used wolfram)}\\
+      &0 = 0 & \qed
     \end{align*}
+
   \item Let’s prove some theorems about cardinality. For each of the following
     equations, give a bijection between the two sets.
 
