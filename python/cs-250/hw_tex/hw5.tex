@@ -200,6 +200,7 @@
       &0 = 0 & \qed
     \end{align*}
 
+  \vspace{-3em}
   \item Let’s prove some theorems about cardinality. For each of the following
     equations, give a bijection between the two sets.
 
@@ -208,13 +209,22 @@
 
       \item \(\displaystyle |E| = |\N|, f: E \to \N, \quad f(e) = \frac{e}{2} \)
 
-      \item \(\displaystyle |\N| = |\Z|, f: \N \to \Z, \quad f(n) = n+1\)
+      \item \(\displaystyle |\N| = |\Z|, g: \N \to \Z, \quad g(n) =
+        \begin{cases}
+          \frac{n}{2},			& 2|n \\
+          -\frac{n+1}{2}, & \text{else}
+        \end{cases}\)
 
-      \item \(\displaystyle |\N| = |\Q^+|, f: \N \to \Q^+, \quad f(n) = \frac{1}{n+1}\)
+      \item \(\displaystyle |\N| = |\Q^+|, h: \N \to \Q^+, \quad h(n) = \frac{n}{n+1}\)
 
-      \item \(\displaystyle |\Z| = |\Q|, f: \Z \to \Q, \quad f(z) = \frac{1}{z}\)
+      \item \(\displaystyle |\Z| = |\Q|, k: \Z \to \Q, \quad k(z) =
+        \begin{cases}
+          h(n),			& z >0, \\
+          -h(n),			& z < 0, \\
+          0, & \text{else}
+        \end{cases}\)
 
-      \item \(\displaystyle |E| = |\Q|, f: E \to \Q, \quad f(e) = \frac{1}{e}\)
+      \item \(\displaystyle |E| = |\Q|, \lambda: E \to \Q, \quad \lambda(e) = k(g(f(e)))\)
 
     \end{enumerate}
 
@@ -228,19 +238,17 @@
     from class.
 
     \dt{Proof.}\\
-    Base case: \(|\N| = |\N \times \N|\) \prn{proved in class} \\
+    Base case: \(n = 1 \then |\N| = |\N^1| = |\N|\) \\
     Inductive hypothesis: \(\displaystyle
-    n=k
-    \then
-    |\N| = |\N^k|
-    \)
+    d_k : \N \to \N^k
+    \) is a bijection.
 
     Inductive case:
     \begin{align*}
-      |\N^{k+1}   |
-      &= |(\N_1 \times \ldots  \times \N_k) \times \N_{k+1}  |  \\
-      &= |\BB{\N^k} \times \N_{k+1} | & \text{\BB{by I.H.}} \\
-      &= |\N^{k+1} |
+      d_{k+1} : \N \to \N^{k+1}
+      \then |\N|
+      &= |\N^{k+1}| & \text{by I.H.} \\
+      \thus |\N| &= |\N^k| = |\N^{k+1} |
       & \qed
     \end{align*}
 

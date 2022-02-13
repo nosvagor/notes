@@ -185,14 +185,15 @@ def append(a, b):
 # When I reverse a sequence, it's first element now comes at the end.
 #
 # Step 1. come up with a recursive equation for reversing a sequence
-# reverse(None) = ?
-# reverse(Seq(head,tail)) = ?
+# reverse(None) = ???
+# reverse(Seq(head,tail)) = Seq(tail,head))
 #
 # Step 2. implement reverse in python
 def reverse(s):
-    if s == None:
-        return s
-    return s
+    if s.head == None:
+        return Seq(s.tail, s.head)
+
+    return reverse(Seq(s.tail, s.head))
 
 
-# ??
+print(reverse(testSequence))
