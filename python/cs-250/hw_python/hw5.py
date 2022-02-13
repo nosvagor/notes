@@ -14,8 +14,10 @@
 # but we can write this function recursively.
 # give a recursive definition
 def fac(n):
-    return 0
+    return 1 if (n == 1) else n * fac(n - 1)
 
+
+print(fac(3))
 
 # The fibbonacci numbers are an interesting sequence of numbers.
 # the sequence is
@@ -28,13 +30,16 @@ def fac(n):
 # so fib(1) = 1, fib(2) = 1, fib(3) = 2 and so on.
 # What's different about the base case here?
 def fib(n):
-    return 0
+    return n if n < 2 else fib(n - 1) + fib(n - 2)
 
+
+for i in range(1, 10):
+    print(fib(i))
 
 # we can also do recursion with sequences.
 # In python we use a list instead of a sequence.
 # In C/C++ we would call this an array.
-# It's the saem concept.
+# It's the same concept.
 # we can make a new list with
 a = [1, 2, 3, 4, 5]
 # Then instead of a_1, we write a[i] to get the ith element of a.
@@ -74,8 +79,26 @@ def sumList(a, n):
 # use this observation to write a recursive definition for a palindrome.
 # I should be able to call panindrome(a,0,len(a)-1)
 def palendrome(a, i, j):
-    return False
+    if j == 0:
+        return True
 
+    if i == j:
+        return True
+
+    if a[i] != a[j]:
+        return False
+
+    return palendrome(a, i + 1, j - 1)
+
+
+a = list("tacocat")
+a1 = list("hannah")
+a2 = list("asetteasasetteas")
+a3 = list("helloworld")
+print(palendrome(a, 0, len(a) - 1))
+print(palendrome(a1, 0, len(a1) - 1))
+print(palendrome(a2, 0, len(a2) - 1))
+print(palendrome(a3, 0, len(a3) - 1))
 
 # Finally We should look at a recursive data structure.
 # If you haven't seen data structures before, that's fine.
@@ -167,4 +190,9 @@ def append(a, b):
 #
 # Step 2. implement reverse in python
 def reverse(s):
-    return None
+    if s == None:
+        return s
+    return s
+
+
+# ??
