@@ -205,37 +205,59 @@
   \item \textbf{4.62} If \(X\) and \(Y\) are independent random variables with
     variances \(\sigma^2_X = 5 ~\text{and}~ \sigma^2_Y = 3\), find the variance
     of the random variable \(Z = -2X + 4Y - 3\).
+    \begin{align*}
+      \sigma^2_Z = a_X\sigma^2_X + a_Y\sigma^2_Y = -2^2(5) + 4^2(3) = \boxed{68}, \quad \text{by corollary 4.11}
+    \end{align*}
 
   \item \textbf{4.63} Repeat Exercise 4.62 if X and Y are not independent and
     \(\sigma_{XY} = 1\).
+    \begin{align*}
+      \sigma^2_Z = a_X\sigma^2_X + a_Y\sigma^2_Y + 2a_Xa_Y\sigma^2_{XY} = 68 + 2(-8)(1) = \boxed{52}
+    \end{align*}
 
   \item Let \(X\) and \(Y\) be random variables with the following information:
     \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     \hspace{-4em} E(X) = 6, \quad E(Y) = -\frac{1}{2}, \quad \var(X) = 4, \quad \var(Y) = 6, \quad \cov(X,Y) = 2
+     E(X) = 6, \quad E(Y) = -\frac{1}{2}, \quad \sigma^2_X = 4, \quad \sigma^2_Y = 6, \quad \sigma_{XY} = 2
     \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{enumerate}[leftmargin=1.6em]
 
       \item Compute \(E(3X - 4Y)\)
+        \begin{align*}
+          &= E(3X) + E(4Y) = 18 - 2 = \boxed{16}
+        \end{align*}
       \item Compute \(\var(3X - 4Y)\)
+        \begin{align*}
+          &= 3^2(4) + 4^2(6) + 2(-12)(2)= \boxed{84}\\
+        \end{align*}
       \item Compute \(E(2X - Y^2)\)
+        \begin{align*}
+          &= E(2X) - E(YY) = 12 - \frac{1}{4} = \boxed{11.75}
+        \end{align*}
+
+    \end{enumerate}
+
+  \item Let \(X\) and \(Y\) be independent random variables with the following
+    information:
+    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     E(X) = -1, \quad E(Y) = 4, \quad \sigma^2_X = 6, \quad \sigma^2_Y = 8
+    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}[leftmargin=1.6em]
+
+      \item Compute \(E(9X + 2Y)\)
+        \begin{align*}
+          &= E(9X) + E(2Y) = -9 + 8 = \boxed{-1}
+        \end{align*}
+
+      \item Compute \(\var(9X + 2Y)\)
+        \begin{align*}
+          &= 9^2(6) + 2^2(8) = \boxed{518}
+        \end{align*}
 
     \end{enumerate}
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
-
-  \item Let \(X\) and \(Y\) be independent random variables with the following
-    information:
-    \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     E(X) = -1, \quad E(Y) = 4, \quad \var(X) = 6, \quad \var(Y) = 8
-    \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{enumerate}[leftmargin=1.6em]
-
-      \item Compute \(E(9X + 2Y)\)
-      \item Compute \(\var(9X + 2Y)\)
-
-    \end{enumerate}
 
   \item \textbf{6.3} The daily amount of coffee, in liters, dispensed by a
     machine located in an airport lobby is a random variable \(X\) having a
