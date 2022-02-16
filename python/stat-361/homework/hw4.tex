@@ -151,10 +151,19 @@
     \begin{enumerate}[leftmargin=1.6em]
 
       \item What is the mean time to reflex?
+        \begin{align*}
+          \mu = \int_{0}^{\infty} \frac{1}{4}ye^{-\frac{y}{4}}\, dy = \boxed{4}
+        \end{align*}
 
       \item Find \(E(Y^2)\) and \(\var(Y)\).
+        \begin{align*}
+          E(Y^2) &= \int_{0}^{\infty} \frac{1}{4}y^2e^{-\frac{y}{4}}\, dy = \boxed{32} \\
+          \sigma^2 &= 32 - 4^2 = \boxed{16}
+        \end{align*}
 
     \end{enumerate}
+
+    \vspace{-2em}
 
   \item \textbf{4.101} Consider Review Exercise 3.73 on page 108. It
     involved \(Y\), the proportion of impurities in a batch, and the density
@@ -169,9 +178,23 @@
     \begin{enumerate}[leftmargin=1.6em]
 
       \item Find the expected percentage of impurities.
+        \begin{align*}
+          \mu &= \int_{0}^{1} 10y(1-y)^9 = \frac{1}{11} = \boxed{0.09}
+        \end{align*}
 
       \item Find expected value of proportion of quality material, i.e.,
         \(E(1-Y)\).
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        E(1-Y) = 1 - 0.09 = \boxed{0.91}
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \item Find the variance of the random variable \(Z = 1-Y\).
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \hspace{-3em}
+          \sigma^2_Z = \sigma^2_{1-Y} = \sigma^2_Y
+          = \int_{0}^{1} 10y^2(1-y)^9 - \frac{1}{11^2}
+          = \frac{1}{66} - \frac{1}{11^2} = \frac{5}{726}= \boxed{0.0068}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{enumerate}
 
