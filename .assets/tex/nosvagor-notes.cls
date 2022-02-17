@@ -148,7 +148,7 @@
 
 \RequirePackage{
   graphicx, booktabs, multirow, multicol, xcolor, pagecolor,
-  changepage, apacite, pifont, fontawesome5, fontawesome
+  changepage, apacite, pifont, fontawesome5, fontawesome, csquotes,
 }
 
 \RequirePackage[justification=centering]{caption}
