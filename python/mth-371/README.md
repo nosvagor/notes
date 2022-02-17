@@ -31,43 +31,43 @@
     <td align="center"><strong>Task</strong></td>
   </tr>
   <tr>
-    <td align="center">Jan 3&ndash;12</td>
+    <td align="center">Week 1</td>
     <td align="center">Review</td>
   </tr>
   <tr>
-    <td align="center">Jan 12</td>
+    <td align="center">Week 2</td>
     <td align="center">Review Quiz</td>
   </tr>
   <tr>
-    <td align="center">Jan 17&ndash;19</td>
+    <td align="center">Week 3</td>
     <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw1.py">Homework 1</a></td>
   </tr>
   <tr>
-    <td align="center">Jan 24&ndash;26</td>
+    <td align="center">Week 4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center">Week 5</td>
     <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw2.py">Homework 2</a></td>
   </tr>
   <tr>
-    <td align="center">Jan 31 &ndash; Feb 2</td>
-    <td align="center">Homework 3</td>
+    <td align="center">Week 6</td>
+    <td align="center"></td>
   </tr>
   <tr>
-    <td align="center">Feb 7&ndash;9</td>
-    <td align="center">Homework 4</td>
+    <td align="center">Week 7</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw3.py">Homework 3</a></td>
   </tr>
   <tr>
-    <td align="center">Feb 14&ndash;16</td>
-    <td align="center">Homework 5</td>
+    <td align="center">Week 8</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw4.py">Homework 4</a></td>
   </tr>
   <tr>
-    <td align="center">Feb 21&ndash;23</td>
-    <td align="center">Final Project</td>
+    <td align="center">Week 9</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/mth-371/homework/hw5.py">Homework 5</a></td>
   </tr>
   <tr>
-    <td align="center">Feb 28&ndash;Mar 2</td>
-    <td align="center">Final Project</td>
-  </tr>
-  <tr>
-    <td align="center">Mar 7&ndash;9</td>
+    <td align="center">Week 10</td>
     <td align="center">Final Proejct</td>
   </tr>
 </table>

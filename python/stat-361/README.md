@@ -53,19 +53,22 @@
   </tr>
   <tr>
     <td align="center">7</td>
-    <td align="center">Homework 4</td>
+    <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw4.pdf">Homework 4</a></td>
   </tr>
   <tr>
     <td align="center">8</td>
     <td align="center">Homework 5</td>
+    <!-- <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw6.pdf">Homework 5</a></td> -->
   </tr>
   <tr>
     <td align="center">9</td>
     <td align="center">Homework 6</td>
+    <!-- <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw7.pdf">Homework 6</a></td> -->
   </tr>
   <tr>
     <td align="center">10</td>
     <td align="center">Homework 7</td>
+    <!-- <td align="center"><a href="https://github.com/nosvagor/notes/blob/main/python/stat-361/homework/hw8.pdf">Homework 7</a></td> -->
   </tr>
 </table>
 
