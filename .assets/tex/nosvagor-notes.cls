@@ -86,13 +86,13 @@
 %  ║  │└─┐ │ └─┐
 %  ╩═╝┴└─┘ ┴ └─┘
 \RequirePackage{enumitem}
-  \setlist[itemize]{itemsep=-0.3ex,topsep=-0.3ex,partopsep=-0.3ex,leftmargin=\dimexpr1em}
+  \setlist[itemize,enumerate]{itemsep=-0.3ex,topsep=-0.3ex,partopsep=-0.3ex,leftmargin=\dimexpr1em}
 
   \setlist[itemize,1]{label=\raisebox{1pt}{\small\color{primary}\(\bullet\)}}
   \setlist[itemize,2]{label=\raisebox{1pt}{\small\color{primary-1}\(\circ\)}}
   \setlist[itemize,3]{label=\small{\color{primary-2}\textbullet}}
 
-  \setlist[itemize,enumerate]{leftmargin=\dimexpr1em}
+  % \setlist[itemize,enumerate]{leftmargin=\dimexpr1em}
 
 % ╔═╗┌─┐┌┐┌┌┬┐┌─┐
 % ╠╣ │ ││││ │ └─┐
