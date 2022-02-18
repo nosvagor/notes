@@ -1,3 +1,4 @@
+# cullyn newman
 # CS 250
 # homework 6
 # Permutations and combinations
@@ -26,32 +27,81 @@
 #
 # you can use list.insert(pos, elem) to insert an element into a list at a position
 def binInc(num):
+    for i in range(len(num) - 1, -1, -1):
+        if num[i] == 1:
+            num[i] = 0
+        else:
+            num[i] = 1
+            break
+    if num[0] == 0:
+        num.insert(0, 1)
     return num
+
+
+print(binInc([1, 0, 1]) == [1, 1, 0])
+print(binInc([0, 0, 1]) == [0, 1, 0])
+print(binInc([1, 1, 1]) == [1, 0, 0, 0])
+print(binInc([1, 0, 1, 1, 1]) == [1, 1, 0, 0, 0])
+print(binInc([1, 1, 1, 1, 1]) == [1, 0, 0, 0, 0, 0])
+print("-" * 79)
 
 # Now, we can repeat the process with base 10 numbers.
 # This is going to be very similar to base 2 numbers.
 # But this time we represent a number with the digits 0 through 9
 # 1024 is [1,0,2,4]
 def decInc(num):
+    if len(num) == 1:
+        return [num[0] + 1]
+
+    if num[-1] == 9:
+        num[-1] = 0
+        decInc(num[0:-1])
+
+    num[-1] += 1
+
+    if num[0] == 9:
+        print(num)
+        num[0] = 0
+        num.insert(0, 1)
     return num
+
+
+print(decInc([0]) == [1])
+print(decInc([1]) == [2])
+print(decInc([9]) == [1, 0])
+print(decInc([9, 9]) == [1, 0, 0])
+print(decInc([9, 9, 9]) == [1, 0, 0, 0])
+print("-" * 10)
+print(decInc([4, 2, 0]) == [4, 2, 1])
+print(decInc([1, 0, 2, 9]) == [1, 0, 3, 0])
+print(decInc([6, 9]) == [7, 0])
+print(decInc([0, 0, 9]) == [0, 1, 0])
+print(decInc([1, 9, 9]) == [2, 0, 0])
+print("-" * 79)
 
 # now use the decInc function to print out all two digit numbers.
 # they can have leading 0s.
 def printNums():
-    print([1])
+    num = [1, 0]
+    while len(num) < 3:
+        print(num)
+        decInc(num)
 
 
-# next we wnat to find a way to print out all combinations.
+# printNums()
+
+# next we want to find a way to print out all combinations.
 # We'll just do the combinations for numbers in the set [0,1,...n-1] for now,
 # but this can easily generalize to combinations of any set.
 
-# I've given you the combs function, so combs(n,k) should return all of the 
-# combinations of lenght k form the numbers [0...n-1].
+# I've given you the combs function, so combs(n,k) should return all of the
+# combinations of length k form the numbers [0...n-1].
 # but this function, just calls a recursive helper function.
 # That's where you come in.
 
-def combs(n,k):
-    combs_rec(n,k,[],0)
+
+def combs(n, k):
+    combsRec(n, k, [], 0)
 
 
 # in this helper function, we want to break down what a combination is.
@@ -60,14 +110,14 @@ def combs(n,k):
 # We add 2 new parameters
 # first comb is the current combination we've seen
 # second s is the start number, it's the first number we haven't used in the combination yet.
-# 
+#
 # This give use our two cases.
 # if the length of comb is k, then we've found a combination, and we can print.
 # if the length of comb is less than k
-# then for each number we haven't see in the combination yet, 
+# then for each number we haven't see in the combination yet,
 # add that number to our combination,
 # and recursively call comb_rec.
-# for example: if we call comb(7,4,[1,2,3],4), 
+# for example: if we call comb(7,4,[1,2,3],4),
 # then our recursive calls would be:
 #   comb(7,4,[1,2,3,4],5)
 #   comb(7,4,[1,2,3,5],6)
@@ -76,9 +126,23 @@ def combs(n,k):
 # You can add an element i to the end of a list comb with the syntax
 # comb+[i]
 
-def combs_rec(n, k, comb, s):
-    pass
 
+def combsRec(n, k, comb, s):
+    comb = [0] * k
+
+    if s == k:
+        return
+
+    while comb[0] < n:
+        decInc(comb)
+        print(comb)
+
+    s += 1
+
+    return
+
+
+# combs(4, 3)
 
 # Finally, we can look at permuting a list.
 # We're going to use a fact from group theory to solve the problem.
@@ -96,6 +160,5 @@ def combs_rec(n, k, comb, s):
 #   swap the elements at i and j
 #   permute the list at index i+1
 #   swap the elements back
-def permute(a,i):
+def permute(a, i):
     pass
-
