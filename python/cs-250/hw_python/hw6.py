@@ -26,14 +26,19 @@
 #    That means you probably want to start at len(num)-1 and work backwards.
 #
 # you can use list.insert(pos, elem) to insert an element into a list at a position
+
+
 def binInc(num):
+    carry = False
     for i in range(len(num) - 1, -1, -1):
         if num[i] == 1:
             num[i] = 0
+            carry = True
         else:
             num[i] = 1
+            carry = False
             break
-    if num[0] == 0:
+    if carry:
         num.insert(0, 1)
     return num
 
@@ -50,18 +55,16 @@ print("-" * 79)
 # But this time we represent a number with the digits 0 through 9
 # 1024 is [1,0,2,4]
 def decInc(num):
-    if len(num) == 1:
-        return [num[0] + 1]
-
-    if num[-1] == 9:
-        num[-1] = 0
-        decInc(num[0:-1])
-
-    num[-1] += 1
-
-    if num[0] == 9:
-        print(num)
-        num[0] = 0
+    carry = False
+    for i in range(len(num) - 1, -1, -1):
+        if num[i] == 9:
+            num[i] = 0
+            carry = True
+        else:
+            num[i] += 1
+            carry = False
+            break
+    if carry:
         num.insert(0, 1)
     return num
 
@@ -71,7 +74,6 @@ print(decInc([1]) == [2])
 print(decInc([9]) == [1, 0])
 print(decInc([9, 9]) == [1, 0, 0])
 print(decInc([9, 9, 9]) == [1, 0, 0, 0])
-print("-" * 10)
 print(decInc([4, 2, 0]) == [4, 2, 1])
 print(decInc([1, 0, 2, 9]) == [1, 0, 3, 0])
 print(decInc([6, 9]) == [7, 0])
@@ -82,7 +84,7 @@ print("-" * 79)
 # now use the decInc function to print out all two digit numbers.
 # they can have leading 0s.
 def printNums():
-    num = [1, 0]
+    num = [0, 0]
     while len(num) < 3:
         print(num)
         decInc(num)
@@ -128,21 +130,12 @@ def combs(n, k):
 
 
 def combsRec(n, k, comb, s):
-    comb = [0] * k
-
-    if s == k:
+    if len(comb) == k:
+        print(comb)
         return
 
-    while comb[0] < n:
-        decInc(comb)
-        print(comb)
 
-    s += 1
-
-    return
-
-
-# combs(4, 3)
+# I really don't know what this problem is asking me to do.
 
 # Finally, we can look at permuting a list.
 # We're going to use a fact from group theory to solve the problem.
@@ -161,4 +154,14 @@ def combsRec(n, k, comb, s):
 #   permute the list at index i+1
 #   swap the elements back
 def permute(a, i):
-    pass
+    if i == len(a):
+        print(a)
+        return
+
+    for j in range(i + 1):
+        a[i], a[j] = a[j], a[i]
+        permute(a, i + 1)
+        a[j], a[i] = a[i], a[j]
+
+
+permute([1, 2, 3, 4], 0)
