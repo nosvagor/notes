@@ -1,20 +1,29 @@
+import matplotlib.pyplot as plt
+import networkx as nx
 import numpy as np
 import pandas as pd
 from scipy.sparse import coo_matrix, csc_matrix, csr_matrix
-from scipy.sparse.linalg import splu, spsolve
+from scipy.sparse.linalg import eigs, splu, spsolve
 
 
-def read_matrix(filepath, csr=False):
-    df = pd.read_csv(filepath, sep=" ", header=None)
-    df.columns = ["col", "row", "data"]
-    matrix = csc_matrix((df["data"], (df["row"], df["col"])))
+def read_data(filepath):
+    data = pd.read_csv(filepath, sep=" ", header=None)
+    data.columns = ["col", "row", "data"]
+    vals = data["data"]
+    cols = data["col"]
+    rows = data["row"]
 
-    if csr:
-        return matrix.tocsr()
+    if min(cols) == 1 and min(rows) == 1:
+        cols = [i - 1 for i in cols]
+        rows = [i - 1 for i in rows]
 
-    return matrix
+    return coo_matrix((vals, (cols, rows))).tocsr()
 
 
+# ┬ ┬┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─  ┌─┐┌┐┌┌─┐
+# ├─┤│ ││││├┤ ││││ │├┬┘├┴┐  │ ││││├┤
+# ┴ ┴└─┘┴ ┴└─┘└┴┘└─┘┴└─┴ ┴  └─┘┘└┘└─┘
+###############################################################################
 def LU_factor(sparse_matrix):
 
     lu = splu(
@@ -42,6 +51,10 @@ def solveLU(L, U, b):
     return np.array(x)
 
 
+# ┬ ┬┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─  ┌┬┐┬ ┬┌─┐
+# ├─┤│ ││││├┤ ││││ │├┬┘├┴┐   │ ││││ │
+# ┴ ┴└─┘┴ ┴└─┘└┴┘└─┘┴└─┴ ┴   ┴ └┴┘└─┘
+###############################################################################
 def gauss_seidel(A, b, tolerance=1e-16, max_iterations=1000):
 
     # initial x vector
@@ -83,3 +96,9 @@ def gauss_seidel(A, b, tolerance=1e-16, max_iterations=1000):
         residual,
         accuracy,
     )
+
+
+# ┬ ┬┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─  ┌┬┐┬ ┬┬─┐┌─┐┌─┐
+# ├─┤│ ││││├┤ ││││ │├┬┘├┴┐   │ ├─┤├┬┘├┤ ├┤
+# ┴ ┴└─┘┴ ┴└─┘└┴┘└─┘┴└─┴ ┴   ┴ ┴ ┴┴└─└─┘└─┘
+###############################################################################
