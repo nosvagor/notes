@@ -20,7 +20,7 @@
 
   \item Compute the following summations
     \begin{enumerate}
-      \item \(\displaystyle \sum_{i=1}^{n} 6 = \boxed{6n}\)
+      \item \(\displaystyle \sum_{i=1}^{n} 6 = 6n\)
 
       \item \(\displaystyle \sum_{i=1}^{n} 5i = 5\left( \frac{n(n+1)}{2} \right) \)
 
@@ -60,7 +60,7 @@
 
       \item If you have a red die and green die, how many different ways are there to roll a 7?
         \begin{align*}
-          S_7 &= \left\{ (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \right\} \then |S_7| = 6 \\
+          S_7 &= \left\{ (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \right\} \then |S_7| = 6
         \end{align*}
 
       \item How many ways are there to draw 5 cards from a deck of 52?
@@ -98,9 +98,16 @@
     other team. Assuming that there are no ties, and every team wins at least
     one game, prove that two teams won the same number of games.
 
-
     \dt{Proof.}\\
+    Assume there are \(n\) teams. \\
+    Each team can have \(1\) to \(n-1\) wins since every team must have at
+    least one win.\\
+    \(n > n-1,\) thus, by the pigeon hole principle, at least two teams must
+    have the same number of wins.\tqed
 
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 
   \item We saw a lot of summation properties in class. Fortunately we don’t
     need to prove all of them separately. We can prove several of them at the
@@ -110,6 +117,28 @@
     \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \sum_{i=m}^n c\cdot a_i + d\cdot b_i = c\cdot \sum_{i=m}^n a_i + d \cdot \sum_{i=m}^n b_i
     \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \dt{Proof.}\\
+    Base case: \(\displaystyle
+    \sum_{i=1}^{1} (ca_i + db_i) = c \cdot \sum_{i=1}^{1} a_i + d\cdot \sum_{i=1}^{1} b_i
+    \)
+
+    Inductive hypothesis: \(\displaystyle
+    \sum_{i=m}^k (ca_i + db_i) = c\cdot \sum_{i=m}^k a_i + d \cdot \sum_{i=m}^k b_i
+    \)
+
+    Inductive case:
+    \begin{align*}
+     \sum_{i=1}^{k+1} (ca_i + db_i)
+      &= \sum_{i=1}^{k} (ca_i + db_i) + (ca_{k+1} +db_{k+1} )\\
+      &= \BB{c\sum_{i=m}^k a_i + d \sum_{i=m}^k b_i}
+      +(ca_{k+1} +db_{k+1})
+      & \text{\BB{by I.H.}} \\
+      &= \left(\sum_{i=m}^k ca_i + ca_{k+1} \right) +
+      \left(\sum_{i=m}^k db_i + db_{k+1} \right)\\
+      &= c\sum_{i=1}^{k+1} a_i + d\sum_{i=1}^{k+1} b_i
+      & \qed
+    \end{align*}
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,6 +157,9 @@
             \node at (1.75,-.25) {$B$};
           \end{tikzpicture}
         \end{center}
+      \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        m = 4, n = 3, \then {7 \choose 4} = 35
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \item Now we have a much larger grid. This would be very difficult to
         count the paths by hand. Instead, let's try to come up with a recursive
@@ -148,134 +180,135 @@
           }
         \end{center}
 
-        \begin{align*}
-          P=
-        \end{align*}
-
-      \item Now given a grid of $r$ rows and $c$ columns, give a recursive
+      \item Now given a grid of $m$ rows and $n$ columns, give a recursive
         formula for the number of paths from $A$ to $B$
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          P(m,n) = {m+n \choose m}
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
     \end{enumerate}
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
 
-  \item (\textbf{Extra Credit})
+%  \item (\textbf{Extra Credit})
 
-    \context{I want to answer a simple question from class.
-    If I roll n dice, how many possible rolls are there when order doesn't
-    matter? We saw in class that if I have 2 dice, the answer is 21.  Let's
-    generalize this.
+%    \context{I want to answer a simple question from class.
+%    If I roll n dice, how many possible rolls are there when order doesn't
+%    matter? We saw in class that if I have 2 dice, the answer is 21.  Let's
+%    generalize this.
 
-    First Let’s start by calculating the number of ways of rolling 3 dice.}
-    \vspace{1em}
-    \begin{enumerate}
+%    First Let’s start by calculating the number of ways of rolling 3 dice.}
+%    \vspace{1em}
+%    \begin{enumerate}[itemsep=1em]
 
-      \item How many ways are to roll 3 dice where all numbers are distinct?
+%      \item How many ways are to roll 3 dice where all numbers are distinct?
 
-      \item How many ways are to roll 3 dice two dice have the same value?
-        While the order of the dice doesn't matter, the number that rolled
-        twice does.
+%      \item How many ways are to roll 3 dice two dice have the same value?
+%        While the order of the dice doesn't matter, the number that rolled
+%        twice does.
 
-      \item How many ways are to roll 3 dice where all dice are the same?
+%      \item How many ways are to roll 3 dice where all dice are the same?
 
-    \end{enumerate}
+%    \end{enumerate}
 
-    \vspace{1em}
-    \context{This way of counting dice seems like a good start, but it seems like it could
-    get complicated pretty quickly. We'll need to break it down.
+%    \vspace{1em}
+%    \context{This way of counting dice seems like a good start, but it seems like it could
+%    get complicated pretty quickly. We'll need to break it down.
 
-    Notice that in the last part we had 3 cases: all 3 numbers are distinct, 2 numbers are distinct, and only 1 number is distinct.
-    So, we should really ask the smaller question:
+%    Notice that in the last part we had 3 cases: all 3 numbers are distinct, 2 numbers are distinct, and only 1 number is distinct.
+%    So, we should really ask the smaller question:
 
-    ``how many ways are there to roll $n$ dice, where $k$ dice are distinct?''
+%    ``how many ways are there to roll $n$ dice, where $k$ dice are distinct?''
 
-    We can again break this into 2 questions.}
-    \vspace{1em}
-    \begin{enumerate}[resume]
+%    We can again break this into 2 questions.}
+%    \vspace{1em}
+%    \begin{enumerate}[resume]
 
-      \item How many ways are there to choose the \(k\) values for the \(n\)
-        dice?
+%      \item How many ways are there to choose the \(k\) values for the \(n\)
+%        dice?
 
-    \end{enumerate}
+%    \end{enumerate}
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
 
-    \vspace{1em} \context{
-      For the second question we need to how we group the dice of the same value.
+%    \vspace{1em} \context{
+%      For the second question we need to how we group the dice of the same value.
 
-      This doesn't seem like a big deal with 3 dice, but let's look at what
-      happens when we have 5. If I roll 5 dice and get 2 distinct values (4 and
-      1 for example), how many ways can I break that up?
+%      This doesn't seem like a big deal with 3 dice, but let's look at what
+%      happens when we have 5. If I roll 5 dice and get 2 distinct values (4 and
+%      1 for example), how many ways can I break that up?
 
-      I could have (1 1 1 1 4), (1 1 1 4 4), (1 1 4 4 4), or (1 4 4 4 4). So there are 4 possible
-      ways.
+%      I could have (1 1 1 1 4), (1 1 1 4 4), (1 1 4 4 4), or (1 4 4 4 4). So there are 4 possible
+%      ways.
 
-      This gets more complicated with 3 distinct values, so we need a better
-      way to solve the problem. I could also write this as I have $m_1$ 1s and
-      $m_2$ 4s. I'll call this the multiplicity of a value. So the multiplicity
-      of 1 is $m_1$.
+%      This gets more complicated with 3 distinct values, so we need a better
+%      way to solve the problem. I could also write this as I have $m_1$ 1s and
+%      $m_2$ 4s. I'll call this the multiplicity of a value. So the multiplicity
+%      of 1 is $m_1$.
 
-      The problem is really asking how many different ways can
-      $m_1 + m_2 = 5$. This is good, because it generalizes. If I have 3 distinct
-      values, then I'm asking how many ways can $m_1 + m_2 + m_3 = 5$.
-    }
-  \vspace{1em}
-  \begin{enumerate}[resume]
+%      The problem is really asking how many different ways can
+%      $m_1 + m_2 = 5$. This is good, because it generalizes. If I have 3 distinct
+%      values, then I'm asking how many ways can $m_1 + m_2 + m_3 = 5$.
+%    }
+%  \vspace{1em}
+%  \begin{enumerate}[resume]
 
-    \item How many ways are there to assign multiplicities to a roll of $n$
-      dice with $k$ distinct values?
+%    \item How many ways are there to assign multiplicities to a roll of $n$
+%      dice with $k$ distinct values?
 
-      Or to rephrase that, how many solutions are there to $m_1 + m_2 \ldots
-      m_k = n$?
+%      Or to rephrase that, how many solutions are there to $m_1 + m_2 \ldots
+%      m_k = n$?
 
-  \end{enumerate}
+%  \end{enumerate}
 
-  \vspace{1em}
-  \context{Now we can put the last two parts together.}
-  \begin{enumerate}[resume]
+%  \vspace{1em}
+%  \context{Now we can put the last two parts together.}
+%  \begin{enumerate}[resume]
 
-    \item How many ways are there to roll $n$ dice with $k$ distinct values?
+%    \item How many ways are there to roll $n$ dice with $k$ distinct values?
 
-    \item Give a summation for the number of ways to roll $n$ dice where
-      order doesn't matter.
+%    \item Give a summation for the number of ways to roll $n$ dice where
+%      order doesn't matter.
 
-  \end{enumerate}
+%  \end{enumerate}
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
 
-  \context{Ok, that was \ldots something. I'm kind of concerned about that answer
-    though. What we really need is a way to check the problem. We can do that
-    by solving the problem again, but in a different way. This time we're going
-    to take our roll and sort it.
+%  \context{Ok, that was \ldots something. I'm kind of concerned about that answer
+%    though. What we really need is a way to check the problem. We can do that
+%    by solving the problem again, but in a different way. This time we're going
+%    to take our roll and sort it.
 
-    So if I roll 7 dice (4 3 4 1 6 2 2), I'll get (1 2 2 3 4 4 6) If two rolls
-    sort to the same thing, then they're the
-    same roll.
+%    So if I roll 7 dice (4 3 4 1 6 2 2), I'll get (1 2 2 3 4 4 6) If two rolls
+%    sort to the same thing, then they're the
+%    same roll.
 
-    Now that I have the numbers grouped together, this looks like a good spot
-    for stars and bars. In This case a I'll put a star every time there's a
-    number, and a bar every time a number goes up by 1. So the roll (1 2 2 3 4
-    4 6) will be (* $|$ * * $|$ * $|$ * * $|$ $|$ *). Since I didn't use the
-    number 5, I have 2 bars in a row. I'll always have $n$ stars, and 5 bars.
-  }
+%    Now that I have the numbers grouped together, this looks like a good spot
+%    for stars and bars. In This case a I'll put a star every time there's a
+%    number, and a bar every time a number goes up by 1. So the roll (1 2 2 3 4
+%    4 6) will be (* $|$ * * $|$ * $|$ * * $|$ $|$ *). Since I didn't use the
+%    number 5, I have 2 bars in a row. I'll always have $n$ stars, and 5 bars.
+%  }
 
-  \vspace{1em}
-  \begin{enumerate}[resume]
+%  \vspace{1em}
+%  \begin{enumerate}[resume]
 
-    \item use this stars and bars set up to get a new formula for the number of
-      ways to roll $n$ dice where order doesn't matter.
+%    \item use this stars and bars set up to get a new formula for the number of
+%      ways to roll $n$ dice where order doesn't matter.
 
-    \item Finally, use the recursive formula ${n \choose k} = {n-1 \choose k} +
-      {n-1 \choose k-1}$ to show that part (g) and part (h) are really the same.
+%    \item Finally, use the recursive formula ${n \choose k} = {n-1 \choose k} +
+%      {n-1 \choose k-1}$ to show that part (g) and part (h) are really the same.
 
 
-  \end{enumerate}
+%  \end{enumerate}
 
 \end{enumerate}
 
