@@ -1,0 +1,160 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Homework 7}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{CS: 250}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+\begin{enumerate}[itemsep=4em]
+
+  \item Give the \(\Theta\) for the following and justify your answer:
+    \begin{enumerate}[itemsep=4em]
+
+      \item $5x^2 + 4x + 3$
+
+      \item $2^n + n!$
+
+      \item $n^2 + 2^n$
+
+      \item $\log(n) + n$
+
+      \item $\log(n!)$
+
+    \end{enumerate}
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Give a closed form for the following, then give the $\Theta$
+     \begin{enumerate}[itemsep=4em]
+
+      \item $a_0 = 5$\\
+        $a_n = 3a_{n-1}$
+      \item $a_4 = 2$\\
+        $a_n = a_{n-1} + \log_2(n)$
+      \item $a_1 = 1$\\
+        $a_n = 2a_{n-2} + 1$
+      \item $T(1) = 1$\\
+        $T(k) = 3T(k/2) + 1$
+      \item $T(1) = 4$\\
+        $T(k) = T(k/3) + 4$
+
+    \end{enumerate}
+
+  \item (Extra Credit):
+
+  $T(0) = 1$\\
+  $T(k) = 3T(k-2) + 4(k-2) + 2$
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Prove \textbf{theorem 2:} $x^k \in \O(x^{k + c})$
+
+  \item Prove \textbf{theorem 3:} $x^k + c\cdot x^{k-r} \in \O(x^k)$
+
+  \item Prove \textbf{theorem 5:} if $f(n) \in \O(g(n))$ and $g(n) \in
+    \O(h(n))$, then $f(n) \in \O(h(n))$
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item
+
+    Give the $\Theta$ running time for the following selection sort algorithm
+    \begin{verbatim}
+    def selSort(l):
+        for i in range(len(l)):
+            min = l[i]
+            minI = i
+            for j in range(i,len(l)):
+                if l[j] < min:
+                    minI = j
+                    min = l[j]
+                #end if
+            # end for
+            (l[i], min) = (min, l[i])
+        # end for
+    \end{verbatim}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item Give the recurrence relation for badSort. Remember \texttt{l[a:b]}
+    copies the elements from \texttt{l[a]} to \texttt{l[b]}, so even though
+    it's an expression \texttt{l[a:b]} runs in $n-2$ time.
+
+    \begin{verbatim}
+    def badSort(l): n = len(l)
+
+        if n == 1:
+            return l
+
+        first = badSort(l[0:n-2])
+        middle = badSort(l[1:n-1])
+        end = badSort(l[2:n])
+
+        return [first[0]] + middle + [end[n-1]]
+    \end{verbatim}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item The following algorithm is the merge sort we way in class
+
+    \begin{multicols}{2}
+      \begin{verbatim}
+def merge(low, high):
+    i = 0
+    j = 0
+    merged = []
+    while i < len(low) and j < len(high):
+        if low[i] < high[j]:
+            merged += [low[i]]
+            i += 1
+        else:
+            merged += [high[j]]
+            j += 1
+    return merged + low[i:] + high[j:]
+      \end{verbatim}
+      \vspace{5em}
+      \begin{verbatim}
+    def mergeSort(lst):
+        n = len(lst)
+        n2 = int(n/2)
+
+        # base case:
+        if n <= 1:
+            return lst
+
+        # recursive case:
+        low = mergeSort(lst[0:n2])
+        high = mergeSort(lst[n2:n])
+        lst = merge(low,high)
+
+        return lst
+      \end{verbatim}
+    \end{multicols}
+
+  \begin{enumerate}[itemsep=4em]
+    \item Give the $\Theta$ running time for merge.\\
+      hint: what is the input size for merge?
+    \item Use (a) to give a recurrence relation for the running time of mergeSort.
+    \item Solve the recurrence to get a $\Theta$ running time for mergesort.
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
