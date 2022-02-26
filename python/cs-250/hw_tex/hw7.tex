@@ -16,43 +16,109 @@
 \begin{enumerate}[itemsep=4em]
 
   \item Give the \(\Theta\) for the following and justify your answer:
-    \begin{enumerate}[itemsep=4em]
+    \begin{enumerate}[itemsep=3em]
 
-      \item $5x^2 + 4x + 3$
+      \item $5n^2 + 4n + 3$
+
+        \vspace{1em}
+        \(f(n) \in \Theta(n^2) \), since \(n^2\) is dominant term.
 
       \item $2^n + n!$
 
+        \vspace{1em}
+        \(f(n) \in \Theta(n!) \), since \(n!\) is dominant term.
+
       \item $n^2 + 2^n$
+
+        \vspace{1em}
+        \(f(n) \in \Theta(2^n) \), since \(2^n\) is dominant term.
 
       \item $\log(n) + n$
 
+        \vspace{1em}
+        \(f(n) \in \Theta(n) \), since \(n\) is dominant term.
+
       \item $\log(n!)$
+        \begin{align*}
+          \log(n!)
+          = \log\left( \prod_{i=1}^{n} k_i \right)
+          &= \sum_{k=1}^{n} \log(k) \in \Theta(n \log n)
+        \end{align*}
 
     \end{enumerate}
+
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
 
   \item Give a closed form for the following, then give the $\Theta$
-     \begin{enumerate}[itemsep=4em]
+     \begin{enumerate}[itemsep=2em]
 
       \item $a_0 = 5$\\
         $a_n = 3a_{n-1}$
+        \begin{align*}
+          &= 5 + 3(5) + 3(3(5)5) + 3(3(3(15))) \\
+          &= \sum_{k=0}^{n} 3^k(5) = \frac{5(3^{n+1} -1) }{2} \in \Theta(3^n)
+        \end{align*}
+
       \item $a_4 = 2$\\
         $a_n = a_{n-1} + \log_2(n)$
+        \begin{align*}
+          &= 2 + \left( 2 + \log_2(5) \right) + \left( 2 + \left( 2 + \log_2(6) \right)  \right) \\
+          &= \sum_{k=5}^{n} 2+ (2 + \log_2(k)) \\
+          &= \sum_{k=5}^{n} 2 + \sum_{k=5}^{n} 2 + \log_2(k) \\
+          &= \sum_{k=5}^{n} 2 + \sum_{k=5}^{n} 2 + \sum_{k=5}^{n} \log_2(k)\\
+          &= 2\sum_{k=5}^{n} 2 + \sum_{k=5}^{n} \log_2(k)\\
+          &= 4(n-4) + \log_2\left(\prod_{i=5}^{n} k_i\right) \\
+          &= 4(n-4) + \log_2(n!) \in \Theta(n \log_2((n))\\
+        \end{align*}
+
       \item $a_1 = 1$\\
         $a_n = 2a_{n-2} + 1$
-      \item $T(1) = 1$\\
-        $T(k) = 3T(k/2) + 1$
-      \item $T(1) = 4$\\
-        $T(k) = T(k/3) + 4$
+        \begin{align*}
+          &= 1 + (2(1) + 1) + (2(3) + 1) + (2(7) + 1) \\
+          &= \sum_{k=0}^{n} 2k + 1 \given k\%2 = 1 &&\text{i.e., sum over odd indices}\\
+          &= \sum_{i=1}^{n} 1 + \sum_{i=1}^{n} 2k+1 \\
+          &= n + n(n+1) \\
+          &= 2n + n^2 \in \Theta(n^2)
+        \end{align*}
 
+      \item $T(1) = 1$\\
+        $T(n) = 3T(n/2) + 1$
+        \begin{align*}
+          a &= 3, b = 2, k = \log_2(n), f(n) = 1 \\
+          \then T(n) &= 3^k + \sum_{i=0}^{k-1} 3^i (1) \\
+               &= 3^k + \sum_{i=0}^{k-1} 3^i \\
+               &= 3^k + \frac{3^k - 1}{2} \\
+               &= 3^{\log_2(n)}  + \frac{3^{\log_2(n)} -1}{2} \in \Theta\left(n^{\log_2(n)} \right)
+        \end{align*}
+
+      \item $T(1) = 4$\\
+        $T(n) = T(n/3) + 4$
+        \begin{align*}
+           a &= 1, b = 3, k = \log_3(n), f(n) = 4 \\
+          \then T(n) &= (1)(4) + \sum_{i=0}^{k-1} (1)(4) \\
+                     &= 4 + \sum_{i=0}^{k-1} 4 \\
+                     &= 4 + 4(k-1) \\
+                     &= 4\log_3(n) \in \Theta(\log_3(n))
+        \end{align*}
     \end{enumerate}
 
-  \item (Extra Credit):
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 
-  $T(0) = 1$\\
-  $T(k) = 3T(k-2) + 4(k-2) + 2$
+  \item (Extra Credit):\\
+    $T(0) = 1$\\
+    $T(n) = 3T(n-2) + 4(n-2) + 2$
+    \begin{align*}
+      a &= 3, b = 2, k = \log_2(n), f(n) = 4(n-2) + 2 \\
+      \then T(n) &= 3^k + \sum_{i=0}^{k-1} 3^i \frac{4n}{2^i} - 6\\
+                 &= 3^k + 4n\sum_{i=0}^{k-1} \left(\frac{3}{2}\right)^i - \sum_{i=0}^{k-1} 6\\
+                 &= 3^k + \frac{4n\left(\frac{3}{2}^{k}\right) - 1}{\frac{3}{2} - 1} - 6k-6\\
+                 &= 3^{\log_2(n)} + \frac{4n\left(\frac{3}{2}^{\log_2(n)}\right) - 1}{\frac{3}{2} - 1} - 6\log_2(n)-6\\
+                 &\in \Theta\left(n^\log_2(n)\right)
+    \end{align*}
 
 %%%%%%%%%%%%%
   \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
