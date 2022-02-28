@@ -21,22 +21,26 @@
       \item $5n^2 + 4n + 3$
 
         \vspace{1em}
-        \(f(n) \in \Theta(n^2) \), since \(n^2\) is dominant term.
+        \(f(n) \in \Theta(n^2) \) by theorem 3.
 
       \item $2^n + n!$
 
         \vspace{1em}
-        \(f(n) \in \Theta(n!) \), since \(n!\) is dominant term.
+        \(f(n) \in \Theta(n!) \), since \(2^n \in \mathcal{O}({n!})\)
 
       \item $n^2 + 2^n$
 
-        \vspace{1em}
-        \(f(n) \in \Theta(2^n) \), since \(2^n\) is dominant term.
+        \begin{align*}
+          2^n + n^2 > 2^n \in \Omega(2^n) \\
+          2^n + n^2 < 2^n +2^n \in \matchcal{O}(2^n) \then f(n) \in \Theta(2^n)
+        \end{align*}
 
       \item $\log(n) + n$
 
-        \vspace{1em}
-        \(f(n) \in \Theta(n) \), since \(n\) is dominant term.
+        \begin{align*}
+          \log(n) + n > n \in \Omega(n) \\
+          \log(n) + n < n + n \in \matchcal{O}(n) \then f(n) \in \Theta(n)
+        \end{align*}
 
       \item $\log(n!)$
         \begin{align*}
@@ -126,6 +130,9 @@
 
   \item Prove \textbf{theorem 2:} $x^k \in \O(x^{k + c})$
 
+  \dt{Proof.}\\
+  Let \(n_0 = 1 \then f(n_0^{k+c} ) \leq f(n_0^{k+c} )\)
+
   \item Prove \textbf{theorem 3:} $x^k + c\cdot x^{k-r} \in \O(x^k)$
 
   \item Prove \textbf{theorem 5:} if $f(n) \in \O(g(n))$ and $g(n) \in
@@ -153,9 +160,7 @@
         # end for
     \end{verbatim}
 
-%%%%%%%%%%%%%
-  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%
+    \(\in \Theta(n^2)\), since there is a double for-loop, which dominants other factors.
 
   \item Give the recurrence relation for badSort. Remember \texttt{l[a:b]}
     copies the elements from \texttt{l[a]} to \texttt{l[b]}, so even though

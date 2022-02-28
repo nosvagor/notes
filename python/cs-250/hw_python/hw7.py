@@ -35,7 +35,6 @@ from time import time
 #  5. sort the function based on their complexity class.
 #
 
-
 #######################################
 # Helper functions (don't test these)
 #######################################
@@ -98,7 +97,9 @@ def rec(n, a, r, c):
 # Test functions
 ###################
 
+# SORTED:  f2 < f4 < f3 < f5 < f1
 
+# FACTORIAL
 def f1(n):
     l = randList(n)
     startTime = time()
@@ -109,6 +110,7 @@ def f1(n):
     print("%d seconds", endTime - startTime)
 
 
+# LOGARITHMIC
 def f2(n):
     startTime = time()
     i = 1
@@ -118,6 +120,7 @@ def f2(n):
     print("%d seconds", endTime - startTime)
 
 
+# EXPONENTIAL
 def f3(n):
     l = randList(n)
     startTime = time()
@@ -131,6 +134,7 @@ def f3(n):
     print("%d seconds", endTime - startTime)
 
 
+# LINEAR
 def f4(n):
     l = randList(n)
     startTime = time()
@@ -142,6 +146,7 @@ def f4(n):
     print("%d seconds", endTime - startTime)
 
 
+# POLYNOMIAL
 def f5(n):
     a = [0] * n
     startTime = time()
