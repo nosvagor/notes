@@ -23,27 +23,16 @@
 </p>
 
 <br>
+Note: university classes are done; all content is removed, except for the
+above notes. This repository was done as a learning exercise, before I knew
+about any git features. It was also just a means keep all my resources in one place. I'll probably be moving to new way to publicly display what I'm working on, soon&trade;.
+<br><br>
 
-<h3 align="center">❄️  Winter 2022 ❄️</h3>
-<table align="center">
-  <tr>
-    <td align="center"><strong><a href="python/mth-371/">large-scale<br>data algos</a></strong></td>
-    <td align="center"><strong><a href="python/stat-361/">statistical <br> methods</a></strong></td>
-    <td align="center"><strong><a href="python/cs-250/">discrete <br> structures</a></strong></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="python/mth-371/"><img src=".assets/images/applied.ico"></a></td>
-    <td align="center"><a href="python/stat-361/"><img src=".assets/images/stat.ico"></a></td>
-    <td align="center"><a href="python/cs-250/"><img src=".assets/images/discrete.ico"></a></td>
-  </tr>
-  <tr>
-    <td align="center"><strong><a href="python/mth-371/">MTH: 371</a></strong></td>
-    <td align="center"><strong><a href="python/stat-361/">STAT: 361</a></strong></td>
-    <td align="center"><strong><a href="python/cs-250/">CS: 250</a></strong></td>
-  </tr>
-</table>
-
-<br>
+New areas of focus:
+- typeScript / react / react native / front end stuff.
+- go / serverside / backend stuff.
+- solidity / interacting with front end & backend (web3 fullstack)
+- python / deep learning
 <br>
 
 <h1 align="center">🌐 Turing-Complete 🌐</h1>
@@ -56,19 +45,15 @@
 
 <table align="center">
   <tr>
-    <td align="center"><strong><a href="rust/">rust</a></strong></td>
     <td align="center"><strong><a href="ts/">typeScript</a></strong></td>
     <td align="center"><strong><a href="solidity/">solidity</a></strong></td>
     <td align="center"><strong><a href="go/">go</a></strong></td>
     <td align="center"><strong><a href="python/">python</a></strong></td>
-    <td align="center"><strong><a href="bash/">bash</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="rust/"><img src=".assets/images/rust.ico"></a></td>
     <td align="center"><a href="ts/"><img src=".assets/images/ts.ico"></a></td>
     <td align="center"><a href="solidity/"><img src=".assets/images/solidity.ico"></a></td>
     <td align="center"><a href="go/"><img src=".assets/images/go.ico"></a></td>
     <td align="center"><a href="python/"><img src=".assets/images/python.ico"></a></td>
-    <td align="center"><a href="bash/"><img src=".assets/images/bash.ico"></a></td>
   </tr>
 </table>
