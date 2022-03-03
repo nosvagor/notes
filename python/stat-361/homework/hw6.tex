@@ -1,0 +1,187 @@
+\documentclass[basic, header]{nosvagor-notes}
+\usepackage{nosvagor-math}
+
+\colorlet{title-color}{red}
+\newcommand{\theTitle}{%
+  \href{https://github.com/nosvagor/notes}%
+  {Homework 6}%
+}
+
+\newcommand{\userName}{Cullyn Newman}
+\newcommand{\class}{STAT: 361}
+\newcommand{\institution}{Portland State}
+
+\begin{document}
+
+\begin{enumerate}[itemsep=4em]
+
+  \item \textbf{8.4} The number of tickets issued for traffic violations by 8 state troopers
+    during the Memorial Day weekend are 5, 4, 7, 7, 6, 3, 8, and 6.
+    \begin{enumerate}
+
+      \item If these values represent the number of tickets is- sued by a
+        random sample of 8 state troopers from Montgomery County in Virginia,
+        define a suitable population.
+
+      \item  If the values represent the number of tickets issued by a random
+        sample of 8 state troopers from South Carolina, define a suitable
+        population.
+
+    \end{enumerate}
+
+  \item Let \(X_1, X_2,\ldots,X_n\) are a random sample of size \(n\). Classify
+    each of the following as a statistics or not a statistic.
+    \begin{enumerate}
+
+      \item \(\displaystyle \frac{1}{n-1} \sum_{i=1}^{n} \left( \frac{X_i - \mu }{\sigma} \right)^2 \)
+
+      \item \(\displaystyle \sum_{i=1}^{n} \left| X_i - \bar{X} \right|  \)
+
+    \end{enumerate}
+
+  \item \textbf{8.2} The lengths of time, in minutes, that 10 patients waited
+    in a doctor’s office before receiving treatment were recorded as follows:
+    5, 11, 9, 5, 10, 15, 6, 10, 5, and 10. Treating the data as a random
+    sample, find
+    \begin{enumerate}
+
+      \item the mean;
+      \item the median;
+      \item the mode.
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{8.3} The reaction times for a random sample of 9 subjects to a
+    stimulant were recorded as 2.5, 3.6, 3.1, 4.3, 2.9. 2.3, 2.6, 4.1, and 3.4
+    seconds. Calculate:
+    \begin{enumerate}
+
+      \item the mean;
+      \item the median.
+
+    \end{enumerate}
+
+  \item \textbf{8.10} For the sample of reaction times in Exercise 8.3,
+    \begin{enumerate}
+
+      \item the range;
+      \item the standard deviation.
+
+    \end{enumerate}
+
+  \item \textbf{8.11} For the data of Exercise 8.5, calculate the variance using the formula
+    \begin{enumerate}
+
+      \item using form (8.2.1),
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar{X} \right)^2
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \item using theorem 8.1,
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            S^2 = \frac{1}{n(n-1)} \left[ n \sum_{i=1}^{n} X_i^2 - \left( \sum_{i=1}^{n} X_i \right)^2  \right]
+        \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{8.23} The random variable X, representing the number of cherries in a
+    cherry puff, has the following probability distribution:
+    \begin{table}[h]
+      \centering
+      \caption{caption}
+      \begin{tabular}{c|cccc}
+        x & 4 & 5 & 6 & 7 \\
+        \midrule
+        P(X = x) & 0.2 & 0.4 & 0.3 & 0.1 \\
+      \end{tabular}
+    \end{table}
+    \begin{enumerate}
+
+      \item Find the mean \(\mu\) and the variance \(\sigma^2\) of \(X\).
+      \item Find the mean \(\mu_{\bar{X}} \) and the variance
+        \(\sigma^2_{\bar{X}} \) of the mean \(\bar{X}\) for random samples of
+        36 cherry puffs.
+      \item Find the probability that the average number of cherries in 36
+        cherry puffs will be less than 5.5.
+
+    \end{enumerate}
+
+  \item \textbf{8.25} The average life of a bread-making machine is 7 years,
+    with a standard deviation of 1 year. Assuming that the lives of these
+    machines follow approximately a normal distribution, find
+    \begin{enumerate}
+
+      \item the probability that the mean life of a random sample of 9 such
+        machines falls between 6.4 and 7.2 years;
+
+      \item the value of x to the right of which 15\% of the means computed
+        from random samples of size 9
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+    \item \textbf{8.27} In a chemical process, the amount of a certain type of
+      impurity in the output is difficult to control and is thus a random
+      variable. Speculation is that the population mean amount of the impurity
+      is 0.20 gram per gram of output. It is known that the standard deviation
+      is 0.1 gram per gram. An experiment is conducted to gain more insight
+      regarding the speculation that \(\mu = 0.2\)
+
+      The process is run on a lab scale 50 times and the sample average \(\bar{x}\)
+      turns out to be 0.23 gram per gram. Comment on the speculation that the
+      mean amount of impurity is 0.20 gram per gram. Make use of the Central
+      Limit Theorem in your work.
+
+    \item \textbf{8.33} The chemical benzene is highly toxic to humans. However, it is
+    used in the manufacture of many medicine dyes, leather, and coverings.
+    Government regulations dictate that for any production process involving
+    benzene, the water in the output of the process must not exceed 7950 parts
+    per million (ppm) of benzene. For a particular process of concern, the
+    water sample was collected by a manufacturer 25 times randomly and the
+    sample average \(\bar{x}\) was 7960 ppm. It is known from historical data that the
+    standard deviation \(\sigma\) is 100 ppm.
+    \begin{enumerate}
+
+      \item What is the probability that the sample average in this experiment
+        would exceed the government limit if the population mean is equal to
+        the limit? Use the Central Limit Theorem.
+
+      \item Is an observed \(\bar{x}\) = 7960 in this experiment firm evidence
+        that the population mean for the process exceeds the government limit?
+        Answer your question by computing
+        \[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        P(\bar{X} \geq 7960 | \mu = 7950)
+      \]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      Assume that the distribution of benzene concentration is normal.
+
+    \end{enumerate}
+
+%%%%%%%%%%%%%
+  \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+  \item \textbf{8.49} A normal population with unknown variance has a mean of
+    20. Is one likely to obtain a random sample of size 9 from this population
+    with a mean of 24 and a standard deviation of 4.1? If not, what conclusion
+    would you draw?
+
+  \item 8.50 A maker of a certain brand of low-fat cereal bars claims that the
+    average saturated fat content is 0.5 gram. In a random sample of 8 cereal
+    bars of this brand, the saturated fat content was 0.6, 0.7, 0.7, 0.3, 0.4,
+    0.5, 0.4, and 0.2. Would you agree with the claim? Assume a normal
+    distribution.
+
+\end{enumerate}
+
+\end{document}
