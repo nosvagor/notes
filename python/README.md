@@ -2,12 +2,6 @@
   <img src="../.assets/images/python.ico"/>
 </p>
 
-## University
-
-- [Large scale data algorithms (MTH: 371)](mth-371)
-- [Statistical methods (STAT: 361)](stat-361)
-- [Discrete structures (CS: 250)](cs-250)
-
 ## Signal Processing
 
 - [Signal processing](signal-processing/signal-processing)
@@ -26,5 +20,5 @@
 
 ## Exercises
 
-- [Exercism](exercises/exercism)
-- [Codewars](exercises/codewars)
+- [Exercism](../exercism/python)
+- [Codewars](../codewars/python)

@@ -45,15 +45,17 @@ New areas of focus:
 
 <table align="center">
   <tr>
-    <td align="center"><strong><a href="ts/">typeScript</a></strong></td>
+    <td align="center"><strong><a href="typeScript/">typeScript</a></strong></td>
     <td align="center"><strong><a href="solidity/">solidity</a></strong></td>
     <td align="center"><strong><a href="go/">go</a></strong></td>
     <td align="center"><strong><a href="python/">python</a></strong></td>
+    <td align="center"><strong><a href="bash/">bash</a></strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="ts/"><img src=".assets/images/ts.ico"></a></td>
+    <td align="center"><a href="typeScript/"><img src=".assets/images/ts.ico"></a></td>
     <td align="center"><a href="solidity/"><img src=".assets/images/solidity.ico"></a></td>
     <td align="center"><a href="go/"><img src=".assets/images/go.ico"></a></td>
     <td align="center"><a href="python/"><img src=".assets/images/python.ico"></a></td>
+    <td align="center"><a href="bash/"><img src=".assets/images/bash.ico"></a></td>
   </tr>
 </table>
