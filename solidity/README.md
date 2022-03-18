@@ -6,6 +6,5 @@
 
 ## Exercises
 
-- [Exercism](../exercism/solidity)
 - [Codewars](../codewars/solidity)
 

@@ -6,6 +6,4 @@
 
 ## Exercises
 
-- [Exercism](../exercism/ts)
-- [Codewars](../codewars/ts)
-
+- [Codewars](../codewars/typeScript)

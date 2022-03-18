@@ -6,6 +6,5 @@
 
 ## Exercises
 
-- [Exercism](../exercism/go)
 - [Codewars](../codewars/go)
 

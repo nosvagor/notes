@@ -20,5 +20,4 @@
 
 ## Exercises
 
-- [Exercism](../exercism/python)
 - [Codewars](../codewars/python)
