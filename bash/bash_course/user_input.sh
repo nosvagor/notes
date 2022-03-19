@@ -24,7 +24,7 @@ echo "Total parameters given #: $#"
 echo "Script name: $0"
 echo " "
 
-if [[ $# -ne 3 ]]; then
+if [[ $# -ne 3]]; then
     echo "$(basename $0) requires 2 arguments"
     echo "Usage: $0 <file1> <file2> <file3>"
     exit 1
@@ -45,6 +45,13 @@ echo "All parameters $*"
 # ┬─┐┌─┐┌─┐┌┬┐
 # ├┬┘├┤ ├─┤ ││
 # ┴└─└─┘┴ ┴─┴┘
+
+# $REPLY default variable for user input
+
+read -p  "Input your first name: " name
+read -p  "Input your age: " age
+read -p  "Input your location: " town
+
 
 
 # ┌─┐┌─┐┬  ┌─┐┌─┐┌┬┐
