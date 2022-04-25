@@ -5,9 +5,9 @@ if (button) {
 }
 
 // set defaults from the right
-const add = (a: number, b: number = 1) => a + b;
+// const add = (a: number, b: number = 1) => a + b;
 
-console.log(add(6));
+// console.log(add(6));
 
 const hobbies = ['sports', 'cooking'];
 const activeHobbies = ['hiking'];
