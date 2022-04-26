@@ -135,7 +135,7 @@ const userInputElement = document.getElementById(
   'user-input'
 ) as HTMLInputElement;
 
-userInputElement.value = 'Hi there!';
+userInputElement.id = 'Hi there!';
 
 // index types
 interface ErrorContainer {

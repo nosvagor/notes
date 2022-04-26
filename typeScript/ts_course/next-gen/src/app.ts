@@ -1,8 +1,8 @@
-const button = document.querySelector('button');
+// const button = document.querySelector('button');
 
-if (button) {
-  button.addEventListener('click', (event) => console.log(event));
-}
+// if (button) {
+//   button.addEventListener('click', (event) => console.log(event));
+// }
 
 // set defaults from the right
 // const add = (a: number, b: number = 1) => a + b;

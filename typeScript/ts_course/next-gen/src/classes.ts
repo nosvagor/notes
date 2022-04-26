@@ -43,11 +43,11 @@ class ITDepartment extends Department {
     throw new Error('No report found');
   }
 
-  set mostRecentReport(value: string) {
-    if (!value) {
-      throw new Error('Plase pass in a valid value.');
+  set mostRecentReport(id: string) {
+    if (!id) {
+      throw new Error('Plase pass in a valid id.');
     }
-    this.addReport(value);
+    this.addReport(id);
   }
 
   constructor(id: number, public admins: string[], private reports: string[]) {
