@@ -1,6 +1,18 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+
+interface Draggable {
+  dragStartHandler(event: DragEvent): void;
+  dragEndHandler(event: DragEvent): void;
+}
+
+interface DragTarget {
+  dragOverHanlder(event: DragEvent): void;
+  dropHandler(event: DragEvent): void;
+  dragLeaveHandler(event: DragEvent): void;
+}
 
 enum ProjectStatus {
   Active,
@@ -51,6 +63,18 @@ class ProjectState extends State<Project> {
       ProjectStatus.Active
     );
     this.projects.push(newProject);
+    this.updateListeners();
+  }
+
+  moveProject(projectId: string, newStatus: ProjectStatus) {
+    const project = this.projects.find((prj) => prj.id === projectId);
+    if (project) {
+      project.status = newStatus;
+      this.updateListeners();
+    }
+  }
+
+  private updateListeners() {
     for (const listenerFn of this.listeners) {
       listenerFn(this.projects.slice());
     }
@@ -59,7 +83,7 @@ class ProjectState extends State<Project> {
 
 const projectState = ProjectState.getInstance();
 
-interface Validateable {
+interface Validatable {
   value: string | number;
   required?: boolean;
   minLength?: number;
@@ -68,35 +92,37 @@ interface Validateable {
   max?: number;
 }
 
-function validate(validateInput: Validateable) {
+function validate(validatableInput: Validatable) {
   let isValid = true;
-
-  if (validateInput.required) {
-    isValid = isValid && validateInput.value.toString().trim().length !== 0;
+  if (validatableInput.required) {
+    isValid = isValid && validatableInput.value.toString().trim().length !== 0;
   }
-
   if (
-    validateInput.minLength != null &&
-    typeof validateInput.value === 'string'
+    validatableInput.minLength != null &&
+    typeof validatableInput.value === 'string'
   ) {
-    isValid = isValid && validateInput.value.length > validateInput.minLength;
+    isValid =
+      isValid && validatableInput.value.length >= validatableInput.minLength;
   }
-
   if (
-    validateInput.maxLength != null &&
-    typeof validateInput.value === 'string'
+    validatableInput.maxLength != null &&
+    typeof validatableInput.value === 'string'
   ) {
-    isValid = isValid && validateInput.value.length < validateInput.maxLength;
+    isValid =
+      isValid && validatableInput.value.length <= validatableInput.maxLength;
   }
-
-  if (validateInput.min != null && typeof validateInput.value === 'number') {
-    isValid = isValid && validateInput.value > validateInput.min;
+  if (
+    validatableInput.min != null &&
+    typeof validatableInput.value === 'number'
+  ) {
+    isValid = isValid && validatableInput.value >= validatableInput.min;
   }
-
-  if (validateInput.max != null && typeof validateInput.value === 'number') {
-    isValid = isValid && validateInput.value < validateInput.max;
+  if (
+    validatableInput.max != null &&
+    typeof validatableInput.value === 'number'
+  ) {
+    isValid = isValid && validatableInput.value <= validatableInput.max;
   }
-
   return isValid;
 }
 
@@ -118,22 +144,21 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   element: U;
 
   constructor(
-    templateID: string,
+    templateId: string,
     hostElementId: string,
     insertAtStart: boolean,
     newElementId?: string
   ) {
-    this.templateElement = <HTMLTemplateElement>(
-      document.getElementById(templateID)!
-    );
-    this.hostElement = <T>document.getElementById(hostElementId)!;
+    this.templateElement = document.getElementById(
+      templateId
+    )! as HTMLTemplateElement;
+    this.hostElement = document.getElementById(hostElementId)! as T;
 
     const importedNode = document.importNode(
       this.templateElement.content,
       true
     );
-
-    this.element = <U>importedNode.firstElementChild;
+    this.element = importedNode.firstElementChild as U;
     if (newElementId) {
       this.element.id = newElementId;
     }
@@ -141,9 +166,9 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     this.attach(insertAtStart);
   }
 
-  private attach(insertAtStart: boolean) {
+  private attach(insertAtBeginning: boolean) {
     this.hostElement.insertAdjacentElement(
-      insertAtStart ? 'afterbegin' : 'afterend',
+      insertAtBeginning ? 'afterbegin' : 'beforeend',
       this.element
     );
   }
@@ -152,7 +177,54 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   abstract renderContent(): void;
 }
 
-class ProjectList extends Component<HTMLElement, HTMLDivElement> {
+class ProjectItem
+  extends Component<HTMLUListElement, HTMLLIElement>
+  implements Draggable
+{
+  private project: Project;
+
+  get persons() {
+    if (this.project.people === 1) {
+      return '1 person';
+    } else {
+      return `${this.project.people} persons`;
+    }
+  }
+
+  constructor(hostId: string, project: Project) {
+    super('single-project', hostId, false, project.id);
+    this.project = project;
+
+    this.configure();
+    this.renderContent();
+  }
+
+  @Autobind
+  dragStartHandler(event: DragEvent): void {
+    event.dataTransfer!.setData('text/plain', this.project.id);
+    event.dataTransfer!.effectAllowed = 'move';
+  }
+
+  dragEndHandler(_: DragEvent): void {
+    console.log('DragEnd');
+  }
+
+  configure(): void {
+    this.element.addEventListener('dragstart', this.dragStartHandler);
+    this.element.addEventListener('dragend', this.dragEndHandler);
+  }
+
+  renderContent(): void {
+    this.element.querySelector('h2')!.textContent = this.project.title;
+    this.element.querySelector('h3')!.textContent = this.persons + ' assigned';
+    this.element.querySelector('p')!.textContent = this.project.description;
+  }
+}
+
+class ProjectList
+  extends Component<HTMLElement, HTMLDivElement>
+  implements DragTarget
+{
   assignedProjects: Project[];
 
   constructor(private type: 'active' | 'finished') {
@@ -163,7 +235,35 @@ class ProjectList extends Component<HTMLElement, HTMLDivElement> {
     this.renderContent();
   }
 
+  @Autobind
+  dragOverHanlder(event: DragEvent): void {
+    if (event.dataTransfer && event.dataTransfer.types[0] === 'text/plain') {
+      event.preventDefault();
+      const listEl = this.element.querySelector('ul')!;
+      listEl.classList.add('droppable');
+    }
+  }
+
+  @Autobind
+  dropHandler(event: DragEvent): void {
+    const proId = event.dataTransfer!.getData('text/plain');
+    projectState.moveProject(
+      proId,
+      this.type == 'active' ? ProjectStatus.Active : ProjectStatus.Finished
+    );
+  }
+
+  @Autobind
+  dragLeaveHandler(_: DragEvent): void {
+    const listEl = this.element.querySelector('ul')!;
+    listEl.classList.remove('droppable');
+  }
+
   configure() {
+    this.element.addEventListener('dragover', this.dragOverHanlder);
+    this.element.addEventListener('dragleave', this.dragLeaveHandler);
+    this.element.addEventListener('drop', this.dropHandler);
+
     projectState.addListener((projects: Project[]) => {
       const relevantProjects = projects.filter((prj) => {
         if (this.type === 'active') {
@@ -178,21 +278,19 @@ class ProjectList extends Component<HTMLElement, HTMLDivElement> {
   }
 
   renderContent() {
-    const listId = `${this.type}-project-list`;
+    const listId = `${this.type}-projects-list`;
     this.element.querySelector('ul')!.id = listId;
     this.element.querySelector('h2')!.textContent =
       this.type.toUpperCase() + ' PROJECTS';
   }
 
   private renderProjects() {
-    const listEl = <HTMLUListElement>(
-      document.getElementById(`${this.type}-project-list`)
-    );
+    const listEl = document.getElementById(
+      `${this.type}-projects-list`
+    )! as HTMLUListElement;
     listEl.innerHTML = '';
     for (const prjItem of this.assignedProjects) {
-      const listItem = document.createElement('li');
-      listItem.textContent = prjItem.title;
-      listEl.appendChild(listItem);
+      new ProjectItem(this.element.querySelector('ul')!.id, prjItem);
     }
   }
 }
@@ -237,18 +335,17 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     const enteredDesc = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
-    const titleValidateable: Validateable = {
+    const titleValidatable: Validatable = {
       value: enteredTitle,
       required: true,
     };
 
-    const descValidateable: Validateable = {
+    const descValidatable: Validatable = {
       value: enteredDesc,
       required: true,
-      minLength: 5,
     };
 
-    const peopleValidateable: Validateable = {
+    const peopleValidatable: Validatable = {
       value: +enteredPeople,
       required: true,
       min: 1,
@@ -256,9 +353,9 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     };
 
     if (
-      !validate(titleValidateable) ||
-      !validate(descValidateable) ||
-      !validate(peopleValidateable)
+      !validate(titleValidatable) ||
+      !validate(descValidatable) ||
+      !validate(peopleValidatable)
     ) {
       alert('Invalid input');
       return;
@@ -280,5 +377,5 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
 }
 
 const prjInput = new ProjectInput();
-const finishedPrjList = new ProjectList('finished');
 const activePrjList = new ProjectList('active');
+const finishedPrjList = new ProjectList('finished');
