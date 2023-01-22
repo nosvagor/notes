@@ -23,6 +23,8 @@
 </p>
 
 
-> **Note**: university classes are done; all content is removed, except for the some high-quality notes. This repository was done as a learning exercise, before I knew about any git features. It was also just a means keep all my resources in one place. I'll probably be moving to new way to publicly display what I'm working on, soon&trade;
+> **Note**: university classes are done; all content is removed, except for the some high-quality notes. This repository was done as a learning exercise, before I knew about any git features. It was also just a means keep all my resources in one place. 
+> 
+> I'll probably be moving to new way to publicly display what I'm working on, soon&trade;
 
 
