@@ -1,9 +1,3 @@
-<h1 align="center">🌲🏛️ Resources 🏛️🌲</h1>
-<p align="center">
-<kbd>
-  <img width="512" src=".assets/images/prior.jpg">
-</kbd>
-
 <tr>
     <td>
       <p align="center">
